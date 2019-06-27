@@ -1,0 +1,105 @@
+.sa{
+    text-align:center
+}
+
+
+body{
+	margin:0;
+	color:black;
+	background:#a19797;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+.login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:560px;
+	position:relative;
+	background:url(loginimg.jpg) no-repeat center;
+	box-shadow:0 15px 30px 0 rgba(16, 108, 131, 0.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:99%;
+	position:absolute;
+	padding:10px 1px 0px 10px;
+	background:rgba(167, 30, 30, 0.9);
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input
+{
+	width:70%;
+	color:rgb(110, 40, 40);
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:rgb(124, 25, 25);
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#d8dadd;
+}
+
+
+
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-lnk{
+	text-align:center;
+}
+
+.login-form .group .button{
+	
+	
+	color:#fff;
+	display:block;
+}
+
+.alert{
+    color: #f0e6e6;
+    background-color: #fd0c08;
+  }
+
+
+
+
+
+
+
+

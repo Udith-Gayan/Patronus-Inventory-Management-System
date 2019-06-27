@@ -1,0 +1,54 @@
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> <b>Asset pool </b></h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                 <b>Asset Id</b>
+                </th>
+                <th>
+                    <b> Asset Cateogory</b>
+                </th>
+                <th>
+                  <b> Brand Name </b>
+                </th>
+                <th>
+                  <b>Bought Company Name</b>
+                </th>
+                <th >
+                 <b> Buying Price</b>
+                </th>
+                <th>
+                 <b> warranty Status</b>
+                </th>
+               
+              </thead>
+              <tbody>
+                  <tr *ngFor="let d of data">
+                      <td>{{d.assetId}}</td>
+                      <td>{{d.assetCategory}}</td>
+                      <td>{{d.brandName}}</td>
+                      <td>{{d.boughtCompanyName}}</td>
+                      <td>{{d.buyingPrice}}</td>
+                      <td>{{d.warrantyStatus}}</td>
+                      
+                  </tr>
+          
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    

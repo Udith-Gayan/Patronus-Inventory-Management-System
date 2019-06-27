@@ -1,0 +1,110 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+ 
+    <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
+                <h5 class="title">Employee Register</h5>
+                <div [hidden]="!submitted" style="width: 300px;">
+                  <h5 class="title">Employee Register</h5>
+                </div>
+                <div class="card-body">
+                  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                      <div class="col-md-5 pr-1">
+                        <div class="form-group">
+                          <label><b>Frist Name</b></label>
+                          <input type="text" class="form-control"  placeholder="Joseph" required [(ngModel)]="employee.firstname" #fname="ngModel" [ngClass]="{'is-invalid': userForm.submited && fname.invalid }" name="username"  >
+                          <div [hidden]="fname.valid || fname.pristine"
+                              class="alert alert-danger">
+                                 Fristname is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-5 pr-1">
+                        <div class="form-group">
+                          <label><b>Last Name</b></label>
+                          <input type="text" class="form-control" placeholder="Mark" [(ngModel)]="employee.lastname" name="lastname"
+                            #lastname="ngModel" (change)="logchange(lastname)"  required >
+                            <div [hidden]="lastname.valid || lastname.pristine"
+                              class="alert alert-danger">
+                                 Lastname is required
+                          </div>
+                        </div>
+                       
+                      </div>
+                      <div class="col-md-5 pr-1">
+                          <div class="form-group">
+                            <label><b>Gender</b></label>
+                            <input type="text" class="form-control"  placeholder="Male/Femal" required  [(ngModel)]="employee.gender" name="id" required #gender="ngModel">
+                            <div [hidden]="gender.valid || gender.pristine"
+                              class="alert alert-danger">
+                                 Gender is required
+                          </div>
+                          </div>
+                      </div>
+                      
+                    </div>
+                    <div class="col-md-6 pl-1">
+                        <div class="form-group">
+                          <label for="email"><b>Email</b></label>
+                          <input name="email" id="email" type="email" class="form-control" placeholder="xxxxxxx@gmail.com"  [(ngModel)]="employee.email" name="email"  required #email="ngModel">
+                          <div [hidden]="email.valid || email.pristine"
+                          class="alert alert-danger">
+                             Email is required
+                      </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-4 pl-1">
+                        <div class="form-group">
+                          <label ><b>Contact Number</b></label>
+                          <input name="CNo" id="email" type="text" class="form-control" placeholder="+94xxxxxxx"   [(ngModel)]="employee.contactNo" name="cno" required #cno="ngModel">
+                          <div [hidden]="cno.valid || cno.pristine"
+                          class="alert alert-danger">
+                             Contact number is required
+                      </div>
+                        </div>
+                    </div>
+                  
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="form-group">
+                          <label><b>Address</b></label>
+                          <input type="text" class="form-control" placeholder="No:257/4,katubadda,moratuwa"   [(ngModel)]="employee.address" name="Address" required #addres="ngModel">
+                          <div [hidden]="addres.valid || addres.pristine"
+                              class="alert alert-danger">
+                                 Address is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                      
+                      <div class="col-md-4 px-1">
+                        <div class="form-group">
+                          <label><b>Password</b></label>
+                          <input type="password" class="form-control" placeholder="**********"   [(ngModel)]="employee.password" name="password" required #password="ngModel">
+                          <div [hidden]="password.valid || password.pristine"
+                          class="alert alert-danger">
+                             Password is required
+                      </div>
+                        </div>
+                      </div>
+                      
+                 
+                  <div class="group">
+                         <button type="submit" class="button" (click)="submitted=true" [disabled]="!userForm.form.valid"><b>Register>></b></button>
+                     
+                  </div>
+        
+                  </form>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+</div>

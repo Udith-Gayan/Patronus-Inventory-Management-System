@@ -1,0 +1,119 @@
+.sa{
+	text-align:center;
+	color: rgb(151, 152, 158);
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+body{
+	margin:0;
+	color:black;
+	background:#f2f3f5;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+.login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:600px;
+	position:relative;
+	background:url(loginimg.jpg) no-repeat center;
+	box-shadow:0 15px 30px 0 rgba(20, 19, 20, 0.24),0 17px 50px 0 rgba(209, 183, 183, 0.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:10px 1px 10px 15px;
+	background:rgba(22, 20, 31, 0.9);
+}
+.login-html .tab,
+.login-form .group .label
+{
+	text-transform:uppercase;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form .group{
+	margin-bottom:25px;
+}
+.login-form .group .label,
+.login-form .group .input
+{
+	width:70%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:20px 25px;
+	border-radius:35px;
+	background:rgba(251, 249, 252, 0.1);
+}.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:rgb(230, 220, 220);
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#5b5e5f;
+}
+
+
+
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-lnk{
+	text-align:center;
+	color: #f2f3f5;
+}
+
+.login-form .group .button{
+	
+	
+	color:rgb(235, 228, 228);
+	display:block;
+}
+
+.login-form .group .button{
+	text-align: center;
+}
+
+
+.re{
+	color: #f2f3f5;
+	font-size:14px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.login-form .group .button{
+	
+
+
+}
+
+
+.alert{
+    color: #f0e6e6;
+    background-color: #fd0c08;
+  }
