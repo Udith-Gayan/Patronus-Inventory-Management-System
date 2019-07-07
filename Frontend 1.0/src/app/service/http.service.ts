@@ -16,7 +16,7 @@ export class HttpService {
   addEmployee(employee : Employee){
     return this.http.post(Constants.EMPLOYEE_API+'/add',employee,Constants.HTTP_OPTIONS);
   }
-  
+
 
   getAllEmployees(){
     return this.http.get(Constants.EMPLOYEE_API+'/all',Constants.HTTP_OPTIONS);
