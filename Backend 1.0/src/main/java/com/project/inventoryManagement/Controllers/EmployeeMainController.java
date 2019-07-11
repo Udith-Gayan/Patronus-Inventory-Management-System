@@ -67,7 +67,7 @@ public class EmployeeMainController {
     }
 
 
-    // Register a new employee
+    // Register a new employee & update an employee
     @PostMapping(path="/add") // Map ONLY POST Requests
     public EmployeeMainModel addNewEmployee(@RequestBody EmployeeMainModel m1) {
         // @ResponseBody means the returned String is the response, not a view name

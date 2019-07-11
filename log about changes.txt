@@ -1,0 +1,19 @@
+/******Employee registration****/
+url:POst: http://localhost:8080/employees/add
+structure:
+ {
+	"employeeId": 45,         // not necessary
+	"firstname": "ffed",
+	"lastname": "l2ited",
+	"nic": "11245v",        // unique
+	"gender":"male",
+	"email": "22t2.com",   //unique
+	"password": "1223",
+	"contactNo":"1rr222",     //unique
+	"address":"Kegalle"
+	
+ }
+
+****Updating an emmpoyee is also do e through the same link above while id, nic, email are constant.
+
+/***********************************************************************/
