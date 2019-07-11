@@ -10,4 +10,8 @@ public interface EmployeeMainRepository extends CrudRepository<EmployeeMainModel
     EmployeeMainModel findByEmailAndPassword(String email,String password);
 
     EmployeeMainModel findFirstByEmailAndPassword(String email,String password);
+
+    EmployeeMainModel findByEmail(String email);
+
+    EmployeeMainModel findByNic(String nic);
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface
-AssetRepository extends CrudRepository<AssetModel, String> {
+AssetRepository extends CrudRepository<AssetModel, Long> {
 
 
 }

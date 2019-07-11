@@ -2,11 +2,18 @@ package com.project.inventoryManagement.Models;
 
 
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "employeeMain")
+@Table(name = "employee_main")
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class EmployeeMainModel implements Serializable {
 
 
@@ -20,21 +27,29 @@ public class EmployeeMainModel implements Serializable {
     @Column(name = "lastName")
     private String lastname;
 
+    @Column(name = "nic",unique = true,nullable = false,length = 15)
+    private String nic;
+
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true,length = 50)
     private String email;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "contactNo")
+    @Column(name = "contactNo", unique = true,length = 10)
     private String contactNo;
 
     @Column(name = "address")
     private String address;
 
+
+    /*************************************************************************/
+    //constructors
+
+    //Getters and setters
     public long getEmployeeId() {
         return employeeId;
     }
@@ -58,6 +73,10 @@ public class EmployeeMainModel implements Serializable {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    public String getNic() { return nic; }
+
+    public void setNic(String nic) { this.nic = nic; }
 
     public String getGender() {
         return gender;

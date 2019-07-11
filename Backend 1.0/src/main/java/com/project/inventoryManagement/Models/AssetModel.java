@@ -1,16 +1,17 @@
 package com.project.inventoryManagement.Models;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "asset")
 public class AssetModel  {
 
     @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name = "assetId", unique = true,length = 20)
     private String assetId;
 
     @Column(name = "assetCategory")
