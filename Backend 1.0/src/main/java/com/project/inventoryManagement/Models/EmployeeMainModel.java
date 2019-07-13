@@ -42,6 +42,9 @@ public class EmployeeMainModel implements Serializable {
     @Column(name = "contactNo", unique = true,length = 10)
     private String contactNo;
 
+    @Column(name = "status")
+    private String status;
+
     @Column(name = "address")
     private String address;
 
@@ -116,5 +119,13 @@ public class EmployeeMainModel implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
