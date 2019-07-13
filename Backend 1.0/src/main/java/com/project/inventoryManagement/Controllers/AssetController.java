@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/assets")
+@RequestMapping(value = "/asset")
 @CrossOrigin(origins = "*",allowedHeaders = "*")
 public class AssetController {
 
@@ -22,18 +22,18 @@ public class AssetController {
         return "HIIIIIIIIIIIII";
     }
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Get all assets
     @GetMapping(path="/all")
     public @ResponseBody
     Iterable<AssetModel> getAllAssets() {
         // This returns a JSON or XML with the users
         return assetRepo.findAll();
     }
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
+   // Register a new asset
     @PostMapping(path="/add") // Map ONLY POST Requests
     public AssetModel addNewAsset(@RequestBody AssetModel aa1) {
         // @ResponseBody means the returned String is the response, not a view name
@@ -41,7 +41,6 @@ public class AssetController {
         assetRepo.save(aa1);
         return aa1;
     }
-
-
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
