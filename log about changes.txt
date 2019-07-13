@@ -47,3 +47,10 @@ return an object in the above format.
 
 ****************To get all the assets
 url: [GET]http://localhost:8080/asset/all
+
+
+
+
+
+/************************************
+udith did a change here
