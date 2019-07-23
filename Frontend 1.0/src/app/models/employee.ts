@@ -6,6 +6,5 @@ export class Employee{
     password : string;
     contactNo : string;
     address : string;
-    username : string;
-    gend : string;
+    nic : string;
 }

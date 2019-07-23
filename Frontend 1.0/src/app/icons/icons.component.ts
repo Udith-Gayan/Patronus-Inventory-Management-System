@@ -12,7 +12,8 @@ import { HttpService } from '../service/http.service';
 export class IconsComponent implements OnInit {
   employee : Employee;
   imgUrl:String="/assets/img/1.jpeg";
-  constructor(private userService : HttpService) { 
+  
+  constructor(private userService : HttpService) {
     this.employee = new Employee();
   }
 
@@ -30,7 +31,7 @@ export class IconsComponent implements OnInit {
       alert('Registor Successfully');
     });
     // this.userService.addEmployee(this.employee);
-    
+
   }
   logchange(data){
     console.log(data);
