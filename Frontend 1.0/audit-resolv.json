@@ -1,0 +1,5 @@
+{
+  "786|@angular/compiler-cli>chokidar>anymatch>micromatch>braces": {
+    "fix": 1
+  }
+}
