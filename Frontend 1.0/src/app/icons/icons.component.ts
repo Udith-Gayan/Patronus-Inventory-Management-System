@@ -11,6 +11,7 @@ import { HttpService } from '../service/http.service';
 })
 export class IconsComponent implements OnInit {
   employee : Employee;
+  imgUrl:String="/assets/img/1.jpeg";
   constructor(private userService : HttpService) { 
     this.employee = new Employee();
   }

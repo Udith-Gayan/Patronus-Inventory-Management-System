@@ -7,4 +7,5 @@ export class Employee{
     contactNo : string;
     address : string;
     username : string;
+    gend : string;
 }

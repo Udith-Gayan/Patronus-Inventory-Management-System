@@ -14,6 +14,7 @@
         <div class="card-body">
           <div class="chart-area">
             <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
+            <h6>Madhusanka</h6>
             
           </div>
         </div>
@@ -30,7 +31,24 @@
         <div class="card-body">
           <div class="chart-area">
             <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
-            
+            <input type="text" placeholder="serch Brand Name" [(ngModel)]="Bname" (input)="search()">
+            <table class="table">
+                <tr>
+                  <th>ID</th>
+                  <th>Brand Name</th>
+                  <th>Price</th>
+              
+              </tr>
+              <tr *ngFor='let a of Ass'>
+                <div class="img"><td> <img [src]="a.assetimage" alt="aaaaaaa"> </td></div>
+                  
+                  
+                  <td>{{a.brandName}} </td>
+                  <td>{{a.buyingPrice}} </td>
+              
+              </tr>
+              
+              </table>
           </div>
         </div>
         

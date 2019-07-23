@@ -1,110 +1,199 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="panel-header panel-header-sm">
 </div>
 <div class="main-content">
  
     <div class="row">
-        <div class="col-md-8">
-          <div class="card">
-            <div class="card-header">
-                <h5 class="title">Employee Register</h5>
-                <div [hidden]="!submitted" style="width: 300px;">
-                  <h5 class="title">Employee Register</h5>
-                </div>
-                <div class="card-body">
-                  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
-                    <div class="row">
-                      <div class="col-md-5 pr-1">
-                        <div class="form-group">
-                          <label><b>Frist Name</b></label>
-                          <input type="text" class="form-control"  placeholder="Joseph" required [(ngModel)]="employee.firstname" #fname="ngModel" [ngClass]="{'is-invalid': userForm.submited && fname.invalid }" name="username"  >
-                          <div [hidden]="fname.valid || fname.pristine"
-                              class="alert alert-danger">
-                                 Fristname is required
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-5 pr-1">
-                        <div class="form-group">
-                          <label><b>Last Name</b></label>
-                          <input type="text" class="form-control" placeholder="Mark" [(ngModel)]="employee.lastname" name="lastname"
-                            #lastname="ngModel" (change)="logchange(lastname)"  required >
-                            <div [hidden]="lastname.valid || lastname.pristine"
-                              class="alert alert-danger">
-                                 Lastname is required
-                          </div>
-                        </div>
-                       
-                      </div>
-                      <div class="col-md-5 pr-1">
-                          <div class="form-group">
-                            <label><b>Gender</b></label>
-                            <input type="text" class="form-control"  placeholder="Male/Femal" required  [(ngModel)]="employee.gender" name="id" required #gender="ngModel">
-                            <div [hidden]="gender.valid || gender.pristine"
-                              class="alert alert-danger">
-                                 Gender is required
-                          </div>
-                          </div>
-                      </div>
+        <div class="col-md-9">
+             <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+                        
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link">Register </a>
+                              
+                            </li>
+                           
+                          </ul>
+                        
                       
-                    </div>
-                    <div class="col-md-6 pl-1">
-                        <div class="form-group">
-                          <label for="email"><b>Email</b></label>
-                          <input name="email" id="email" type="email" class="form-control" placeholder="xxxxxxx@gmail.com"  [(ngModel)]="employee.email" name="email"  required #email="ngModel">
-                          <div [hidden]="email.valid || email.pristine"
-                          class="alert alert-danger">
-                             Email is required
-                      </div>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                          <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link" routerLink="/employee/maps">view <span class="sr-only">(current)</span></a>
+                            </li>
+                           
+                            <router-outlet></router-outlet>
+
+                            
+                            
+                          </ul>
+                          <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                          </form>
                         </div>
                         
-                    </div>
-                    <div class="col-md-4 pl-1">
-                        <div class="form-group">
-                          <label ><b>Contact Number</b></label>
-                          <input name="CNo" id="email" type="text" class="form-control" placeholder="+94xxxxxxx"   [(ngModel)]="employee.contactNo" name="cno" required #cno="ngModel">
-                          <div [hidden]="cno.valid || cno.pristine"
-                          class="alert alert-danger">
-                             Contact number is required
-                      </div>
-                        </div>
-                    </div>
-                  
-                    <div class="row">
-                      <div class="col-md-10">
-                        <div class="form-group">
-                          <label><b>Address</b></label>
-                          <input type="text" class="form-control" placeholder="No:257/4,katubadda,moratuwa"   [(ngModel)]="employee.address" name="Address" required #addres="ngModel">
-                          <div [hidden]="addres.valid || addres.pristine"
-                              class="alert alert-danger">
-                                 Address is required
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      </nav>
+       <div class="card">
+    <div class="card-header">
+  <div class="container">
+<div class="row justify-content-center">
                    
+                   
+                        
                       
-                      <div class="col-md-4 px-1">
-                        <div class="form-group">
-                          <label><b>Password</b></label>
-                          <input type="password" class="form-control" placeholder="**********"   [(ngModel)]="employee.password" name="password" required #password="ngModel">
-                          <div [hidden]="password.valid || password.pristine"
-                          class="alert alert-danger">
-                             Password is required
+                           
+ <div class="col-md-10">
+
+  
+<router-outlet></router-outlet>
+
+  <div class="card">
+          <header class="card-header">                   
+            <h4 class="card-title mt-2">Employee Registation</h4>
+          </header>
+              
+              <div class="card-body">
+              
+                 <form class="form-horizontal"  (ngSubmit)=" onSubmit() ">
+              
+                      <div class="form-group">
+                          <label for="username" class="cols-sm-2 control-label">Frist Name</label>
+                          <div class="cols-sm-10">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                  <input type="text" class="form-control" name="Fname" id="Fname" [(ngModel)]="employee.firstname" placeholder="Enter your First Name" />
+                              </div>
+                          </div>
                       </div>
+                      <div class="form-group">
+                          <label for="username" class="cols-sm-2 control-label">Last Name</label>
+                          <div class="cols-sm-10">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                  <input type="text" class="form-control" name="Lname" id="Lname"  [(ngModel)]="employee.lastname" placeholder="Enter your Last Name" />
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="email" class="cols-sm-2 control-label">Email</label>
+                          <div class="cols-sm-10">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                  <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" placeholder="Enter your Email" />
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Address</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="address" id="address" [(ngModel)]="employee.address" placeholder="Enter your Address" />
+                            </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="username" class="cols-sm-2 control-label">Contact Number</label>
+                      <div class="cols-sm-10">
+                          <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="Cno" id="Cno"  [(ngModel)]="employee.contactNo" placeholder="Enter your Contact Number" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      
+                      <label for="username" class="cols-sm-2 control-label">Gender</label>
+                  <div class="cols-sm-10"> 
+                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                  <div class="custom-control custom-radio custom-control-inline">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"  [(ngModel)]="employee.gend"value="option1"  >
+                                        <label class="cols-sm-2 control-label" for="exampleRadios1"  style="margin:5px">
+                                          Male
+                                        </label>
+          
+                                   
+                                   <div class="custom-control custom-radio custom-control-inline">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"  [(ngModel)]="employee.gend"value="option1" checked>
+                                         <label class="form-check-label" for="exampleRadios1"  style="margin:5px">
+                                              Female
+                                        </label>
+                                    
+                                  </div>
+                            </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="username" class="cols-sm-2 control-label">UserName</label>
+                      <div class="cols-sm-10">
+                          <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control" name="Uname" id="Uname"  [(ngModel)]="employee.username" placeholder="Enter your Username" />
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Profile image</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                           </div>
+                        </div>
+                    </div>
+                      <div>
+                        <img [src]="imgUrl" style="width: 250px;height:200px">
+                        <input type="file" name="" id="" #Image accept="image/*">
+                       
+                      </div>
+              
+                      <div class="form-group">
+                          <label for="password" class="cols-sm-2 control-label">Password</label>
+                          <div class="cols-sm-10">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                  <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="employee.password" placeholder="Enter your Password" [(ngModel)]="employee.password" />
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                          <div class="cols-sm-10">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                  <input type="password" class="form-control" name="confirm" id="confirm"  [(ngModel)]="employee.password" placeholder="Confirm your Password" [(ngModel)]="employee.confirm"/>
+                              </div>
+                          </div>
+                          
+                      </div>
+                      <div class="form-group ">
+                          <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
                       </div>
                       
-                 
-                  <div class="group">
-                         <button type="submit" class="button" (click)="submitted=true" [disabled]="!userForm.form.valid"><b>Register>></b></button>
-                     
-                  </div>
-        
                   </form>
+                     </div>
+                                      
+                    </div>
+                    </div>
+                  </div>
                 </div>
             </div>
           </div>
         </div>
     </div>
-    
 </div>
+
+
+
+
+ 
+      
+      
+
+            
