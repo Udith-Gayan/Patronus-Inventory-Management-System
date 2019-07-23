@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { Asset } from '../asset/asset';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,58 +9,78 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  public lineBigDashboardChartType;
-  public gradientStroke;
-  public chartColor;
-  public canvas : any;
-  public ctx;
-  public gradientFill;
-  public lineBigDashboardChartData:Array<any>;
-  public lineBigDashboardChartOptions:any;
-  public lineBigDashboardChartLabels:Array<any>;
-  public lineBigDashboardChartColors:Array<any>
-
-  public gradientChartOptionsConfiguration: any;
-  public gradientChartOptionsConfigurationWithNumbersAndGrid: any;
-
-  public lineChartType;
-  public lineChartData:Array<any>;
-  public lineChartOptions:any;
-  public lineChartLabels:Array<any>;
-  public lineChartColors:Array<any>
-
-  public lineChartWithNumbersAndGridType;
-  public lineChartWithNumbersAndGridData:Array<any>;
-  public lineChartWithNumbersAndGridOptions:any;
-  public lineChartWithNumbersAndGridLabels:Array<any>;
-  public lineChartWithNumbersAndGridColors:Array<any>
-
-  public lineChartGradientsNumbersType;
-  public lineChartGradientsNumbersData:Array<any>;
-  public lineChartGradientsNumbersOptions:any;
-  public lineChartGradientsNumbersLabels:Array<any>;
-  public lineChartGradientsNumbersColors:Array<any>
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
-  public hexToRGB(hex, alpha) {
-    var r = parseInt(hex.slice(1, 3), 16),
-      g = parseInt(hex.slice(3, 5), 16),
-      b = parseInt(hex.slice(5, 7), 16);
-
-    if (alpha) {
-      return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
-    } else {
-      return "rgb(" + r + ", " + g + ", " + b + ")";
-    }
-  }
+  Ass:Asset[]=[];
+  Bname:String;
+  
   constructor() { }
 
   ngOnInit() {
+    this.Ass=[
+      {
+        assetCategory:"computer",
+        brandName : "Hp",
+        assetId : "AA103",
+        boughtCompanyName : "Jhon keels",
+        buyingPrice : 55,
+        boughtDate : "2017-02-05",
+        warrantyStatus : "dddd",
+        assetimage : "assets/img/a.jpg"
+      },
+      {
+      assetCategory:"printer",
+      brandName : "Asser",
+      assetId : "AA102",
+      boughtCompanyName : "Jhon keels",
+      buyingPrice : 55,
+      boughtDate : "2017-02-05",
+      warrantyStatus : "dddd",
+      assetimage : "assets/img/mike.jpg"
+    },
+    { assetCategory:"Mic",
+    brandName : "Hp",
+    assetId : "AA101",
+    boughtCompanyName : "Jhon keels",
+    buyingPrice : 55,
+    boughtDate : "2017-02-05",
+    warrantyStatus : "dddd",
+    assetimage : "assets/img/a.jpg"
+  },
+  {
+    assetCategory:"printer",
+    brandName : "Dell",
+    assetId : "AA102",
+    boughtCompanyName : "Jhon keels",
+    buyingPrice : 55,
+    boughtDate : "2017-02-05",
+    warrantyStatus : "dddd",
+    assetimage : "assets/img/a.jpg"
+  },
+  {
+    assetCategory:"printer",
+    brandName : "Asser",
+    assetId : "AA102",
+    boughtCompanyName : "Jhon keels",
+    buyingPrice : 55,
+    boughtDate : "2017-02-05",
+    warrantyStatus : "dddd",
+    assetimage : "assets/img/a.jpg"
+  },
+
+    ];
+  }
+  search(){
+
+    if(this.Bname !=""){
+      this.Ass=this.Ass.filter(res=>{
+        return res.brandName.toLocaleLowerCase().match( this.Bname.toLocaleLowerCase());
+      });
+    }
+    else if(this.Bname ==""){
+      this.ngOnInit();
+
+    }
+
+    
+
   }
 }

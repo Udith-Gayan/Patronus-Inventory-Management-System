@@ -13,6 +13,16 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
+import { NoteComponent } from './note/note.component';
+
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ProjecterComponent } from './AssetCatagary/projecter/projecter/projecter.component';
+import { OtherComponent } from './AssetCatagary/other/other.component';
+import { FurnitureComponent } from './AssetCatagary/furniture/furniture.component';
+import { ViewEmpComponent } from './icons/view-emp/view-emp.component';
+import { HomeComponent } from './home/home.component';
+import { IconsComponent } from './icons/icons.component';
+
 
 @NgModule({
   imports: [
@@ -24,12 +34,21 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    BsDatepickerModule.forRoot()
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    NoteComponent,
+  
+    ProjecterComponent,
+    OtherComponent,
+    FurnitureComponent,
+    ViewEmpComponent,
+    HomeComponent
 
   ],
   providers: [],

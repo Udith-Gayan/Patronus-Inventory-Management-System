@@ -3,8 +3,9 @@ export class Asset{
     brandName : string;
     assetId : string;
     boughtCompanyName : string;
-    buyingPrice : DoubleRange;
+    buyingPrice : number;
     boughtDate : string;
     warrantyStatus : string;
+    assetimage :String;
     
 }

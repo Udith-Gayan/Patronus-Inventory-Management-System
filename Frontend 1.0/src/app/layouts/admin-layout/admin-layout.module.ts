@@ -33,7 +33,9 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+  
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule {
+}

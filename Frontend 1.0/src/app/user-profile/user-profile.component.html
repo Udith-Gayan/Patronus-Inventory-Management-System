@@ -1,109 +1,179 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="panel-header panel-header-sm">
 </div>
 <div class="main-content">
  
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
+             <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+                        
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link" routerLink="/note">Register Asset </a>
+                              
+                            </li>
+                           
+                          </ul>
+                        
+                      
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                          <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link" routerLink="/note">view Aseet<span class="sr-only">(current)</span></a>
+                            </li>
+
+                          </ul>
+                          <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                          </form>
+                        </div>
+                        
+                      </nav>
           <div class="card">
             <div class="card-header">
-              <h5 class="title"><b>Register Assets</b></h5>
-            </div>
-            <div class="card-body">
-              <form #userForm="ngForm" (ngSubmit)="onSubmit()">
-                 
-                <div class="row">
-                  <div class="col-md-5 pr-1">
-                    <div class="form-group">
-                      <label><b>Asset Category</b></label>
-                      <input type="text" class="form-control"  placeholder="computer" required [(ngModel)]="asset.assetCategory" name="category" #ac="ngModel">
-                      <div [hidden]="ac.valid || ac.pristine"
-                            class="alert alert-danger">
-                            Asset Category is required
-                        </div>
-                    </div>
-                  
-                  </div>
-                  <div class="col-md-3 px-1">
-                    <div class="form-group">
-                      <label><b>Brand Name</b></label>
-                      <input type="text" class="form-control" placeholder="hp" required [(ngModel)]="asset.brandName" name="Bname" #Bname="ngModel" >
-                      <div [hidden]="Bname.valid || Bname.pristine"
-                            class="alert alert-danger">
-                            Brand Name required
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-md-5 pr-1">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="card">            
+                   <!-- Image and text -->
+                   <nav class="navbar navbar-light" style="background-color: #3e6f92;">
+                    <h5>Asset Category</h5>
+                      <a class="navbar-brand" href="#">
+                       <img src="assets/img/laptop.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                         Computer
+                        </a>
+                        <a class="navbar-brand" href="#">
+                          <img src="assets/img/printer.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                            Projecter
+                           </a>
+                           <a class="navbar-brand" href="#">
+                            <img src="assets/img/furniture.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
+                             Furniture
+                             </a>
+                            
+                               <a class="navbar-brand" href="#">
+                                <img src="assets/img/scanner.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                                 Others
+                                 </a>
+                      </nav> 
+ <div class="col-md-10">
+  <div class="card">
+          <header class="card-header">
+                                          
+                  <h4 class="card-title mt-2">computer Register</h4>
+                </header>
+              
+              <div class="card-body">
+              
+                  <form class="form-horizontal"  (ngSubmit)=" onSubmit() ">
+              
                       <div class="form-group">
-                        <label><b>Asset Id</b></label>
-                        <input type="text" class="form-control"  placeholder="xxxx" required [(ngModel)]="asset.assetId" name="Id" #Aid="ngModel">
-                        <div [hidden]="Aid.valid || Aid.pristine"
-                            class="alert alert-danger">
-                            Asset Id is required
+                          <label for="brandname" class="cols-sm-2 control-label">Brand Name</label>
+                         
+                              
+                              <select name="brandname" id="brandname" class="form-control" [(ngModel)]="brandname" placeholder="Enter Brand Name">
+                                <option value="1" >HP</option>
+                                <option value="2" >Assus</option>
+                                <option value="3" >asser</option>
+                                <option value="3" >asser</option>
+                              </select>
+                            
+                      </div>
+                      <div class="form-group">
+                          <label for="username" class="cols-sm-2 control-label">date</label>
+                          <div class="cols-sm-10">
+                              <div class="input-group">
+                                  
+                                  <input type="date"  class="form-control" name="Date" id="Date"  [(ngModel)]="employee.lastname" BsDaterangepicker />
+                              </div>
+                          </div>
+                      </div>
+
+                      
+                      <div class="form-group">
+                          <label for="price" class="cols-sm-2 control-label">price</label>
+                          <div class="cols-sm-10">
+                              <div class="input-group">
+                                  <span class="input-group-addon"></span>
+                                  <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="employee.email" placeholder="Enter Price" />
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="Cname" class="cols-sm-2 control-label">Companya Name</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                               
+                                <input type="text" class="form-control" name="Cname" id="Cname" [(ngModel)]="employee.address" placeholder="Enter your Address" />
+                            </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="CAddress" class="cols-sm-2 control-label">Company Address</label>
+                      <div class="cols-sm-10">
+                          <div class="input-group">
+                             
+                              <input type="text" class="form-control" name="CAddress" id="CAddress"  [(ngModel)]="employee.contactNo" placeholder="Enter Company Address" />
+                          </div>
                       </div>
                   </div>
-                  
-                </div>
-                <div class="col-md-4 pl-1">
-                    <div class="form-group">
-                      <label ><b>Company Name</b></label>
-                      <input id="Cname" type="text" class="form-control" placeholder="John keels" required [(ngModel)]="asset.boughtCompanyName" name="Cname" #Cname="ngModel">
-                      <div [hidden]="Cname.valid || Cname.pristine"
-                            class="alert">
-                            Company Name is required
-                        </div>
-                    </div>
-                </div>
-                
-               
-                  <div class="row">
-                    <div class="col-md-5 pr-1">
-                      <div class="form-group">
-                        <label ><b>Buying Price</b></label>
-                        <input type="text" class="form-control" placeholder="RS:xxxx.xx" required [(ngModel)]="asset.buyingPrice" name="Bprice" #Bprice="ngModel">
-                        <div [hidden]="Bprice.valid || Bprice.pristine"
-                            class="alert alert-danger">
-                            Buying Price is required
-                        </div>
+                 
+                  <div class="form-group">
+                      <label for="CNo" class="cols-sm-2 control-label">Contact Number</label>
+                      <div class="cols-sm-10">
+                          <div class="input-group">
+                             
+                              <input type="text" class="form-control" name="CNo" id="CNo"  [(ngModel)]="employee.username" placeholder="Enter Contact Number" />
+                          </div>
                       </div>
-                    </div>
-                    <div class="col-md-5 pl-1">
-                        <div class="form-group">
-                          <label><b>Buying Date</b></label>
-                          <input id="Bdate" type="text" class="form-control" placeholder="xx-xx-xxxx" required [(ngModel)]="asset.boughtDate" name="Bdate" #Bdate="ngModel">
-                          <div [hidden]="Bdate.valid || Bdate.pristine"
-                            class="alert alert-danger">
-                            Buying Date is required
-                        </div>
-                        </div>
-                    </div>
                   </div>
-                
-                  <div class="col-md-4 pr-1">
-                    <div class="form-group">
-                      <label><b>Warranty Status</b></label>
-                      <input type="text" class="form-control" placeholder="Yes/No" required [(ngModel)]="asset.warrantyStatus" name="Wstatus" #wstatus="ngModel" >
-                      <div [hidden]="wstatus.valid || wstatus.pristine"
-                      class="alert alert-danger">
-                      Warranty Status is required
-                  </div>
+
+                  <div class="form-group">
+                        <label for="AssetImage" class="cols-sm-2 control-label">Asset image</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                               
+                                                           </div>
+                        </div>
                     </div>
-                 
-                  
-                  
+                      <div>
+                        <img [src]="imgUrl" style="width: 250px;height:200px">
+                        <input type="file" name="" id="" #Image accept="image/*">
+                       
+                      </div>
+              
+                      
+                      
+                      <div class="form-group ">
+                          <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                      </div>
+                      
+                  </form>
+              </div>
+                                      
+  </div>
+</div>
+
+                  </div>
                 </div>
-               
-                  <div class="pull-center">
-                  <button type="submit" class="text-center" [disabled]="!userForm.form.valid"><b>Register</b></button>
-                 
-                
-               </div>
-    
-              </form>
             </div>
           </div>
         </div>
-          </div>
+    </div>
+  </div>
     
 </div>
+
+
+
+
+ 
+      
+      
+
+            
