@@ -10,8 +10,10 @@ import { HttpService } from '../service/http.service';
   styleUrls: ['./icons.component.css']
 })
 export class IconsComponent implements OnInit {
+
   employee : Employee;
-  imgUrl:String="/assets/img/1.jpeg";
+  imgUrl:any="/assets/img/1.jpeg";
+  imgLoaded: any;
   
   constructor(private userService : HttpService) {
     this.employee = new Employee();
@@ -35,6 +37,15 @@ export class IconsComponent implements OnInit {
   }
   logchange(data){
     console.log(data);
+  }
+
+  onImageChanged(event) {
+   this.imgLoaded = event.target.files[0];
+  // this.employee.setImage(this.imgLoaded.toBase64;
+
+   let reader = new FileReader();
+   reader.readAsDataURL(this.imgLoaded);
+   reader.onload = (event2) => {this.imgUrl = reader.result;};
   }
 
 }

@@ -7,4 +7,10 @@ export class Employee{
     contactNo : string;
     address : string;
     nic : string;
+    image: any;
+
+public setImage(image){
+  this.image = image;
+}
+
 }
