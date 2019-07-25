@@ -19,13 +19,20 @@ imgUrl:String="/assets/img/1.jpeg";
   ngOnInit() {
   }
 
+ 
   onSubmit() {
-
-    console.log(this.employee)
+    console.log(this.employee);
+   
+    this.userservice.addEmployee(this.employee).subscribe((response)=>{
+      console.log(response);
+      alert('Registor Successfully');
+    });
+    // this.userService.addEmployee(this.employee);
+    
+  }
+  logchange(data){
+    console.log(data);
   }
 
-  onChange(event){      //not complete
-
-  }
 
 }

@@ -1,36 +1,11 @@
 
 
   <!-- Card Dark -->
-
+  <tr *ngFor="let d of data">
   <div class="card-deck">
 
     <!-- Card -->
-    <div class="card mb-4">
-
-
-    <!-- Card image -->
-    <div class="view overlay">
-      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2821%29.jpg" alt="Card image cap">
-      <a>
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
-  
-    <!-- Card content -->
-    <div class="card-body elegant-color white-text rounded-bottom">
-  
-      <!-- Social shares button -->
-      <a class="activator waves-effect mr-4"><i class="fas fa-share-alt white-text"></i></a>
-      <!-- Title -->
-      <h4 class="card-title">Card title</h4>
-      <hr class="hr-light">
-      <!-- Text -->
-      <p class="card-text white-text mb-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <!-- Link -->
-      <a href="#!" class="white-text d-flex justify-content-end"><h5>Read more <i class="fas fa-angle-double-right"></i></h5></a>
-  
-    </div>
-</div>
+ 
 
 <div class="card mb-4">
 
@@ -49,11 +24,14 @@
       <!-- Social shares button -->
       <a class="activator waves-effect mr-4"><i class="fas fa-share-alt white-text"></i></a>
       <!-- Title -->
-      <h4 class="card-title">Card title</h4>
+      <h4 class="card-title">{{d.firstname}}</h4>
+      <p>{{d.lastname}}</p><br>
+      <p>{{d.email}}</p><br>
+      <p>{{d.contactNo}}</p><br>
+      <p>{{d.nic}}</p><br>
       <hr class="hr-light">
       <!-- Text -->
-      <p class="card-text white-text mb-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <!-- Link -->
+       <!-- Link -->
       <a href="#!" class="white-text d-flex justify-content-end"><h5>Read more <i class="fas fa-angle-double-right"></i></h5></a>
   
     </div>
@@ -62,13 +40,5 @@
   
   </div>
   <!-- Card Dark -->
-
-<tr *ngFor="let d of data">
-    <td>{{d.firstname}}</td>
-    <td>{{d.lastname}}</td>
-    <td>{{d.nic}}</td>
-    <td>{{d.gender}}</td>
-    <td>{{d.email}}</td>
-    <td>{{d.contactNo}}</td>
-    
 </tr>
+
