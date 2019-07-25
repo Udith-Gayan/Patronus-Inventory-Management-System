@@ -81,11 +81,11 @@
                           </div>
                       </div>
                       <div class="form-group">
-                          <label for="username" class="cols-sm-2 control-label">UserName</label>
+                          <label for="username" class="cols-sm-2 control-label">NIC</label>
                           <div class="cols-sm-10">
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                  <input type="text" class="form-control" name="Uname" id="Uname"  [(ngModel)]="employee.username" placeholder="Enter your Username" />
+                                  <input type="text" class="form-control" name="nic" id="nic"  [(ngModel)]="employee.nic" placeholder="Enter your National ID card number" />
                               </div>
                           </div>
                       </div>
@@ -100,7 +100,9 @@
                         </div>
                           <div>
                             <img [src]="imgUrl" style="width: 250px;height:200px">
-                            <input type="file" name="" id="" #Image accept="image/*"  [(ngModel)]="employee.image" (change)="onChange($event)" >
+
+                            <input type="file" name="" id="" #Image accept="image/*"  [(ngModel)]="employee.img" (change)="onChange($event)" >
+
 
                           </div>
 
