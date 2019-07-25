@@ -26,4 +26,4 @@
 
 ### VS Code ###
 .vscode/
-.properties
+*.properties
