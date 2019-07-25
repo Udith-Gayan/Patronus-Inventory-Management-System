@@ -1,37 +1,37 @@
 <div class="col-md-10">
-   
+
             <header class="card-header">
-                                            
+
                     <h4 class="card-title mt-2">computer Register</h4>
                   </header>
-                
+
                 <div class="card-body">
-                
+
                     <form class="form-horizontal"  (ngSubmit)=" onSubmit() ">
-                
+
                         <div class="form-group">
                             <label for="brandname" class="cols-sm-2 control-label">Brand Name</label>
-                           
-                                
+
+
                                 <select name="brandname" id="brandname" class="form-control" [(ngModel)]="brandname" placeholder="Enter Brand Name">
                                   <option value="1" >HP</option>
                                   <option value="2" >Assus</option>
                                   <option value="3" >asser</option>
                                   <option value="3" >asser</option>
                                 </select>
-                              
+
                         </div>
                         <div class="form-group">
                             <label for="username" class="cols-sm-2 control-label">date</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    
+
                                     <input type="date"  class="form-control" name="Date" id="Date"  [(ngModel)]="employee.lastname" BsDaterangepicker />
                                 </div>
                             </div>
                         </div>
-  
-                        
+
+
                         <div class="form-group">
                             <label for="price" class="cols-sm-2 control-label">price</label>
                             <div class="cols-sm-10">
@@ -41,12 +41,12 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
-                          <label for="Cname" class="cols-sm-2 control-label">Companya Name</label>
+                          <label for="Cname" class="cols-sm-2 control-label">Company Name</label>
                           <div class="cols-sm-10">
                               <div class="input-group">
-                                 
+
                                   <input type="text" class="form-control" name="Cname" id="Cname" [(ngModel)]="employee.address" placeholder="Enter your Address" />
                               </div>
                           </div>
@@ -55,34 +55,34 @@
                         <label for="CAddress" class="cols-sm-2 control-label">Company Address</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                               
+
                                 <input type="text" class="form-control" name="CAddress" id="CAddress"  [(ngModel)]="employee.contactNo" placeholder="Enter Company Address" />
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="form-group">
                         <label for="CNo" class="cols-sm-2 control-label">Contact Number</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                               
+
                                 <input type="text" class="form-control" name="CNo" id="CNo"  [(ngModel)]="employee.username" placeholder="Enter Contact Number" />
                             </div>
                         </div>
                     </div>
-  
+
                     <div class="form-group">
                           <label for="AssetImage" class="cols-sm-2 control-label">Asset image</label>
                           <div class="cols-sm-10">
                               <div class="input-group">
-                                 
+
                                                              </div>
                           </div>
                       </div>
                         <div>
                           <img [src]="imgUrl" style="width: 250px;height:200px">
                           <input type="file" name="" id="" #Image accept="image/*">
-                         
+
                         </div><br>
                         <div class="form-group shadow-textarea">
                             <label for="exampleFormControlTextarea6">Discription</label>
@@ -94,7 +94,7 @@
                               <input class="quantity" min="1" max="12" name="quantity" value="1" type="number">
                               <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                             </div>
-                            
+
                             <!-- Horizontal material form -->
 <form>
     <!-- Grid row -->
@@ -108,7 +108,7 @@
       </div>
     </div>
     <!-- Grid row -->
-  
+
     <!-- Grid row -->
     <div class="form-group row">
       <!-- Material input -->
@@ -120,7 +120,7 @@
       </div>
     </div>
     <!-- Grid row -->
-  
+
     <!-- Grid row -->
     <div class="form-group row">
       <div class="col-sm-10">
@@ -130,15 +130,14 @@
     <!-- Grid row -->
   </form>
   <!-- Horizontal material form -->
-                        
-                        
+
+
                         <div class="form-group ">
                             <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
                         </div>
-                        
+
                     </form>
-              
-                                        
+
+
     </div>
   </div>
-  

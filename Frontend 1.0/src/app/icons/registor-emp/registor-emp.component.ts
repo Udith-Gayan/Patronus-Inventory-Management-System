@@ -24,4 +24,8 @@ imgUrl:String="/assets/img/1.jpeg";
     console.log(this.employee)
   }
 
+  onChange(event){      //not complete
+
+  }
+
 }

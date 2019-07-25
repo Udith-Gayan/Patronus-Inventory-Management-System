@@ -9,5 +9,5 @@ export class Employee{
     address : string;
     username : string;
     status : string;
-    img : string;
+    image : string;
 }
