@@ -6,185 +6,52 @@
 <div class="panel-header panel-header-sm">
 </div>
 <div class="main-content">
-
+ 
     <div class="row">
         <div class="col-md-9">
              <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-
+                        
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                              <a class="nav-link">Register </a>
-
+                              <a class="nav-link"  routerLink="/employee/registor">Register </a>
+                              
                             </li>
-
+                           
                           </ul>
-
-
+                        
+                      
                         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                           <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                              <a class="nav-link" routerLink="/employee/maps">view <span class="sr-only">(current)</span></a>
+                              <a class="nav-link" routerLink="/employee/view-employee">view <span class="sr-only">(current)</span></a>
                             </li>
+                           
+                           
 
-                            <router-outlet></router-outlet>
-
-
-
+                            
+                            
                           </ul>
                           <form class="form-inline my-2 my-lg-0">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                           </form>
                         </div>
-
+                        
                       </nav>
        <div class="card">
     <div class="card-header">
   <div class="container">
 <div class="row justify-content-center">
+        <div class="col-md-10">
 
-
-
-
-
- <div class="col-md-10">
-
-
-<router-outlet></router-outlet>
-
-  <div class="card">
-          <header class="card-header">
-            <h4 class="card-title mt-2">Employee Registation</h4>
-          </header>
-
-              <div class="card-body">
-
-                 <form class="form-horizontal"  (ngSubmit)=" onSubmit() ">
-
-                      <div class="form-group">
-                          <label for="username" class="cols-sm-2 control-label">Frist Name</label>
-                          <div class="cols-sm-10">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                  <input type="text" class="form-control" name="Fname" id="Fname" [(ngModel)]="employee.firstname" placeholder="Enter your First Name" />
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                          <label for="username" class="cols-sm-2 control-label">Last Name</label>
-                          <div class="cols-sm-10">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                  <input type="text" class="form-control" name="Lname" id="Lname"  [(ngModel)]="employee.lastname" placeholder="Enter your Last Name" />
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <label for="email" class="cols-sm-2 control-label">Email</label>
-                          <div class="cols-sm-10">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                  <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" placeholder="Enter your Email" />
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="username" class="cols-sm-2 control-label">Address</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="address" id="address" [(ngModel)]="employee.address" placeholder="Enter your Address" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="username" class="cols-sm-2 control-label">Contact Number</label>
-                      <div class="cols-sm-10">
-                          <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                              <input type="text" class="form-control" name="Cno" id="Cno"  [(ngModel)]="employee.contactNo" placeholder="Enter your Contact Number" />
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="form-group">
-                      <label for="username" class="cols-sm-2 control-label">Gender</label>
-                  <div class="cols-sm-10">
-                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                  <div class="custom-control custom-radio custom-control-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"  [(ngModel)]="employee.gender"value="Male"  >
-                                        <label class="cols-sm-2 control-label" for="exampleRadios1"  style="margin:5px">
-                                          Male
-                                        </label>
-
-
-                                   <div class="custom-control custom-radio custom-control-inline">
-                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"  [(ngModel)]="employee.gender"value="Female">
-                                         <label class="form-check-label" for="exampleRadios1"  style="margin:5px">
-                                              Female
-                                        </label>
-
-                                  </div>
-                            </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="username" class="cols-sm-2 control-label">NIC No.</label>
-                      <div class="cols-sm-10">
-                          <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                              <input type="text" class="form-control" name="Uname" id="Uname"  [(ngModel)]="employee.nic" placeholder="Enter national ID number" />
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="form-group">
-                        <label for="username" class="cols-sm-2 control-label">Profile image</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                           </div>
-                        </div>
+  
+                <router-outlet></router-outlet>
+        </div>               
+                   
                         
-                    </div>
-
-                      <div>
-                        <img [src]="imgUrl" style="width: 250px;height:200px">
-                        <input type="file" name="proImage" id="proImage"  accept="image/*" [(ngModel)]="employee.image" (change)="onImageChanged($event)">
-
-                      </div>
-
-                      <div class="form-group">
-                          <label for="password" class="cols-sm-2 control-label">Password</label>
-                          <div class="cols-sm-10">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                  <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="employee.password" placeholder="Enter your Password" [(ngModel)]="employee.password" />
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-                          <div class="cols-sm-10">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                  <input type="password" class="form-control" name="confirm" id="confirm"  [(ngModel)]="employee.password" placeholder="Confirm your Password" [(ngModel)]="employee.confirm"/>
-                              </div>
-                          </div>
-
-                      </div>
-                      <div class="form-group ">
-                          <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-                      </div>
-
-                  </form>
-                     </div>
-
-                    </div>
-                    </div>
-                  </div>
+                      
+                           
+        </div>
                 </div>
             </div>
           </div>
@@ -195,7 +62,8 @@
 
 
 
+ 
+      
+      
 
-
-
-
+            
