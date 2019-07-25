@@ -22,6 +22,11 @@ import { FurnitureComponent } from './AssetCatagary/furniture/furniture.componen
 import { ViewEmpComponent } from './icons/view-emp/view-emp.component';
 import { HomeComponent } from './home/home.component';
 import { IconsComponent } from './icons/icons.component';
+import { RegistorEmpComponent } from './icons/registor-emp/registor-emp.component';
+import { ViewAssetComponent } from './user-profile/view-asset/view-asset.component';
+import { RegistorAssetComponent } from './user-profile/registor-asset/registor-asset.component';
+import { ComputerComponent } from './AssetCatagary/computer/computer.component';
+
 
 
 @NgModule({
@@ -42,14 +47,13 @@ import { IconsComponent } from './icons/icons.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+   
+    HomeComponent,
     NoteComponent,
+   
+   
   
-    ProjecterComponent,
-    OtherComponent,
-    FurnitureComponent,
-    ViewEmpComponent,
-    HomeComponent
-
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

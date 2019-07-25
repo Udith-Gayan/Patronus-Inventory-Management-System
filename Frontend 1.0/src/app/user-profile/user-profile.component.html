@@ -13,7 +13,7 @@
                         
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                              <a class="nav-link" routerLink="/note">Register Asset </a>
+                              <a class="nav-link" routerLink="/asset/registor-asset">Register Asset </a>
                               
                             </li>
                            
@@ -23,7 +23,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                           <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                              <a class="nav-link" routerLink="/note">view Aseet<span class="sr-only">(current)</span></a>
+                              <a class="nav-link" routerLink="/asset/view-asset">view Aseet<span class="sr-only">(current)</span></a>
                             </li>
 
                           </ul>
@@ -34,141 +34,23 @@
                         </div>
                         
                       </nav>
-          <div class="card">
-            <div class="card-header">
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="card">            
-                   <!-- Image and text -->
-                   <nav class="navbar navbar-light" style="background-color: #3e6f92;">
-                    <h5>Asset Category</h5>
-                      <a class="navbar-brand" href="#">
-                       <img src="assets/img/laptop.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                         Computer
-                        </a>
-                        <a class="navbar-brand" href="#">
-                          <img src="assets/img/printer.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                            Projecter
-                           </a>
-                           <a class="navbar-brand" href="#">
-                            <img src="assets/img/furniture.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
-                             Furniture
-                             </a>
-                            
-                               <a class="navbar-brand" href="#">
-                                <img src="assets/img/scanner.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                                 Others
-                                 </a>
-                      </nav> 
- <div class="col-md-10">
-  <div class="card">
-          <header class="card-header">
-                                          
-                  <h4 class="card-title mt-2">computer Register</h4>
-                </header>
-              
-              <div class="card-body">
-              
-                  <form class="form-horizontal"  (ngSubmit)=" onSubmit() ">
-              
-                      <div class="form-group">
-                          <label for="brandname" class="cols-sm-2 control-label">Brand Name</label>
-                         
-                              
-                              <select name="brandname" id="brandname" class="form-control" [(ngModel)]="brandname" placeholder="Enter Brand Name">
-                                <option value="1" >HP</option>
-                                <option value="2" >Assus</option>
-                                <option value="3" >asser</option>
-                                <option value="3" >asser</option>
-                              </select>
-                            
-                      </div>
-                      <div class="form-group">
-                          <label for="username" class="cols-sm-2 control-label">date</label>
-                          <div class="cols-sm-10">
-                              <div class="input-group">
-                                  
-                                  <input type="date"  class="form-control" name="Date" id="Date"  [(ngModel)]="employee.lastname" BsDaterangepicker />
-                              </div>
-                          </div>
-                      </div>
-
-                      
-                      <div class="form-group">
-                          <label for="price" class="cols-sm-2 control-label">price</label>
-                          <div class="cols-sm-10">
-                              <div class="input-group">
-                                  <span class="input-group-addon"></span>
-                                  <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="employee.email" placeholder="Enter Price" />
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="Cname" class="cols-sm-2 control-label">Companya Name</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                               
-                                <input type="text" class="form-control" name="Cname" id="Cname" [(ngModel)]="employee.address" placeholder="Enter your Address" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="CAddress" class="cols-sm-2 control-label">Company Address</label>
-                      <div class="cols-sm-10">
-                          <div class="input-group">
-                             
-                              <input type="text" class="form-control" name="CAddress" id="CAddress"  [(ngModel)]="employee.contactNo" placeholder="Enter Company Address" />
-                          </div>
-                      </div>
-                  </div>
-                 
-                  <div class="form-group">
-                      <label for="CNo" class="cols-sm-2 control-label">Contact Number</label>
-                      <div class="cols-sm-10">
-                          <div class="input-group">
-                             
-                              <input type="text" class="form-control" name="CNo" id="CNo"  [(ngModel)]="employee.username" placeholder="Enter Contact Number" />
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="form-group">
-                        <label for="AssetImage" class="cols-sm-2 control-label">Asset image</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                               
-                                                           </div>
-                        </div>
-                    </div>
-                      <div>
-                        <img [src]="imgUrl" style="width: 250px;height:200px">
-                        <input type="file" name="" id="" #Image accept="image/*">
-                       
-                      </div>
-              
-                      
-                      
-                      <div class="form-group ">
-                          <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-                      </div>
-                      
-                  </form>
-              </div>
-                                      
-  </div>
+                      <div class="card">
+                        <div class="card-header">
+                      <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-md-10">
+                     
+<router-outlet></router-outlet>
 </div>
-
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
     </div>
   </div>
     
 </div>
+</div>
+</div>
+</div>
 
+</div>
 
 
 
