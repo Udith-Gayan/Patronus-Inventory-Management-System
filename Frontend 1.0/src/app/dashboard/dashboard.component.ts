@@ -15,70 +15,8 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.Ass=[
-      {
-        assetCategory:"computer",
-        brandName : "Hp",
-        assetId : "AA103",
-        boughtCompanyName : "Jhon keels",
-        buyingPrice : 55,
-        boughtDate : "2017-02-05",
-        warrantyStatus : "dddd",
-        assetimage : "assets/img/a.jpg"
-      },
-      {
-      assetCategory:"printer",
-      brandName : "Asser",
-      assetId : "AA102",
-      boughtCompanyName : "Jhon keels",
-      buyingPrice : 55,
-      boughtDate : "2017-02-05",
-      warrantyStatus : "dddd",
-      assetimage : "assets/img/mike.jpg"
-    },
-    { assetCategory:"Mic",
-    brandName : "Hp",
-    assetId : "AA101",
-    boughtCompanyName : "Jhon keels",
-    buyingPrice : 55,
-    boughtDate : "2017-02-05",
-    warrantyStatus : "dddd",
-    assetimage : "assets/img/a.jpg"
-  },
-  {
-    assetCategory:"printer",
-    brandName : "Dell",
-    assetId : "AA102",
-    boughtCompanyName : "Jhon keels",
-    buyingPrice : 55,
-    boughtDate : "2017-02-05",
-    warrantyStatus : "dddd",
-    assetimage : "assets/img/a.jpg"
-  },
-  {
-    assetCategory:"printer",
-    brandName : "Asser",
-    assetId : "AA102",
-    boughtCompanyName : "Jhon keels",
-    buyingPrice : 55,
-    boughtDate : "2017-02-05",
-    warrantyStatus : "dddd",
-    assetimage : "assets/img/a.jpg"
-  },
+   
 
-    ];
-  }
-  search(){
-
-    if(this.Bname !=""){
-      this.Ass=this.Ass.filter(res=>{
-        return res.brandName.toLocaleLowerCase().match( this.Bname.toLocaleLowerCase());
-      });
-    }
-    else if(this.Bname ==""){
-      this.ngOnInit();
-
-    }
 
     
 
