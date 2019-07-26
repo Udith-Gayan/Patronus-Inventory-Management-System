@@ -43,6 +43,7 @@ public class AssetController {
     }
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // Delete Asset by ID
     @DeleteMapping(path = "/delete")
     public boolean deleteAssetById(@RequestParam long id){
         System.out.println("delete id received: "+ id);
@@ -50,5 +51,7 @@ public class AssetController {
         System.out.println("Deleted");
         return true;
     }
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
