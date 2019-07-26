@@ -6,8 +6,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface
-AssetRepository extends CrudRepository<AssetModel, Long> {
+public interface AssetRepository extends CrudRepository<AssetModel, Long> {
 
-
+    void deleteById(long id);
 }
