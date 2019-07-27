@@ -22,6 +22,10 @@ return the object saved.
 url: http://localhost:8080/employees/all
   Return all the employees as a list[] in above format
 
+
+
+
+
 /***********************************************************************/
 
                     Asset Register
@@ -50,6 +54,10 @@ return an object in the above format.
 url: [GET]http://localhost:8080/asset/all
 
 
+
+
+
+
 ********************** To delete an asset by Id
 deleting id must be sent as a request parameter in the url
 Return true if deleted function runs well.
@@ -61,7 +69,18 @@ with id,url looks like:  http://localhost:8080/asset/delete?id=
 
 /**********************************************************
 
+/**********************************************************
 
 
-/************************************
-udith did a change here
+********************** To delete an employee by nic
+deleting nic must be sent as a request parameter in the url
+Return true if deleted function runs well.
+Parameter name should be *nic*
+
+url: [DELETE] http://localhost:8080/employees/delete
+
+with inic,url looks like:  http://localhost:8080/employees/delete?nic=
+
+/**********************************************************
+
+

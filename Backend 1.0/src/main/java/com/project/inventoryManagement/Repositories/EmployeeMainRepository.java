@@ -14,4 +14,6 @@ public interface EmployeeMainRepository extends CrudRepository<EmployeeMainModel
     EmployeeMainModel findByEmail(String email);
 
     EmployeeMainModel findByNic(String nic);
+
+    void deleteByNic(String nic);
 }

@@ -49,8 +49,8 @@ public class EmployeeMainModel implements Serializable {
     private String address;
 
     @Lob
-    @Column(name = "image")
-    private byte[] image;
+    @Column(name = "img")
+    private byte[] img;
 
     /*************************************************************************/
     //constructors
@@ -132,11 +132,11 @@ public class EmployeeMainModel implements Serializable {
         this.status = status;
     }
 
-    public byte[] getImage() {
-        return image;
+    public byte[] getImg() {
+        return img;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImg(byte[] img) {
+        this.img = img;
     }
 }
