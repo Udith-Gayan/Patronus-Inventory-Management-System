@@ -96,7 +96,7 @@ structure:
                             },
          "userAssigned":  {
                     	
-						"nic": "4v"    //Other fields are okay, but nic is Mandatory   
+				"nic": "4v"                  //Other fields are okay, but nic is Mandatory   
 
                            }
 }
