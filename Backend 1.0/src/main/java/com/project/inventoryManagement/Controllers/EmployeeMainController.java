@@ -90,7 +90,7 @@ public class  EmployeeMainController {
       else {
           empMainRepo.save(m1);
       }
-        return m1;
+        return empMainRepo.findByNic(m1.getNic());
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

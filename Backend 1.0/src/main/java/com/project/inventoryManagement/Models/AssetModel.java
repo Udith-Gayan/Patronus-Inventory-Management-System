@@ -1,19 +1,23 @@
 package com.project.inventoryManagement.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
-@ToString
+@ToString(exclude = { "assigning"}) // and this
 @Getter
 @Setter
 @Table(name = "asset")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class AssetModel  {
 
     @Id
@@ -55,6 +59,10 @@ public class AssetModel  {
 
     @Column(name = "processor")
     private String processor;        //for desktops,laptops
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "requestedAsset",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)                                          //(cascade = CascadeType.REMOVE, orphanRemoval=true) delete child entities
+    private List<AssignModel> assigning;
 
     /************empty Constructor***********/
 
