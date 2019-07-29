@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.employee).subscribe((response)=>{
       console.log(response);
       if (response['status']==='success')
-        this.router.navigateByUrl('/maps')
+        this.router.navigateByUrl('/welcome')
       else 
         alert('invalid credentials')
     });

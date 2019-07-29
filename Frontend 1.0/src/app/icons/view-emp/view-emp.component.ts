@@ -11,6 +11,7 @@ import { HttpService } from '../../service/http.service';
 })
 export class ViewEmpComponent implements OnInit {
   data: Observable<Employee[]>;
+  employees: Employee[];
   
   constructor(private emp:HttpService  ) { }
 
@@ -21,6 +22,11 @@ export class ViewEmpComponent implements OnInit {
       this.data = res
       console.log(this.data)
 
+    })
+  }
+  deleteEmployee(employee:Employee):void{
+    this.emp.deleteEmployee(employee).subscribe(d => {
+      this.employees=this.employees.filter(u => u !== employee);
     })
   }
 

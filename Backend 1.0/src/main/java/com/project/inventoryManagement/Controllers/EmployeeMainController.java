@@ -57,6 +57,7 @@ public class  EmployeeMainController {
         return "Hiiiiiiiiiiiiii";
     }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Get all the employees as an array
     @GetMapping(path="/all")
@@ -65,7 +66,7 @@ public class  EmployeeMainController {
         // This returns a JSON or XML with the users
         return empMainRepo.findAll();
     }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Register a new employee & update an employee
     @PostMapping(path="/add") // Map ONLY POST Requests
@@ -89,10 +90,10 @@ public class  EmployeeMainController {
       else {
           empMainRepo.save(m1);
       }
-        return m1;
+        return empMainRepo.findByNic(m1.getNic());
     }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     ///////////////// Don't touch my part below,//////////////////
@@ -115,5 +116,16 @@ public class  EmployeeMainController {
         }
 
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // Delete an employee by Nic
+    @DeleteMapping(path = "/delete")
+    public boolean deleteEmployeeByNic(@RequestParam String nic){
+        System.out.println("delete nic received: "+ nic);
+        empMainRepo.deleteByNic(nic);
+        System.out.println("Deleted");
+        return true;
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

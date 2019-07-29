@@ -1,0 +1,72 @@
+
+
+<form #form="ngForm" (submit)="onSubmit(form)">
+ 
+      <div class="col-md-4 mb-3">
+          
+          <input class="form-control" type="hidden" #id="ngModel" name="id" [(ngModel)]="ser.FormData.id">
+        </div>
+        <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">First name</label>
+      <input class="form-control" id="validationDefault01"name="name" placeholder="First name" [(ngModel)]="ser.FormData.name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">Address</label>
+      <input class="form-control" id="validationDefault01"name="address" placeholder="address" [(ngModel)]="ser.FormData.address">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">Last Name</label>
+      <input class="form-control" id="validationDefault01"name="LastName" placeholder="Lname" [(ngModel)]="ser.FormData.LastName">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">Discription</label>
+      <input class="form-control" id="validationDefault01"name="Discription" placeholder="Lname" [(ngModel)]="ser.FormData.Discription">
+    </div>
+    
+    
+  </div>
+  <button class="btn btn-primary btn-sm" type="submit"  >Submit form</button>
+</form>
+
+
+
+
+<!-- Default form contact -->
+<form class="text-center border border-light p-5" action="#!">
+
+  <p class="h4 mb-4">Contact us</p>
+
+  <!-- Name -->
+  <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+
+  <!-- Email -->
+  <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+  <!-- Subject -->
+  <label>Subject</label>
+  <select class="browser-default custom-select mb-4">
+      <option value="" disabled>Choose option</option>
+      <option value="1" selected>Feedback</option>
+      <option value="2">Report a bug</option>
+      <option value="3">Feature request</option>
+      <option value="4">Feature request</option>
+  </select>
+
+  <!-- Message -->
+  <div class="form-group">
+      <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+  </div>
+
+  <!-- Copy -->
+  <div class="custom-control custom-checkbox mb-4">
+      <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+      <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+  </div>
+
+  <!-- Send button -->
+  <button class="btn btn-info btn-block" type="submit">Send</button>
+
+</form>
+<!-- Default form contact -->

@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr *ngFor="let a of list">
+      <th (click)="onEdit(a)" scope="col">{{a.address}}</th>
+      <th (click)="onEdit(a)" scope="col">{{a.name}}</th>
+      <th (click)="onEdit(a)" scope="col">{{a.LastName}}</th>
+      <th (click)="onEdit(a)" scope="col">{{a.Discription}}</th>
+      <td (click)="onDelete(a.id)">delete</td>
+      
+    </tr>
+  </thead>
+  <tbody>
+   
+   
+  </tbody>
+</table>

@@ -9,6 +9,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NoteComponent } from './note/note.component';
 import { IconsComponent } from './icons/icons.component';
 import { HomeComponent } from './home/home.component';
+import { notEqual } from 'assert';
+import { TestshowComponent } from './firebase/testshow/testshow.component';
+import { TestveiwComponent } from './firebase/testveiw/testveiw.component';
 
 const routes: Routes =[
   {
@@ -47,6 +50,11 @@ const routes: Routes =[
     component:LoginComponent
     
   },
+  {
+    path:'note',
+    component:NoteComponent
+
+  },
 
   
   {
@@ -63,6 +71,7 @@ const routes: Routes =[
       path: 'note',
       component: NoteComponent,
       },
+     
  
 ];
 

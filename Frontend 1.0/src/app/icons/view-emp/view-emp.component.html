@@ -1,44 +1,50 @@
 
 
   <!-- Card Dark -->
-  <tr *ngFor="let d of data">
-  <div class="card-deck">
+  <h3>Employee Details</h3>
+ 
+  <div class="row">
 
     <!-- Card -->
- 
+    <div class="col-lg-3 col-md-14" *ngFor="let d of data">
 
-<div class="card mb-4">
 
+      <div class="card">
 
     <!-- Card image -->
-    <div class="view overlay">
-      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2821%29.jpg" alt="Card image cap">
-      <a>
+    <div class="view">
+      <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2821%29.jpg" class="card-img-top"
+        alt="photo">
+      <a href="#">
         <div class="mask rgba-white-slight"></div>
       </a>
     </div>
+    
   
     <!-- Card content -->
     <div class="card-body elegant-color white-text rounded-bottom">
   
       <!-- Social shares button -->
-      <a class="activator waves-effect mr-4"><i class="fas fa-share-alt white-text"></i></a>
+      <a class="activator waves-effect mr-4"></a>
       <!-- Title -->
-      <h4 class="card-title">{{d.firstname}}</h4>
-      <p>{{d.lastname}}</p><br>
-      <p>{{d.email}}</p><br>
-      <p>{{d.contactNo}}</p><br>
-      <p>{{d.nic}}</p><br>
+      <h4 class="card-title">{{d.lastname}}</h4>
+      <p class="card-title" > <a href="">{{d.email}}</a>  </p>
+
+      <h6 class="card-title"> {{d.contactNo}}</h6>
+     
+      
       <hr class="hr-light">
       <!-- Text -->
        <!-- Link -->
-      <a href="#!" class="white-text d-flex justify-content-end"><h5>Read more <i class="fas fa-angle-double-right"></i></h5></a>
-  
+      <a href="#!" class="white-text d-flex justify-content-end"><h5>More Detail <i class="fas fa-angle-double-right"></i></h5></a>
+      <a href="#" class="btn btn-primary"routerLink="/asset/registor-asset">Update</a>
+      <a href="#" class="btn btn-primary" (click)="deleteEmployee(d)">Delete</a>
     </div>
 </div>
 
   
   </div>
+</div>
   <!-- Card Dark -->
-</tr>
 
+  
