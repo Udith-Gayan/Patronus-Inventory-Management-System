@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/employees")
 @CrossOrigin(origins = "*",allowedHeaders = "*")
-public class EmployeeMainController {
+public class  EmployeeMainController {
 
 
     @Autowired // This means to get the bean called userRepository

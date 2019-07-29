@@ -14,6 +14,14 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { OtherComponent } from '../../AssetCatagary/other/other.component';
+import { RegistorEmpComponent } from '../../icons/registor-emp/registor-emp.component';
+import { ViewEmpComponent } from '../../icons/view-emp/view-emp.component';
+import { FurnitureComponent } from '../../AssetCatagary/furniture/furniture.component';
+import { ViewAssetComponent } from '../../user-profile/view-asset/view-asset.component';
+import { RegistorAssetComponent } from '../../user-profile/registor-asset/registor-asset.component';
+import { ProjecterComponent } from '../../AssetCatagary/projecter/projecter.component';
+import { ComputerComponent } from '../../AssetCatagary/computer/computer.component';
 
 @NgModule({
   imports: [
@@ -33,6 +41,15 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    OtherComponent,
+    RegistorEmpComponent,
+    ViewEmpComponent,
+    FurnitureComponent,
+    ViewAssetComponent,
+    RegistorAssetComponent,
+    ComputerComponent,
+    ProjecterComponent
+    
   
   ]
 })
