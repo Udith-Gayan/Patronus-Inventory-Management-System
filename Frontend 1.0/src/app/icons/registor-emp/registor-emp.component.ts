@@ -19,6 +19,13 @@ imgUrl:String="/assets/img/1.jpeg";
   ngOnInit() {
   }
 
+<<<<<<< HEAD
+  onSubmit() {
+
+    console.log(this.employee)
+  }
+
+=======
 
   onSubmit() {
     console.log(this.employee);
@@ -39,4 +46,5 @@ imgUrl:String="/assets/img/1.jpeg";
   }
 
 
+>>>>>>> 27344b3a2204c59f091486c79a3af30673e54ab5
 }
