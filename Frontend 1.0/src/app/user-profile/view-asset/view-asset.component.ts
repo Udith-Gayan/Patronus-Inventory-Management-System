@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Asset } from '../../asset/asset';
+
+import { HttpService } from '../../service2/http.service';
 
 @Component({
   selector: 'app-view-asset',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-asset.component.scss']
 })
 export class ViewAssetComponent implements OnInit {
-
-  constructor() { }
+  data: Observable<Asset[]>;
+  constructor(private asset : HttpService) { }
 
   ngOnInit() {
+    this.asset.getAllAssets().subscribe(res=>{
+
+      console.log(res);
+      this.data = res
+      console.log(this.data)
+    })
+
+   
   }
 
 }

@@ -16,6 +16,8 @@ import { ViewAssetComponent } from '../../user-profile/view-asset/view-asset.com
 import { RegistorAssetComponent } from '../../user-profile/registor-asset/registor-asset.component';
 import { ProjecterComponent } from '../../AssetCatagary/projecter/projecter.component';
 import { ComputerComponent } from '../../AssetCatagary/computer/computer.component';
+import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
+import { TestshowComponent } from '../../firebase/testshow/testshow.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown', component: DashboardComponent },
@@ -92,9 +94,25 @@ export const AdminLayoutRoutes: Routes = [
 
     },
     { path: 'welcome', component: MapsComponent },
-    { path: 'notifications', component: NotificationsComponent },
+    { 
+        path: 'notifications', 
+        component: NotificationsComponent ,
+        children:[
+            {
+                path:'view',
+                component:TestveiwComponent
+            },
+            {
+                path:'show',
+                component:TestshowComponent
+            }
+        ]
+    
+    },
     { path: 'upgrade', component: UpgradeComponent },
     {path: 'other', component: OtherComponent },
     {path: 'registor', component: RegistorEmpComponent },
+    {path:'view' ,component:TestveiwComponent},
+    {path:'show' ,component:TestshowComponent}
     
 ];
