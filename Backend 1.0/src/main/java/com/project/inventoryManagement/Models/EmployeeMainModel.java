@@ -1,19 +1,22 @@
 package com.project.inventoryManagement.Models;
 
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "employee_main")
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = { "assign"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class EmployeeMainModel implements Serializable {
 
 
@@ -49,9 +52,12 @@ public class EmployeeMainModel implements Serializable {
     private String address;
 
     @Lob
-    @Column(name = "image")
-    private byte[] image;
+    @Column(name = "img")
+    private byte[] img;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "userAssigned", cascade=CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<AssignModel> assign;
     /*************************************************************************/
     //constructors
 
@@ -132,11 +138,21 @@ public class EmployeeMainModel implements Serializable {
         this.status = status;
     }
 
-    public byte[] getImage() {
-        return image;
+    public byte[] getImg() {
+        return img;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImg(byte[] img) {
+        this.img = img;
     }
+
+    public List<AssignModel> getAssign() {
+        return assign;
+    }
+
+    public void setAssign(List<AssignModel> assign) {
+        this.assign = assign;
+    }
+
+
 }
