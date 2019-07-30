@@ -1,8 +1,9 @@
 export class Employee{
-    name:string;
-   LastName :string;
+   AssetCategory:string;
+   BrandName :string;
    id:string;
    Discription:string;
-   address:string;
+   OrderDate:string;
+   ReturnDate:string;
 
 }
