@@ -25,4 +25,8 @@ export class HttpService {
   getAllEmployeee(): Observable<any>{
     return this.http.get(Constants.EMPLOYEE_API+'/all')
   }
+
+  deleteEmployee(employee){
+    return this.http.delete(Constants.EMPLOYEE_API+'/all',Constants.HTTP_OPTIONS);
+  }
 }

@@ -1,11 +1,16 @@
 export class Asset{
+    assetId : string;
     assetCategory : string;
     brandName : string;
-    assetId : string;
     boughtCompanyName : string;
-    buyingPrice : number;
-    boughtDate : string;
+    buyingPrice : DoubleRange;
     warrantyStatus : string;
-    assetimage :String;
+    boughtDate : string;
+    displaySize :String;
+    ram:string;
+    capacity:string;
+    processor:string;
+    description:string;
+    companyAddress:string;
     
 }

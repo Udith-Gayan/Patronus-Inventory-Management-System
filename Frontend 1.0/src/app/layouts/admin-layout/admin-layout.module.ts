@@ -22,6 +22,8 @@ import { ViewAssetComponent } from '../../user-profile/view-asset/view-asset.com
 import { RegistorAssetComponent } from '../../user-profile/registor-asset/registor-asset.component';
 import { ProjecterComponent } from '../../AssetCatagary/projecter/projecter.component';
 import { ComputerComponent } from '../../AssetCatagary/computer/computer.component';
+import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
+import { TestshowComponent } from '../../firebase/testshow/testshow.component';
 
 @NgModule({
   imports: [
@@ -30,7 +32,7 @@ import { ComputerComponent } from '../../AssetCatagary/computer/computer.compone
     FormsModule,
     ChartsModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   declarations: [
     DashboardComponent,
@@ -48,7 +50,10 @@ import { ComputerComponent } from '../../AssetCatagary/computer/computer.compone
     ViewAssetComponent,
     RegistorAssetComponent,
     ComputerComponent,
-    ProjecterComponent
+    ProjecterComponent,
+    TestveiwComponent,
+    TestshowComponent,
+
     
   
   ]
