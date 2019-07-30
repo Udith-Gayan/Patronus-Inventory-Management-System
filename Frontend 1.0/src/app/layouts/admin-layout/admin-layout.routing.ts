@@ -38,7 +38,13 @@ export const AdminLayoutRoutes: Routes = [
                     {
                         path:'book',
                         component:TestshowComponent,
-                    }
+                    },
+                    {
+                        path:'more',
+                        component:TableListComponent,
+                    },
+                    
+
                 ]
 
         },
