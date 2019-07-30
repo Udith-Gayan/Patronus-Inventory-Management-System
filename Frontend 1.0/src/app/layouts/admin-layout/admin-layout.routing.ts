@@ -43,6 +43,10 @@ export const AdminLayoutRoutes: Routes = [
                         path:'more',
                         component:TableListComponent,
                     },
+                    {
+                        path:'back',
+                        component:ViewAssetComponent
+                    }
                     
 
                 ]
