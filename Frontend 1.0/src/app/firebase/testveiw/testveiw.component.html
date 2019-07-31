@@ -1,15 +1,25 @@
-<table class="table">
-  <thead>
-    <tr *ngFor="let a of list">
-      <th (click)="onEdit(a)" scope="col">{{a.address}}</th>
-      <th (click)="onEdit(a)" scope="col">{{a.name}}</th>
-      <th (click)="onEdit(a)" scope="col">{{a.LastName}}</th>
-      <th (click)="onEdit(a)" scope="col">{{a.Discription}}</th>
-      <td (click)="onDelete(a.id)">delete</td>
-      
-    </tr>
-  </thead>
+<table class="table table-condensed">
+    <thead class="black white-text">
+        <tr  class="table-primary">
+          <th class="table-active" scope="col">Asset Catagary</th>
+          <th class="table-active" scope="col">Brand name</th>
+          <th scope="col">Quntity</th>
+          <th scope="col">Order Date</th>
+          <th scope="col">Return Date</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
   <tbody>
+      <tr *ngFor="let a of list" class="table-active">
+          <td (click)="onEdit(a)" scope="col">{{a.AssetCategory}}</td>
+          <td class="table-danger" (click)="onEdit(a)" scope="col">{{a.BrandName}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.OrderDate}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.OrderDate}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.ReturnDate}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.Discription}}</td>
+          <td (click)="onDelete(a.id)" ><i class="fa fa-trash"  aria-hidden="true"></i></td>
+          
+        </tr>
    
    
   </tbody>
