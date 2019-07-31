@@ -102,3 +102,23 @@ structure:
 }
 
 This returns a full record of the inserted assigning to the frontend.
+
+/*********************** Bookingan Asset***************************************************/
+url: [POST] http://localhost:8080/assign/book/add
+structure:
+{
+	"beginDate": "2018-03-14",                           // asset needing date
+	"dueDate": "2018-06-20",                            // asset returning date
+	"requestedAsset": {
+		                
+				"assetId": "id4"              // frontend should send "assetId" (Not "id") to identify the asset
+						              // Other fields of the asset is not mandatory.But sending them here is not an error
+                            },
+         "userAssigned":  {
+                    	
+				"nic": "4v"                  //Other fields are okay, but nic is Mandatory   
+
+                           }
+}
+
+This returns a full record of the inserted assigning to the frontend.
