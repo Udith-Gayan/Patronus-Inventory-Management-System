@@ -89,7 +89,8 @@
                     <h6 class="mb-4">INVENTO is our fixed asset management website that help you to track asset's location,booking or requesting new assets and also to report any breakdowns of any asset at any time .Feel free to use this to make your daily office life easy...</h6>
                     <a class="btn btn-white" routerLink="/login">Asset Manager Login</a>
                     <a class="btn btn-outline-white">Employee Login</a>
-                    
+                    <div class="lds-ring" style="align-content: center" *ngIf=" showLoadingIndicator"><div></div><div></div><div></div><div></div></div> 
+       
 <router-outlet></router-outlet>
 
                   </div>
@@ -126,8 +127,4 @@
 
     </body>
 </html>
-<!--Main Layout-->
-<form action="">
-  <input type="text" [(ngModel)]="service.formData.name">
-  <button type="submit">submit</button>
-</form>
+

@@ -14,7 +14,7 @@
                                     <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
                            
                                 
-                                    <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="">
+                                    <select name="brandName" id="brandName" class="form-control"placeholder="">
                                     <option value="HP" >HP</option>
                                       <option value="DELL" >DELL</option>
                                       <option value="ASUUS" >ASUUS</option>
@@ -25,6 +25,15 @@
                                     </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                               
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        
+                                        <input type="hidden"  class="form-control" name="assetCategory" id="assetCategory" value="Computer"  [(ngModel)]="asset.assetCategory" />
+                                    </div>
+                                </div>
+                            </div>
                               
                        
                         <div class="form-group">
@@ -43,7 +52,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"></span>
-                                    <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="asset.buyingPrice" placeholder="Enter Price" />
+                                    <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="asset.assetId" placeholder="Enter Price" />
                                 </div>
                             </div>
                         </div>
