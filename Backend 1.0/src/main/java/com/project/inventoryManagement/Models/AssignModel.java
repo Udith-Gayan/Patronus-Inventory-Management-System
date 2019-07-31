@@ -1,10 +1,6 @@
 package com.project.inventoryManagement.Models;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.project.inventoryManagement.DTO.AssignDTO;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -58,9 +54,15 @@ public class AssignModel implements Serializable {
     @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "assigned_user_id", nullable = false, referencedColumnName = "employeeId")
     private EmployeeMainModel userAssigned;
+
+
 /////////////////////////////////////////////////////////////////////
 
 
     //Overiding Getters and setters
 
+
+    public void setRequestType(String request) {
+        this.requestType = request;
+    }
 }
