@@ -25,6 +25,7 @@ import { ComputerComponent } from '../../AssetCatagary/computer/computer.compone
 import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
 import { TestshowComponent } from '../../firebase/testshow/testshow.component';
 import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
+import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
 
 @NgModule({
   imports: [
@@ -57,6 +58,8 @@ import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
     TestveiwComponent,
     TestshowComponent,
     EmployeeFilterPipe,
+    AssetFilterPipe
+    
 
     
   
