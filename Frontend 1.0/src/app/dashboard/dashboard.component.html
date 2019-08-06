@@ -1,24 +1,64 @@
-<li class="dropdown messages-menu" (click)="setNotifiedUser()">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-      <i class="fa fa-envelope-o"></i>
-      <span class="label label-success">{{notificationCount}}</span>
-    </a>
-    <ul class="dropdown-menu">
-      <li class="header"><p> You have {{notificationCount}} messages</p></li>
-      <li>
-        <!-- inner menu: contains the actual data -->
-        <ul class="menu">
-          <li *ngFor="let notification of firebaseNotification; let in = index"><!-- start message -->
-            <a href="#">
-              <h4>
-                <small><i class="fa fa-clock-o"></i>{{timeList[in]}}</small>
-              </h4>
-              <p *ngIf="(username == notification.username)"> You have {{notification.message}}</p>
-              <p *ngIf="(username !== notification.username)">{{notification.fullname | titlecase }} has {{notification.message}}</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li [routerLink]="['/notification']" class="footer"><a href="#">See All Messages</a></li>
-    </ul>
-  </li>
+
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+                <button type="button" class="navbar-toggler" (click)="sidebarToggle()">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+            <a class="navbar-brand" href="#pablo">{{getTitle()}}</a>
+        </div>
+        <button class="navbar-toggler" type="button" (click)="collapse()"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
+          <form>
+            <div class="input-group no-border">
+              <input type="text" value="" class="form-control" placeholder="Search...">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i class="now-ui-icons ui-1_zoom-bold"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#pablo">
+                <i class="now-ui-icons media-2_sound-wave"></i>
+                <p>
+                  <span class="d-lg-none d-md-block">Stats</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item" ngbDropdown>
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+                <i class="now-ui-icons location_world"></i>
+                <p>
+                  <span class="d-lg-none d-md-block">Some Actions</span>
+                </p>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pablo">
+                <i class="now-ui-icons users_single-02"></i>
+                <p>
+                  <span class="d-lg-none d-md-block">Account</span>
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</nav>

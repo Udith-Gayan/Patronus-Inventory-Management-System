@@ -26,6 +26,9 @@ import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
 import { TestshowComponent } from '../../firebase/testshow/testshow.component';
 import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
 import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
+import { View2EmpComponent } from '../../icons/view2-emp/view2-emp.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 @NgModule({
   imports: [
@@ -34,7 +37,9 @@ import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
     FormsModule,
     ChartsModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
   
 
   ],
@@ -58,7 +63,8 @@ import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
     TestveiwComponent,
     TestshowComponent,
     EmployeeFilterPipe,
-    AssetFilterPipe
+    AssetFilterPipe,
+    View2EmpComponent
     
 
     

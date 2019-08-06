@@ -10,14 +10,14 @@
 
                   <div class="card-body">
 
-                     <form class="form-horizontal"  (ngSubmit)=" onSubmit() ">
+                     <form  class="form-horizontal"  (ngSubmit)=" onSubmit() ">
 
                           <div class="form-group">
                               <label for="username" class="cols-sm-2 control-label">Frist Name</label>
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                      <input type="text" class="form-control" name="Fname" id="Fname" [(ngModel)]="employee.firstname" placeholder="Enter your First Name" required/>
+                                      <input type="text" class="form-control" name="Fname"  id="Fname" [(ngModel)]="employee.firstname" placeholder="Enter your First Name" required/>
                                   </div>
                               </div>
                           </div>
@@ -64,7 +64,7 @@
                             <label for="status" class="cols-sm-2 control-label">Status</label>
                    
                         
-                            <select name="status" id="status" class="form-control"  placeholder="">
+                            <select name="status" id="status" class="form-control"  [(ngModel)]="employee.status" placeholder="">
                             <option value="Manager" >Manager</option>
                               <option value="Department Head" >Department Head</option>
                               <option value="Event Organixzer" >Event Organixzer</option>

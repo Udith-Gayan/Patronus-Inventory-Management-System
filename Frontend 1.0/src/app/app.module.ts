@@ -32,6 +32,8 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { NotifiService } from './firebase/notifi.service';
+import { EmpCompenentModule } from './components/Emp-components/emp-components.module';
+import {NgxPrintModule} from 'ngx-print';
 
 
 
@@ -51,6 +53,12 @@ import { NotifiService } from './firebase/notifi.service';
     BsDatepickerModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    EmpCompenentModule,
+    ReactiveFormsModule,
+    NgxPrintModule
+    
+    
+   
   
     
 
@@ -62,10 +70,13 @@ import { NotifiService } from './firebase/notifi.service';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-   
-    HomeComponent,
-    NoteComponent,
     EmpLayoutComponent,
+    HomeComponent,
+   
+   
+   
+   
+  
     
    
   

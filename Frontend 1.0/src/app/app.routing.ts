@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { notEqual } from 'assert';
 import { TestshowComponent } from './firebase/testshow/testshow.component';
 import { TestveiwComponent } from './firebase/testveiw/testveiw.component';
+import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
+
 
 const routes: Routes =[
   {
@@ -21,12 +23,26 @@ const routes: Routes =[
   }, 
   {
     path: '',
+    component:EmpLayoutComponent,
+    children:[
+      {
+        path: 'emp',
+        loadChildren:'./layouts/emp-layout/emp-layout.module#EmpLayoutModule'
+      },
+      
+    ]
+  },
+  {
+    path: '',
     component: AdminLayoutComponent,
     children: [
         {
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  }]},
+  },
+  
+]},
+
   {
     path:'login',
     component:LoginComponent
@@ -50,28 +66,12 @@ const routes: Routes =[
     component:LoginComponent
     
   },
-  {
-    path:'note',
-    component:NoteComponent
-
-  },
+ 
+ 
 
   
-  {
-    path: 'maps',
-    component: AdminLayoutComponent,
-    children:[
-      {
-        path:'note',
-        component:NoteComponent
-      }
-    ]
-    },
-    {
-      path: 'note',
-      component: NoteComponent,
-      },
-     
+ 
+    
  
 ];
 
@@ -82,6 +82,7 @@ const routes: Routes =[
     RouterModule.forRoot(routes)
   ],
   exports: [
+    RouterModule
   ],
 })
 export class AppRoutingModule { }

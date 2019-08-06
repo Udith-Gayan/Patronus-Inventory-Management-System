@@ -19,7 +19,7 @@
 <div class="row">
 
   <!-- Grid column -->
-  <div class="col-lg-4 col-md-12" *ngFor="let d of data |  employeeFilter : searchTerm">
+  <div class="col-lg-4 col-md-12" *ngFor="let d of data |  assetfilter : searchTerm">
 
     <!--Card-->
     <div class="card">
@@ -38,7 +38,7 @@
         <!--Title-->
         <tr >
         <h4 class="card-title">:{{d.brandName}}</h4>
-        <h6 class="card-title"> Brand name :{{d.brandName}}</h6>
+        <h6 class="card-title"> Brand name :{{d.ram}}</h6>
         <h6 class="card-title"> DATE:{{d.boughtDate}}</h6>
         <h6 class="card-title">Discription:{{d.boughtCompanyName}}</h6>
       
@@ -51,6 +51,7 @@
         <a href="#" class="btn btn-primary" routerLink="/asset/view-asset/book" >Book</a>
         <a href="#" class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
         <a href="#" class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
+        <a href="" routerLink="/asset/view-asset/more">more   </a>
        
       </div>
       

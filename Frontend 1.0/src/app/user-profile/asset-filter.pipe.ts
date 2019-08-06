@@ -8,12 +8,12 @@ import { Asset } from '../asset/asset';
 })
 
 export class AssetFilterPipe implements PipeTransform{
-    transform(data:Asset[],searchTerm:string):Asset[]{
+    transform(data:Asset[],searchTerm:string): Asset[]{
         if(!data || !searchTerm){
             return data ;
         }
-        return data.filter(asset=>
-            asset.boughtCompanyName.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !==-1)
+        return data.filter(d=>
+            d.ram.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
 
     }
 }
