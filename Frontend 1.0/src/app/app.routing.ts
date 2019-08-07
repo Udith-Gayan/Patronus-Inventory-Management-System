@@ -20,16 +20,16 @@ const routes: Routes =[
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  }, 
+  },
   {
     path: '',
     component:EmpLayoutComponent,
     children:[
       {
         path: 'emp',
-        loadChildren:'./layouts/emp-layout/emp-layout.module#EmpLayoutModule'
+        loadChildren:'./layouts/emp-layout/emp-layout.modul#EmpLayoutModule'
       },
-      
+
     ]
   },
   {
@@ -40,7 +40,7 @@ const routes: Routes =[
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
   },
-  
+
 ]},
 
   {
@@ -64,15 +64,15 @@ const routes: Routes =[
   {
     path:"list",
     component:LoginComponent
-    
-  },
- 
- 
 
-  
- 
-    
- 
+  },
+
+
+
+
+
+
+
 ];
 
 @NgModule({
