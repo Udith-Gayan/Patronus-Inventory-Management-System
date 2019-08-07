@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../models/employee';
 
 import { HttpService } from '../../service/http.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registor-emp',
@@ -11,12 +12,24 @@ import { HttpService } from '../../service/http.service';
 export class RegistorEmpComponent implements OnInit {
 employee:Employee;
 imgUrl:String="/assets/img/1.jpeg";
-  constructor(private userservice:HttpService) {
+  constructor(private userservice:HttpService ,private route: ActivatedRoute) {
 
     this.employee=new Employee();
    }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(param =>{
+      const empId=+param.get('id');
+      if(empId){
+        this.getEmp(empId);
+      }
+    })
+
+    
+  }
+  getEmp(id:number){
+    this.userservice.getAllEmployeee().subscribe();
+      
   }
 
 

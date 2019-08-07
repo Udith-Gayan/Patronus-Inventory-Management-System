@@ -7,7 +7,7 @@ export class Employee{
     password : string;
     contactNo : string;
     address : string;
-    
+    employeeId:string;
     status : string;
     img : string;
 }

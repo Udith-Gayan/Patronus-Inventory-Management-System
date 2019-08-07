@@ -18,6 +18,7 @@ import { ProjecterComponent } from '../../AssetCatagary/projecter/projecter.comp
 import { ComputerComponent } from '../../AssetCatagary/computer/computer.component';
 import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
 import { TestshowComponent } from '../../firebase/testshow/testshow.component';
+import { View2EmpComponent } from '../../icons/view2-emp/view2-emp.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown', component: DashboardComponent },
@@ -104,6 +105,14 @@ export const AdminLayoutRoutes: Routes = [
                 component:ViewEmpComponent
             },
             {
+                path:'more',
+                component:View2EmpComponent
+            },
+            {
+                path:'edit/:nic',
+                component:RegistorEmpComponent
+            },
+            {
                 path: '**',
                 redirectTo: 'employee'
               },
@@ -116,6 +125,12 @@ export const AdminLayoutRoutes: Routes = [
         path: 'notifications', 
         component: NotificationsComponent ,
         children:[
+            {
+                path:'',
+                redirectTo: 'view',
+                pathMatch: 'full',
+                
+            },
             {
                 path:'view',
                 component:TestveiwComponent

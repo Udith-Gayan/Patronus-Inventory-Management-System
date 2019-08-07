@@ -2,7 +2,7 @@
 
 
     <router-outlet></router-outlet>
-    <div class="col-md-10">
+
       <div class="card">
               <header class="card-header">
                 <h4 class="card-title mt-2">Employee Registation</h4>
@@ -17,7 +17,7 @@
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                      <input type="text" class="form-control" name="Fname" id="Fname" [(ngModel)]="employee.firstname" placeholder="Enter your First Name" required/>
+                                      <input type="text" class="form-control" name="Fname"  id="Fname" [(ngModel)]="employee.firstname" placeholder="Enter your First Name" required/>
                                   </div>
                               </div>
                           </div>
@@ -26,27 +26,32 @@
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                      <input type="text" class="form-control" name="Lname" id="Lname"  [(ngModel)]="employee.lastname" placeholder="Enter your Last Name" required />
+                                      <input type="text" class="form-control" name="Lname" id="Lname"  [(ngModel)]="employee.lastname" placeholder="Enter your Last Name" />
                                   </div>
                               </div>
                           </div>
                          
-                          <div class="form-group">
+                          <div class="form-group" [class.has-error]="email.invalid && email.touched">
                               <label for="email" class="cols-sm-2 control-label">Email</label>
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                      <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" placeholder="Enter your Email" required/>
+                                      <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" #email="ngModel" placeholder="Enter your Email" required email/>
+                                      <span class="help-block" *ngIf="email.errors && email.errors.required && email.touched">
+                                          email is required
+                                      </span>
+                                      <span class="help-block" *ngIf="email.errors && email.errors.email && email.touched">
+                                            email is Invalid
+                                        </span>
                                   </div>
                               </div>
                           </div>
-
                           <div class="form-group">
                             <label for="username" class="cols-sm-2 control-label">Address</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="address" id="address" [(ngModel)]="employee.address" placeholder="Enter your Address" required />
+                                    <input type="text" class="form-control" name="address" id="address" [(ngModel)]="employee.address" placeholder="Enter your Address" />
                                 </div>
                             </div>
                         </div>
@@ -55,7 +60,7 @@
                           <div class="cols-sm-10">
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                                  <input type="text" class="form-control" name="Cno" id="Cno"  [(ngModel)]="employee.contactNo" placeholder="Enter your Contact Number" required />
+                                  <input type="text" class="form-control" name="Cno" id="Cno"  [(ngModel)]="employee.contactNo" placeholder="Enter your Contact Number" />
                               </div>
                           </div>
                       </div>
@@ -64,7 +69,8 @@
                             <label for="status" class="cols-sm-2 control-label">Status</label>
                    
                         
-                            <select name="status" id="status" class="form-control"  placeholder="">
+                            <select name="status" id="status" class="form-control"  [(ngModel)]="employee.status" placeholder="">
+                                
                             <option value="Manager" >Manager</option>
                               <option value="Department Head" >Department Head</option>
                               <option value="Event Organixzer" >Event Organixzer</option>
@@ -78,7 +84,7 @@
                       <div class="cols-sm-10">
                         <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                                       <div class="custom-control custom-radio custom-control-inline">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"  [(ngModel)]="employee.gender"value="Male"  required>
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"  [(ngModel)]="employee.gender"value="Male"  >
                                             <label class="cols-sm-2 control-label" for="exampleRadios1"  style="margin:5px">
                                               Male
                                             </label>
@@ -99,7 +105,7 @@
                           <div class="cols-sm-10">
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                  <input type="text" class="form-control" name="nic" id="nic"  [(ngModel)]="employee.nic" placeholder="Enter your National ID card number" required />
+                                  <input type="text" class="form-control" name="nic" id="nic"  [(ngModel)]="employee.nic" placeholder="Enter your National ID card number" />
                               </div>
                           </div>
                       </div>
@@ -125,7 +131,7 @@
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                      <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="employee.password" placeholder="Enter your Password" required />
+                                      <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="employee.password" placeholder="Enter your Password" [(ngModel)]="employee.password" />
                                   </div>
                               </div>
                           </div>
@@ -134,10 +140,9 @@
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                      <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password" [(ngModel)]="employee.confirm" required/>
+                                      <input type="password" class="form-control" name="confirm" id="confirm"  [(ngModel)]="employee.password" placeholder="Confirm your Password" [(ngModel)]="employee.confirm"/>
                                   </div>
                               </div>
-
                           </div>
                           <div class="form-group ">
                               <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
@@ -147,7 +152,3 @@
                          </div>
 
                         </div>
-                    </div>
-
-
-                    

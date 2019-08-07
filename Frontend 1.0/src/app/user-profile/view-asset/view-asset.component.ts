@@ -11,6 +11,8 @@ import { HttpService } from '../../service2/http.service';
 })
 export class ViewAssetComponent implements OnInit {
   data: Observable<Asset[]>;
+  
+  searchTerm :string;
   constructor(private asset : HttpService) { }
 
   ngOnInit() {

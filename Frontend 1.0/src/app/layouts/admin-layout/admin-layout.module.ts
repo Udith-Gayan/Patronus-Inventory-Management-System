@@ -25,6 +25,10 @@ import { ComputerComponent } from '../../AssetCatagary/computer/computer.compone
 import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
 import { TestshowComponent } from '../../firebase/testshow/testshow.component';
 import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
+import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
+import { View2EmpComponent } from '../../icons/view2-emp/view2-emp.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 @NgModule({
   imports: [
@@ -33,7 +37,9 @@ import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
     FormsModule,
     ChartsModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
   
 
   ],
@@ -57,6 +63,9 @@ import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
     TestveiwComponent,
     TestshowComponent,
     EmployeeFilterPipe,
+    AssetFilterPipe,
+    View2EmpComponent
+    
 
     
   
