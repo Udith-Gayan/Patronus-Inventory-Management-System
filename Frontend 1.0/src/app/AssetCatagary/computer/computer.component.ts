@@ -8,6 +8,7 @@ import { HttpService } from '../../service2/http.service';
   styleUrls: ['./computer.component.scss']
 })
 export class ComputerComponent implements OnInit {
+  
 asset: Asset;
   constructor(private userService:HttpService) { 
     this.asset=new Asset();
