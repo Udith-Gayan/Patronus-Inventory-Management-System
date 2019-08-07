@@ -109,7 +109,7 @@ export const AdminLayoutRoutes: Routes = [
                 component:View2EmpComponent
             },
             {
-                path:'edit/:nic',
+                path:'edit/:id',
                 component:RegistorEmpComponent
             },
             {
