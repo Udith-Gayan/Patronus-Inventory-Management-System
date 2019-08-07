@@ -35,8 +35,8 @@ export class ViewEmpComponent implements OnInit {
     });
   }
 
-  editButtonEmployee(nic:number){
-    this._router.navigate(['/edit',nic])
+  editButtonEmployee(epmId:number){
+    this._router.navigate(['/edit', epmId]);
 
 
 
