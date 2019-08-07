@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/asset")
 @CrossOrigin(origins = "*",allowedHeaders = "*")
-public class AssetController {
+public class    AssetController {
 
 
 

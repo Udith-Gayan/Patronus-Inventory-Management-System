@@ -1,19 +1,25 @@
 
-<div >
-    <form class="form-inline my-2 my-lg-0">
-        <h3 style="margin:40px ; align-content: center">Asset Details</h3>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
-        <p style="margin:100px" ><a href="" routerLink="/asset/view-asset/more">more</a></p>
-        <p style="margin:20px" ><a href="" routerLink="/asset/view-asset">back</a></p>
-      </form>
-</div>
+
+<div class="form-row">   
+    <div class="col-6"> 
+   <h3 style="margin:50px; align-content: center">Asset Details</h3>
+    </div>
+    <div class="form-inline">
+        <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm" aria-label="Search" style="width: 8cm; margin: 1cm"/>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="" >Search</button>
+       
+      </div>
+      <p ><a href="" routerLink="/asset/view-asset/more">more   </a>
+      <a href="" routerLink="/asset/view-asset"> .... back</a></p>
+    
+    </div>
+   
 
 <router-outlet></router-outlet>
 <div class="row">
 
   <!-- Grid column -->
-  <div class="col-lg-4 col-md-12" *ngFor="let d of data">
+  <div class="col-lg-4 col-md-12" *ngFor="let d of data |  assetfilter : searchTerm">
 
     <!--Card-->
     <div class="card">
@@ -31,12 +37,12 @@
       <div class="card-body">
         <!--Title-->
         <tr >
-        <h4 class="card-title">:{{d.assetIdComputer}}</h4>
-        <h6 class="card-title"> Brand name :{{d.buyingPrice}}</h6>
+        <h4 class="card-title">:{{d.brandName}}</h4>
+        <h6 class="card-title"> Brand name :{{d.ram}}</h6>
         <h6 class="card-title"> DATE:{{d.boughtDate}}</h6>
         <h6 class="card-title">Discription:{{d.boughtCompanyName}}</h6>
       
-        {{d.description}}
+     
           
           
     
@@ -45,8 +51,10 @@
         <a href="#" class="btn btn-primary" routerLink="/asset/view-asset/book" >Book</a>
         <a href="#" class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
         <a href="#" class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
+        <a href="" routerLink="/asset/view-asset/more">more   </a>
        
       </div>
+      
 
     </div>
     <!--/.Card-->

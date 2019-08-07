@@ -4,6 +4,7 @@ import { Employee } from '../../models/employee';
 import { Observable } from 'rxjs';
 import { HttpService } from '../../service/http.service';
 import { error } from 'util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-emp',
@@ -14,7 +15,7 @@ export class ViewEmpComponent implements OnInit {
   data: Observable<Employee[]>;
   employees: Employee[];
   searchTerm :string;
-  constructor(private emp:HttpService  ) { }
+  constructor(private emp:HttpService ,private _router : Router) { }
 
   ngOnInit() {
     this.emp.getAllEmployeee()
@@ -32,6 +33,13 @@ export class ViewEmpComponent implements OnInit {
     },(error)=>{
       console.log(error);
     });
+  }
+
+  editButtonEmployee(nic:number){
+    this._router.navigate(['/edit',nic])
+
+
+
   }
 
 }
