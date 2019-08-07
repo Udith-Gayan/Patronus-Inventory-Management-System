@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../../models/employee';
 
 import { HttpService } from '../../service/http.service';
 import { ActivatedRoute } from '@angular/router';
+import { Employee } from '../../models/employee';
 
 @Component({
   selector: 'app-registor-emp',
