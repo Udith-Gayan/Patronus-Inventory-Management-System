@@ -70,6 +70,8 @@ public class    AssetController {
        int x = idNumberRepo.updateAssetId(oldId,++oldId);
         System.out.println("line333");
 
+        aa1.setBroken(false);
+
         assetRepo.save(aa1);
         System.out.println("line1444");
         return aa1;

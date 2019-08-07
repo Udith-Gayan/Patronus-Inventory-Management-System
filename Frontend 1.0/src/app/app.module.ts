@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
+
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
@@ -33,7 +34,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { NotifiService } from './firebase/notifi.service';
 import { EmpCompenentModule } from './components/Emp-components/emp-components.module';
-import {NgxPrintModule} from 'ngx-print';
+
 
 
 
@@ -54,8 +55,8 @@ import {NgxPrintModule} from 'ngx-print';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     EmpCompenentModule,
-    ReactiveFormsModule,
-    NgxPrintModule
+    ReactiveFormsModule
+
     
     
    

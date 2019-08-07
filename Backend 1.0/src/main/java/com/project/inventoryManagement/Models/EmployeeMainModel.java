@@ -58,6 +58,12 @@ public class EmployeeMainModel implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "userAssigned", cascade=CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<AssignModel> assign;
+
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "informedBy", cascade=CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<Breakdown> reportedDamages;
     /*************************************************************************/
     //constructors
 
@@ -154,5 +160,13 @@ public class EmployeeMainModel implements Serializable {
         this.assign = assign;
     }
 
+
+    public List<Breakdown> getReportedDamages() {
+        return reportedDamages;
+    }
+
+    public void setReportedDamages(List<Breakdown> reportedDamages) {
+        this.reportedDamages = reportedDamages;
+    }
 
 }
