@@ -27,12 +27,13 @@ public class AssignController {
 
     @Autowired
     EmployeeMainRepository empRepo;
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Add a new request
     @PostMapping(path = "/request/add")
-    public AssignModel addNewRequest(@RequestBody AssignModel m1){
+    public AssignModel addNewRequest(@RequestBody AssignModel m1) {
 
-        System.out.println("requestBody: "+ m1.toString());
+        System.out.println("requestBody: " + m1.toString());
 
         // Auto filling areas as this is a request
         m1.setRequestType("REQUEST");
@@ -43,16 +44,16 @@ public class AssignController {
         // Assigning created date
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
-       // dateFormat.format(date);
+        // dateFormat.format(date);
         m1.setRequestMadeDate(date);
 
-        System.out.println("After editing: "+ m1.toString());
+        System.out.println("After editing: " + m1.toString());
 
         // Assigning references
         Optional<AssetModel> assetOptional = assetRepo.findByAssetId(m1.getRequestedAsset().getAssetId());
-        if(assetOptional.isPresent()){
+        if (assetOptional.isPresent()) {
             System.out.println("Line 2");
-              m1.setRequestedAsset(assetOptional.get());
+            m1.setRequestedAsset(assetOptional.get());
             System.out.println("Line 3");
         } else {
             System.out.println("Line 4");
@@ -60,11 +61,11 @@ public class AssignController {
         }
 
         System.out.println("Line 5");
-        if(empRepo.findByNic(m1.getUserAssigned().getNic()) != null){
+        if (empRepo.findByNic(m1.getUserAssigned().getNic()) != null) {
             System.out.println("Line 6");
             System.out.println("USer Assigned is found in EmployeeModel table.");
             m1.setUserAssigned(empRepo.findByNic(m1.getUserAssigned().getNic()));
-        }else {
+        } else {
             System.out.println("USer Assigned is NOT found in EmployeeModel table.");
         }
 
@@ -77,9 +78,9 @@ public class AssignController {
 
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     @GetMapping(path = "/all")
-     public Iterable<AssignModel> getAllAssignings(){
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @GetMapping(path = "/all")
+    public Iterable<AssignModel> getAllAssignings() {
 
 //        Iterable<AssignModel> assignIterables = assignRepo.findAll();
 //        List<AssignDTO> assignDTOList = new ArrayList<>();
@@ -104,9 +105,58 @@ public class AssignController {
 //                     assignDTOList.add(d1);
 //                 });
 
-         return assignRepo.findAll();
+        return assignRepo.findAll();
     }
 
- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //Booking an asset
+    @PostMapping(path = "/book/add")
+    public void addNewBooking(@RequestBody AssignModel m1) {
+        System.out.println("requestBody: " + m1.toString());
+
+        // Auto filling areas as this is a request
+        m1.setRequestType("BOOK");
+        m1.setAssigned(true);
+        m1.setApprovedByAssetManager(true);
+        m1.setApprovedByDepartmentHead(true);
+
+//        // Assigning created date
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+//        Date date = new Date();
+//        // dateFormat.format(date);
+//        m1.setRequestMadeDate(date);
+//
+//        System.out.println("After editing: "+ m1.toString());
+//
+//       //  // Assigning references
+//        Optional<AssetModel> assetOptional = assetRepo.findByAssetId(m1.getRequestedAsset().getAssetId());
+//        if(assetOptional.isPresent()){
+//            System.out.println("Line 2");
+//            m1.setRequestedAsset(assetOptional.get());
+//            System.out.println("Line 3");
+//        } else {
+//            System.out.println("Line 4");
+//            System.out.println("Such Asset is NOT found in AssetModel table");
+//        }
+//
+//        System.out.println("Line 5");
+//        if(empRepo.findByNic(m1.getUserAssigned().getNic()) != null){
+//            System.out.println("Line 6");
+//            System.out.println("USer Assigned is found in EmployeeModel table.");
+//            m1.setUserAssigned(empRepo.findByNic(m1.getUserAssigned().getNic()));
+//        }else {
+//            System.out.println("USer Assigned is NOT found in EmployeeModel table.");
+//        }
+//
+//        System.out.println("Line 7");
+//        assignRepo.save(m1);
+//        System.out.println("Line 8");
+//        System.out.println("Assigned saved Successfully !!!");
+//
+//        return m1;
+//    }
+
+
+    }
 }

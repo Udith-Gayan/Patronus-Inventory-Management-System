@@ -24,6 +24,7 @@ import { ProjecterComponent } from '../../AssetCatagary/projecter/projecter.comp
 import { ComputerComponent } from '../../AssetCatagary/computer/computer.component';
 import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
 import { TestshowComponent } from '../../firebase/testshow/testshow.component';
+import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
 
 @NgModule({
   imports: [
@@ -32,7 +33,9 @@ import { TestshowComponent } from '../../firebase/testshow/testshow.component';
     FormsModule,
     ChartsModule,
     NgbModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
+  
+
   ],
   declarations: [
     DashboardComponent,
@@ -53,6 +56,7 @@ import { TestshowComponent } from '../../firebase/testshow/testshow.component';
     ProjecterComponent,
     TestveiwComponent,
     TestshowComponent,
+    EmployeeFilterPipe,
 
     
   

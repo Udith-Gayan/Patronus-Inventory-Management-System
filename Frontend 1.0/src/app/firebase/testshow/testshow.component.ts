@@ -20,10 +20,12 @@ export class TestshowComponent implements OnInit {
     form.resetForm();
     this.ser.FormData = {
       id : null,
-      name: '' ,
-      LastName:'',
+      AssetCategory: '' ,
+      BrandName:'',
       Discription:'',
-      address:'',
+      ReturnDate:'',
+      OrderDate:''
+
      
     }
   }

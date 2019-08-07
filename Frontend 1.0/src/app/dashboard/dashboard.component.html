@@ -1,0 +1,24 @@
+<li class="dropdown messages-menu" (click)="setNotifiedUser()">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <i class="fa fa-envelope-o"></i>
+      <span class="label label-success">{{notificationCount}}</span>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="header"><p> You have {{notificationCount}} messages</p></li>
+      <li>
+        <!-- inner menu: contains the actual data -->
+        <ul class="menu">
+          <li *ngFor="let notification of firebaseNotification; let in = index"><!-- start message -->
+            <a href="#">
+              <h4>
+                <small><i class="fa fa-clock-o"></i>{{timeList[in]}}</small>
+              </h4>
+              <p *ngIf="(username == notification.username)"> You have {{notification.message}}</p>
+              <p *ngIf="(username !== notification.username)">{{notification.fullname | titlecase }} has {{notification.message}}</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li [routerLink]="['/notification']" class="footer"><a href="#">See All Messages</a></li>
+    </ul>
+  </li>

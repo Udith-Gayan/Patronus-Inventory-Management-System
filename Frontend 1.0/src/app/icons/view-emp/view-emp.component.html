@@ -1,12 +1,27 @@
 
 
   <!-- Card Dark -->
-  <h3>Employee Details</h3>
  
+  <div class="form-row">   
+      <div class="col-6"> 
+     <h3 style="margin:50px; align-content: center">Employee Details</h3>
+      </div>
+      <div class="form-inline">
+          <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm" aria-label="Search" style="width: 8cm; margin: 1cm"/>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="" >Search</button>
+        
+        </div>
+ 
+      </div>
+      
+      
+   
   <div class="row">
+    
+
 
     <!-- Card -->
-    <div class="col-lg-3 col-md-14" *ngFor="let d of data">
+    <div class="col-lg-3 col-md-14" *ngFor="let d of data | employeeFilter : searchTerm">
 
 
       <div class="card">
@@ -27,10 +42,10 @@
       <!-- Social shares button -->
       <a class="activator waves-effect mr-4"></a>
       <!-- Title -->
-      <h4 class="card-title">{{d.lastname}}</h4>
+      <h5 class="card-title">{{d.firstname}} {{d.lastname}}</h5>
       <p class="card-title" > <a href="">{{d.email}}</a>  </p>
 
-      <h6 class="card-title"> {{d.contactNo}}</h6>
+      <h6 class="card-title"> {{d.nic}}</h6>
      
       
       <hr class="hr-light">
@@ -38,7 +53,7 @@
        <!-- Link -->
       <a href="#!" class="white-text d-flex justify-content-end"><h5>More Detail <i class="fas fa-angle-double-right"></i></h5></a>
       <a href="#" class="btn btn-primary"routerLink="/asset/registor-asset">Update</a>
-      <a href="#" class="btn btn-primary" (click)="deleteEmployee(d)">Delete</a>
+      <a  class="btn btn-primary" (click)="deleteEmployee(d)">Delete</a>
     </div>
 </div>
 
@@ -47,4 +62,3 @@
 </div>
   <!-- Card Dark -->
 
-  

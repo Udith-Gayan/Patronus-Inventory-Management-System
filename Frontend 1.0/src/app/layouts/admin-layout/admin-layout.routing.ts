@@ -34,6 +34,23 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path:'view-asset',
                 component: ViewAssetComponent,
+                children:[
+                    {
+                        path:'book',
+                        component:TestshowComponent,
+                    },
+                    {
+                        path:'more',
+                        component:TableListComponent,
+                    },
+                    {
+                        path:'back',
+                        component:ViewAssetComponent
+                    }
+                    
+
+                ]
+
         },
         {
             path:'registor-asset',
@@ -55,7 +72,8 @@ export const AdminLayoutRoutes: Routes = [
                 },
                 {
                     path:'computer',
-                    component:ComputerComponent
+                    component:ComputerComponent,
+                   
                 },
                 {
                     path:'projecter',
