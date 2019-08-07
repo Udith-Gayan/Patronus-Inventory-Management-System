@@ -31,12 +31,18 @@
                               </div>
                           </div>
                          
-                          <div class="form-group">
+                          <div class="form-group" [class.has-error]="email.invalid && email.touched">
                               <label for="email" class="cols-sm-2 control-label">Email</label>
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                      <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" placeholder="Enter your Email" required/>
+                                      <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" #email="ngModel" placeholder="Enter your Email" required email/>
+                                      <span class="help-block" *ngIf="email.errors && email.errors.required && email.touched">
+                                          email is required
+                                      </span>
+                                      <span class="help-block" *ngIf="email.errors && email.errors.email && email.touched">
+                                            email is Invalid
+                                        </span>
                                   </div>
                               </div>
                           </div>
@@ -65,6 +71,7 @@
                    
                         
                             <select name="status" id="status" class="form-control"  [(ngModel)]="employee.status" placeholder="">
+                                
                             <option value="Manager" >Manager</option>
                               <option value="Department Head" >Department Head</option>
                               <option value="Event Organixzer" >Event Organixzer</option>
