@@ -1,0 +1,64 @@
+
+
+<div class="main-content">
+  <div class="row">
+  
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> <b>More Employee </b></h4>
+          
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                  <th>
+                      <b>Employee ID</b>
+                     </th>
+                <th style=": 4cm">
+                 <b>First NAme</b>
+                </th>
+                <th>
+                    <b> Last Name</b>
+                </th>
+                <th>
+                  <b> Status </b>
+                </th>
+                <th>
+                  <b> NIC NO </b>
+                </th>
+                <th>
+                  <b>Email</b>
+                </th>
+                <th >
+                 <b> Contact No</b>
+                </th>
+                <th>
+                 <b>Address</b>
+                </th>
+               
+              </thead>
+              <tbody>
+                  <tr *ngFor="let emp of emp | employeeFilter:searchTerm">
+                      <td>{{emp.employeeId}}</td>
+                      <td>{{emp.firstname}}</td>
+                      <td>{{emp.lastname}}</td>
+                      <td>{{emp.status}}</td>
+                      <td>{{emp.nic}}</td>
+                      <td>{{emp.email}}</td>
+                      <td>{{emp.contactNo}}</td>
+                      <td>{{emp.address}}</td>
+                     
+                      
+                     
+                      
+                  </tr>
+          
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+
+
+    

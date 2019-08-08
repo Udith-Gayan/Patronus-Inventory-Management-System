@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="red">
+        <app-emp-sidebar></app-emp-sidebar>
+  
+    </div>
+    
+    <div class="main-panel">
+        <h1>sajith</h1>
+       
+            
+            <div *ngIf=" showLoadingIndicator">Loding.... </div>
+        <router-outlet></router-outlet>
+        
+        <app-footer></app-footer>
+        
+    </div>
+</div>
+
+  

@@ -1,0 +1,226 @@
+<div class="col-md-10">
+   
+            <header class="card-header">
+                                            
+                    <h4 class="card-title mt-2">computer Register</h4>
+                  </header>
+                  
+                  
+                <div class="card-body">
+                
+                    <form class="form-horizontal"  (ngSubmit)=" onSubmit() " name="form" #f='ngForm'>
+                
+                            <div class="form-row">
+                            <div class="col-md-5 mb-3">
+                                    <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
+
+                                    <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="">
+
+                           
+                                    <option value="HP" >HP</option>
+                                      <option value="DELL" >DELL</option>
+                                      <option value="ASUUS" >ASUUS</option>
+                                      <option value="MACBOOK" >MACBOOK</option>
+                                      <option value="ACCER" >ACCER</option>
+                                      <option value="LENOVO" >LENOVO</option>
+                                      
+                                    </select>
+                                    
+                                   
+                                    
+                            </div>
+                        </div>
+                        <div class="form-group">
+                               
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        
+                                        <input type="hidden"  class="form-control" name="assetCategory" id="assetCategory" value="Computer"  [(ngModel)]="asset.assetCategory" />
+                                    </div>
+                                </div>
+                            </div>
+                              
+                       
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">date</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    
+                                    <input type="date"  class="form-control" name="Date" id="Date"  [(ngModel)]="asset.boughtDate" BsDaterangepicker />
+                                </div>
+                            </div>
+                        </div>
+  
+                        
+                        <div class="form-group">
+                            <label for="price" class="cols-sm-2 control-label">price</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"></span>
+                                    <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="asset.assetId" placeholder="Enter Price" />
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Default checked -->
+                        <div class="form-row">
+                            <div class="col-md-5 mb-3">
+                                    <label for="brandName" class="cols-sm-2 control-label">Warranty Period</label>
+                           
+                                
+                                    <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="" >
+                                    <option value="HP" >0</option>
+                                      <option value="DELL" >1</option>
+                                      <option value="ASUUS" >2</option>
+                                      <option value="MACBOOK" >3</option>
+                                      <option value="ACCER" >4</option>
+                                      <option value="LENOVO" >5</option>
+                                      
+                                    </select>
+                            </div>
+                        </div>
+                              
+                        
+                        
+                        <div class="form-group">
+                          <label for="Cname" class="cols-sm-2 control-label">Companya Name</label>
+                          <div class="cols-sm-10">
+                              <div class="input-group">
+                                 
+                                  <input type="text" class="form-control" name="CompanyName" id="Cname" required [(ngModel)]="asset.CompanyName" #CompanyName="ngModel" placeholder="Enter Company Name" >
+                                 
+                                  
+                                  
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="CAddress" class="cols-sm-2 control-label">Company Address</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                               
+                                <input type="text" class="form-control" name="CAddress" id="CAddress"  [(ngModel)]="asset.companyAddress" placeholder="Enter Company Address" />
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="CNo" class="cols-sm-2 control-label"> Company Contact Number</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                               
+                                <input type="text" class="form-control" name="CNo" id="CNo"  [(ngModel)]="asset.warrantyStatus" placeholder="Enter Contact Number" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                            <label for="Category" class="cols-sm-2 control-label">Category</label>
+                        <div class="cols-sm-10">
+                        
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                              <input class="form-check-input" type="radio" name="Category" id="Category"  [(ngModel)]="asset.warrantyStatus"value="Laptop"  required>
+                                              <label class="cols-sm-2 control-label" for="exampleRadios1"  style="margin:5px">
+                                                Laptop
+                                              </label>
+  
+  
+                                         <div class="custom-control custom-radio custom-control-inline">
+                                            <input class="form-check-input" type="radio" name="Category" id="Category"  [(ngModel)]="asset.warrantyStatus"value="PC" >
+                                               <label class="form-check-label" for="exampleRadios1"  style="margin:5px">
+                                                    PC
+                                              </label>
+  
+                                        </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                        <div class="col-md-5 mb-6">
+                                <label for="validationDefault01">Quantity</label>
+                                <input type="text" class="form-control" id="validationDefault01" [(ngModel)]="asset.displaySize"  placeholder="10..."
+                                    required>
+                                
+                        </div>
+                    </div>
+                        
+                    
+                    <div class="form-row">
+                            <div class="col-md-5 mb-6">
+                                    <label for="validationDefault01">Display Size</label>
+                                    <input type="text" class="form-control" id="validationDefault01" [(ngModel)]="asset.displaySize"  placeholder="10.5 inch" 
+                                        required>
+                                    
+                            </div>
+                           
+                            <div class="col-md-5 mb-3">
+                                    <label for="Capacity" class="cols-sm-2 control-label">Capacity</label>
+                           
+                                
+                                    <select name="Capacity" id="Capacity" class="form-control" [(ngModel)]="asset.capacity" placeholder="Enter Brand Name">
+                                      <option value="2TB" >1TB</option>
+                                      <option value="2TB" >2TB</option>
+                                      <option value="2TB" >3TB</option>
+                                      <option value="2TB" >4TB</option>
+                                    </select>
+                            </div>
+                           
+                          </div>
+  
+                          <div class="form-row">
+                                <div class="col-md-5 mb-3">
+                                        <label for="brandname" class="cols-sm-2 control-label">RAM</label>
+                               
+                                    
+                                        <select name="ram" id="ram" class="form-control" [(ngModel)]="asset.ram" placeholder="">
+                                          <option value="2GB" >2GB</option>
+                                          <option value="4GB" >4GB</option>
+                                          <option value="6GB" >6GB</option>
+                                          <option value="8GB" >8GB</option>
+                                        </select> 
+                                        
+                                </div>
+                                
+                                <div class="col-md-5 mb-3">
+                                        <label for="processor" class="cols-sm-2 control-label">Processor</label>
+                               
+                                    
+                                        <select name="processor" id="processor" class="form-control" [(ngModel)]="asset.processor" placeholder="Enter Brand Name">
+                                          <option value="Hp" >i7</option>
+                                          <option value="Assus" >i5</option>
+                                          <option value="Asser" >i3</option>
+                                          <option value="Dell" ></option>
+                                        </select>
+                                </div>
+                               
+                              </div>
+      
+                       
+                        <div class="form-group shadow-textarea">
+                            <label for="exampleFormControlTextarea6">Discription</label>
+                            <textarea class="form-control z-depth-1"  id="exampleFormControlTextarea6" rows="3"  [(ngModel)]="asset.description"  placeholder="Write Description here..." ></textarea>
+                            
+                          </div>
+
+                          
+                           
+                                
+                                  
+                          
+                          
+                            
+                            <!-- Horizontal material form -->
+
+                        
+                        <div class="form-group ">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                        </div>
+                        
+                    </form>
+              
+                                        
+    </div>
+  </div>
+
+
+  

@@ -1,60 +1,41 @@
-<div class="panel-header panel-header-lg">
-  
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="panel-header panel-header-sm">
+ 
+</div>
+<div class="main-content">
+ 
+    <div class="row">
+        <div class="col-md-11">
+            
+
+          
+            <div class="card">
+              <div class="card-header">
+                
+                 <div class="container">
+                    <div class="row justify-content-center">
+                     <div class="col-md-11">
+                       <router-outlet></router-outlet>
+                     </div>                              
+                 </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
 
-<div class="main-content">
-  <div class="row">
-    <div class="col-lg-4 col-md-6">
-      <div class="card card-chart">
-        <div class="card-header">
-          
-          <h4 class="card-title">Breakdown Assets</h4>
-         
-        </div>
-        <div class="card-body">
-          <div class="chart-area">
-            <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
-            <h6>Madhusanka</h6>
+
+
+
+ 
+      
+      
+
             
-          </div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-      <div class="card card-chart">
-        <div class="card-header">
-          
-          <h4 class="card-title">Breakdown Assets</h4>
-         
-        </div>
-        <div class="card-body">
-          <div class="chart-area">
-            <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
-            <input type="text" placeholder="serch Brand Name" [(ngModel)]="Bname" (input)="search()">
-            <table class="table">
-                <tr>
-                  <th>ID</th>
-                  <th>Brand Name</th>
-                  <th>Price</th>
-              
-              </tr>
-              <tr *ngFor='let a of Ass'>
-                <div class="img"><td> <img [src]="a.assetimage" alt="aaaaaaa"> </td></div>
-                  
-                  
-                  <td>{{a.brandName}} </td>
-                  <td>{{a.buyingPrice}} </td>
-              
-              </tr>
-              
-              </table>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-   
-  </div>
-  
-</div>
+
+

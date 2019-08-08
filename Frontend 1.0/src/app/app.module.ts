@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
+
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
@@ -22,6 +23,21 @@ import { FurnitureComponent } from './AssetCatagary/furniture/furniture.componen
 import { ViewEmpComponent } from './icons/view-emp/view-emp.component';
 import { HomeComponent } from './home/home.component';
 import { IconsComponent } from './icons/icons.component';
+import { RegistorEmpComponent } from './icons/registor-emp/registor-emp.component';
+import { ViewAssetComponent } from './user-profile/view-asset/view-asset.component';
+import { RegistorAssetComponent } from './user-profile/registor-asset/registor-asset.component';
+import { ComputerComponent } from './AssetCatagary/computer/computer.component';
+import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
+import { AngularFireModule } from "@angular/fire";
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { NotifiService } from './firebase/notifi.service';
+import { EmpCompenentModule } from './components/Emp-components/emp-components.module';
+
+
+
+
 
 
 @NgModule({
@@ -35,23 +51,39 @@ import { IconsComponent } from './icons/icons.component';
     NgbModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    EmpCompenentModule,
+    ReactiveFormsModule
+
+    
+    
+   
+  
+    
+
+
+   
     
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    NoteComponent,
+    EmpLayoutComponent,
+    HomeComponent,
+   
+   
+   
+   
   
-    ProjecterComponent,
-    OtherComponent,
-    FurnitureComponent,
-    ViewEmpComponent,
-    HomeComponent
-
+    
+   
+  
+   
   ],
-  providers: [],
+  providers: [NotifiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

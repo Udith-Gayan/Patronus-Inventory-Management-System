@@ -1,0 +1,38 @@
+<html>
+
+<form  class="text-center border border-light p-5"  #form="ngForm" (submit)="onSubmit(form)">
+    <p class="h4 mb-4">Book Asset</p>
+      <div class="col-md-4 mb-3">
+          
+          <input class="form-control" type="hidden" #id="ngModel" name="id" [(ngModel)]="ser.FormData.id">
+      </div>
+        
+  
+      <label for="validationDefault01">Asset Category</label>
+      <input class="form-control mb-4" id="validationDefault01"name="AssetCategory" placeholder="AssetCategory" [(ngModel)]="ser.FormData.AssetCategory">
+  
+    
+      <label for="validationDefault01">Brand Name</label>
+      <input class="form-control mb-4" id="validationDefault01"name="BrandName" placeholder="BrandName" [(ngModel)]="ser.FormData.BrandName">
+      <div class="form-row">
+    <div class="col-md-5 mb-3">
+      <label for="validationDefault01">Order Date</label>
+      <input type="date" class="form-control" id="validationDefault01"name="OrderDate" placeholder="Lname" [(ngModel)]="ser.FormData.OrderDate">
+    </div>
+    <div class="col-md-5 mb-3">
+        <label for="validationDefault01">Return Date</label>
+        <input type="date" class="form-control" id="validationDefault01"name="ReturnDate" placeholder="Lname" [(ngModel)]="ser.FormData.ReturnDate">
+    </div>
+
+  </div>
+      <label>Discription</label>
+      <input class="form-control mb-4" id="validationDefault01"name="Discription" placeholder="Lname" [(ngModel)]="ser.FormData.Discription">
+    
+    
+    
+
+  <button class="btn btn-primary btn-sm" type="submit"  >Submit form</button>
+</form>
+
+
+</html>

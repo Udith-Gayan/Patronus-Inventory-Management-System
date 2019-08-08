@@ -14,6 +14,21 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { OtherComponent } from '../../AssetCatagary/other/other.component';
+import { RegistorEmpComponent } from '../../icons/registor-emp/registor-emp.component';
+import { ViewEmpComponent } from '../../icons/view-emp/view-emp.component';
+import { FurnitureComponent } from '../../AssetCatagary/furniture/furniture.component';
+import { ViewAssetComponent } from '../../user-profile/view-asset/view-asset.component';
+import { RegistorAssetComponent } from '../../user-profile/registor-asset/registor-asset.component';
+import { ProjecterComponent } from '../../AssetCatagary/projecter/projecter.component';
+import { ComputerComponent } from '../../AssetCatagary/computer/computer.component';
+import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
+import { TestshowComponent } from '../../firebase/testshow/testshow.component';
+import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
+import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
+import { View2EmpComponent } from '../../icons/view2-emp/view2-emp.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 @NgModule({
   imports: [
@@ -22,7 +37,11 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     FormsModule,
     ChartsModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
+  
+
   ],
   declarations: [
     DashboardComponent,
@@ -33,6 +52,22 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    OtherComponent,
+    RegistorEmpComponent,
+    ViewEmpComponent,
+    FurnitureComponent,
+    ViewAssetComponent,
+    RegistorAssetComponent,
+    ComputerComponent,
+    ProjecterComponent,
+    TestveiwComponent,
+    TestshowComponent,
+    EmployeeFilterPipe,
+    AssetFilterPipe,
+    View2EmpComponent
+    
+
+    
   
   ]
 })

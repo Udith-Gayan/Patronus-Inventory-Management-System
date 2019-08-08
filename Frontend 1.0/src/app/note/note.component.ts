@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { emp } from '../Testing/service/ex.model';
 
 
 
@@ -10,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service : emp) { }
+ 
   
 
   ngOnInit() {

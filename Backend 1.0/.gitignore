@@ -26,3 +26,4 @@
 
 ### VS Code ###
 .vscode/
+excludesfile = /src/main/resources/application.properties

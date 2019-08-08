@@ -9,13 +9,29 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NoteComponent } from './note/note.component';
 import { IconsComponent } from './icons/icons.component';
 import { HomeComponent } from './home/home.component';
+import { notEqual } from 'assert';
+import { TestshowComponent } from './firebase/testshow/testshow.component';
+import { TestveiwComponent } from './firebase/testveiw/testveiw.component';
+import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
+
 
 const routes: Routes =[
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  }, 
+  },
+  {
+    path: '',
+    component:EmpLayoutComponent,
+    children:[
+      {
+        path: 'emp',
+        loadChildren:'./layouts/emp-layout/emp-layout.module#EmpLayoutModule'
+      },
+
+    ]
+  },
   {
     path: '',
     component: AdminLayoutComponent,
@@ -23,7 +39,10 @@ const routes: Routes =[
         {
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  }]},
+  },
+
+]},
+
   {
     path:'login',
     component:LoginComponent
@@ -45,25 +64,10 @@ const routes: Routes =[
   {
     path:"list",
     component:LoginComponent
-    
-  },
 
-  
-  {
-    path: 'maps',
-    component: AdminLayoutComponent,
-    children:[
-      {
-        path:'note',
-        component:NoteComponent
-      }
-    ]
-    },
-    {
-      path: 'note',
-      component: NoteComponent,
-      },
- 
+  }
+
+
 ];
 
 @NgModule({
@@ -73,6 +77,7 @@ const routes: Routes =[
     RouterModule.forRoot(routes)
   ],
   exports: [
+    RouterModule
   ],
 })
 export class AppRoutingModule { }

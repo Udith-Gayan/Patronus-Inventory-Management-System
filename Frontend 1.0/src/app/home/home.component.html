@@ -12,14 +12,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="https://mail.google.com/mail/u/0/?tab=rm#inbox">About us
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Contact</a>
-        </li>
+      
+       
         
         
       </ul>
@@ -89,9 +83,10 @@
                     <h6 class="mb-4">INVENTO is our fixed asset management website that help you to track asset's location,booking or requesting new assets and also to report any breakdowns of any asset at any time .Feel free to use this to make your daily office life easy...</h6>
                     <a class="btn btn-white" routerLink="/login">Asset Manager Login</a>
                     <a class="btn btn-outline-white">Employee Login</a>
-                    
+                    <div class="lds-ring" style="align-content: center" *ngIf=" showLoadingIndicator"><div></div><div></div><div></div><div></div></div> 
+       
 <router-outlet></router-outlet>
-
+                   
                   </div>
                   <!--Grid column-->
                   <!--Grid column-->
@@ -116,6 +111,11 @@
             <div class="row py-5">
               <!--Grid column-->
               <div class="col-md-12 text-center">
+                  <div class="copyright" style="color: rgb(5, 56, 116)"><b>  &copy;
+           
+                      {{test | date:'medium'}}</b>
+                  
+                   </div>
                  </div>
               <!--Grid column-->
             </div>
@@ -126,4 +126,4 @@
 
     </body>
 </html>
-<!--Main Layout-->
+

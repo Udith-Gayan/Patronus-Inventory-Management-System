@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NoteComponent } from '../note/note.component';
 import { ViewEmpComponent } from '../icons/view-emp/view-emp.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +19,8 @@ import { ViewEmpComponent } from '../icons/view-emp/view-emp.component';
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+  
     
   ],
   exports: [
