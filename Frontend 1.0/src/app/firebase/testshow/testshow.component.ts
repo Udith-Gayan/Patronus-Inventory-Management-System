@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./testshow.component.scss']
 })
 export class TestshowComponent implements OnInit {
+  datePipe: any;
 
   constructor(private ser : NotifiService,private firestore :AngularFirestore) { }
 
@@ -30,11 +31,17 @@ export class TestshowComponent implements OnInit {
     }
   }
   onSubmit(form:NgForm){
+    let now = new Date();
+
     let data = Object.assign({}, form.value);
     delete data.id;
     if(form.value.id == null){
       this.firestore.collection('employeee').add(data);
-      
+      this.firestore.collection('notification').add({
+                                    fullname:JSON.parse(localStorage.getItem("currentUser")).firstname + JSON.parse(localStorage.getItem("currentUser")).lastname,
+                                    dateTime:this.datePipe.transform(now, "yyyy-MM-dd HH:mm"),
+                                    message:"edit gauge title",
+                                    });
   }
     else
       this.firestore.doc('employeee/'+form.value.id).update(data);
