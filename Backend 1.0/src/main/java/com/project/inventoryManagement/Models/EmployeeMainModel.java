@@ -53,7 +53,8 @@ public class EmployeeMainModel implements Serializable {
 
     @Lob
     @Column(name = "img")
-    private byte[] img;
+    private String img;
+  //  private byte[] img;
 
     @JsonIgnore
     @OneToMany(mappedBy = "userAssigned", cascade=CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
@@ -144,14 +145,14 @@ public class EmployeeMainModel implements Serializable {
         this.status = status;
     }
 
-    public byte[] getImg() {
+  /*  public byte[] getImg() {
         return img;
     }
 
     public void setImg(byte[] img) {
         this.img = img;
     }
-
+*/
     public List<AssignModel> getAssign() {
         return assign;
     }
@@ -169,4 +170,12 @@ public class EmployeeMainModel implements Serializable {
         this.reportedDamages = reportedDamages;
     }
 
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }
