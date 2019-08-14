@@ -34,6 +34,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { NotifiService } from './firebase/notifi.service';
 import { EmpCompenentModule } from './components/Emp-components/emp-components.module';
+import { BookingAssetModalComponent } from './PopupModals/booking-asset-modal/booking-asset-modal.component';
+
+
 
 
 
@@ -57,15 +60,15 @@ import { EmpCompenentModule } from './components/Emp-components/emp-components.m
     EmpCompenentModule,
     ReactiveFormsModule
 
-    
-    
-   
-  
-    
 
 
-   
-    
+
+
+
+
+
+
+
   ],
   declarations: [
     AppComponent,
@@ -73,17 +76,20 @@ import { EmpCompenentModule } from './components/Emp-components/emp-components.m
     LoginComponent,
     EmpLayoutComponent,
     HomeComponent,
-   
-   
-   
-   
-  
-    
-   
-  
-   
+    BookingAssetModalComponent,
+
+
+
+
+
+
+
+
+
   ],
   providers: [NotifiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    BookingAssetModalComponent]
 })
 export class AppModule { }
