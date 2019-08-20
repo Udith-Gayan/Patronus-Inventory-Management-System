@@ -19,12 +19,12 @@ import { BookAssetComponent } from '../../EMPLOYEE_DASHBOARD/book-asset/book-ass
       CommonModule,
       RouterModule.forChild(EmpLayoutRoutes),
       FormsModule,
-     
+
       NgbModule,
       ToastrModule.forRoot()
     ],
     declarations: [
-     
+
       AComponent,
       AssetComponent,
     
@@ -32,14 +32,15 @@ import { BookAssetComponent } from '../../EMPLOYEE_DASHBOARD/book-asset/book-ass
      
 
 
-      
-      
-    
+
+
+
+
     ]
   })
 
   export  class EmpLayoutModule{
-      
+
   }
-  
-  
+
+
