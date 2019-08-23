@@ -36,7 +36,7 @@ export class TestshowComponent implements OnInit {
     let data = Object.assign({}, form.value);
     delete data.id;
     if(form.value.id == null){
-      this.firestore.collection('employeee').add(data);
+      this.firestore.collection('employeee').add({data});
      
   }
     else
