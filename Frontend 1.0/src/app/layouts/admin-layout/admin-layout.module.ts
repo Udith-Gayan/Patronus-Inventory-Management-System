@@ -28,6 +28,7 @@ import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
 import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
 import { View2EmpComponent } from '../../icons/view2-emp/view2-emp.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ConfirmPassword } from '../../asset/ConfimePassword';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     TestshowComponent,
     EmployeeFilterPipe,
     AssetFilterPipe,
-    View2EmpComponent
+    View2EmpComponent,
+    ConfirmPassword
     
 
     

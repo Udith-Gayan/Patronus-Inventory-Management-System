@@ -10,7 +10,7 @@
 
                   <div class="card-body">
 
-                     <form class="form-horizontal"  (ngSubmit)=" onSubmit() ">
+                     <form class="form-horizontal" #employeeForm="ngForm" (ngSubmit)=" onSubmit() ">
 
                           <div class="form-group">
                               <label for="username" class="cols-sm-2 control-label">Frist Name</label>
@@ -126,21 +126,31 @@
 
                           </div>
 
-                          <div class="form-group">
+                          <div class="form-group" [class.has-error]="password.invalid && password.touched">
                               <label for="password" class="cols-sm-2 control-label" >Password</label>
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                      <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="employee.password" placeholder="Enter your Password" [(ngModel)]="employee.password" />
+                                      <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="employee.password" #password="ngModel" placeholder="Enter your Password" required password />
+                                      <span class="help-block" style="color: red" *ngIf="password.errors?.required && password.touched">
+                                        password is required
+                                    </span>
+                                    
                                   </div>
                               </div>
                           </div>
-                          <div class="form-group">
-                              <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                          <div class="form-group" [class.has-error]="confirmpassword.invalid && confirmpassword.touched">
+                              <label for="confirmpassword" class="cols-sm-2 control-label">Confirm Password</label>
                               <div class="cols-sm-10">
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                      <input type="password" class="form-control" name="confirm" id="confirm"  [(ngModel)]="employee.password" placeholder="Confirm your Password" [(ngModel)]="employee.confirm"/>
+                                      <input type="password" class="form-control" name="confirmpassword" id="confirmpassword"  [(ngModel)]="employee.confirmpassword" #confirmpassword="ngModel" placeholder="Confirm your Password"appConfirmPassword="password" required confirmpassword />
+                                      <span class="help-block" style="color: red" *ngIf="confirmpassword.errors?.required && confirmpassword.touched">
+                                       Confirm Password is required
+                                    </span>
+                                    <span style="color: red" class="help-block" *ngIf="confirmpassword.errors?.notEqual && confirmpassword.touched && !confirmpassword.errors?.required">
+                                      Password and Confirm Password does not match 
+                                     </span>
                                   </div>
                               </div>
                           </div>
