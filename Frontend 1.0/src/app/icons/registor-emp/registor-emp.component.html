@@ -38,11 +38,11 @@
                                       <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                                       <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" #email="ngModel" placeholder="Enter your Email" required email/>
                                       <span class="help-block" *ngIf="email.errors && email.errors.required && email.touched">
-                                          email is required
+                                        
+                                         Email is required
+                                    
+                                         
                                       </span>
-                                      <span class="help-block" *ngIf="email.errors && email.errors.email && email.touched">
-                                            email is Invalid
-                                        </span>
                                   </div>
                               </div>
                           </div>

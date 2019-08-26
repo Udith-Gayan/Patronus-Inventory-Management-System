@@ -27,7 +27,7 @@ const routes: Routes =[
     children:[
       {
         path: 'emp',
-        loadChildren:'./layouts/emp-layout/emp-layout.module#EmpLayoutModule'
+        loadChildren:'./layouts/emp-layout/emp-layout.modul#EmpLayoutModule'
       },
       
     ]
@@ -40,7 +40,7 @@ const routes: Routes =[
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
   },
-  
+   
 ]},
 
   {
