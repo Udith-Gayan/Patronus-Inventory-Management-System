@@ -52,7 +52,7 @@
       <!-- Text -->
        <!-- Link -->
       <a href="#!" class="white-text d-flex justify-content-end" routerLink="/employee/more"><h5>More Detail <i class="fas fa-angle-double-right"></i></h5></a>
-      <a href="#" class="btn btn-primary"(click)="editButtonEmployee(d.nic)">Update</a>
+      <a href="#" class="btn btn-primary"(click)="editButtonEmployee(d.id)">Update</a>
       <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)">Delete</a>
     </div>
 </div>
@@ -62,3 +62,34 @@
 </div>
   <!-- Card Dark -->
 
+
+  <div class="card" style="background-color: rgb(143, 166, 187);height: 4cm;" *ngFor="let d of data | employeeFilter:searchTerm">
+    <div class="row">
+      <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+         
+          <div class="card-body text-primary">
+              <img src="assets/img/home.jpg" 
+              alt="photo">
+          </div>
+        </div>
+      
+    
+    
+        <div class="card-body">
+        
+     <p>Name      : {{d.firstname}} {{d.lastname}}</p>
+     <p>NIC No  :{{d.nic}}</p>
+      <p class="card-title" > <a >Email     : {{d.email}}</a></p>
+
+     
+    
+    </div>
+    <div class="card-body">
+        <a href="#" class="btn btn-primary"(click)="editButtonEmployee(d.id)" style="margin: 1cm;">Update</a>
+        <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)" style="color: rgb(250, 248, 246);background-color: rgb(53, 88, 128)">Delete</a>
+        <a href="#!" class="white-text d-flex justify-content-end" routerLink="/employee/more"><p style="color: chartreuse">More Detail <i class="fas fa-angle-double-right"></i></p></a>
+       
+      
+    </div>
+  </div>
+  </div>

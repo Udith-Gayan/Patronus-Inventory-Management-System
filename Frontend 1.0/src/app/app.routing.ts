@@ -5,9 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { NoteComponent } from './note/note.component';
-import { IconsComponent } from './icons/icons.component';
 import { HomeComponent } from './home/home.component';
 import { notEqual } from 'assert';
 import { TestshowComponent } from './firebase/testshow/testshow.component';
@@ -20,16 +17,16 @@ const routes: Routes =[
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  }, 
+  },
   {
-    path: '',
+    path: 'Employee',
     component:EmpLayoutComponent,
     children:[
       {
-        path: 'emp',
-        loadChildren:'./layouts/emp-layout/emp-layout.modul#EmpLayoutModule'
-      },
-      
+        path: 'x',
+        loadChildren:'./layouts/emp-layout/emp-layout.module#EmpLayoutModule'
+      }
+
     ]
   },
   {
@@ -39,8 +36,7 @@ const routes: Routes =[
         {
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  },
-   
+  }
 ]},
 
   {
@@ -59,20 +55,15 @@ const routes: Routes =[
   },
   {
     path: '**',
-    redirectTo: 'icon'
+    redirectTo: 'hom'
   },
   {
     path:"list",
     component:LoginComponent
-    
-  },
- 
- 
 
-  
- 
-    
- 
+  }
+
+
 ];
 
 @NgModule({

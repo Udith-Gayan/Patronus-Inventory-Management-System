@@ -14,8 +14,8 @@ import{ Event,Router,NavigationStart,NavigationEnd, RouterEvent} from '@angular/
 export class IconsComponent implements OnInit {
   employee : Employee;
   showLoadingIndicator =true;
-  imgUrl:String="/assets/img/1.jpeg";
-  constructor(private userService : HttpService,private _router:Router) { 
+  imgUrl:string="/assets/img/1.jpeg";
+  constructor(private userService : HttpService,private _router:Router) {
     this.employee = new Employee();
     this._router.events.subscribe((RouterEvent:Event)=>{
 
@@ -39,10 +39,10 @@ export class IconsComponent implements OnInit {
     this.submitted = true;
     this.userService.addEmployee(this.employee).subscribe((response)=>{
       console.log(response);
-      alert('Registor Successfully');
+      alert('Register Successfully');
     });
     // this.userService.addEmployee(this.employee);
-    
+
   }
   logchange(data){
     console.log(data);

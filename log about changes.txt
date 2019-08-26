@@ -122,3 +122,64 @@ structure:
 }
 
 This returns a full record of the inserted assigning to the frontend.
+
+/********************************************************************************************************************************/
+/**********************************************************************************************************************************/
+/*******************************************************************************************************************************/
+* *************************************Add a breakdown********************************************
+
+url: [POST] http://localhost:8080/breakdown/add
+structure:
+{
+	"anyMessage": "no message yet",
+	"informedBy": {
+		               "nic": "4v"                   // nic is used to identify the user
+                      },
+    "brokenAsset": {
+    	                "assetId": "LAP115"                  // asseId is used to identify the asset
+                   }
+	
+}
+
+This url returns a record of breakdown made in the below format.
+
+{
+    "id": 49,
+    "anyMessage": "no message yet",
+    "warrantyStatus": false,
+    "informedDate": "2019-08-04T04:47:14.797+0000",
+    "informedBy": {
+        "employeeId": 7,
+        "firstname": "ffed",
+        "lastname": "l2ited",
+        "nic": "4v",
+        "gender": "male",
+        "email": "4v.com",
+        "password": "1223",
+        "contactNo": "44",
+        "status": "Event Organizer",
+        "address": "Kegalle",
+        "img": null
+    },
+    "brokenAsset": {
+        "id": 44,
+        "assetId": "LAP115",
+        "assetCategory": "Laptop",
+        "brandName": "Leee 10353 ",
+        "boughtCompanyName": "Metropolitan",
+        "buyingPrice": 23.34,
+        "warrantyStatus": "yes for now",
+        "boughtDate": "2010/11/17",
+        "displaySize": "24x34",
+        "ram": "2GB",
+        "capacity": "1TB",
+        "description": "no dip",
+        "processor": "intel core i7",
+        "broken": true
+    },
+    "approvedByAssetMananger": false,
+    "assignedToRepairManager": false
+}
+
+
+/**********************************************************************************************************************************/

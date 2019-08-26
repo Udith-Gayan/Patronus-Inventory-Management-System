@@ -60,9 +60,17 @@ public class AssetModel  {
     @Column(name = "processor")
     private String processor;        //for desktops,laptops
 
+    @Column(name = "is_broken")
+    private boolean broken;
+
+
     @JsonIgnore
     @OneToMany(mappedBy = "requestedAsset",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)                                          //(cascade = CascadeType.REMOVE, orphanRemoval=true) delete child entities
     private List<AssignModel> assigning;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "brokenAsset",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<Breakdown> breakdowns;
 
     /************empty Constructor***********/
 
