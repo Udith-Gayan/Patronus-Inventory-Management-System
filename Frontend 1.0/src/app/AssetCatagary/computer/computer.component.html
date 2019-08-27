@@ -8,13 +8,13 @@
                   
                 <div class="card-body">
                 
-                    <form class="form-horizontal"  (ngSubmit)=" onSubmit() " name="form" #f='ngForm' novalidate >
+                    <form class="form-horizontal"  (ngSubmit)=" onSubmit() " name="form" >
                 
                             <div class="form-row">
                             <div class="col-md-5 mb-3">
                                     <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
 
-                                    <select name="brandName" id="brandName" class="form-control" [(ngModel)]="model.brandName" #barndName="ngmodel">
+                                    <select name="brandName" id="brandName" class="form-control" [(ngModel)]="model.brandName">
 
                            
                                     <option value="HP" >HP</option>
@@ -71,7 +71,7 @@
                                     <label for="brandName" class="cols-sm-2 control-label">Warranty Period</label>
                            
                                 
-                                    <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="" >
+                                    <select name="brandName" id="brandName" class="form-control"  placeholder="" >
                                     <option value="HP" >0</option>
                                       <option value="DELL" >1</option>
                                       <option value="ASUUS" >2</option>
@@ -218,7 +218,7 @@
                         <div class="form-group ">
                             <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
                         </div>
-                     {{model|jason}}  
+                     
                           
                     </form>
               
