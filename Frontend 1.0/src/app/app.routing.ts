@@ -23,9 +23,9 @@ const routes: Routes =[
     component:EmpLayoutComponent,
     children:[
       {
-        path: 'X',
+        path: 'x',
         loadChildren:'./layouts/emp-layout/emp-layout.module#EmpLayoutModule'
-      },
+      }
 
     ]
   },
@@ -36,8 +36,7 @@ const routes: Routes =[
         {
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  },
-
+  }
 ]},
 
   {

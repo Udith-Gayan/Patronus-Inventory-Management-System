@@ -9,7 +9,7 @@ import { addAllToArray } from '@angular/core/src/render3/util';
   styleUrls: ['./computer.component.scss']
 })
 export class ComputerComponent implements OnInit {
-  
+  model:any ={}
 asset: Asset;
 
   constructor(private userService:HttpService) { 
