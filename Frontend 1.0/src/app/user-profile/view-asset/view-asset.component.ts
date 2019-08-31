@@ -14,6 +14,12 @@ import { HttpService } from '../../service2/http.service';
 export class ViewAssetComponent implements OnInit {
   data: Observable<Asset[]>;
 
+  //////Short by date
+ 
+
+ 
+  //////
+
   searchTerm :string;
   constructor(private asset : HttpService, private modalService: NgbModal) { }
 ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -14,15 +14,63 @@
 
     </div>
 
+    <!-- filter item using drop dwon list-->
+    <div class="form-row">
+      <div class="col-md-2 mb-3">
+          <label for="status" class="cols-sm-2 control-label">Asset Catagory</label>
+
+      
+          <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
+              
+          <option value="Computer" >Computer</option>
+          <option value="Furniture" >Furniture</option>
+          <option value="CPU" >CPU</option>
+          <option value="Printer" >Printer</option>
+          <option value="TV" >TV</option>
+            
+          </select>
+      </div>
+      <div class="col-md-2 mb-3">
+          <label for="status" class="cols-sm-2 control-label">Brand Name</label>
+
+      
+          <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
+              
+          <option value="Asus" >Asus</option>
+          <option value="HP" >HP</option>
+          <option value="Asser" >Asser</option>
+          <option value="Dell" >Dell</option>
+          <option value="Furniture" >Lenovo</option>
+            
+          </select>
+      </div>
+      <div class="col-md-2 mb-3">
+          <label for="status" class="cols-sm-2 control-label">Duration</label>
+
+      
+          <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
+              
+          <option value="Computer" >Computer</option>
+          <option value="Furniture" >Furniture</option>
+          <option value="Furniture" >CPU</option>
+          <option value="Furniture" >Printer</option>
+          <option value="Furniture" >TV</option>
+            
+          </select>
+      </div>
+  </div>
+
+
+
 
 <router-outlet></router-outlet>
-<div class="row">
+<div class="row" >
 
   <!-- Grid column -->
-  <div class="col-lg-4 col-md-12" *ngFor="let d of data |  assetfilter : searchTerm">
+  <div class="col-lg-4 col-md-12"   *ngFor="let d of data |  assetfilter : searchTerm" >
 
-    <!--Card-->
-    <div class="card">
+    <!--Card-- *ngIf= "d.assetCategory == 'Computer'"-->
+    <div class="card"  >
 
       <!--Card image-->
       <div class="view">
@@ -34,7 +82,7 @@
       </div>
 
       <!--Card content-->
-      <div class="card-body">
+      <div class="card-body" >
         <!--Title-->
         <tr >
         <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
@@ -62,4 +110,6 @@
 
   </div>
   <!-- Grid column -->
-  x
+
+
+  

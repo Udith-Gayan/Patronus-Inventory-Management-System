@@ -16,4 +16,5 @@ export class AssetFilterPipe implements PipeTransform{
             d.assetCategory.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
 
     }
+    
 }
