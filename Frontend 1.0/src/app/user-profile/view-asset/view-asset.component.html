@@ -38,8 +38,8 @@
         <!--Title-->
         <tr >
         <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
-        <h6 class="card-text"> Brand name :    {{d.brandName}}</h6>
-        <h6 class="card-title"> DATE:         {{d.boughtDate}}</h6>
+        <h6 class="card-text"> Brand name :    {{d.ram}}</h6>
+        <h6 class="card-title"> DATE:         {{d.assetCategory}}</h6>
         <h6 class="card-title">Description:   {{d.description}}</h6>
 
 
@@ -48,10 +48,10 @@
 
         <!--Text-->
 
-        <a href="#" class="btn btn-primary" routerLink="/asset/view-asset/book" >Book</a>
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId)" >Book Popup</a>                <!--pop up for booking-->
+        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.ram)" >Book Asset</a>                <!--pop up for booking-->
         <a href="#" class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
         <a href="#" class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
+        
         <a href="" routerLink="/asset/view-asset/more">more   </a>
 
       </div>
