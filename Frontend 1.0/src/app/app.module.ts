@@ -35,6 +35,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NotifiService } from './firebase/notifi.service';
 import { EmpCompenentModule } from './components/Emp-components/emp-components.module';
 import { BookingAssetModalComponent } from './PopupModals/booking-asset-modal/booking-asset-modal.component';
+import { ViewAllEmpDelailComponent } from './PopupModals/view-all-emp-delail/view-all-emp-delail.component';
+import { ViewAllAssetDetailComponent } from './PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 
 
 
@@ -77,6 +79,8 @@ import { BookingAssetModalComponent } from './PopupModals/booking-asset-modal/bo
     EmpLayoutComponent,
     HomeComponent,
     BookingAssetModalComponent,
+    ViewAllEmpDelailComponent,
+    ViewAllAssetDetailComponent,
 
 
 
@@ -90,6 +94,7 @@ import { BookingAssetModalComponent } from './PopupModals/booking-asset-modal/bo
   providers: [NotifiService],
   bootstrap: [AppComponent],
   entryComponents: [
-    BookingAssetModalComponent]
+    BookingAssetModalComponent,
+    ViewAllEmpDelailComponent]
 })
 export class AppModule { }

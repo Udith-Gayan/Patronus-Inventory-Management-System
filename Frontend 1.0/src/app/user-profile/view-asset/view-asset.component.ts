@@ -14,6 +14,12 @@ import { HttpService } from '../../service2/http.service';
 export class ViewAssetComponent implements OnInit {
   data: Observable<Asset[]>;
 
+  //////Short by date
+ 
+
+ 
+  //////
+
   searchTerm :string;
   constructor(private asset : HttpService, private modalService: NgbModal) { }
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,9 +36,10 @@ export class ViewAssetComponent implements OnInit {
 ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
-  openFormModal(assetId) {
+  openFormModal(assetId,ram) {
     const modalRef = this.modalService.open(BookingAssetModalComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+    modalRef.componentInstance.ram = ram; 
 
     modalRef.result.then((result) => {
       console.log(result);
@@ -41,5 +48,18 @@ export class ViewAssetComponent implements OnInit {
     });
   }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//view more detail of Asset
 
+openDetailModal(assetId){
+  const modalRef = this.modalService.open(BookingAssetModalComponent);
+    modalRef.componentInstance.assetId = assetId; 
+     // Pass vallue to other form component
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+
+}
 }
