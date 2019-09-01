@@ -16,50 +16,6 @@
       
       
    
-  <div class="row">
-    
-
-
-    <!-- Card -->
-    <div class="col-lg-3 col-md-14" *ngFor="let d of data | employeeFilter:searchTerm">
-
-
-      <div class="card">
-
-    <!-- Card image -->
-    <div class="view">
-      <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2821%29.jpg" class="card-img-top"
-        alt="photo">
-      <a href="#">
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
-    
-  
-    <!-- Card content -->
-    <div class="card-body elegant-color white-text rounded-bottom">
-  
-      <!-- Social shares button -->
-      <a class="activator waves-effect mr-4"></a>
-      <!-- Title -->
-      <h5 class="card-title">{{d.firstname}} {{d.lastname}}</h5>
-      <p class="card-title" > <a href="">{{d.email}}</a>  </p>
-
-      <h6 class="card-title"> {{d.nic}}</h6>
-     
-      
-      <hr class="hr-light">
-      <!-- Text -->
-       <!-- Link -->
-      <a href="#!" class="white-text d-flex justify-content-end" routerLink="/employee/more"><h5>More Detail <i class="fas fa-angle-double-right"></i></h5></a>
-      <a href="#" class="btn btn-primary"(click)="editButtonEmployee(d.id)">Update</a>
-      <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)">Delete</a>
-    </div>
-</div>
-
-  
-  </div>
-</div>
   <!-- Card Dark -->
 
 
@@ -82,12 +38,11 @@
       <p class="card-title" > <a >Email     : {{d.email}}</a></p>
 
      
-    
     </div>
     <div class="card-body">
         <a href="#" class="btn btn-primary"(click)="editButtonEmployee(d.id)" style="margin: 1cm;">Update</a>
         <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)" style="color: rgb(250, 248, 246);background-color: rgb(53, 88, 128)">Delete</a>
-        <a href="#!" class="white-text d-flex justify-content-end" routerLink="/employee/more"><p style="color: chartreuse">More Detail <i class="fas fa-angle-double-right"></i></p></a>
+        <a    class="btn-primary white-text d-flex justify-content-end" style="background-color: rgb(143, 166, 187)" (click)="openFormModal(d.nic,d.firstname,d.email,d.lastname,d.gender,d.contactNo,d.address,d.employeeId)" ><p style="color: chartreuse">More Detail <i class="fas fa-angle-double-right"></i></p></a>
        
       
     </div>

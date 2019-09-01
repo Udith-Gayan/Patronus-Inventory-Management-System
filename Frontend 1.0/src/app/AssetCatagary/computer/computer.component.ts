@@ -12,9 +12,10 @@ export class ComputerComponent implements OnInit {
   model:any ={}
 asset: Asset;
 
+
   constructor(private userService:HttpService) { 
     this.asset=new Asset();
-    
+    this.asset.assetCategory="Computer";
     console.log(this.asset);
   }
 
