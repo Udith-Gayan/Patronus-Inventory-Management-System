@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { HttpService } from '../../service/http.service';
 import { error } from 'util';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ViewAllEmpDelailComponent } from '../../PopupModals/view-all-emp-delail/view-all-emp-delail.component';
 
 @Component({
   selector: 'app-view-emp',
@@ -15,7 +17,7 @@ export class ViewEmpComponent implements OnInit {
   data: Observable<Employee[]>;
   employees: Employee[];
   searchTerm :string;
-  constructor(private emp:HttpService ,private _router : Router) { }
+  constructor(private emp:HttpService ,private _router : Router, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.emp.getAllEmployeee()
@@ -40,6 +42,27 @@ export class ViewEmpComponent implements OnInit {
 
 
 
+  }
+
+
+  ////
+  openFormModal(nic,firstname,email,lastname,gender,contactNo,address,employeeId) {
+    const modalRef = this.modalService.open(ViewAllEmpDelailComponent);
+    modalRef.componentInstance.nic = nic; 
+    modalRef.componentInstance.lastname = lastname;  
+    modalRef.componentInstance.email = email;
+    modalRef.componentInstance.gender = gender;
+    modalRef.componentInstance.contactNo = contactNo;
+    modalRef.componentInstance.address = address;
+    
+    modalRef.componentInstance.employeeId = employeeId;  
+    modalRef.componentInstance.firstname = firstname;    // Pass vallue to other form component
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }
