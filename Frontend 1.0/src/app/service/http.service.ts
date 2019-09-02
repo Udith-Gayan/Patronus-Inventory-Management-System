@@ -26,7 +26,12 @@ export class HttpService {
     return this.http.get(Constants.EMPLOYEE_API+'/all')
   }
 
-  deleteEmployee(employee :Employee){
-    return this.http.delete(Constants.EMPLOYEE_API+'/delete',Constants.HTTP_OPTIONS);
+  
+
+
+//dlete employee
+
+deleteEmployee(employee :Employee){
+    return this.http.delete(Constants.EMPLOYEE_API+'/delete'+'?nic='+ employee.nic,Constants.HTTP_OPTIONS);
   }
 }

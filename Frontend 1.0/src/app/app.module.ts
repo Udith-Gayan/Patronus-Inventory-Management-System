@@ -95,6 +95,8 @@ import { ViewAllAssetDetailComponent } from './PopupModals/view-all-asset-detail
   bootstrap: [AppComponent],
   entryComponents: [
     BookingAssetModalComponent,
-    ViewAllEmpDelailComponent]
+    ViewAllEmpDelailComponent,
+    ViewAllAssetDetailComponent
+  ]
 })
 export class AppModule { }
