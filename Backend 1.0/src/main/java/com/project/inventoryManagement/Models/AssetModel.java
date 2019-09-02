@@ -65,7 +65,7 @@ public class AssetModel  {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "requestedAsset",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)                                          //(cascade = CascadeType.REMOVE, orphanRemoval=true) delete child entities
+    @OneToMany(mappedBy = "requestedAsset",fetch = FetchType.LAZY)                                          //(cascade = CascadeType.REMOVE, orphanRemoval=true) delete child entities
     private List<AssignModel> assigning;
 
     @JsonIgnore

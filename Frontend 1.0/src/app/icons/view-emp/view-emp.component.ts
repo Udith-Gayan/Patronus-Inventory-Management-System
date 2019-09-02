@@ -28,15 +28,20 @@ export class ViewEmpComponent implements OnInit {
 
     })
   }
-  deleteEmployee(d){
-    this.emp.deleteEmployee(d.nic).subscribe((data) => {
-     
-      this.employees.splice(this.employees.indexOf(d),1);
-    },(error)=>{
-      console.log(error);
-    });
-  }
 
+  ////////////////////////////////////////////////////////////////////////////
+  deleteEmployee(nic){
+    this.emp.deleteEmployee(nic).subscribe((data) => {
+
+                                                       // this.employees.splice(this.employees.indexOf(d),1);
+                                                       console.log(data);
+                                                         },
+                                                         (error)=>{
+                                                                    console.log(error);
+                                                                  }
+                                              );
+  }
+///////////////////////////////////////////////////////////////////////////////
   editButtonEmployee(epmId:number){
     this._router.navigate(['/edit', epmId]);
 
@@ -48,14 +53,14 @@ export class ViewEmpComponent implements OnInit {
   ////
   openFormModal(nic,firstname,email,lastname,gender,contactNo,address,employeeId) {
     const modalRef = this.modalService.open(ViewAllEmpDelailComponent);
-    modalRef.componentInstance.nic = nic; 
-    modalRef.componentInstance.lastname = lastname;  
+    modalRef.componentInstance.nic = nic;
+    modalRef.componentInstance.lastname = lastname;
     modalRef.componentInstance.email = email;
     modalRef.componentInstance.gender = gender;
     modalRef.componentInstance.contactNo = contactNo;
     modalRef.componentInstance.address = address;
-    
-    modalRef.componentInstance.employeeId = employeeId;  
+
+    modalRef.componentInstance.employeeId = employeeId;
     modalRef.componentInstance.firstname = firstname;    // Pass vallue to other form component
 
     modalRef.result.then((result) => {
