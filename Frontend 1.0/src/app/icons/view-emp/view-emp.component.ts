@@ -32,30 +32,20 @@ export class ViewEmpComponent implements OnInit {
     })
   }
 
- 
+  ////////////////////////////////////////////////////////////////////////////
+  deleteEmployee(nic){
+    this.emp.deleteEmployee(nic).subscribe((data) => {
 
-  //delete Employee
-  deleteEmployee(employee :Employee){
-    this.emp.deleteEmployee(employee).subscribe(data => {
-      
-     
-      this.employees = this.employees.filter(u => u !== employee);
-      console.log(data);
-      alert('Employee Delete Successfully');
-    },(error)=>{
-      console.log(error);
-    });
+                                                       // this.employees.splice(this.employees.indexOf(d),1);
+                                                       console.log(data);
+                                                       alert("Successfully deleted");
+                                                         },
+                                                         (error)=>{
+                                                                    console.log(error);
+                                                                  }
+                                              );
   }
-
-  //Update employeee
-
-  /*update(): void {
-    this.submitted = true;
-    this.emp.updateEmployee(this.employees)
-        .subscribe(() => this.message = "Customer Updated Successfully!");
-  }*/
-
-  //Asset Boking
+///////////////////////////////////////////////////////////////////////////////
   editButtonEmployee(epmId:number){
     this._router.navigate(['/edit', epmId]);
 
@@ -67,14 +57,14 @@ export class ViewEmpComponent implements OnInit {
   ////
   openFormModal(nic,firstname,email,lastname,gender,contactNo,address,employeeId) {
     const modalRef = this.modalService.open(ViewAllEmpDelailComponent);
-    modalRef.componentInstance.nic = nic; 
-    modalRef.componentInstance.lastname = lastname;  
+    modalRef.componentInstance.nic = nic;
+    modalRef.componentInstance.lastname = lastname;
     modalRef.componentInstance.email = email;
     modalRef.componentInstance.gender = gender;
     modalRef.componentInstance.contactNo = contactNo;
     modalRef.componentInstance.address = address;
-    
-    modalRef.componentInstance.employeeId = employeeId;  
+
+    modalRef.componentInstance.employeeId = employeeId;
     modalRef.componentInstance.firstname = firstname;    // Pass vallue to other form component
 
     modalRef.result.then((result) => {

@@ -29,5 +29,7 @@ export class HttpService {
   bookAsset(bookasset : BookAsset){
     return this.http.post(Constants.BASE_URL+'/assign/request/add',bookasset,Constants.HTTP_OPTIONS);
   }
-
+  deleteasset(assetId){                              // deleteEmployee(employee :Employee){
+    return this.http.delete(Constants.ASSET_API+'/delete',{params: {assetId: assetId}, observe: 'response'});    // return this.http.delete(Constants.EMPLOYEE_API+'/delete',Constants.HTTP_OPTIONS);
+  }
 }

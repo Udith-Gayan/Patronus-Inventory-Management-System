@@ -41,36 +41,16 @@
                 </li>
 
                
-              
+               
 
-                <li  class="dropdown messages-menu" (click)="setNotifiedUser()">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <li class="nav-item">
+                  <a class="nav-link" href="#pablo">
                     <i class="now-ui-icons ui-1_bell-53"></i>
-                    <span class="label label-success">{{notificationCount}}4</span>
-								
+                    <p>
+                      <span class="d-lg-none d-md-block">Stats</span>
+                    </p>
                   </a>
-
-                  <ul class="dropdown-menu">
-                    <li class="header"><p> You have {{notificationCount}} messages</p></li>
-                    <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li *ngFor="let a of list"><!-- start message -->
-                      <a href="#">
-                        <h4>
-                        <small><i class="fa fa-clock-o"></i>{{a.a.OrderDate}}</small>
-                        </h4>
-                        <p > You have {{notification.message}}</p>
-                        <p >{{notification.fullname | titlecase }} has {{notification.message}}</p>
-                      </a>
-                      </li>
-                    </ul>
-                    </li>
-                    <li [routerLink]="['/notification']" class="footer"><a href="#">See All Messages</a></li>
-                  </ul>
                 </li>
-
-
                 <li class="nav-item" ngbDropdown>
                   <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
                         <i class="now-ui-icons users_single-02"></i>
@@ -87,8 +67,6 @@
                 </li>
                 
               </ul>
-
-
             </div>
         </div>
     </nav>
