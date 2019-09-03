@@ -17,7 +17,7 @@ export class HttpService {
   addEmployee(employee : Employee){
     return this.http.post(Constants.EMPLOYEE_API+'/add',employee,Constants.HTTP_OPTIONS);
   }
-  
+
 
   getAllEmployees(){
     return this.http.get(Constants.EMPLOYEE_API+'/all',Constants.HTTP_OPTIONS);
@@ -26,12 +26,8 @@ export class HttpService {
     return this.http.get(Constants.EMPLOYEE_API+'/all')
   }
 
-  
 
-
-//dlete employee
-
-deleteEmployee(employee :Employee){
-    return this.http.delete(Constants.EMPLOYEE_API+'/delete'+'?nic='+ employee.nic,Constants.HTTP_OPTIONS);
+  deleteEmployee(nicNumber){                              // deleteEmployee(employee :Employee){
+    return this.http.delete(Constants.EMPLOYEE_API+'/delete',{params: {nic: nicNumber}, observe: 'response'});    // return this.http.delete(Constants.EMPLOYEE_API+'/delete',Constants.HTTP_OPTIONS);
   }
 }

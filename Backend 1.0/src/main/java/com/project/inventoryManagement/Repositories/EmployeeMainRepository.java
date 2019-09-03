@@ -4,6 +4,8 @@ import com.project.inventoryManagement.Models.EmployeeMainModel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
 
 @Repository
 public interface EmployeeMainRepository extends CrudRepository<EmployeeMainModel, Long> {
@@ -15,5 +17,6 @@ public interface EmployeeMainRepository extends CrudRepository<EmployeeMainModel
 
     EmployeeMainModel findByNic(String nic);
 
+    @Transactional
     void deleteByNic(String nic);
 }

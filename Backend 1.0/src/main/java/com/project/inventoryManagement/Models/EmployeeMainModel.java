@@ -57,13 +57,13 @@ public class EmployeeMainModel implements Serializable {
   //  private byte[] img;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "userAssigned", cascade=CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "userAssigned", cascade=CascadeType.ALL,fetch = FetchType.LAZY)
     private List<AssignModel> assign;
 
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "informedBy", cascade=CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "informedBy", fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Breakdown> reportedDamages;
     /*************************************************************************/
     //constructors
