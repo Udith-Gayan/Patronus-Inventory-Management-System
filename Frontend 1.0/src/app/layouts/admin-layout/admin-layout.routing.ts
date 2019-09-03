@@ -19,6 +19,12 @@ import { ComputerComponent } from '../../AssetCatagary/computer/computer.compone
 import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
 import { TestshowComponent } from '../../firebase/testshow/testshow.component';
 import { View2EmpComponent } from '../../icons/view2-emp/view2-emp.component';
+import { ViewComputerComponent } from '../../AssetCatagary/ViewAsset/view-computer/view-computer.component';
+import { ViewFurnitureComponent } from '../../AssetCatagary/ViewAsset/view-furniture/view-furniture.component';
+import { ViewProjectreComponent } from '../../AssetCatagary/ViewAsset/view-projectre/view-projectre.component';
+import { VComputerComponent } from '../../viewAllAssetCatagary/vcomputer/vcomputer.component';
+import { VFurnitureComponent } from '../../viewAllAssetCatagary/vfurniture/vfurniture.component';
+import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vprojecter.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown', component: DashboardComponent },
@@ -86,7 +92,25 @@ export const AdminLayoutRoutes: Routes = [
     ]
     
     },
-    { path: 'table-list', component: TableListComponent },
+    { path: 'table-list', component: TableListComponent ,
+        children:[
+            {
+                path:'computerView',
+                component:VComputerComponent
+            },
+            {
+                path:'FurnitureView',
+                component:VFurnitureComponent
+            },
+            {
+                path:'projecterView',
+                component:VProjecterComponent
+            },
+        ]
+
+
+    },
+
     { path: 'typography', component: TypographyComponent },
     {
         path: 'employee', component: IconsComponent,

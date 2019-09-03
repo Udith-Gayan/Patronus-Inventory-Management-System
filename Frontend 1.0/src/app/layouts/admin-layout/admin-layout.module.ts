@@ -29,6 +29,12 @@ import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
 import { View2EmpComponent } from '../../icons/view2-emp/view2-emp.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ConfirmPassword } from '../../models/ConfirmePassword';
+import { ViewComputerComponent } from '../../AssetCatagary/ViewAsset/view-computer/view-computer.component';
+import { ViewFurnitureComponent } from '../../AssetCatagary/ViewAsset/view-furniture/view-furniture.component';
+import { ViewProjectreComponent } from '../../AssetCatagary/ViewAsset/view-projectre/view-projectre.component';
+import { VComputerComponent } from '../../viewAllAssetCatagary/vcomputer/vcomputer.component';
+import { VFurnitureComponent } from '../../viewAllAssetCatagary/vfurniture/vfurniture.component';
+import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vprojecter.component';
 
 
 @NgModule({
@@ -66,7 +72,13 @@ import { ConfirmPassword } from '../../models/ConfirmePassword';
     EmployeeFilterPipe,
     AssetFilterPipe,
     View2EmpComponent,
-    ConfirmPassword
+    ConfirmPassword,
+    ViewComputerComponent,
+    ViewProjectreComponent,
+    ViewFurnitureComponent,
+    VComputerComponent,
+    VFurnitureComponent,
+    VProjecterComponent
     
 
     
