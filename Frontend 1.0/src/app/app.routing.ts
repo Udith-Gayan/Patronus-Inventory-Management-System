@@ -61,7 +61,12 @@ const routes: Routes =[
     path:"list",
     component:LoginComponent
 
-  }
+  },
+
+
+
+
+
 
 
 ];

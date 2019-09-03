@@ -27,8 +27,10 @@ import { BookAssetComponent } from '../../EMPLOYEE_DASHBOARD/book-asset/book-ass
 
       AComponent,
       AssetComponent,
+    
+      BookAssetComponent,
+     
 
-      BookAssetComponent
 
 
 

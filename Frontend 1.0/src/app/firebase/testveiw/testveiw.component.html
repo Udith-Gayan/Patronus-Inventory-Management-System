@@ -1,3 +1,29 @@
+<li class="dropdown messages-menu" (click)="setNotifiedUser()">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+     <i class="now-ui-icons ui-1_bell-53"></i>
+    <span class="label label-success">{{notificationCount}}</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li class="header"><p> You have {{notificationCount}} messages</p></li>
+    <li>
+    <!-- inner menu: contains the actual data -->
+    <ul class="menu">
+      <li *ngFor="let  of list"><!-- start message -->
+      <a href="#">
+        <h4>
+        <small><i class="fa fa-clock-o"></i>{{timeList[in]}}</small>
+        </h4>
+        <p *ngIf="(username == notification.username)"> You have {{notification.message}}</p>
+        <p *ngIf="(username !== notification.username)">{{notification.fullname | titlecase }} has {{notification.message}}</p>
+      </a>
+      </li>
+    </ul>
+    </li>
+    <li [routerLink]="['/notification']" class="footer"><a href="#">See All Messages</a></li>
+  </ul>
+  </li>
+
+
 <table class="table table-condensed">
     <thead class="black white-text">
         <tr  class="table-primary">

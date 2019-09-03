@@ -32,7 +32,14 @@ export class TestveiwComponent implements OnInit {
       this.firestore.doc('employeee/'+id).delete();
     }
 
+    
+
   }
+
+
+
+
+  
 
 
 }
