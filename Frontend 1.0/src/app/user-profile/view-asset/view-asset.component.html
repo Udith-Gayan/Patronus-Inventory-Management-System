@@ -24,7 +24,7 @@
               
           <option value="Computer" >Computer</option>
           <option value="Furniture" >Furniture</option>
-          <option value="CPU" >CPU</option>
+          <option value="Projector" >Projector</option>
           <option value="Printer" >Printer</option>
           <option value="TV" >TV</option>
             
@@ -52,7 +52,7 @@
               
           <option value="Computer" >Computer</option>
           <option value="Furniture" >Furniture</option>
-          <option value="Furniture" >CPU</option>
+          <option value="Projector" >Projector</option>
           <option value="Furniture" >Printer</option>
           <option value="Furniture" >TV</option>
             
@@ -64,22 +64,27 @@
 
 
 <router-outlet></router-outlet>
-<div class="row" >
+
+<div  *ngFor="let d of data |  assetfilter : searchTerm">
+    <div class="card-body" *ngIf= "d.assetCategory == 'Computer'" > 
+<div class="card" style="background-color: rgb(62, 101, 138);height: 4cm;" >
+    
+<div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+           
+    <div class="card-body text-primary">
+        <img src="assets/img/home.jpg" 
+        alt="photo">
+    </div>
+  </div>
+
+ 
+
+
 
   <!-- Grid column -->
-  <div class="col-lg-4 col-md-12"   *ngFor="let d of data |  assetfilter : searchTerm" >
-
+  
     <!--Card-- *ngIf= "d.assetCategory == 'Computer'"-->
-    <div class="card"  >
-
-      <!--Card image-->
-      <div class="view">
-        <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" class="card-img-top"
-          alt="photo">
-        <a href="#">
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
+   
 
       <!--Card content-->
       <div class="card-body" >
@@ -87,29 +92,123 @@
         <tr >
         <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
         <h6 class="card-text"> Brand name :    {{d.ram}}</h6>
-        <h6 class="card-title"> DATE:         {{d.assetCategory}}</h6>
+        <h6 class="card-title"> Asset Category:         {{d.assetCategory}}</h6>
         <h6 class="card-title">Description:   {{d.description}}</h6>
 
 
 
-
+      </div>
+      
 
         <!--Text-->
-
+        <div class="card-body">
         <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.ram)" >Book Asset</a>                <!--pop up for booking-->
-        <a href="#" class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
-        <a href="#" class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
+        <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+        <a  class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
         
-        <a href="" routerLink="/asset/view-asset/more">more   </a>
+        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetCategory)">More Detail </a>
 
-      </div>
+        </div>
 
 
     </div>
     <!--/.Card-->
-
+    </div>
   </div>
   <!-- Grid column -->
 
+
+
+  <!-- -->
+  <!---->
+  <!---->
+
+  <div class="card-body" *ngIf= "d.assetCategory == 'Furniture'" > 
+      <div class="card" style="background-color: rgb(143, 166, 187);height: 4cm;" >
+          
+      <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+                 
+          <div class="card-body text-primary">
+              <img src="assets/img/furniture.jpeg" 
+              alt="photo">
+          </div>
+        </div>
+      
+       
+      
+      
+      
+        <!-- Grid column -->
+        
+          <!--Card-- *ngIf= "d.assetCategory == 'Computer'"-->
+         
+      
+            <!--Card content-->
+            <div class="card-body" >
+              <!--Title-->
+              <tr >
+              <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+              <h6 class="card-text"> Asset Catagery :    {{d.assetCategory}}</h6>
+             
+            </div>
+            
+      
+              <!--Text-->
+              <div class="card-body">
+              <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.ram)" >Book Asset</a>                <!--pop up for booking-->
+              <a  class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+              <a  class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
+              
+              <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetCategory)">More Detail </a>
+      
+              </div>
+      
+      
+          </div>
+          <!--/.Card-->
+          </div>
+        </div>
+<!--Projector card-->
+
+        <div class="card-body" *ngIf= "d.assetCategory == 'Projector'" > 
+            <div class="card" style="background-color: rgb(141, 191, 238);height: 4cm;" >
+                
+            <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+                       
+                <div class="card-body text-primary">
+                    <img src="assets/img/printer.jpg" 
+                    alt="photo">
+                </div>
+              </div>
+                  <div class="card-body" >
+                    <!--Title-->
+                    <tr >
+                    <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+                    <h6 class="card-text"> Brand name :    {{d.ram}}</h6>
+                    <h6 class="card-title"> Asset Category:         {{d.assetCategory}}</h6>
+                    <h6 class="card-title">Description:   {{d.description}}</h6>
+
+            
+                  </div>
+                  
+            
+                    <!--Text-->
+                    <div class="card-body">
+                    <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.ram)" >Book Asset</a>                <!--pop up for booking-->
+                    <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+                    <a  class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
+                    
+                    <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetCategory)">More Detail </a>
+            
+                    </div>
+            
+            
+                </div>
+                <!--/.Card-->
+                </div>
+              </div>
+
+
+</div>
 
   

@@ -12,7 +12,7 @@ export class EmployeeFilterPipe implements PipeTransform{
             return data ;
         }
         return data.filter(employee=>
-            employee.firstname.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
+            employee.nic.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
 
     }
 }

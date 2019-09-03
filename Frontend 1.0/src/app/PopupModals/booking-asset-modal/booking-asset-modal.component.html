@@ -16,15 +16,30 @@
 
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" 
+        <input type="text"  [(ngModel)]="bookasset.username"
           class="form-control"
           formControlName="username" />
       </div>
-
       <div class="form-group">
-        <label for="msg">Message</label>
-        <input type="text" class="form-control">
-      </div>
+          <label for="beginDate">Begin Date</label>
+          <input type="date"  [(ngModel)]="bookasset.beginDate" BsDaterangepicker
+            class="form-control"
+            formControlName="beginDate" />
+        </div>
+        <div class="form-group">
+            <label for="dueDate">Return Date</label>
+            <input type="date" [(ngModel)]="bookasset.dueDate"
+              class="form-control" 
+              formControlName="dueDate" />
+          </div>
+          <div class="form-group">
+              <label for="massege">Description</label>
+              <input type="text" [(ngModel)]="bookasset.massege"
+                class="form-control" 
+                formControlName="massege" />
+            </div>
+
+     
 
     </div>
   </div>

@@ -5,6 +5,7 @@ import { Asset } from '../../asset/asset';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpService } from '../../service2/http.service';
+import { ViewAllAssetDetailComponent } from '../../PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 
 @Component({
   selector: 'app-view-asset',
@@ -50,9 +51,12 @@ export class ViewAssetComponent implements OnInit {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //view more detail of Asset
 
-openDetailModal(assetId){
-  const modalRef = this.modalService.open(BookingAssetModalComponent);
-    modalRef.componentInstance.assetId = assetId; 
+openDetailModal(assetId,ram,capacity,assetCategory){
+  const modalRef = this.modalService.open(ViewAllAssetDetailComponent);
+    modalRef.componentInstance.assetId = assetId;
+    modalRef.componentInstance.ram = ram; 
+    modalRef.componentInstance.capacity = capacity;
+    modalRef.componentInstance.assetCategory = assetCategory;
      // Pass vallue to other form component
 
     modalRef.result.then((result) => {

@@ -17,6 +17,9 @@ export class ViewEmpComponent implements OnInit {
   data: Observable<Employee[]>;
   employees: Employee[];
   searchTerm :string;
+
+  submitted = false;
+  message: string;
   constructor(private emp:HttpService ,private _router : Router, private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -28,15 +31,31 @@ export class ViewEmpComponent implements OnInit {
 
     })
   }
-  deleteEmployee(d){
-    this.emp.deleteEmployee(d.nic).subscribe((data) => {
+
+ 
+
+  //delete Employee
+  deleteEmployee(employee :Employee){
+    this.emp.deleteEmployee(employee).subscribe(data => {
+      
      
-      this.employees.splice(this.employees.indexOf(d),1);
+      this.employees = this.employees.filter(u => u !== employee);
+      console.log(data);
+      alert('Employee Delete Successfully');
     },(error)=>{
       console.log(error);
     });
   }
 
+  //Update employeee
+
+  /*update(): void {
+    this.submitted = true;
+    this.emp.updateEmployee(this.employees)
+        .subscribe(() => this.message = "Customer Updated Successfully!");
+  }*/
+
+  //Asset Boking
   editButtonEmployee(epmId:number){
     this._router.navigate(['/edit', epmId]);
 

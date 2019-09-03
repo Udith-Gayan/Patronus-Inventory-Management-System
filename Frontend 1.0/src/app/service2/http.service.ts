@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Constants } from '../asset/constants';
 import { Asset } from '../asset/asset';
 import { Observable } from 'rxjs';
+import { BookAsset } from '../models/BookAssetModel';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,12 @@ export class HttpService {
 
   getAllAssets(): Observable<any>{
     return this.http.get(Constants.ASSET_API+'/all')
+  }
+
+  //Book Asset
+
+  bookAsset(bookasset : BookAsset){
+    return this.http.post(Constants.BASE_URL+'/assign/request/add',bookasset,Constants.HTTP_OPTIONS);
   }
 
 }

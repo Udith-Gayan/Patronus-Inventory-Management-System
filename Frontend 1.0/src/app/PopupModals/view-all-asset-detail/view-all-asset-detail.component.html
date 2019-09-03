@@ -1,5 +1,6 @@
 <div class="modal-header">
-    <h4 class="modal-title">Booking</h4>
+    <h4 class="modal-title">{{assetCategory}}</h4>
+    <h4 class="modal-title">{{assetId}}</h4>
    <!-- <button></button> -->
   
       <a  class="close" (click)="activeModal.dismiss('Cross click')"></a>
@@ -10,27 +11,21 @@
       <div class="container">
   
           <div class="form-groupp">                                                       <!--Changed here-->
-              <label for="assetId">Asset Id : <b>{{assetId}}</b>  </label>
+              <label for="assetId">Asset Id : <b>{{assetId}}</b>  </label> <br><br>
+              <label for="assetId">Capacity : <b>{{capacity}}</b>  </label> <br><br>
+              <label for="assetId">Rsm : <b>{{ram}}</b>  </label> <br><br>
+              <label for="assetId">Rsm : <b>{{ram}}</b>  </label> <br><br>
+              <label for="assetId">Rsm : <b>{{ram}}</b>  </label> <br><br>
             </div>
   
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text"
-            class="form-control"
-            formControlName="username" />
-        </div>
-  
-        <div class="form-group">
-          <label for="msg">Message</label>
-          <input type="text" class="form-control">
-        </div>
+        
   
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-success"
-        [disabled]="!myForm.valid">
-        Submit Form
+      <button class="btn btn-success"  style="background-color: crimson"
+        [disabled]="!myForm.valid" >
+       Cancel
       </button>
     </div>
   </form>
