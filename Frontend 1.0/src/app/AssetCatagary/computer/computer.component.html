@@ -2,7 +2,7 @@
    
             <header class="card-header">
                                             
-                    <h4 class="card-title mt-2">computer Register</h4>
+                    <h4 class="card-title mt-2">computer Registration</h4>
                   </header>
                   
                   
@@ -25,7 +25,7 @@
                                       <option value="LENOVO" >LENOVO</option>
                                       
                                     </select>
-                                    <div class ="Inavalid feedback">
+                                    <div class ="Inavalid feedback" style="color:red">
                                         <div>Brandanme is required</div>
                                     </div>
                                     
@@ -47,7 +47,7 @@
                               
                        
                         <div class="form-group">
-                            <label for="username" class="cols-sm-2 control-label">date</label>
+                            <label for="username" class="cols-sm-2 control-label">Date</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     
@@ -58,11 +58,16 @@
   
                         
                         <div class="form-group">
-                            <label for="price" class="cols-sm-2 control-label">price</label>
+                            <label for="price" class="cols-sm-2 control-label">Price</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"></span>
-                                    <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="asset.assetId" placeholder="Enter Price" />
+                                    
+                                    
+                                    <span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="asset.price"   #price="ngModel" placeholder="Enter the price"  required address/>
+                                    <span class="help-block" *ngIf="price.errors && price.errors.required && price.touched" style="color:red">
+                                        Price is required
+                                        </span>
                                 </div>
                             </div>
                         </div>
@@ -70,10 +75,10 @@
                          <!-- Default checked -->
                         <div class="form-row">
                             <div class="col-md-5 mb-3">
-                                    <label for="brandName" class="cols-sm-2 control-label">Warranty Period</label>
+                                    <label for="Warranty" class="cols-sm-2 control-label">Warranty Period</label>
                            
-                                
-                                    <select name="brandName" id="brandName" class="form-control"  placeholder="" >
+                                    <select name="Warranty" id="Warranty" class="form-control" [(ngModel)]="model.Warranty">
+                                   
                                     <option value="HP" >0</option>
                                       <option value="DELL" >1</option>
                                       <option value="ASUUS" >2</option>
@@ -82,6 +87,12 @@
                                       <option value="LENOVO" >5</option>
                                       
                                     </select>
+                                   
+                                <div class ="Inavalid feedback" style="color:red">
+                                    <div>Warranty Period is required</div>
+                                </div>
+                                
+                                 
                             </div>
                         </div>
                               
@@ -160,7 +171,7 @@
                            
                             <div class="col-md-5 mb-3">
                                     <label for="Capacity" class="cols-sm-2 control-label">Capacity</label>
-                           
+                                 
                                 
                                     <select name="Capacity" id="Capacity" class="form-control" [(ngModel)]="asset.capacity" placeholder="Enter Brand Name">
                                       <option value="2TB" >1TB</option>
@@ -168,6 +179,9 @@
                                       <option value="2TB" >3TB</option>
                                       <option value="2TB" >4TB</option>
                                     </select>
+                                    <div class ="Inavalid feedback" style="color:red">
+                                        <div>Capacity is required</div>
+                                    </div>
                             </div>
                            
                           </div>
@@ -183,7 +197,9 @@
                                           <option value="6GB" >6GB</option>
                                           <option value="8GB" >8GB</option>
                                         </select> 
-                                        
+                                        <div class ="Inavalid feedback" style="color:red">
+                                            <div>Ram size is required</div>
+                                        </div>
                                 </div>
                                 
                                 <div class="col-md-5 mb-3">
@@ -196,6 +212,9 @@
                                           <option value="Asser" >i3</option>
                                           <option value="Dell" ></option>
                                         </select>
+                                        <div class ="Inavalid feedback" style="color:red">
+                                            <div>Processor size is required</div>
+                                        </div>
                                 </div>
                                
                               </div>
