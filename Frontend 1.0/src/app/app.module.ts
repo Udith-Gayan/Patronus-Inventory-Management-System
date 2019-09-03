@@ -37,6 +37,8 @@ import { EmpCompenentModule } from './components/Emp-components/emp-components.m
 import { BookingAssetModalComponent } from './PopupModals/booking-asset-modal/booking-asset-modal.component';
 import { ViewAllEmpDelailComponent } from './PopupModals/view-all-emp-delail/view-all-emp-delail.component';
 import { ViewAllAssetDetailComponent } from './PopupModals/view-all-asset-detail/view-all-asset-detail.component';
+import { VFurnitureComponent } from './viewAllAssetCatagary/vfurniture/vfurniture.component';
+import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecter.component';
 
 
 
@@ -81,6 +83,10 @@ import { ViewAllAssetDetailComponent } from './PopupModals/view-all-asset-detail
     BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
+   
+    
+   
+    
 
 
 

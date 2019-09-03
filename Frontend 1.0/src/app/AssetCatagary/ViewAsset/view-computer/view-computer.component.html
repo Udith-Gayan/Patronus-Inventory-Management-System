@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary" >
+              <th>
+               <b>Asset Id</b>
+              </th>
+              <th>
+                  <b> Asset Cateogory</b>
+              </th>
+              <th>
+                <b> Brand Name </b>
+              </th>
+              <th>
+                <b>Bought Company Name</b>
+              </th>
+              <th >
+               <b> Buying Price</b>
+              </th>
+              <th>
+               <b> warranty Status</b>
+              </th>
+             
+             
+            </thead>
+            <tbody>
+                <tr *ngFor="let d of data" >
+                
+                    <td>{{d.assetId}}</td>
+                    <td>{{d.assetCategory}}</td>
+                    <td>{{d.brandName}}</td>
+                    <td>{{d.boughtCompanyName}}</td>
+                    <td>{{d.buyingPrice}}</td>
+                    <td>{{d.warrantyStatus}}</td>
+                 
+                </tr>
+
+                <tr *ngFor="let d of data">
+                    <div style="background-color: burlywood" *ngIf="d.assetCategory == 'Furniture'">
+                      <td>{{d.assetId}}</td>
+                      <td></td>
+                      <td>{{d.assetCategory}}</td>
+                      <td>{{d.brandName}}</td>
+                      <td>{{d.boughtCompanyName}}</td>
+                      <td>{{d.buyingPrice}}</td>
+                      <td>{{d.warrantyStatus}}</td>
+                    </div>
+                  </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    <div class="row justify-content-center">
+     <div class="col-md-11">
+      
+     </div>                              
+ </div>
+</div>

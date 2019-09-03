@@ -40,7 +40,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" #email="ngModel" placeholder="Enter your Email" required email/>
+                                    <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="employee.email" #email="ngModel" placeholder="Enter your Email" required email/> 
                                     <span class="help-block" *ngIf="email.errors && email.errors.required && email.touched" style="color:red">
                                         Email is required
                                     </span>

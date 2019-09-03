@@ -15,55 +15,30 @@
           
             <div class="card">
               <div class="card-header">
-                <h3>Company Asset</h3>
-                
-                 <div class="container">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                          <table class="table">
-                            <thead class=" text-primary">
-                              <th>
-                               <b>Asset Id</b>
-                              </th>
-                              <th>
-                                  <b> Asset Cateogory</b>
-                              </th>
-                              <th>
-                                <b> Brand Name </b>
-                              </th>
-                              <th>
-                                <b>Bought Company Name</b>
-                              </th>
-                              <th >
-                               <b> Buying Price</b>
-                              </th>
-                              <th>
-                               <b> warranty Status</b>
-                              </th>
-                             
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let d of data">
-                                    <td>{{d.assetId}}</td>
-                                    <td>{{d.assetCategory}}</td>
-                                    <td>{{d.brandName}}</td>
-                                    <td>{{d.boughtCompanyName}}</td>
-                                    <td>{{d.buyingPrice}}</td>
-                                    <td>{{d.warrantyStatus}}</td>
-                                    
-                                </tr>
-                        
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-        
-                    <div class="row justify-content-center">
-                     <div class="col-md-11">
-                       <router-outlet></router-outlet>
-                     </div>                              
-                 </div>
-                </div>
+                <h3>Company All Asset</h3>
+
+                <nav class="navbar navbar-light" style="background-color: #77a5c5;">
+                    <h5>Asset Category</h5>
+                      <a class="navbar-brand" href="" routerLink="/table-list/computerView">
+                       <img src="assets/img/laptop.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                         Computer
+                      </a>
+                      <a class="navbar-brand" href="#"  routerLink="/table-list/projecterView">
+                        <img src="assets/img/printer.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                         Projecter
+                       </a>
+                      <a class="navbar-brand"  href="#" routerLink="/table-list/FurnitureView">
+                        <img src="assets/img/furniture.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
+                          Furniture
+                       </a>
+                            
+                      <a class="navbar-brand" href="#"  routerLink="/table-list/registor-asset/other">
+                        <img src="assets/img/scanner.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                        Others
+                        </a>
+                      </nav> 
+                      <router-outlet></router-outlet>
+               
             </div>
           </div>
         </div>
