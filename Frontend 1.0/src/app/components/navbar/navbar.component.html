@@ -42,15 +42,70 @@
 
                
                
-
-                <li class="nav-item">
+<!--
+                <li class="dropdown messages-menu">
                   <a class="nav-link" href="#pablo">
-                    <i class="now-ui-icons ui-1_bell-53"></i>
-                    <p>
-                      <span class="d-lg-none d-md-block">Stats</span>
-                    </p>
+                    <i class="now-ui-icons ui-1_bell-53">{{data}}</i>
+                   
                   </a>
-                </li>
+                </li> 
+-->
+                <!--notification-->
+                <li class="nav-item" ngbDropdown>
+                    <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+                        <i class="now-ui-icons ui-1_bell-53"><p style="color: red">{{data}}</p></i>
+                     
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 10cm;background-color: rgb(109, 113, 117);height: 12cm;">
+                        
+                        
+                            
+                             
+                        <div class="container" >
+                          <div class="row"  style="background-color: rgb(124, 144, 150)">
+                            <div class="col-md-6">
+                              <div class="panel panel-primary">
+                                <div class="panel-heading" >
+                                  <h6 class="panel-title" style="color: rgb(10, 48, 161)">Notification {{data}} </h6>
+                                  <p>You have</p>
+                                  <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                                </div>
+                               
+                              </div>
+                            </div>
+                          </div>
+                          <div class="table-responsive" style="height: 10cm">
+                          <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
+                              <button type="button" class="list-group-item list-group-item-action" style="height: 2cm">
+                          <div class="row" >
+                              <div class="col-md-6">
+                                <div class="panel panel-primary">
+                                  <div class="panel-heading" >
+                                    
+                                    <p class="panel-title" style="color: rgb(8, 8, 8)">{{a.AssetCategory}}  orderd by {{a.OrderDate}} </p>
+                                   
+                                    <span class="pull-right" >view</span>
+                                 
+                                  </div>
+                                  <div class="card-footer bg-transparent border-success"> </div>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                          </button>
+                          </div>
+                          <a href="" style="color: rgb(6, 4, 20)">See All</a>
+                        </div>
+                      
+
+                        </div>
+                    </div>
+                  
+                  </li>
+
+
+                 
+                 <!--end-->
                 <li class="nav-item" ngbDropdown>
                   <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
                         <i class="now-ui-icons users_single-02"></i>
@@ -59,15 +114,18 @@
                     </p>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <a class="dropdown-item" href="#">Edit porfile</a>
-                    <a class="dropdown-item" href="#"  routerLink="/home">LogOut</a>
+                        <a class="dropdown-item" href="#" style="color: rgb(70, 82, 119)"> <b>Edit porfile</b> </a>
+                    <a class="dropdown-item" href="#"  routerLink="/home" style="color: rgb(70, 82, 119)"> <b>LogOut</b></a>
                   
-                    <a class="dropdown-item" href="#"></a>
+                    
                   </div>
                 </li>
+                
                 
               </ul>
             </div>
         </div>
     </nav>
+
+
     

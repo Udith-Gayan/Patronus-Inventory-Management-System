@@ -38,6 +38,7 @@ export class ViewEmpComponent implements OnInit {
 
                                                        // this.employees.splice(this.employees.indexOf(d),1);
                                                        console.log(data);
+                                                       alert("Successfully deleted");
                                                          },
                                                          (error)=>{
                                                                     console.log(error);

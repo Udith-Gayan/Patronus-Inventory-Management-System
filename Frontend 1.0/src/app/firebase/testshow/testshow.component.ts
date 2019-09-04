@@ -37,15 +37,13 @@ export class TestshowComponent implements OnInit {
     delete data.id;
     if(form.value.id == null){
       this.firestore.collection('employeee').add(data);
-      this.firestore.collection('notification').add({
-                                    fullname:JSON.parse(localStorage.getItem("currentUser")).firstname + JSON.parse(localStorage.getItem("currentUser")).lastname,
-                                    dateTime:this.datePipe.transform(now, "yyyy-MM-dd HH:mm"),
-                                    message:"edit gauge title",
-                                    });
+      
+     
   }
     else
       this.firestore.doc('employeee/'+form.value.id).update(data);
     this.resetForm(form);
+    
    alert('Are u sure Update');
 
   }

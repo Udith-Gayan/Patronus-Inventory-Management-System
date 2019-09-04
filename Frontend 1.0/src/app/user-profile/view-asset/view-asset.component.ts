@@ -66,4 +66,25 @@ openDetailModal(assetId,ram,capacity,assetCategory){
     });
 
 }
+
+
+///delete asset//
+deleteAsst(assetId){
+ 
+    this.asset.deleteasset(assetId).subscribe((data) => {
+
+                                                       // this.employees.splice(this.employees.indexOf(d),1);
+                                                       console.log(data);
+                                                       alert("Successfully deleted");
+                                                         },
+                                                         (error)=>{
+                                                                    console.log(error);
+                                                                  }
+                                              );
+ 
+  
+
+
+}
+
 }
