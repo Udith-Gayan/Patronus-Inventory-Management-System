@@ -5,37 +5,45 @@
     <a  class="close" (click)="activeModal.dismiss('Cross click')"></a>
 
 </div>
-<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+<form [formGroup]="myForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
   <div class="modal-boy">
     <div class="container">
+       
+        
+     
+
+      
+          
 
         <div class="form-groupp">                                                       <!--Changed here-->
             <label for="assetId">Asset Id : <b>{{assetId}}</b>  </label> <br> <br>
             <label for="assetId">Ram: <b>{{ram}}</b>  </label>
           </div>
+         
 
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text"  [(ngModel)]="bookasset.username"
-          class="form-control"
+       
+        <input   
+          class="form-control" name="AssetCategory" type="hidden"  [(ngModel)]="employee.AssetCategory"
           formControlName="username" />
       </div>
-      <div class="form-group">
-          <label for="beginDate">Begin Date</label>
-          <input type="date"  [(ngModel)]="bookasset.beginDate" BsDaterangepicker
-            class="form-control"
-            formControlName="beginDate" />
-        </div>
+     
+        <div class="form-group">
+            <label for="beginDate">Begin Date</label>
+            <input 
+              class="form-control" type="date" name="BrandName" [(ngModel)]="employee.BrandName"
+              formControlName="beginDate" />
+          </div>
         <div class="form-group">
             <label for="dueDate">Return Date</label>
-            <input type="date" [(ngModel)]="bookasset.dueDate"
+            <input type="date"   [(ngModel)]="employee.OrderDate"
               class="form-control" 
               formControlName="dueDate" />
           </div>
           <div class="form-group">
               <label for="massege">Description</label>
-              <input type="text" [(ngModel)]="bookasset.massege"
-                class="form-control" 
+              <input type="text" 
+                class="form-control"  
                 formControlName="massege" />
             </div>
 
@@ -44,7 +52,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-success"
+    <button class="btn btn-success" type="submit"
       [disabled]="!myForm.valid">
       Submit Form
     </button>

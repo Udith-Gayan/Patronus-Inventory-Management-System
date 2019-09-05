@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotifiService } from '../notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
+import { Employee } from '../model';
 
 @Component({
   selector: 'app-testshow',
@@ -10,8 +11,10 @@ import { NgForm } from '@angular/forms';
 })
 export class TestshowComponent implements OnInit {
   datePipe: any;
-
-  constructor(private ser : NotifiService,private firestore :AngularFirestore) { }
+  employee:Employee;
+  constructor(private ser : NotifiService,private firestore :AngularFirestore) { 
+    this.employee=new Employee();
+  }
 
 
   ngOnInit() {

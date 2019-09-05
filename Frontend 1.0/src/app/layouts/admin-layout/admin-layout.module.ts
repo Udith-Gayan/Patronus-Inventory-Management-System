@@ -35,6 +35,7 @@ import { ViewProjectreComponent } from '../../AssetCatagary/ViewAsset/view-proje
 import { VComputerComponent } from '../../viewAllAssetCatagary/vcomputer/vcomputer.component';
 import { VFurnitureComponent } from '../../viewAllAssetCatagary/vfurniture/vfurniture.component';
 import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vprojecter.component';
+import { BookingAssetModalComponent } from '../../PopupModals/booking-asset-modal/booking-asset-modal.component';
 
 
 @NgModule({
@@ -78,12 +79,15 @@ import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vproj
     ViewFurnitureComponent,
     VComputerComponent,
     VFurnitureComponent,
-    VProjecterComponent
+    VProjecterComponent,
+   
     
 
     
   
   ]
+ 
+
 })
 
 export class AdminLayoutModule {
