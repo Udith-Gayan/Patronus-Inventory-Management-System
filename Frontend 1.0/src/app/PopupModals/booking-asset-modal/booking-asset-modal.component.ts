@@ -15,6 +15,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class BookingAssetModalComponent implements OnInit {
   @Input() assetId: number;
+  
   myForm: FormGroup;
 
   bookasset: BookAsset;
@@ -58,7 +59,7 @@ private submitForm() {
 
  
 
-  this.bookservices.bookAsset(this.bookasset).subscribe((response) => {
+  this.bookservices.bookAsset(this.employee).subscribe((response) => {
     console.log(response);
     alert('Booking Successfully');
   });
@@ -82,6 +83,11 @@ resetForm(form ? : NgForm){
   }
 }
 onSubmit(form:NgForm){
+  this.bookservices.bookAsset(this.employee).subscribe((response) => {
+    console.log(response);
+    alert('Booking Successfully');
+  });
+  
   let now = new Date();
   console.log(this.employee);
 
@@ -89,6 +95,7 @@ onSubmit(form:NgForm){
   delete data.id;
   data.username=this.assetId;
   if(form.value.id == null){
+    alert('fill this feild');
     this.firestore.collection('employeee').add(data);
     
    
@@ -97,9 +104,10 @@ onSubmit(form:NgForm){
     this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
   this.resetForm(form);
   
- alert('Are u sure Update');
+ alert('Do you Want Book this One');
 
 }
+
 
 
 }

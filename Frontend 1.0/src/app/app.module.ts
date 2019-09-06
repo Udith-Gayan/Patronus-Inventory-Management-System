@@ -46,8 +46,6 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
 
 
 
-
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -84,9 +82,9 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
     BookAssetComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
-    BookingAssetModalComponent
-   
-    
+    BookingAssetModalComponent,
+  
+  
    
     
 

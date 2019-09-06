@@ -36,6 +36,8 @@ import { VComputerComponent } from '../../viewAllAssetCatagary/vcomputer/vcomput
 import { VFurnitureComponent } from '../../viewAllAssetCatagary/vfurniture/vfurniture.component';
 import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vprojecter.component';
 import { BookingAssetModalComponent } from '../../PopupModals/booking-asset-modal/booking-asset-modal.component';
+import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown/complain-breakedown.component';
+import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
 
 
 @NgModule({
@@ -80,6 +82,8 @@ import { BookingAssetModalComponent } from '../../PopupModals/booking-asset-moda
     VComputerComponent,
     VFurnitureComponent,
     VProjecterComponent,
+    ComplainBreakedownComponent,
+    ViewBreakedownComponent
    
     
 

@@ -37,10 +37,11 @@ export class ViewAssetComponent implements OnInit {
 ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
-  openFormModal(assetId,ram) {
+  openFormModal(assetId,assetCategory) {
     const modalRef = this.modalService.open(BookingAssetModalComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.ram = ram; 
+    modalRef.componentInstance.assetCategory = assetCategory; 
+   
 
     modalRef.result.then((result) => {
       console.log(result);

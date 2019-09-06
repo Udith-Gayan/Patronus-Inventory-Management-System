@@ -25,9 +25,28 @@ import { ViewProjectreComponent } from '../../AssetCatagary/ViewAsset/view-proje
 import { VComputerComponent } from '../../viewAllAssetCatagary/vcomputer/vcomputer.component';
 import { VFurnitureComponent } from '../../viewAllAssetCatagary/vfurniture/vfurniture.component';
 import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vprojecter.component';
+import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown/complain-breakedown.component';
+import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'breakdown', component: DashboardComponent },
+    { path: 'breakdown',
+     component: DashboardComponent,
+     children:[
+         {
+             path:'complainBreakedown',
+             component:ComplainBreakedownComponent
+
+         },
+         {
+             path:'viewBreakdownnotification',
+             component:ViewBreakedownComponent
+         }
+     ]
+    
+    
+    },
+
+
     { 
         path: 'asset', 
         component: UserProfileComponent ,
