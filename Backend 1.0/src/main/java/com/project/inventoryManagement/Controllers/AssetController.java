@@ -4,7 +4,7 @@ package com.project.inventoryManagement.Controllers;
 import com.project.inventoryManagement.Models.AssetModel;
 import com.project.inventoryManagement.Repositories.AssetRepository;
 import com.project.inventoryManagement.Repositories.IDNumberRepo;
-import com.project.inventoryManagement.Services.AssetRegistration;
+import com.project.inventoryManagement.Service.AssetRegistration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

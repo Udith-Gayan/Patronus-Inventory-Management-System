@@ -1,4 +1,4 @@
-package com.project.inventoryManagement.Services;
+package com.project.inventoryManagement.Service;
 
 import com.project.inventoryManagement.Models.AssetModel;
 import com.project.inventoryManagement.Repositories.AssetRepository;
