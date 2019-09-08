@@ -1,5 +1,7 @@
 package com.project.inventoryManagement.Controllers;
 
+import com.project.inventoryManagement.Models.EmployeeMainModel;
+import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
 import com.project.inventoryManagement.config.JwtTokenUtil;
 import com.project.inventoryManagement.Models.JwtRequest;
 import com.project.inventoryManagement.Models.JwtResponse;
@@ -27,13 +29,21 @@ public class JwtAuthenticationController {
     @Autowired
     private JwtUserDetailsService userDetailsService;
 
+    @Autowired
+    private EmployeeMainRepository employeeMainRepository;
+
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails);
-        return ResponseEntity.ok(new JwtResponse(token));
+
+        EmployeeMainModel thisUser = employeeMainRepository.findByEmail(authenticationRequest.getUsername());
+
+        final String status = thisUser.getStatus();     // added newly
+       // return ResponseEntity.ok(new JwtResponse(token));    // old
+        return ResponseEntity.ok(new JwtResponse(token, status));   // added newly
     }
 
 //////////////////////////////
