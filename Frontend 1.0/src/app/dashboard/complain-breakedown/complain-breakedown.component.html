@@ -1,33 +1,24 @@
 <html>
 
 <form  class="text-center border border-light p-5"  #form="ngForm" (submit)="onSubmit(form)">
-    <p class="h4 mb-4">Book Asset</p>
+    <p class="h4 mb-4">Inform BreakDown </p>
       <div class="col-md-4 mb-3">
           
-          <input class="form-control" type="hidden" #id="ngModel" name="id" [(ngModel)]="ser.FormData.id">
+          <input class="form-control" type="hidden" #id="ngModel" name="id" [(ngModel)]="ser.BreakDown.id">
       </div>
         
   
-      <label for="validationDefault01">Asset Category</label>
-      <input class="form-control mb-4" id="validationDefault01"name="AssetCategory" placeholder="AssetCategory" [(ngModel)]="employee.AssetCategory">
-  
-    
-      <label for="validationDefault01">Brand Name</label>
-      <input class="form-control mb-4" id="validationDefault01"name="BrandName" placeholder="BrandName" [(ngModel)]="employee.BrandName">
-      <div class="form-row">
+        <div class="form-row">
     <div class="col-md-5 mb-3">
-      <label for="validationDefault01">Order Date</label>
-      <input type="date" class="form-control" id="validationDefault01"name="OrderDate" placeholder="Lname" [(ngModel)]="ser.FormData.OrderDate">
+      <label for="validationDefault01" style="color: red;">Asset Id</label>
+      <input type="text" class="form-control" id="validationDefault01"name="assetID" placeholder="assetId" [(ngModel)]="employee.assetId">
     </div>
-    <div class="col-md-5 mb-3">
-        <label for="validationDefault01">Return Date</label>
-        <input type="date" class="form-control" id="validationDefault01"name="ReturnDate" placeholder="Lname" [(ngModel)]="ser.FormData.ReturnDate">
-    </div>
+   
 
   </div>
   <div class="form-group">
       <label for="exampleFormControlTextarea1">description</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" [(ngModel)]="employee.description"></textarea>
     </div>
     
     
