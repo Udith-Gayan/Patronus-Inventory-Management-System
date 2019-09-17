@@ -1,0 +1,2 @@
+To run the frontend correctly,   You need to disable the web secury in chrome.  Change the target of the chrome shortcut icon as 
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir="C:/ChromeDevSession"

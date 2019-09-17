@@ -1,17 +1,19 @@
 <body>
-  
+
 
   <div class="login-wrap">
     <div class="login-html">
       <div class="sa">
           <h3>Login</h3>
       </div>
-     <form  #userForm="ngForm" (ngSubmit)="onSubmit()"> 
+     <form  #userForm="ngForm" (ngSubmit) ="onSubmit()">
+
       <div class="login-form">
+
           <div class="sign-in-htm">
             <div class="group">
               <label for="user" class="label">Email</label>
-              <input id="user" type="email" class="input" required  [(ngModel)]="employee.email" name="lastname"  #email="ngModel">
+              <input id="user" type="email" class="input" required  [(ngModel)] = "loginRequest.username"  name= "email" #email="ngModel">
               <div [hidden]="email.valid || email.pristine"
                   class="alert alert-danger">
                    Email is required
@@ -19,12 +21,14 @@
             </div>
             <div class="group">
               <label for="pass" class="label">Password</label>
-              <input id="pass" type="password" class="input" data-type="password" required  [(ngModel)]="employee.password" name="lastname" required #pass="ngModel" >
+              <input id="pass" type="password" class="input" data-type="password" required  [(ngModel)] = "loginRequest.password" name="password" required #pass="ngModel" >
               <div [hidden]="pass.valid || pass.pristine"
                   class="alert alert-danger">
                    Password is required
               </div>
             </div>
+
+
             <div class="group">
               <input id="check" type="checkbox" class="check" checked>
               <label for="check" class="lable"><span class="icon"></span> <div class="re">
@@ -38,10 +42,11 @@
                 <a>Forgotten your Email or Password?</a>
             </div>
         </div>
-      
+
       </div>
+
     </form>
     </div>
-    
+
   </div>
   </body>

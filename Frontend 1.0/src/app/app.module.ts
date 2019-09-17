@@ -1,10 +1,11 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpModule } from '@angular/http';   // test
 
 
 import { AppRoutingModule } from './app.routing';
@@ -28,7 +29,7 @@ import { ViewAssetComponent } from './user-profile/view-asset/view-asset.compone
 import { RegistorAssetComponent } from './user-profile/registor-asset/registor-asset.component';
 import { ComputerComponent } from './AssetCatagary/computer/computer.component';
 import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
-import { AngularFireModule } from "@angular/fire";
+import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
@@ -39,6 +40,7 @@ import { ViewAllEmpDelailComponent } from './PopupModals/view-all-emp-delail/vie
 import { ViewAllAssetDetailComponent } from './PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 import { VFurnitureComponent } from './viewAllAssetCatagary/vfurniture/vfurniture.component';
 import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecter.component';
+import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-interceptor.service';
 
 
 
@@ -64,16 +66,8 @@ import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecte
     EmpCompenentModule,
     ReactiveFormsModule
 
-
-
-
-
-
-
-
-
-
   ],
+
   declarations: [
     AppComponent,
     AdminLayoutComponent,
@@ -82,22 +76,11 @@ import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecte
     HomeComponent,
     BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
-    ViewAllAssetDetailComponent,
-   
-    
-   
-    
-
-
-
-
-
-
-
-
+    ViewAllAssetDetailComponent
 
   ],
-  providers: [NotifiService],
+
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
   bootstrap: [AppComponent],
   entryComponents: [
     BookingAssetModalComponent,
@@ -105,4 +88,5 @@ import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecte
     ViewAllAssetDetailComponent
   ]
 })
+
 export class AppModule { }

@@ -9,9 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+
+
+// @CrossOrigin(origins = "*",allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/employees")
-@CrossOrigin(origins = "*",allowedHeaders = "*")
+@CrossOrigin
 public class  EmployeeMainController {
 
 

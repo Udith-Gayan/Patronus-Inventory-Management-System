@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class JwtAuthenticationController {
 
     @Autowired
@@ -32,6 +32,7 @@ public class JwtAuthenticationController {
     @Autowired
     private EmployeeMainRepository employeeMainRepository;
 
+   // login request comes here
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
