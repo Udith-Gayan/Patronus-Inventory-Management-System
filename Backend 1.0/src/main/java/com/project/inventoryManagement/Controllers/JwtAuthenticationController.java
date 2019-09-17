@@ -43,8 +43,14 @@ public class JwtAuthenticationController {
         EmployeeMainModel thisUser = employeeMainRepository.findByEmail(authenticationRequest.getUsername());
 
         final String status = thisUser.getStatus();     // added newly
-       // return ResponseEntity.ok(new JwtResponse(token));    // old
-        return ResponseEntity.ok(new JwtResponse(token, status));   // added newly
+        final String email = thisUser.getEmail();
+        final String nic = thisUser.getNic();
+        final String firstname = thisUser.getFirstname();
+        final String lastname = thisUser.getLastname();
+        final String img = thisUser.getImg();
+        final String contactNo = thisUser.getContactNo();
+        // return ResponseEntity.ok(new JwtResponse(token));    // old
+        return ResponseEntity.ok(new JwtResponse(token, status, email, nic, firstname, lastname, img, contactNo));   // added newly
     }
 
 //////////////////////////////

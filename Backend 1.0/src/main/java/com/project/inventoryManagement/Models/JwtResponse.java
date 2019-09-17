@@ -1,16 +1,32 @@
 package com.project.inventoryManagement.Models;
 
+import lombok.Getter;
+
 import java.io.Serializable;
 
 // This is class is required for creating a response containing the JWT to be returned to the user.
 
+@Getter
 public class JwtResponse implements Serializable {
     private static final long serialVersionUID = -8091879091924046844L;
-    private final String jwttoken;
+    private final String token;
     private final String status;       // added
-    public JwtResponse(String jwttoken, String status) {
-        this.jwttoken = jwttoken;
+    private final String email;
+    private final String nic;
+    private final String firstname;
+    private final String lastname;
+    private final String img;
+    private final String contactNo;
+
+    public JwtResponse(String token, String status, String email, String nic, String firstname, String lastname, String img, String contactNo) {
+        this.token = token;
         this.status = status;                    // added
+        this.email = email;
+        this.nic = nic;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.img = img;
+        this.contactNo = contactNo;
     }
 
     public String getStatus() {
@@ -18,7 +34,7 @@ public class JwtResponse implements Serializable {
     }
 
     public String getToken() {
-        return this.jwttoken;
+        return this.token;
     }
 }
 

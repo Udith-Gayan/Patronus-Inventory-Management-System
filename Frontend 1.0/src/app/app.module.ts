@@ -50,6 +50,8 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
 
 
 
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -65,7 +67,8 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     EmpCompenentModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
 
   ],
 
@@ -79,18 +82,6 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
-
-
-
-
-
-
-
-
-
-
-
-
 
   ],
 

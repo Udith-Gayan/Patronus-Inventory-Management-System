@@ -44,9 +44,23 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('status', response.status);
       let authString = 'Bearer ' + response.token;     // modify the token by prepending the word "Bearer"
       sessionStorage.setItem('basicauth', authString);
+      sessionStorage.setItem('firstname', response.firstname);
+      sessionStorage.setItem('lastname', response.lastname);
+      sessionStorage.setItem('img', response.img);
+      sessionStorage.setItem('nic', response.nic);
+      sessionStorage.setItem('email', response.email);
+      sessionStorage.setItem('contactNo', response.contactNo.toString());
 
 
-    });
+      this.router.navigate(['/welcome']);
+
+
+    }, ( error: any) => {
+       console.table('Error found while loggin: ' + error.type);
+       window.alert('Please Check the Email and Password again');
+       this.router.navigate(['/login']);
+
+          } );
 
     // this.userService.login(this.loginRequest).pipe(
     //   map(

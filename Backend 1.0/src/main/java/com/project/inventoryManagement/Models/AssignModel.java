@@ -35,6 +35,15 @@ public class AssignModel implements Serializable {
     @Column(name = "due_date")
     private Date dueDate;
 
+    @Column(name = "asset_id")      //newly added
+    private String assetId;
+
+    @Column(name = "requested_nic")      //newly added
+    private String requestedNic;
+
+    @Column(name = "description")      //newly added
+    private String description;
+
     @Column(name = "is_assigned")
     private boolean isAssigned;              // set true when a request is made, set false when rejected by anyone
 
