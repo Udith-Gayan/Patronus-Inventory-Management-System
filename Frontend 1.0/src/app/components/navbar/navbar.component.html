@@ -76,21 +76,31 @@
                           </div>
                           <div class="table-responsive" style="height: 10cm"  >
                           <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
-                              <button type="button" class="list-group-item list-group-item-action" style="height: 2cm">
-                          <div class="row" >
+                           <button type="button" class="list-group-item list-group-item-action" style="height: 2cm">
+                             
                               <div class="col-md-6">
                                 <div class="panel panel-primary"  >
                                   <div class="panel-heading" >
-                                    
-                                    <p class="panel-title" style="color: rgb(143, 73, 73);font-size: 0.9ch">{{a.Discription}}  {{a.assetCategory}} {{a.assetId}} orderd by {{a.massege}} </p>
-                                   
-                                   
-                                 
+                         
+                                    <div class="row">
+                                      <div class="col-xs-4"   style="width: 1.5cm;height: 1.5cm;">
+                                          <img src="assets/img/furniture.jpeg" alt="photo">
+                                      </div>
+                                       <div class="col-xs-4">
+                                         <p  style="color: rgb(143, 73, 73);font-size: 1.5ch"> {{a.notificationType}}  {{a.assetCategory}} {{a.assetId}} orderd by {{a.massege}} </p>
+                                              
+                                       </div>
+                                      <div class="col-xs-4">
+                                        <h6>{{a.description}}</h6>
+                                      </div>
+
                                   </div>
+
                                   
-                                 
-                                </div>
+                                    
+                                 </div>
                               </div>
+                            
                             </div>
                           </button>
                           </div>

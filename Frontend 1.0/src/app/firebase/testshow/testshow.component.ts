@@ -32,7 +32,8 @@ export class TestshowComponent implements OnInit {
       BrandName:'',
       Discription:'',
       ReturnDate:'',
-      OrderDate:''
+      OrderDate:'',
+      notificationType:''
 
      
     }

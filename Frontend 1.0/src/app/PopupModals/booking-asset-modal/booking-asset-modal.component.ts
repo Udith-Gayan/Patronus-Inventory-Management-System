@@ -15,8 +15,8 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./booking-asset-modal.component.scss']
 })
 export class BookingAssetModalComponent implements OnInit {
-  @Input() assetCategory: number;
-  @Input() assetId: number;
+  @Input() assetCategory: string;
+  @Input() assetId: string;
 
   
   myForm: FormGroup;
@@ -34,11 +34,12 @@ export class BookingAssetModalComponent implements OnInit {
 
 
     //booking to assetId and enmployee Nic
-    this.bookasset.assetId="AA87";
-    this.bookasset.nic="961341175v";
+   
+    this.bookasset.requestedNic="56827384927v";
    }
 
   ngOnInit() {
+    this.bookasset.assetId=this.assetId;
     
   }
 
@@ -74,12 +75,12 @@ resetForm(form ? : NgForm){
   form.resetForm();
   this.ser.FormData = {
     id : null,
-   
     AssetCategory: '' ,
     BrandName:'',
     Discription:'',
     ReturnDate:'',
-    OrderDate:''
+    OrderDate:'',
+    notificationType:'',
 
    
   }
@@ -87,8 +88,14 @@ resetForm(form ? : NgForm){
 onSubmit(form:NgForm){
 
   
+console.log(this.bookasset);
 
-  console.log();
+  this.bookservices.bookAsset(this.bookasset).subscribe((response) => {
+    
+    console.log(response);
+   
+  
+  });
 
   
  
@@ -101,6 +108,7 @@ onSubmit(form:NgForm){
   data.assetCategory=this.assetCategory;
   data.assetId=this.assetId;
   data.Discription=this.jstoday;
+  data.notificationType="Booking";
 
   if(form.value.id == null){
    
@@ -111,11 +119,13 @@ onSubmit(form:NgForm){
 }
   else {
     this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
-     
-      alert('Do you want Book this One');
+    
   }
 
+  alert('Booking Successfully');
+
   this.resetForm(form);
+  
  
 
 

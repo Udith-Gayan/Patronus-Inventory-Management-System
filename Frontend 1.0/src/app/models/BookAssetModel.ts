@@ -5,10 +5,10 @@ export class BookAsset{
     dueDate:string;
     id:string;
     assetId:string;
-    Discription:string;
+    description:string;
     assetCategory:string;
-    nic:string;
-    
+    requestedNic:string;
+    notificationType:string;
 
 
 

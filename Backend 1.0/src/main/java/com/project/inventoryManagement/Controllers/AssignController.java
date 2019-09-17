@@ -50,7 +50,7 @@ public class AssignController {
         System.out.println("After editing: " + m1.toString());
 
         // Assigning references
-        Optional<AssetModel> assetOptional = assetRepo.findByAssetId(m1.getRequestedAsset().getAssetId());
+        Optional<AssetModel> assetOptional = assetRepo.findByAssetId(m1.getAssetId());
         if (assetOptional.isPresent()) {
             System.out.println("Line 2");
             m1.setRequestedAsset(assetOptional.get());
@@ -61,7 +61,7 @@ public class AssignController {
         }
 
         System.out.println("Line 5");
-        if (empRepo.findByNic(m1.getUserAssigned().getNic()) != null) {
+        if (empRepo.findByNic(m1.getRequestedNic()) != null) {
             System.out.println("Line 6");
             System.out.println("USer Assigned is found in EmployeeModel table.");
             m1.setUserAssigned(empRepo.findByNic(m1.getUserAssigned().getNic()));
@@ -130,7 +130,7 @@ public class AssignController {
         System.out.println("After editing: "+ m1.toString());
 
        //  // Assigning references
-        Optional<AssetModel> assetOptional = assetRepo.findByAssetId(m1.getRequestedAsset().getAssetId());
+        Optional<AssetModel> assetOptional = assetRepo.findByAssetId(m1.getAssetId());
         if(assetOptional.isPresent()){
             System.out.println("Line 2");
             m1.setRequestedAsset(assetOptional.get());
@@ -141,10 +141,11 @@ public class AssignController {
         }
 
         System.out.println("Line 5");
-        if(empRepo.findByNic(m1.getUserAssigned().getNic()) != null){
+        if(empRepo.findByNic(m1.getRequestedNic()) != null){
             System.out.println("Line 6");
             System.out.println("USer Assigned is found in EmployeeModel table.");
-            m1.setUserAssigned(empRepo.findByNic(m1.getUserAssigned().getNic()));
+            m1.setUserAssigned(empRepo.findByNic(m1.getRequestedNic()));
+            System.out.println("Line 6.2");
         }else {
             System.out.println("USer Assigned is NOT found in EmployeeModel table.");
         }
