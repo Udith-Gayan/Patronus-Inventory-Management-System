@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import Chart from 'chart.js';
 import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Employee } from '../../firebase/model';
+
+import { BookAsset } from '../../models/BookAssetModel';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
 //notification
 test : Date = new Date();
-list:Employee[];
+list:BookAsset[];
     private data: Number ;
 ///////////////////////////
     public isCollapsed = true;
@@ -48,13 +49,13 @@ list:Employee[];
        this.data = data ;
      })
 
-     this.ser.getEmployees().subscribe(actionArry => {
+     this.ser.BreakDownAsset().subscribe(actionArry => {
       this.list = actionArry.map(item => {
         return {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
 
-        } as Employee;
+        } as BookAsset;
       })
       this.ser.updatedDataSelection(this.list.length);
     });
