@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotifiService } from '../notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
+import { Employee } from '../model';
 
 @Component({
   selector: 'app-testshow',
@@ -10,8 +11,10 @@ import { NgForm } from '@angular/forms';
 })
 export class TestshowComponent implements OnInit {
   datePipe: any;
-
-  constructor(private ser : NotifiService,private firestore :AngularFirestore) { }
+  employee:Employee;
+  constructor(private ser : NotifiService,private firestore :AngularFirestore) { 
+    this.employee=new Employee();
+  }
 
 
   ngOnInit() {
@@ -37,15 +40,13 @@ export class TestshowComponent implements OnInit {
     delete data.id;
     if(form.value.id == null){
       this.firestore.collection('employeee').add(data);
-      this.firestore.collection('notification').add({
-                                    fullname:JSON.parse(localStorage.getItem("currentUser")).firstname + JSON.parse(localStorage.getItem("currentUser")).lastname,
-                                    dateTime:this.datePipe.transform(now, "yyyy-MM-dd HH:mm"),
-                                    message:"edit gauge title",
-                                    });
+      
+     
   }
     else
       this.firestore.doc('employeee/'+form.value.id).update(data);
     this.resetForm(form);
+    
    alert('Are u sure Update');
 
   }

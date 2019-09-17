@@ -22,7 +22,11 @@ export class TestveiwComponent implements OnInit {
 
         } as Employee;
       })
+      this.ser.updatedDataSelection(this.list.length);
     });
+    this.ser.data.subscribe( data => {
+      console.log(data);
+    })
   }
   onEdit(emp:Employee){
     this.ser.FormData=Object.assign({},emp);

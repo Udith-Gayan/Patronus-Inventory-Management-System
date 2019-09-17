@@ -122,9 +122,17 @@ public class  EmployeeMainController {
     @DeleteMapping(path = "/delete")
     public boolean deleteEmployeeByNic(@RequestParam String nic){
         System.out.println("delete nic received: "+ nic);
-        empMainRepo.deleteByNic(nic);
-        System.out.println("Deleted");
-        return true;
+        try {
+            empMainRepo.deleteByNic(nic);
+            System.out.println("Deleted");
+            return true;
+        } catch(Exception e) {
+            System.out.println("Exception display as : " + e);
+//            EmployeeMainModel mm = empMainRepo.findByNic(nic);
+//            for(asset : mm.getAssign(). )
+            return false;
+        }
+
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

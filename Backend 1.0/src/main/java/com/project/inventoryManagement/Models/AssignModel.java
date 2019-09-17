@@ -45,13 +45,13 @@ public class AssignModel implements Serializable {
     private boolean isApprovedByDepartmentHead;
 
 
-    @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "requested_asset_Id", nullable = false, referencedColumnName = "id")
     private AssetModel requestedAsset;
 
 
 
-    @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "assigned_user_id", nullable = false, referencedColumnName = "employeeId")
     private EmployeeMainModel userAssigned;
 

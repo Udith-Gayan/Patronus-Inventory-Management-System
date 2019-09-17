@@ -39,8 +39,7 @@ import { ViewAllEmpDelailComponent } from './PopupModals/view-all-emp-delail/vie
 import { ViewAllAssetDetailComponent } from './PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 import { VFurnitureComponent } from './viewAllAssetCatagary/vfurniture/vfurniture.component';
 import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecter.component';
-
-
+import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.component';
 
 
 
@@ -80,11 +79,12 @@ import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecte
     LoginComponent,
     EmpLayoutComponent,
     HomeComponent,
-    BookingAssetModalComponent,
+    BookAssetComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
-   
-    
+    BookingAssetModalComponent,
+  
+  
    
     
 
@@ -100,7 +100,7 @@ import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecte
   providers: [NotifiService],
   bootstrap: [AppComponent],
   entryComponents: [
-    BookingAssetModalComponent,
+  BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent
   ]
