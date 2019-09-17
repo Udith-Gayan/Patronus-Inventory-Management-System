@@ -92,9 +92,9 @@
         <tr >
         <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
         <h6 class="card-text"> Brand name :    {{d.ram}}</h6>
-        <h6 class="card-title"> Asset Category:         {{d.assetCategory}}</h6>
+        <h6 class="card-title" > Asset Category:         {{d.assetCategory}}</h6>
         <h6 class="card-title">Description:   {{d.description}}</h6>
-
+       
 
 
       </div>
@@ -102,13 +102,14 @@
 
         <!--Text-->
         <div class="card-body">
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.ram)" >Book Asset</a>                <!--pop up for booking-->
+        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetCategory)" >Book Asset</a>                <!--pop up for booking-->
         <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
-        <a  class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
+        <a  class="btn btn-primary" (click)="deleteAsst(d.assetId)">Delete</a>
         
         <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetCategory)">More Detail </a>
 
         </div>
+        <span class="dot" *ngIf= "d.assetId == 'OTH32'"></span>
 
 
     </div>
@@ -155,7 +156,7 @@
       
               <!--Text-->
               <div class="card-body">
-              <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.ram)" >Book Asset</a>                <!--pop up for booking-->
+              <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetCategory)" >Book Asset</a>                <!--pop up for booking-->
               <a  class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
               <a  class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
               
@@ -194,7 +195,7 @@
             
                     <!--Text-->
                     <div class="card-body">
-                    <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.ram)" >Book Asset</a>                <!--pop up for booking-->
+                    <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetCategory)" >Book Asset</a>                <!--pop up for booking-->
                     <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
                     <a  class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
                     

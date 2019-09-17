@@ -3,6 +3,9 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 import Chart from 'chart.js';
+import { NotifiService } from '../../firebase/notifi.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Employee } from '../../firebase/model';
 
 @Component({
   selector: 'app-navbar',
@@ -15,10 +18,14 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
-
+//notification
+test : Date = new Date();
+list:Employee[];
+    private data: Number ;
+///////////////////////////
     public isCollapsed = true;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router , private ser : NotifiService,private firestore:AngularFirestore) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -35,6 +42,25 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+
+     ///notification genarator
+     this.ser.data.subscribe( data => {
+       this.data = data ;
+     })
+
+     this.ser.getEmployees().subscribe(actionArry => {
+      this.list = actionArry.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+
+        } as Employee;
+      })
+      this.ser.updatedDataSelection(this.list.length);
+    });
+    this.ser.data.subscribe( data => {
+      console.log(data);
+    })
     }
 
     collapse(){

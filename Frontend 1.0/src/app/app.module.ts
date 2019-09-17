@@ -43,6 +43,7 @@ import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecte
 import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-interceptor.service';
 
 
+import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.component';
 
 
 
@@ -74,16 +75,29 @@ import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-inter
     LoginComponent,
     EmpLayoutComponent,
     HomeComponent,
-    BookingAssetModalComponent,
+    BookAssetComponent,
     ViewAllEmpDelailComponent,
-    ViewAllAssetDetailComponent
+    ViewAllAssetDetailComponent,
+    BookingAssetModalComponent,
+
+
+
+
+
+
+
+
+
+
+
+
 
   ],
 
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
   bootstrap: [AppComponent],
   entryComponents: [
-    BookingAssetModalComponent,
+  BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent
   ]

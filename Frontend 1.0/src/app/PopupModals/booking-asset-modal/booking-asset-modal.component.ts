@@ -1,8 +1,11 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms';
 import { BookAsset } from '../../models/BookAssetModel';
 import { HttpService } from '../../service2/http.service';
+import { Employee } from '../../firebase/model';
+import { NotifiService } from '../../firebase/notifi.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @Component({
@@ -12,13 +15,16 @@ import { HttpService } from '../../service2/http.service';
 })
 export class BookingAssetModalComponent implements OnInit {
   @Input() assetId: number;
+  
   myForm: FormGroup;
 
   bookasset: BookAsset;
-
-  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService) {
+  datePipe: any;
+  employee:Employee;
+  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore) {
     this.createForm();
     this.bookasset=new BookAsset();
+    this.employee=new Employee();
    }
 
   ngOnInit() {
@@ -53,7 +59,7 @@ private submitForm() {
 
  
 
-  this.bookservices.bookAsset(this.bookasset).subscribe((response) => {
+  this.bookservices.bookAsset(this.employee).subscribe((response) => {
     console.log(response);
     alert('Booking Successfully');
   });
@@ -62,4 +68,51 @@ private submitForm() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+resetForm(form ? : NgForm){
+  if(form != null)
+  form.resetForm();
+  this.ser.FormData = {
+    id : null,
+    AssetCategory: '' ,
+    BrandName:'',
+    Discription:'',
+    ReturnDate:'',
+    OrderDate:''
+
+   
+  }
 }
+onSubmit(form:NgForm){
+  this.bookservices.bookAsset(this.employee).subscribe((response) => {
+    console.log(response);
+    alert('Booking Successfully');
+  });
+  
+  let now = new Date();
+  console.log(this.employee);
+
+  let data = Object.assign({}, form.value);
+  delete data.id;
+  data.username=this.assetId;
+  if(form.value.id == null){
+    alert('fill this feild');
+    this.firestore.collection('employeee').add(data);
+    
+   
+}
+  else
+    this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
+  this.resetForm(form);
+  
+ alert('Do you Want Book this One');
+
+}
+
+
+
+}
+
+
+
+
+  
