@@ -35,7 +35,7 @@ export class BookingAssetModalComponent implements OnInit {
 
     //booking to assetId and enmployee Nic
    
-    this.bookasset.requestedNic="56827384927v";
+    this.bookasset.requestedNic="961341175v";
    }
 
   ngOnInit() {

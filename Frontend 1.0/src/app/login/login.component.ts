@@ -6,6 +6,7 @@ import { HttpService } from '../service/http.service';
 import { Router } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { BookingAssetModalComponent } from '../PopupModals/booking-asset-modal/booking-asset-modal.component';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   employee: Employee;
 
   loginRequest: LoginRequest;
+  modalService: any;
 
   constructor(private userService: HttpService, private router: Router) {
     this.employee = new Employee();
@@ -26,7 +28,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
-
+   
   }
 
 
@@ -53,6 +55,8 @@ export class LoginComponent implements OnInit {
 
 
       this.router.navigate(['/welcome']);
+     
+
 
 
     }, ( error: any) => {
@@ -88,5 +92,8 @@ export class LoginComponent implements OnInit {
     sessionStorage.removeItem('basicauth');
     sessionStorage.removeItem('status');
   }
+
+ 
+  
 
 }

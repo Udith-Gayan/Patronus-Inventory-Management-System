@@ -53,7 +53,7 @@
                 <!--notification-->
                 <li class="nav-item" ngbDropdown>
                     <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
-                        <i class="now-ui-icons ui-1_bell-53"><p style="color: red">{{data}}</p></i>
+                        <i class="now-ui-icons ui-1_bell-53"><div id = "exampleCircle"><p style="color: red"><b>{{data}}</b></p></div></i>
                      
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 10cm;background-color: rgb(6, 110, 214);height: 12cm;">
@@ -76,32 +76,52 @@
                           </div>
                           <div class="table-responsive" style="height: 10cm"  >
                           <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
-                           <button type="button" class="list-group-item list-group-item-action" style="height: 2cm">
+                           <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm">
                              
-                              <div class="col-md-6">
-                                <div class="panel panel-primary"  >
-                                  <div class="panel-heading" >
+                            
+                               
+                             
                          
                                     <div class="row">
-                                      <div class="col-xs-4"   style="width: 1.5cm;height: 1.5cm;">
-                                          <img src="assets/img/furniture.jpeg" alt="photo">
-                                      </div>
+                                        <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
+                                            <img src="assets/img/printer.jpg" alt="photo">
+                                        </div>
+                                        <div class="col-xs-4" *ngIf= "a.assetCategory == 'Furniture'"   style="width: 1.5cm;height: 1.5cm;">
+                                            <img src="assets/img/furniture.jpeg"  alt="photo">
+                                        </div>
+                                        <div class="col-xs-4" *ngIf= "a.assetCategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
+                                            <img src="assets/img/home.jpg" alt="photo">
+                                        </div>
+                                     
                                        <div class="col-xs-4">
-                                         <p  style="color: rgb(143, 73, 73);font-size: 1.5ch"> {{a.notificationType}}  {{a.assetCategory}} {{a.assetId}} orderd by {{a.massege}} </p>
+                                         <p  style="color: rgb(143, 73, 73);font-size: 1.5ch">   {{a.assetCategory}} {{a.assetId}}  </p>
                                               
-                                       </div>
-                                      <div class="col-xs-4">
-                                        <h6>{{a.description}}</h6>
+                                       </div><br>
+                                       <div class="row">
+                                          <div class="col-xs-4"><br>
+                                            <p style="font-size: 1.2ch">{{a.notificationType}}</p>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                      <div class="col-xs-4"><br><br>
+                                        <p style="font-size: 1.2ch">{{a.Discription}}</p>
                                       </div>
+                                    </div>
+                                     
 
                                   </div>
+                                  <div class="form-group">
+                                     
+                                     
 
+                                    
+                                    
+                                  </div>
                                   
                                     
-                                 </div>
-                              </div>
-                            
-                            </div>
+                                
+                         
+                      
                           </button>
                           </div>
                           <a  style="color: rgb(6, 4, 20)" routerLink="/notifications">See All</a>
