@@ -27,16 +27,12 @@ export class HttpService {
 
   //Book Asset
 
-<<<<<<< HEAD
-  bookAsset(bookasset : Employee){
-=======
   bookAsset(bookasset : BookAsset){
->>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
     return this.http.post(Constants.BASE_URL+'/assign/book/add',bookasset,Constants.HTTP_OPTIONS);
   }
   deleteasset(assetId){                              // deleteEmployee(employee :Employee){
     return this.http.delete(Constants.ASSET_API+'/delete',{params: {id: assetId}, observe: 'response'});    // return this.http.delete(Constants.EMPLOYEE_API+'/delete',Constants.HTTP_OPTIONS);
   }
 
-  
+
 }

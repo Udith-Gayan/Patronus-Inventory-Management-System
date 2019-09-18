@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee';
 import { HttpService } from '../service/http.service';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-=======
 import { HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BookingAssetModalComponent } from '../PopupModals/booking-asset-modal/booking-asset-modal.component';
->>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
 
 @Component({
   selector: 'app-login',
@@ -15,10 +12,6 @@ import { BookingAssetModalComponent } from '../PopupModals/booking-asset-modal/b
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-<<<<<<< HEAD
-  employee : Employee;
-  constructor(private userService : HttpService,private router: Router) {
-=======
 
   employee: Employee;
 
@@ -26,26 +19,20 @@ export class LoginComponent implements OnInit {
   modalService: any;
 
   constructor(private userService: HttpService, private router: Router) {
->>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
     this.employee = new Employee();
    }
 
   ngOnInit() {
-<<<<<<< HEAD
-    
-=======
-   
->>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
   }
   onSubmit() {
-    
+
     console.log(this.employee);
     this.userService.login(this.employee).subscribe((response)=>{
       console.log(response);
 <<<<<<< HEAD
       if (response['status']==='success')
         this.router.navigateByUrl('/home')
-      else 
+      else
         alert('invalid credentials')
     });
   }
@@ -64,7 +51,7 @@ export class LoginComponent implements OnInit {
 
 
       this.router.navigate(['/welcome']);
-     
+
 
 
 
@@ -102,8 +89,8 @@ export class LoginComponent implements OnInit {
     sessionStorage.removeItem('status');
   }
 
- 
-  
+
+
 
 >>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
 }
