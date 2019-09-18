@@ -86,19 +86,9 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
-<<<<<<< HEAD
-  
-  
-   
-    
-
-
-
-=======
     ViewSingleNotificationComponent,
-   
-   
->>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
+
+
 
 
 

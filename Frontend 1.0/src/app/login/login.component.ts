@@ -29,14 +29,6 @@ export class LoginComponent implements OnInit {
     console.log(this.employee);
     this.userService.login(this.employee).subscribe((response)=>{
       console.log(response);
-<<<<<<< HEAD
-      if (response['status']==='success')
-        this.router.navigateByUrl('/home')
-      else
-        alert('invalid credentials')
-    });
-  }
-=======
 
       // Save to session storage
       sessionStorage.setItem('status', response.status);
@@ -92,5 +84,4 @@ export class LoginComponent implements OnInit {
 
 
 
->>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
 }
