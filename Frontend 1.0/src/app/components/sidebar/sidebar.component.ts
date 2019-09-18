@@ -31,7 +31,8 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-
+  Fname = sessionStorage.getItem('firstname');
+  Lname = sessionStorage.getItem('lastname');
   constructor() { }
 
   ngOnInit() {
