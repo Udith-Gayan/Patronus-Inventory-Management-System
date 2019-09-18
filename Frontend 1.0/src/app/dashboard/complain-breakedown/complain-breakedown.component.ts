@@ -12,9 +12,11 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 export class ComplainBreakedownComponent implements OnInit {
 
   datePipe: any;
-  employee:BreakDwonNoti;
+  breakDown:BreakDwonNoti;
+  nic:string = sessionStorage.getItem('nic');
+  Fname:string = sessionStorage.getItem('firstname');
   constructor(private ser : NotifiService,private firestore :AngularFirestore) { 
-    this.employee=new BreakDwonNoti();
+    this.breakDown=new BreakDwonNoti();
   }
 
 
@@ -27,16 +29,24 @@ export class ComplainBreakedownComponent implements OnInit {
       id : null,
       assetId:'',
       description:'',
+      nic:'',
+      fName:'',
+      notificationType:''
      
 
      
     }
   }
   onSubmit(form:NgForm){
+    console.log();
     let now = new Date();
 
     let data = Object.assign({}, form.value);
     delete data.id;
+    data.nic=this.nic;
+    data.fName=this.Fname;
+    data.notificationType="BreakDown"
+    
     if(form.value.id == null){
      
       this.firestore.collection('BreakDwonAsset').add(data);

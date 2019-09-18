@@ -47,6 +47,8 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
 import { ViewBrekDownComponent } from './firebase/view-brek-down/view-brek-down.component';
 import { ViewRequestAssetComponent } from './firebase/view-request-asset/view-request-asset.component';
 import { ViewSingleNotificationComponent } from './PopupModals/view-single-notification/view-single-notification.component';
+import { ViewSingleAssetNotiComponent } from './PopupModals/view-single-asset-noti/view-single-asset-noti.component';
+import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/view-single-emp-noti.component';
 
 
 
@@ -86,6 +88,8 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
     ViewSingleNotificationComponent,
+    ViewSingleAssetNotiComponent,
+    ViewSingleEmpNotiComponent,
    
    
 
@@ -97,7 +101,9 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
   BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
-    ViewSingleNotificationComponent
+    ViewSingleNotificationComponent,
+    ViewSingleAssetNotiComponent,
+    ViewSingleEmpNotiComponent
   ]
 })
 

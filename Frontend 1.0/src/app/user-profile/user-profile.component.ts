@@ -12,6 +12,7 @@ export class UserProfileComponent implements OnInit {
   asset : Asset;
   customers:["sajith","madhsanka"];
   imgUrl:String="assets/img/laptop.jpg";
+  status:string = sessionStorage.getItem('status');
   
   constructor(private userService : HttpService) { 
     this.asset = new Asset();

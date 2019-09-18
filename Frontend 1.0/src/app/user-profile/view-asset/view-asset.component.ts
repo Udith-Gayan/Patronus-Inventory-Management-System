@@ -20,7 +20,7 @@ export class ViewAssetComponent implements OnInit {
 
  
   //////
-
+  status:string = sessionStorage.getItem('status');
   searchTerm :string;
   constructor(private asset : HttpService, private modalService: NgbModal) { }
 ////////////////////////////////////////////////////////////////////////////////////////////////

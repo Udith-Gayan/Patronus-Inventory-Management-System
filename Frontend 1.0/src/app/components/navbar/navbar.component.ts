@@ -11,6 +11,7 @@ import { BookingAssetModalComponent } from '../../PopupModals/booking-asset-moda
 import { ViewAllAssetDetailComponent } from '../../PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
+import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 
 @Component({
   selector: 'app-navbar',
@@ -19,10 +20,12 @@ import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-n
 })
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
+    status:string = sessionStorage.getItem('status');
    
 //notification
 test : Date = new Date();
 list:BookAsset[];
+list2:BreakDwonNoti[];
     private data: Number ;
 ///////////////////////////
     public isCollapsed = true;
@@ -40,7 +43,7 @@ list:BookAsset[];
        this.data = data ;
      })
 
-     this.ser.BreakDownAsset().subscribe(actionArry => {
+     this.ser.Bookasset().subscribe(actionArry => {
       this.list = actionArry.map(item => {
         return {
           id: item.payload.doc.id,
@@ -48,8 +51,21 @@ list:BookAsset[];
 
         } as BookAsset;
       })
-      this.ser.updatedDataSelection(this.list.length);
+     // this.ser.updatedDataSelection(this.list.length+this.list2.length);
     });
+
+    this.ser.BreakDownAsset().subscribe(actionArry => {
+      this.list2 = actionArry.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+
+        } as BreakDwonNoti;
+      })
+      this.ser.updatedDataSelection(this.list2.length+this.list.length);
+    });
+
+   
     this.ser.data.subscribe( data => {
       console.log(data);
     })
@@ -73,11 +89,18 @@ list:BookAsset[];
     ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
-  openFormModal(assetId) {
+  openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
     console.log();
     const modalRef = this.modalService.open(ViewSingleNotificationComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-   
+    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.notificationType = notificationType;
+    modalRef.componentInstance.requestedNic = requestedNic;
+    modalRef.componentInstance.massege = massege;
+    modalRef.componentInstance.beginDate = beginDate;
+    modalRef.componentInstance.dueDate = dueDate;
+    modalRef.componentInstance.username = username;
+
 
     modalRef.result.then((result) => {
       console.log(result);

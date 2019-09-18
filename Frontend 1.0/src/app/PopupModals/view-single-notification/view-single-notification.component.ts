@@ -8,6 +8,9 @@ import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
 import { ViewAllAssetDetailComponent } from '../view-all-asset-detail/view-all-asset-detail.component';
+import { ViewSingleAssetNotiComponent } from '../view-single-asset-noti/view-single-asset-noti.component';
+import { ViewAllEmpDelailComponent } from '../view-all-emp-delail/view-all-emp-delail.component';
+import { Replay } from '../../models/NotifiReplay';
 
 @Component({
   selector: 'app-view-single-notification',
@@ -17,30 +20,30 @@ import { ViewAllAssetDetailComponent } from '../view-all-asset-detail/view-all-a
 export class ViewSingleNotificationComponent implements OnInit {
   @Input() assetCategory: string;
   @Input() assetId: string;
+  @Input() username: String;
 
-  
+  replay:Replay;
   myForm: FormGroup;
 
-  bookasset: BookAsset;
   datePipe: any;
-  employee:Employee;
+ 
   today= new Date();
   jstoday = '';
  
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal) {
     this.createForm();
-    this.bookasset=new BookAsset();
-    this.employee=new Employee();
+    this.replay=new Replay();
+   
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 
 
     //booking to assetId and enmployee Nic
    
-    this.bookasset.requestedNic="961341175v";
+   
    }
 
   ngOnInit() {
-    this.bookasset.assetId=this.assetId;
+    this.replay.assetId=this.assetId;
     
   }
 
@@ -74,47 +77,47 @@ private createForm() {
 resetForm(form ? : NgForm){
   if(form != null)
   form.resetForm();
-  this.ser.FormData = {
+  this.ser.ReplyNoti = {
     id : null,
-    AssetCategory: '' ,
-    BrandName:'',
-    Discription:'',
-    ReturnDate:'',
-    OrderDate:'',
-    notificationType:'',
+    assetId: '',
+    replayMsg: '',
+    date:'',
+    userNic:''
+
+    
 
    
   }
 }
+////Book asset Registation///////////////////////////////////////////////////////////////
 onSubmit(form:NgForm){
 
   
-console.log(this.bookasset);
+console.log(this.replay);
 
- 
+
 
   
  
   
   let now = new Date();
-  console.log(this.employee);
+  console.log(this.replay);
 
   let data = Object.assign({}, form.value);
   delete data.id;
   data.assetCategory=this.assetCategory;
   data.assetId=this.assetId;
   data.Discription=this.jstoday;
-  data.notificationType="Booking";
-
+ 
   if(form.value.id == null){
    
-    this.firestore.collection('BookAssetNotification').add(data);
+    this.firestore.collection('ReplayNotification').add(data);
     
     
    
 }
   else {
-    this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
+    this.firestore.doc('ReplayNotification/'+form.value.id).update(data);
     
   }
 
@@ -130,11 +133,35 @@ console.log(this.bookasset);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //view more detail of Asset
 
-openDetailModal(){
+
+
+//////////////////////////////////////////////////////////////////////////view Asset Detailon popup
+openAssetDetailModal(assetId){
   console.log();
-  const modalRef = this.modalService.open(ViewAllAssetDetailComponent);
+  const modalRef = this.modalService.open(ViewSingleAssetNotiComponent);
+  modalRef.componentInstance.assetId = assetId;
    
    // Pass vallue to other form component
+   
+   
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+
+}
+
+/////////////////////////////////////////////////////////////////////////// View Employee Delail on Popup 
+openEmpDetailModal(assetId){
+  console.log();
+  const modalRef = this.modalService.open(ViewAllEmpDelailComponent);
+   
+   // Pass vallue to other form component
+   modalRef.componentInstance.assetId = assetId;
+   
+   
 
     modalRef.result.then((result) => {
       console.log(result);

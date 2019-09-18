@@ -17,7 +17,7 @@ export class ViewEmpComponent implements OnInit {
   data: Observable<Employee[]>;
   employees: Employee[];
   searchTerm :string;
-
+  status:string = sessionStorage.getItem('status');
   submitted = false;
   message: string;
   constructor(private emp:HttpService ,private _router : Router, private modalService: NgbModal) { }

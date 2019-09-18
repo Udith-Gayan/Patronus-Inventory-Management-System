@@ -18,8 +18,8 @@ export class BookingAssetModalComponent implements OnInit {
   @Input() assetCategory: string;
   @Input() assetId: string;
   
-  myItem = sessionStorage.getItem('nic');
-  
+  nic = sessionStorage.getItem('nic');
+  fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;
 
   bookasset: BookAsset;
@@ -36,7 +36,7 @@ export class BookingAssetModalComponent implements OnInit {
 
     //booking to assetId and enmployee Nic
    
-    this.bookasset.requestedNic=this.myItem;
+    this.bookasset.requestedNic=this.nic;
    }
 
   ngOnInit() {
@@ -76,11 +76,15 @@ resetForm(form ? : NgForm){
   form.resetForm();
   this.ser.FormData = {
     id : null,
-    AssetCategory: '' ,
-    BrandName:'',
-    Discription:'',
-    ReturnDate:'',
-    OrderDate:'',
+    massege:'',
+    username:'',
+    beginDate:'',
+    dueDate:'',
+   
+    assetId:'',
+    description:'',
+    assetCategory:'',
+    requestedNic:'',
     notificationType:'',
 
    
@@ -110,6 +114,7 @@ console.log(this.bookasset);
   data.assetId=this.assetId;
   data.Discription=this.jstoday;
   data.notificationType="Booking";
+  data.username=this.fname;
 
   if(form.value.id == null){
    
