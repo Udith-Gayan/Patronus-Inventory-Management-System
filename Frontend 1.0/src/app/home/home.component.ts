@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   test : Date = new Date();
+  
   constructor( ) { 
     
   }

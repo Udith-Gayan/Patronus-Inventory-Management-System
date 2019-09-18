@@ -27,6 +27,8 @@ import { VFurnitureComponent } from '../../viewAllAssetCatagary/vfurniture/vfurn
 import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vprojecter.component';
 import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown/complain-breakedown.component';
 import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
+import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
+import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
@@ -71,7 +73,7 @@ export const AdminLayoutRoutes: Routes = [
                     },
                     {
                         path:'back',
-                        component:ViewAssetComponent
+                        component:ViewBreakedownComponent
                     }
                     
 
@@ -170,17 +172,26 @@ export const AdminLayoutRoutes: Routes = [
         children:[
             {
                 path:'',
-                redirectTo: 'view',
+                redirectTo: 'bookNotification',
                 pathMatch: 'full',
                 
             },
             {
-                path:'view',
+                path:'bookNotification',
                 component:TestveiwComponent
             },
             {
                 path:'show',
                 component:TestshowComponent
+            },
+            {
+                path:'breakDownNotification',
+                component:ViewBrekDownComponent
+            },
+            {
+                path:'requestNotification',
+                component:ViewRequestAssetComponent
+                
             }
         ]
     

@@ -1,0 +1,64 @@
+<div class="modal-header">
+  <h4 class="modal-title">Notification</h4>
+ <!-- <button></button> -->
+
+    <a  class="close" (click)="activeModal.dismiss('Cross click')"></a>
+
+</div>
+<form [formGroup]="myForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <div class="modal-boy">
+    <div class="container">
+       
+        
+     
+
+      
+          
+
+        <div class="form-groupp">                                                       <!--Changed here-->
+            <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label> <br> <br>
+            <label for="assetId">Asset Category: <b>{{assetCategory}}</b>  </label>
+          </div>
+         
+
+      <div class="form-group">
+       
+        <input   
+          class="form-control" name="AssetCategory" type="hidden"  [(ngModel)]="bookasset.AssetCategory"
+          formControlName="assetId" />
+      </div>
+      <div class="form-group">
+       
+        <input   
+          class="form-control" name="AssetCategory" type="hidden"  [(ngModel)]="bookasset.massege"
+          formControlName="assetId" />
+      </div>
+     
+                 <div class="form-group">
+              <label for="massege">Description</label>
+              <input type="text" 
+                class="form-control"   [(ngModel)]="bookasset.description"
+                formControlName="massege" />
+            </div>
+
+     
+
+    </div>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-success" type="submit" (click)="openDetailModal()"
+      [disabled]="!myForm.valid">
+     Asset Details
+    </button>
+    <button class="btn btn-success" type="submit"
+      [disabled]="!myForm.valid">
+      Accept
+    </button>
+    <button class="btn btn-success" type="submit"
+    [disabled]="!myForm.valid">
+   Reject
+  </button>
+
+  </div>
+ 
+</form>
