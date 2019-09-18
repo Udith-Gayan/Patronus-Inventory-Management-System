@@ -22,8 +22,8 @@ export class NotifiService {
     this.dataSource.next(data);
   }
 
-  getEmployees(){
-    return this.firestore.collection('employeee').snapshotChanges();
+  BreakDownAsset(){
+    return this.firestore.collection('BookAssetNotification').snapshotChanges();
   }
 
   formatDate(date :Date): string{

@@ -1,26 +1,31 @@
+<div class="table-responsive" >
 <table class="table table-condensed">
     <thead class="black white-text">
         <tr  class="table-primary">
-          <th class="table-active" scope="col">Asset Catagary</th>
-          <th class="table-active" scope="col">Brand name</th>
-          <th scope="col">Quntity</th>
-          <th scope="col">Order Date</th>
-          <th scope="col">Return Date</th>
+          <th class="table-active" scope="col">Date/Time</th>
+          <th class="table-active" scope="col">Asset ID</th>
+          <th scope="col">Category</th>
+          <th scope="col">Order By</th>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
           <th scope="col">Description</th>
         </tr>
       </thead>
   <tbody>
+     
       <tr *ngFor="let a of list" class="table-active">
-          <td (click)="onEdit(a)" scope="col">{{a.AssetCategory}}</td>
-          <td class="table-danger" (click)="onEdit(a)" scope="col">{{a.BrandName}}</td>
-          <td (click)="onEdit(a)" scope="col">{{a.OrderDate}}</td>
-          <td (click)="onEdit(a)" scope="col">{{a.OrderDate}}</td>
-          <td (click)="onEdit(a)" scope="col">{{a.ReturnDate}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.Discription}}</td>
+          <td class="table-danger" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.assetCategory}}</td>
           <td (click)="onEdit(a)" scope="col">{{a.username}}</td>
-          <td (click)="onDelete(a.id)" ><i class="fa fa-trash"  aria-hidden="true"></i></td>
+          <td (click)="onEdit(a)" scope="col">{{a.beginDate}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.dueDate}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.massege}}</td>
+          <td (click)="onDelete(a.id)" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
           
         </tr>
-   
+  
    
   </tbody>
 </table>
+</div>

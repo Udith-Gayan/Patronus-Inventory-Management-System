@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../../firebase/model';
+
 import { NotifiService } from '../notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+
+import { BookAsset } from '../../models/BookAssetModel';
 
 @Component({
   selector: 'app-testveiw',
@@ -10,17 +12,17 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class TestveiwComponent implements OnInit {
 
-  list:Employee[];
+  list:BookAsset[];
   constructor(private ser : NotifiService,private firestore:AngularFirestore) { }
 
   ngOnInit() {
-    this.ser.getEmployees().subscribe(actionArry => {
+    this.ser.BreakDownAsset().subscribe(actionArry => {
       this.list = actionArry.map(item => {
         return {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
 
-        } as Employee;
+        } as BookAsset;
       })
       this.ser.updatedDataSelection(this.list.length);
     });
@@ -28,12 +30,10 @@ export class TestveiwComponent implements OnInit {
       console.log(data);
     })
   }
-  onEdit(emp:Employee){
-    this.ser.FormData=Object.assign({},emp);
-  }
+ 
   onDelete(id:string){
     if(confirm("Are you sure")){
-      this.firestore.doc('employeee/'+id).delete();
+      this.firestore.doc('BookAssetNotification/'+id).delete();
     }
 
   }

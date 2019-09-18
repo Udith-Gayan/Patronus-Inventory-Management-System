@@ -1,24 +1,23 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
 import { BookAsset } from '../../models/BookAssetModel';
-import { HttpService } from '../../service2/http.service';
 import { Employee } from '../../firebase/model';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpService } from '../../service2/http.service';
 import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
-
+import { ViewAllAssetDetailComponent } from '../view-all-asset-detail/view-all-asset-detail.component';
 
 @Component({
-  selector: 'app-booking-asset-modal',
-  templateUrl: './booking-asset-modal.component.html',
-  styleUrls: ['./booking-asset-modal.component.scss']
+  selector: 'app-view-single-notification',
+  templateUrl: './view-single-notification.component.html',
+  styleUrls: ['./view-single-notification.component.scss']
 })
-export class BookingAssetModalComponent implements OnInit {
+export class ViewSingleNotificationComponent implements OnInit {
   @Input() assetCategory: string;
   @Input() assetId: string;
-  
-  myItem = sessionStorage.getItem('nic');
+
   
   myForm: FormGroup;
 
@@ -27,7 +26,8 @@ export class BookingAssetModalComponent implements OnInit {
   employee:Employee;
   today= new Date();
   jstoday = '';
-  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore) {
+ 
+  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal) {
     this.createForm();
     this.bookasset=new BookAsset();
     this.employee=new Employee();
@@ -36,7 +36,7 @@ export class BookingAssetModalComponent implements OnInit {
 
     //booking to assetId and enmployee Nic
    
-    this.bookasset.requestedNic=this.myItem;
+    this.bookasset.requestedNic="961341175v";
    }
 
   ngOnInit() {
@@ -91,12 +91,7 @@ onSubmit(form:NgForm){
   
 console.log(this.bookasset);
 
-  this.bookservices.bookAsset(this.bookasset).subscribe((response) => {
-    
-    console.log(response);
-   
-  
-  });
+ 
 
   
  
@@ -132,12 +127,22 @@ console.log(this.bookasset);
 
 
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//view more detail of Asset
 
+openDetailModal(){
+  console.log();
+  const modalRef = this.modalService.open(ViewAllAssetDetailComponent);
+   
+   // Pass vallue to other form component
 
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
 
 }
 
 
-
-
-  
+}

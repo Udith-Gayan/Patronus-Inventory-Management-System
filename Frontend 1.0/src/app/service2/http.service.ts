@@ -4,7 +4,7 @@ import { Constants } from '../asset/constants';
 import { Asset } from '../asset/asset';
 import { Observable } from 'rxjs';
 import { BookAsset } from '../models/BookAssetModel';
-import { Employee } from '../firebase/model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,11 @@ export class HttpService {
 
   //Book Asset
 
+<<<<<<< HEAD
   bookAsset(bookasset : Employee){
+=======
+  bookAsset(bookasset : BookAsset){
+>>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
     return this.http.post(Constants.BASE_URL+'/assign/book/add',bookasset,Constants.HTTP_OPTIONS);
   }
   deleteasset(assetId){                              // deleteEmployee(employee :Employee){

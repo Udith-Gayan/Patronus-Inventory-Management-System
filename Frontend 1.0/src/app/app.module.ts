@@ -40,6 +40,9 @@ import { ViewAllAssetDetailComponent } from './PopupModals/view-all-asset-detail
 import { VFurnitureComponent } from './viewAllAssetCatagary/vfurniture/vfurniture.component';
 import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecter.component';
 import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.component';
+import { ViewBrekDownComponent } from './firebase/view-brek-down/view-brek-down.component';
+import { ViewRequestAssetComponent } from './firebase/view-request-asset/view-request-asset.component';
+import { ViewSingleNotificationComponent } from './PopupModals/view-single-notification/view-single-notification.component';
 
 
 
@@ -83,6 +86,7 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
+<<<<<<< HEAD
   
   
    
@@ -90,6 +94,11 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
 
 
 
+=======
+    ViewSingleNotificationComponent,
+   
+   
+>>>>>>> 653f4f9ef202af3285ae5a1dc4579dd66e484352
 
 
 
@@ -102,7 +111,8 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
   entryComponents: [
   BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
-    ViewAllAssetDetailComponent
+    ViewAllAssetDetailComponent,
+    ViewSingleNotificationComponent
   ]
 })
 export class AppModule { }
