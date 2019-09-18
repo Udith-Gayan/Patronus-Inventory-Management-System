@@ -3,6 +3,7 @@ import { NotifiService } from '../notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
 import { Employee } from '../model';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-testshow',
@@ -12,8 +13,11 @@ import { Employee } from '../model';
 export class TestshowComponent implements OnInit {
   datePipe: any;
   employee:Employee;
+  today= new Date();
+  jstoday = '';
   constructor(private ser : NotifiService,private firestore :AngularFirestore) { 
     this.employee=new Employee();
+    this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
   }
 
 
@@ -28,7 +32,8 @@ export class TestshowComponent implements OnInit {
       BrandName:'',
       Discription:'',
       ReturnDate:'',
-      OrderDate:''
+      OrderDate:'',
+      notificationType:''
 
      
     }
@@ -38,6 +43,7 @@ export class TestshowComponent implements OnInit {
 
     let data = Object.assign({}, form.value);
     delete data.id;
+    data.Discription=this.jstoday;
     if(form.value.id == null){
       this.firestore.collection('employeee').add(data);
       

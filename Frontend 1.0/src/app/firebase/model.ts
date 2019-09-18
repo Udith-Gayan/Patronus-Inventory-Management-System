@@ -5,5 +5,6 @@ export class Employee{
    Discription:string;
    OrderDate:string;
    ReturnDate:string;
+   notificationType:string;
 
 }

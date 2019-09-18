@@ -44,6 +44,9 @@ import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-inter
 
 
 import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.component';
+import { ViewBrekDownComponent } from './firebase/view-brek-down/view-brek-down.component';
+import { ViewRequestAssetComponent } from './firebase/view-request-asset/view-request-asset.component';
+import { ViewSingleNotificationComponent } from './PopupModals/view-single-notification/view-single-notification.component';
 
 
 
@@ -82,6 +85,9 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
+    ViewSingleNotificationComponent,
+   
+   
 
   ],
 
@@ -90,7 +96,8 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
   entryComponents: [
   BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
-    ViewAllAssetDetailComponent
+    ViewAllAssetDetailComponent,
+    ViewSingleNotificationComponent
   ]
 })
 

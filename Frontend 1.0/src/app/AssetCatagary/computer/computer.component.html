@@ -2,19 +2,20 @@
    
             <header class="card-header">
                                             
-                    <h4 class="card-title mt-2">computer Register</h4>
+                    <h4 class="card-title mt-2">computer Registration</h4>
                   </header>
                   
                   
                 <div class="card-body">
                 
                     <form class="form-horizontal"  (ngSubmit)=" onSubmit() " name="form" >
-                
-                            <div class="form-row">
+
+                            <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched">
                             <div class="col-md-5 mb-3">
                                     <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
-
-                                    <select name="brandName" id="brandName" class="form-control" [(ngModel)]="model.brandName">
+                                    
+                      
+                                    <select name="brandName" id="brandName" class="form-control" [(ngModel)]="model.brandName" required #brandName="ngModel">
 
                            
                                     <option value="HP" >HP</option>
@@ -26,7 +27,9 @@
                                       
                                     </select>
                                    
-                                    
+                                    <span class="help-block" *ngIf="brandName.touched && brandName.invalid" style="color:red" >
+                                        Brand Name is Required
+                                    </span>
                                      
                                     
                             </div>
@@ -43,7 +46,7 @@
                               
                        
                         <div class="form-group">
-                            <label for="username" class="cols-sm-2 control-label">date</label>
+                            <label for="username" class="cols-sm-2 control-label">Date</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     
@@ -53,23 +56,29 @@
                         </div>
   
                         
-                        <div class="form-group">
-                            <label for="price" class="cols-sm-2 control-label">price</label>
+                        
+                        <div class="form-group"  [class.has-error]="price.invalid && price.touched">
+                            <label for="price" class="cols-sm-2 control-label">Price</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"></span>
-                                    <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="asset.assetId" placeholder="Enter Price" />
+                                        <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="asset.price"   #price="ngModel" placeholder="Enter Price"  required price />
+                                        <span class="help-block" *ngIf="price.errors && price.errors.required && price.touched" style="color:red">
+                                                Price is required
+                                            </span> 
                                 </div>
                             </div>
                         </div>
 
                          <!-- Default checked -->
-                        <div class="form-row">
+                        
+                         
+                                <div class="form-group"  [class.has-error]="warranty.invalid && warranty.touched">
                             <div class="col-md-5 mb-3">
-                                    <label for="brandName" class="cols-sm-2 control-label">Warranty Period</label>
+                                    <label for="warranty" class="cols-sm-2 control-label">Warranty Period</label>
                            
                                 
-                                    <select name="brandName" id="brandName" class="form-control"  placeholder="" >
+                                    <select name="warranty" id="warranty" class="form-control" [(ngModel)]="model.warranty" required #warranty="ngModel">
                                     <option value="HP" >0</option>
                                       <option value="DELL" >1</option>
                                       <option value="ASUUS" >2</option>
@@ -78,39 +87,52 @@
                                       <option value="LENOVO" >5</option>
                                       
                                     </select>
+                                    <span class="help-block" *ngIf="warranty.touched && warranty.invalid" style="color:red" >
+                                            Warranty Period is Required
+                                        </span>
                             </div>
                         </div>
-                              
+                            
                         
                         
-                        <div class="form-group">
-                          <label for="Cname" class="cols-sm-2 control-label">Companya Name</label>
+                        <div class="form-group"  [class.has-error]="CompanyName.invalid && CompanyName.touched">
+                          <label for="CompanyName" class="cols-sm-2 control-label">Companya Name</label>
                           <div class="cols-sm-10">
                               <div class="input-group">
-                                 
-                                  <input type="text" class="form-control" name="CompanyName" id="Cname" required [(ngModel)]="asset.assetCategory" #CompanyName="ngModel" placeholder="Enter Company Name" >
-                                 
-                                  
+                                    <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="CompanyName" id="CompanyName"  [(ngModel)]="asset.CompanyName"   #CompanyName="ngModel" placeholder="Enter your Company Name"  required CompanyName />
+                                    <span class="help-block" *ngIf="CompanyName.errors && CompanyName.errors.required && CompanyName.touched" style="color:red">
+                                            Company Name is required
+                                        </span> 
+  
                                   
                               </div>
                           </div>
                       </div>
-                      <div class="form-group">
-                        <label for="CAddress" class="cols-sm-2 control-label">Company Address</label>
+                      <div class="form-group"  [class.has-error]="CompanyAddress.invalid && CompanyAddress.touched">
+                        <label for="CompanyAddress" class="cols-sm-2 control-label">Company Address</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                
-                                <input type="text" class="form-control" name="CAddress" id="CAddress"  [(ngModel)]="asset.companyAddress" placeholder="Enter Company Address" />
+                                    <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="CompanyAddress" id="CompanyAddress"  [(ngModel)]="asset.CompanyAddress"   #CompanyAddress="ngModel" placeholder="Enter Company Address"  required CompanyAddress />
+                                    <span class="help-block" *ngIf="CompanyAddress.errors && CompanyAddress.errors.required && CompanyAddress.touched" style="color:red">
+                                            Company Address is required
+                                        </span> 
                             </div>
                         </div>
                     </div>
                    
-                    <div class="form-group">
+                    <div class="form-group"  [class.has-error]="CNo.invalid && CNo.touched">
                         <label for="CNo" class="cols-sm-2 control-label"> Company Contact Number</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                
-                                <input type="text" class="form-control" name="CNo" id="CNo"  [(ngModel)]="asset.warrantyStatus" placeholder="Enter Contact Number" />
+                                    <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="CNo" id="CNo"  [(ngModel)]="asset.CNo"   #CNo="ngModel" placeholder="Enter Company Contact Number"  required CNo />
+                                    <span class="help-block" *ngIf="CNo.errors && CNo.errors.required && CNo.touched" style="color:red">
+                                             Contact Number is required
+                                        </span> 
                             </div>
                         </div>
                     </div>
@@ -136,65 +158,89 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="form-group"  [class.has-error]="quantity.invalid && quantity.touched">
                         <div class="col-md-5 mb-6">
-                                <label for="validationDefault01">Quantity</label>
-                                <input type="text" class="form-control" id="validationDefault01" [(ngModel)]="asset.displaySize"  placeholder="10..."
-                                    required>
+                                <label for="quantity">Quantity</label>
+                                <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="quantity" id="quantity"  [(ngModel)]="asset.quantity"   #quantity="ngModel" placeholder="Enter the Quantity"  required quantity/>
+                                    <span class="help-block" *ngIf="quantity.errors && quantity.errors.required && quantity.touched" style="color:red">
+                                            Quantity is required
+                                        </span> 
                                 
                         </div>
                     </div>
                         
                     
-                    <div class="form-row">
+           
+                    <div class="form-group"  [class.has-error]="display.invalid && display.touched">
                             <div class="col-md-5 mb-6">
-                                    <label for="validationDefault01">Display Size</label>
-                                    <input type="text" class="form-control" id="validationDefault01" [(ngModel)]="asset.displaySize"  placeholder="10.5 inch" 
-                                        required>
+                                    <label for="display">Display Size</label>
+                                    <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="display" id="display"  [(ngModel)]="asset.display"   #display="ngModel" placeholder="Dispaly Size"  required display/>
+                                    <span class="help-block" *ngIf="display.errors && display.errors.required && display.touched" style="color:red">
+                                            Dispaly Size is required
+                                        </span> 
                                     
                             </div>
-                           
-                            <div class="col-md-5 mb-3">
+                            
+                        <div class="form-group"  [class.has-error]="capacity.invalid && capacity.touched">
+                            <div class="col-md-5 mb-6">
+                                    
+                   
                                     <label for="Capacity" class="cols-sm-2 control-label">Capacity</label>
-                           
+                                    
+                                    
                                 
-                                    <select name="Capacity" id="Capacity" class="form-control" [(ngModel)]="asset.capacity" placeholder="Enter Brand Name">
+                                    <select name="Capacity" id="Capacity" class="form-control" [(ngModel)]="asset.capacity" placeholder="Capacity" required #capacity="ngModel">
                                       <option value="2TB" >1TB</option>
                                       <option value="2TB" >2TB</option>
                                       <option value="2TB" >3TB</option>
                                       <option value="2TB" >4TB</option>
                                     </select>
+                                    <span class="help-block" *ngIf="capacity.touched && capacity.invalid" style="color:red" >
+                                            Capacity is Required
+                                        </span>
                             </div>
                            
                           </div>
-  
-                          <div class="form-row">
-                                <div class="col-md-5 mb-3">
+                    
+                   
+                       
+                                <div class="col-md-5 mb-6">
+                                        <div class="form-group"  [class.has-error]="ram.invalid && ram.touched">
                                         <label for="brandname" class="cols-sm-2 control-label">RAM</label>
                                
                                     
-                                        <select name="ram" id="ram" class="form-control" [(ngModel)]="asset.ram" placeholder="">
+                                        <select name="ram" id="ram" class="form-control" [(ngModel)]="asset.ram" placeholder=" RAM size" required #ram ="ngModel">
                                           <option value="2GB" >2GB</option>
                                           <option value="4GB" >4GB</option>
                                           <option value="6GB" >6GB</option>
                                           <option value="8GB" >8GB</option>
                                         </select> 
-                                        
+                                        <span class="help-block" *ngIf="ram.touched && ram.invalid" style="color:red" >
+                                                Ram size  is Required
+                                            </span>
                                 </div>
-                                
-                                <div class="col-md-5 mb-3">
-                                        <label for="processor" class="cols-sm-2 control-label">Processor</label>
+                            </div>
+                        
+                        <div class="form-group"  [class.has-error]="proce.invalid && proce.touched"></div>
+                                <div class="col-md-5 mb-6">
+                                        <label for="proce" class="cols-sm-2 control-label">Processor</label>
                                
                                     
-                                        <select name="processor" id="processor" class="form-control" [(ngModel)]="asset.processor" placeholder="Enter Brand Name">
+                                        <select name="proce" id="proce" class="form-control" [(ngModel)]="asset.proce" placeholder="Processor" required #proce="ngModel">
                                           <option value="Hp" >i7</option>
                                           <option value="Assus" >i5</option>
                                           <option value="Asser" >i3</option>
                                           <option value="Dell" ></option>
                                         </select>
+                                        <span class="help-block" *ngIf="proce.touched && proce.invalid" style="color:red" >
+                                                Processor  size  is Required
+                                            </span>
                                 </div>
                                
-                              </div>
+                            </div>
+                    
       
                        
                         <div class="form-group shadow-textarea">

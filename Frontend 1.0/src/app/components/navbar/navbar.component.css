@@ -1,0 +1,6 @@
+#exampleCircle{
+    width: 30px;
+    height: 30px;
+    background: rgb(39, 68, 196);
+    border-radius: 50%;
+}
