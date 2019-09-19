@@ -28,14 +28,19 @@ export class TestshowComponent implements OnInit {
     form.resetForm();
     this.ser.FormData = {
       id : null,
-      AssetCategory: '' ,
-      BrandName:'',
-      Discription:'',
-      ReturnDate:'',
-      OrderDate:'',
-      notificationType:''
-
      
+      massege:'',
+      username:'',
+      beginDate:'',
+      dueDate:'',
+     
+      assetId:'',
+      description:'',
+      assetCategory:'',
+      requestedNic:'',
+      notificationType:'',
+  
+  
     }
   }
   onSubmit(form:NgForm){

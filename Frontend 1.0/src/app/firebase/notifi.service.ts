@@ -4,6 +4,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { BreakDwonNoti } from './BreakDownModel';
 import { ReturnStatement } from '@angular/compiler';
+import { Replay } from '../models/NotifiReplay';
+import { BookAsset } from '../models/BookAssetModel';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,9 @@ import { ReturnStatement } from '@angular/compiler';
 export class NotifiService {
 
   private dataSource = new BehaviorSubject(new Number());
-  FormData : Employee;
+  FormData : BookAsset;
   BreakDown:BreakDwonNoti;
+  ReplyNoti:Replay;
   
   constructor(private firestore :AngularFirestore) { }
 
@@ -22,8 +25,17 @@ export class NotifiService {
     this.dataSource.next(data);
   }
 
-  BreakDownAsset(){
+  Bookasset(){
     return this.firestore.collection('BookAssetNotification').snapshotChanges();
+  }
+
+  replayNoti(){
+    return this.firestore.collection('ReplayNotification').snapshotChanges();
+  }
+
+  BreakDownAsset(){
+    return this.firestore.collection('BreakDwonAsset').snapshotChanges();
+
   }
 
   formatDate(date :Date): string{

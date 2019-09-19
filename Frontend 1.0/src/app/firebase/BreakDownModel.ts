@@ -1,5 +1,10 @@
 export class BreakDwonNoti{
+    
     assetId:string;
-    description:string;
+    anyMessage:string;
     id:string;
+    fName:string;
+    complainedNic:string;
+    notificationType:string;
+    date:string;
 }

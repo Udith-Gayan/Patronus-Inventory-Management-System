@@ -12,6 +12,7 @@ import{ Event,Router,NavigationStart,NavigationEnd, RouterEvent} from '@angular/
   styleUrls: ['./icons.component.css']
 })
 export class IconsComponent implements OnInit {
+  status:string = sessionStorage.getItem('status');
   employee : Employee;
   showLoadingIndicator =true;
   imgUrl:string="/assets/img/1.jpeg";

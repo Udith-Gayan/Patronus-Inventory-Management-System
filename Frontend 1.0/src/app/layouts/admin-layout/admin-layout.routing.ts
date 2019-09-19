@@ -34,6 +34,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
      component: DashboardComponent,
      children:[
+        {
+            path: '',
+            redirectTo: 'complainBreakedown',
+            pathMatch: 'full',
+          },
+
          {
              path:'complainBreakedown',
              component:ComplainBreakedownComponent

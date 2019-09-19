@@ -47,6 +47,9 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
 import { ViewBrekDownComponent } from './firebase/view-brek-down/view-brek-down.component';
 import { ViewRequestAssetComponent } from './firebase/view-request-asset/view-request-asset.component';
 import { ViewSingleNotificationComponent } from './PopupModals/view-single-notification/view-single-notification.component';
+import { ViewSingleAssetNotiComponent } from './PopupModals/view-single-asset-noti/view-single-asset-noti.component';
+import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/view-single-emp-noti.component';
+import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
 
 
 
@@ -90,7 +93,12 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
     BookingAssetModalComponent,
     ViewSingleNotificationComponent,
 
-    NgbdModalContent
+    NgbdModalContent,
+
+    ViewSingleAssetNotiComponent,
+    ViewSingleEmpNotiComponent,
+    RequestAssetModalComponent,
+
 
 
   ],
@@ -105,9 +113,11 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
     NgbdModalContent,
 
   ],
-  exports: [NgbdModalContent],
-
-
+  exports: [NgbdModalContent,
+           ViewSingleAssetNotiComponent,
+           ViewSingleEmpNotiComponent,
+           RequestAssetModalComponent
+  ]
 })
 
 export class AppModule { }

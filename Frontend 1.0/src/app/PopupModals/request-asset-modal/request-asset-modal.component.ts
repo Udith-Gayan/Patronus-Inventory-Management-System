@@ -1,20 +1,19 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
 import { BookAsset } from '../../models/BookAssetModel';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from '../../service2/http.service';
-import { Employee } from '../../firebase/model';
 import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
 
-
 @Component({
-  selector: 'app-booking-asset-modal',
-  templateUrl: './booking-asset-modal.component.html',
-  styleUrls: ['./booking-asset-modal.component.scss']
+  selector: 'app-request-asset-modal',
+  templateUrl: './request-asset-modal.component.html',
+  styleUrls: ['./request-asset-modal.component.scss']
 })
-export class BookingAssetModalComponent implements OnInit {
+export class RequestAssetModalComponent implements OnInit {
+
   @Input() assetCategory: string;
   @Input() assetId: string;
   
@@ -22,25 +21,25 @@ export class BookingAssetModalComponent implements OnInit {
   fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;
 
-  bookasset: BookAsset;
+  requestAsset: BookAsset;
   datePipe: any;
-  employee:Employee;
+  
   today= new Date();
   jstoday = '';
-  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore) {
+  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private request:HttpService,private ser : NotifiService,private firestore :AngularFirestore) {
     this.createForm();
-    this.bookasset=new BookAsset();
-    this.employee=new Employee();
+    this.requestAsset=new BookAsset();
+    
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 
 
     //booking to assetId and enmployee Nic
    
-    this.bookasset.requestedNic=this.nic;
+    this.requestAsset.requestedNic=this.nic;
    }
 
   ngOnInit() {
-    this.bookasset.assetId=this.assetId;
+    this.requestAsset.assetId=this.assetId;
     
   }
 
@@ -80,7 +79,6 @@ resetForm(form ? : NgForm){
     username:'',
     beginDate:'',
     dueDate:'',
-   
     assetId:'',
     description:'',
     assetCategory:'',
@@ -93,9 +91,9 @@ resetForm(form ? : NgForm){
 onSubmit(form:NgForm){
 
   
-console.log(this.bookasset);
+console.log(this.requestAsset);
 
-  this.bookservices.bookAsset(this.bookasset).subscribe((response) => {
+  this.request.requestAsset(this.requestAsset).subscribe((response) => {
     
     console.log(response);
    
@@ -106,14 +104,14 @@ console.log(this.bookasset);
  
   
   let now = new Date();
-  console.log(this.employee);
+  console.log(this.requestAsset);
 
   let data = Object.assign({}, form.value);
   delete data.id;
   data.assetCategory=this.assetCategory;
   data.assetId=this.assetId;
   data.Discription=this.jstoday;
-  data.notificationType="Booking";
+  data.notificationType="Requesting";
   data.username=this.fname;
 
   if(form.value.id == null){
@@ -128,7 +126,7 @@ console.log(this.bookasset);
     
   }
 
-  alert('Booking Successfully');
+  alert('Request Successfully');
 
   this.resetForm(form);
   
@@ -137,12 +135,4 @@ console.log(this.bookasset);
 
 
 }
-
-
-
 }
-
-
-
-
-  

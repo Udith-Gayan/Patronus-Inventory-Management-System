@@ -51,7 +51,8 @@
                 </li> 
 -->
                 <!--notification-->
-                <li class="nav-item" ngbDropdown>
+                
+                <li class="nav-item"  ngbDropdown>
                     <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
                         <i class="now-ui-icons ui-1_bell-53"><div id = "exampleCircle"><p style="color: red"><b>{{data}}</b></p></div></i>
                      
@@ -71,10 +72,10 @@
                               </div>
                             </div>
                           </div>
-                          <div class="table-responsive" style="height: 10cm"  >
+                          <div class="table-responsive" style="height: 10cm" *ngIf= "status =='Asset Manager'" >
                           <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
                               
-                           <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId)">
+                           <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                              <div class="row">
                                 <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                                   <img src="assets/img/printer.jpg" alt="photo">
@@ -90,7 +91,7 @@
                                 </div><br>
                                 <div class="row">
                                    <div class="col-xs-4"><br>
-                                    <p style="font-size: 1.2ch">{{a.notificationType}}</p>
+                                    <p style="font-size: 1.2ch">{{a.notificationType}} </p>
                                    </div>
                                 </div>
                                 <div class="row">

@@ -16,7 +16,7 @@ export class TestveiwComponent implements OnInit {
   constructor(private ser : NotifiService,private firestore:AngularFirestore) { }
 
   ngOnInit() {
-    this.ser.BreakDownAsset().subscribe(actionArry => {
+    this.ser.Bookasset().subscribe(actionArry => {
       this.list = actionArry.map(item => {
         return {
           id: item.payload.doc.id,
