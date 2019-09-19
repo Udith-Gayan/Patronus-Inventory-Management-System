@@ -10,7 +10,7 @@ import { addAllToArray } from '@angular/core/src/render3/util';
 })
 export class ComputerComponent implements OnInit {
   model:any ={}
-asset: Asset;
+  asset: Asset;
 
 
   constructor(private userService:HttpService) { 

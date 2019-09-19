@@ -1,6 +1,6 @@
 export class Asset{
     assetId : string;
-    assetCategory : string;
+    assetcategory : string;
     brandName : string;
     boughtCompanyName : string;
     buyingPrice : DoubleRange;
@@ -12,5 +12,12 @@ export class Asset{
     processor:string;
     description:string;
     companyAddress:string;
-    
+    boughtCompanyAddress:string;
+    companyContact:string;
+    categorytypes:string;
+    yrs:number;
+    months:number;
+    days:number;
+ 
+
 }
