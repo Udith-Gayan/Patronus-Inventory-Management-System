@@ -14,7 +14,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent, NgbdModalContent } from './login/login.component';
 import { NoteComponent } from './note/note.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -55,6 +55,9 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
 
 
 
+
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -86,8 +89,9 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
     ViewSingleNotificationComponent,
-   
-   
+
+    NgbdModalContent
+
 
   ],
 
@@ -97,8 +101,13 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
   BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
-    ViewSingleNotificationComponent
-  ]
+    ViewSingleNotificationComponent,
+    NgbdModalContent,
+
+  ],
+  exports: [NgbdModalContent],
+
+
 })
 
 export class AppModule { }
