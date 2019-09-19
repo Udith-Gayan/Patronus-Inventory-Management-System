@@ -64,7 +64,7 @@ public class AssignController {
         if (empRepo.findByNic(m1.getRequestedNic()) != null) {
             System.out.println("Line 6");
             System.out.println("USer Assigned is found in EmployeeModel table.");
-            m1.setUserAssigned(empRepo.findByNic(m1.getUserAssigned().getNic()));
+            m1.setUserAssigned(empRepo.findByNic(m1.getRequestedNic()));
         } else {
             System.out.println("USer Assigned is NOT found in EmployeeModel table.");
         }

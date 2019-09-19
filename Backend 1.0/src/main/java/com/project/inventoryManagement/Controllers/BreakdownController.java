@@ -32,7 +32,9 @@ public class BreakdownController {
     @PostMapping(path = "add")
     public Breakdown addNewDamage(@RequestBody Breakdown b){
         // Assigning references
-        Optional<AssetModel> assetOptional = assetRepository.findByAssetId(b.getBrokenAsset().getAssetId());
+        System.out.println(b);
+        Optional<AssetModel> assetOptional = assetRepository.findByAssetId(b.getAssetId());    // changed
+        System.out.println(" line 1");
         if(assetOptional.isPresent()){
             System.out.println("Line 2");
             assetOptional.get().setBroken(true);
@@ -45,10 +47,10 @@ public class BreakdownController {
 
 
         System.out.println("Line 5");
-        if(empRepo.findByNic(b.getInformedBy().getNic()) != null){
+        if(empRepo.findByNic(b.getComplainedNic()) != null){     // changed
             System.out.println("Line 6");
             System.out.println("informed user is found in EmployeeModel table.");
-            b.setInformedBy(empRepo.findByNic(b.getInformedBy().getNic()));
+            b.setInformedBy(empRepo.findByNic(b.getComplainedNic()));       // changed
         }else {
             System.out.println("informed user is NOT found in EmployeeModel table.");
         }

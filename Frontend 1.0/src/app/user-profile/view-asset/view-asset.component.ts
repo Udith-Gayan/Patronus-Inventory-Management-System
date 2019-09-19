@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpService } from '../../service2/http.service';
 import { ViewAllAssetDetailComponent } from '../../PopupModals/view-all-asset-detail/view-all-asset-detail.component';
+import { RequestAssetModalComponent } from '../../PopupModals/request-asset-modal/request-asset-modal.component';
 
 @Component({
   selector: 'app-view-asset',
@@ -49,6 +50,24 @@ export class ViewAssetComponent implements OnInit {
       console.log(error);
     });
   }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Requesting Asset Popup
+
+openRequestmModal(assetId,assetCategory) {
+  const modalRef = this.modalService.open(RequestAssetModalComponent);
+  modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+  modalRef.componentInstance.assetCategory = assetCategory; 
+ 
+
+  modalRef.result.then((result) => {
+    console.log(result);
+  }).catch((error) => {
+    console.log(error);
+  });
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //view more detail of Asset
 

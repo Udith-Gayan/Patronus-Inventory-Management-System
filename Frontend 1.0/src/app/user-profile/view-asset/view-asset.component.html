@@ -109,7 +109,7 @@
       
         <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetCategory)" >Book Asset</a>  
       </a>    <!--pop up for booking-->   <a  *ngIf= "status !='Asset Manager'">
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetCategory)" >Request</a> 
+        <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetCategory)" >Request</a> 
       </a>
         <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetCategory)">More Detail </a>
 

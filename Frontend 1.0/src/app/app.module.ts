@@ -49,6 +49,7 @@ import { ViewRequestAssetComponent } from './firebase/view-request-asset/view-re
 import { ViewSingleNotificationComponent } from './PopupModals/view-single-notification/view-single-notification.component';
 import { ViewSingleAssetNotiComponent } from './PopupModals/view-single-asset-noti/view-single-asset-noti.component';
 import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/view-single-emp-noti.component';
+import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
 
 
 
@@ -90,6 +91,7 @@ import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/v
     ViewSingleNotificationComponent,
     ViewSingleAssetNotiComponent,
     ViewSingleEmpNotiComponent,
+    RequestAssetModalComponent,
    
    
 
@@ -103,7 +105,8 @@ import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/v
     ViewAllAssetDetailComponent,
     ViewSingleNotificationComponent,
     ViewSingleAssetNotiComponent,
-    ViewSingleEmpNotiComponent
+    ViewSingleEmpNotiComponent,
+    RequestAssetModalComponent
   ]
 })
 
