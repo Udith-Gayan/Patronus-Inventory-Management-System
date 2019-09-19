@@ -121,7 +121,7 @@ console.log(this.replay);
     
   }
 
-  alert('Booking Successfully');
+  alert('Replay Successfully');
 
   this.resetForm(form);
   
@@ -170,6 +170,11 @@ openEmpDetailModal(assetId){
     });
 
 }
+
+
+////////////////////////////////////////////////////////////////////////////Reject Button
+
+
 
 
 }
