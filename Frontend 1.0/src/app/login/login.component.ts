@@ -76,6 +76,10 @@ export class LoginComponent implements OnInit {
   }
 
 
+/*
+// Moved to loginLogout Service file
+
+
   // check if user is logged in or not
   isUserLoggedIn() {
     let user = sessionStorage.getItem('basicauth');
@@ -88,7 +92,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.removeItem('basicauth');
     sessionStorage.removeItem('status');
   }
-
+*/
 
 }
 

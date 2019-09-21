@@ -2,14 +2,14 @@
     <div class="sidebar" data-color="red">
         <app-sidebar></app-sidebar>
     </div>
-    
+
     <div class="main-panel">
-        
+
             <app-navbar></app-navbar>
             <div *ngIf=" showLoadingIndicator">Loding.... </div>
         <router-outlet></router-outlet>
-        
+
         <app-footer></app-footer>
-        
+
     </div>
 </div>

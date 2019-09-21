@@ -50,6 +50,7 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
 import { ViewSingleAssetNotiComponent } from './PopupModals/view-single-asset-noti/view-single-asset-noti.component';
 import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/view-single-emp-noti.component';
 import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -98,6 +99,7 @@ import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/re
     ViewSingleAssetNotiComponent,
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
+    LogoutComponent,
 
 
 
