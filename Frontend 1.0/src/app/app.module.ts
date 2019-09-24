@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpModule } from '@angular/http';   // test
+
 
 
 import { AppRoutingModule } from './app.routing';
@@ -31,7 +31,7 @@ import { ComputerComponent } from './AssetCatagary/computer/computer.component';
 import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 
 import { NotifiService } from './firebase/notifi.service';
 import { EmpCompenentModule } from './components/Emp-components/emp-components.module';
@@ -99,13 +99,14 @@ import { LogoutComponent } from './logout/logout.component';
     ViewSingleAssetNotiComponent,
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
-    LogoutComponent,
+    LogoutComponent
+
 
 
 
   ],
 
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService, AngularFirestore],
   bootstrap: [AppComponent],
   entryComponents: [
   BookingAssetModalComponent,
