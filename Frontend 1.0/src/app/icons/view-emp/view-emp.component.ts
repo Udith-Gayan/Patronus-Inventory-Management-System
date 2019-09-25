@@ -17,7 +17,7 @@ export class ViewEmpComponent implements OnInit {
   data: Observable<Employee[]>;
   employees: Employee[];
   searchTerm :string;
-
+  status:string = sessionStorage.getItem('status');
   submitted = false;
   message: string;
   constructor(private emp:HttpService ,private _router : Router, private modalService: NgbModal) { }
@@ -39,6 +39,7 @@ export class ViewEmpComponent implements OnInit {
                                                        // this.employees.splice(this.employees.indexOf(d),1);
                                                        console.log(data);
                                                        alert("Successfully deleted");
+                                                       
                                                          },
                                                          (error)=>{
                                                                     console.log(error);

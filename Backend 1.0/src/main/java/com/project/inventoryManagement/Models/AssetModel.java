@@ -28,7 +28,7 @@ public class AssetModel  {
     private String assetId;
 
     @Column(name = "assetCategory")      //use drop down menu  default other
-    private String assetCategory;      //Laptop,PC,Projectors,furniture,mikes,sound systems,UPS,displays,water filters,others
+    private String assetCategory;      //Laptop,PC,Projector,Furniture, Television, Sound system, CPU, Routers (mikes,sound systems,UPS,displays,water filters,others)
 
     @Column(name = "brandName")
     private String brandName;
@@ -39,8 +39,21 @@ public class AssetModel  {
     @Column(name = "buyingPrice")
     private double buyingPrice;
 
+    @Column(name = "companyContact")
+    private String companyContact;      // newly added
+
     @Column(name = "warrantyStatus")
     private String warrantyStatus;
+
+    @Column(name = "yrs")
+    private String yrs;        // newly added
+
+    @Column(name = "months")           // newly added
+    private String months;
+
+    @Column(name = "days")        // newly added
+    private String days;
+
 
     @Column(name = "boughtDate")
     private String boughtDate;
@@ -53,6 +66,9 @@ public class AssetModel  {
 
     @Column(name = "capacity")
     private String capacity;    // for desktops,laptops  use a drop box
+
+    @Column(name = "categoryTypes")
+    private String categoryTypes ;        // newly added
 
     @Column(name = "description")
     private String description;

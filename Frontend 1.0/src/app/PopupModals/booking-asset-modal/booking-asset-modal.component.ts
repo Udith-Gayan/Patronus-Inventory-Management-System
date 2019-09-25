@@ -6,6 +6,7 @@ import { HttpService } from '../../service2/http.service';
 import { Employee } from '../../firebase/model';
 import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -14,20 +15,32 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./booking-asset-modal.component.scss']
 })
 export class BookingAssetModalComponent implements OnInit {
-  @Input() assetId: number;
+  @Input() assetCategory: string;
+  @Input() assetId: string;
   
+  nic = sessionStorage.getItem('nic');
+  fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;
 
   bookasset: BookAsset;
   datePipe: any;
   employee:Employee;
+  today= new Date();
+  jstoday = '';
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore) {
     this.createForm();
     this.bookasset=new BookAsset();
     this.employee=new Employee();
+    this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
+
+
+    //booking to assetId and enmployee Nic
+   
+    this.bookasset.requestedNic=this.nic;
    }
 
   ngOnInit() {
+    this.bookasset.assetId=this.assetId;
     
   }
 
@@ -35,11 +48,12 @@ export class BookingAssetModalComponent implements OnInit {
 // create the form with given data
 private createForm() {
   this.myForm = this.formBuilder.group({
+    assetId:'',
     username: '',
-   
     beginDate:'',
     dueDate:'',
-    massege:''
+    massege:'',
+    date:''
 
    
   });
@@ -53,18 +67,7 @@ private createForm() {
 
 // submit the form
 
-private submitForm() {
-  this.activeModal.close(this.myForm.value);
-  console.log(this.bookasset);
 
- 
-
-  this.bookservices.bookAsset(this.employee).subscribe((response) => {
-    console.log(response);
-    alert('Booking Successfully');
-  });
-
-}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -73,38 +76,66 @@ resetForm(form ? : NgForm){
   form.resetForm();
   this.ser.FormData = {
     id : null,
-    AssetCategory: '' ,
-    BrandName:'',
-    Discription:'',
-    ReturnDate:'',
-    OrderDate:''
+    massege:'',
+    username:'',
+    beginDate:'',
+    dueDate:'',
+    bookNic:'',
+    assetId:'',
+    description:'',
+    assetCategory:'',
+    requestedNic:'',
+    notificationType:'',
 
    
   }
 }
 onSubmit(form:NgForm){
-  this.bookservices.bookAsset(this.employee).subscribe((response) => {
+
+  
+console.log(this.bookasset);
+
+  this.bookservices.bookAsset(this.bookasset).subscribe((response) => {
+    
     console.log(response);
-    alert('Booking Successfully');
+   
+  
   });
+
+  
+ 
   
   let now = new Date();
   console.log(this.employee);
 
   let data = Object.assign({}, form.value);
   delete data.id;
-  data.username=this.assetId;
+  data.assetCategory=this.assetCategory;
+  data.assetId=this.assetId;
+  data.Discription=this.jstoday;
+  data.notificationType="Booking";
+  data.username=this.fname;
+  data.bookNic=this.nic;
+
   if(form.value.id == null){
-    alert('fill this feild');
-    this.firestore.collection('employeee').add(data);
+   
+    this.firestore.collection('BookAssetNotification').add(data);
+    
     
    
 }
-  else
+  else {
     this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
+    
+  }
+
+  alert('Booking Successfully');
+
   this.resetForm(form);
   
- alert('Do you Want Book this One');
+ 
+
+
 
 }
 

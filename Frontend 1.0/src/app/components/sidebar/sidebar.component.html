@@ -7,16 +7,22 @@
         </div>
         </a>
         <a href="#" class="simple-text logo-normal">
-            <b>Asset Manager</b>
+            <b>{{Fname}} {{Lname}}</b>
         </a>
     </div>
     <div class="sidebar-wrapper">
         <b>
         <ul class="nav">
             <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                
                 <a [routerLink]="[menuItem.path]">
+                   
+                     
+                    
+                  
                     <i class="now-ui-icons {{menuItem.icon}}"></i>
                     <p>{{menuItem.title}}</p>
+               
                 </a>
             </li>
         </ul>

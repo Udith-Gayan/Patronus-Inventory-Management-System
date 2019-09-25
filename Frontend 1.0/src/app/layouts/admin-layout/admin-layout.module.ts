@@ -38,6 +38,10 @@ import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vproj
 import { BookingAssetModalComponent } from '../../PopupModals/booking-asset-modal/booking-asset-modal.component';
 import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown/complain-breakedown.component';
 import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
+import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
+import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
+import { AboutUsComponent } from '../../maps/about-us/about-us.component';
+import { WelcomeComponent } from '../../maps/welcome/welcome.component';
 
 
 @NgModule({
@@ -83,13 +87,17 @@ import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-br
     VFurnitureComponent,
     VProjecterComponent,
     ComplainBreakedownComponent,
-    ViewBreakedownComponent
-   
+    ViewBreakedownComponent,
+    ViewBrekDownComponent,
+    ViewRequestAssetComponent,
+    AboutUsComponent,
+    WelcomeComponent
     
 
     
   
-  ]
+  ],
+  
  
 
 })

@@ -1,0 +1,32 @@
+
+//////////////////////////////////////////////////////////request Asset
+
+url: [POST] http://localhost:8080/assign/request/add
+
+	"beginDate": "2018-03-14",           
+                
+	"dueDate": "2018-06-20",      
+                    
+	"assetId": "id4"
+	 
+	"nic": "4v" 
+
+	"description":	                
+
+				             
+
+						             
+ /////////////////////////////////////////////////////////BreakDown Asset
+
+url: [POST] http://localhost:8080/breakdown/add
+
+
+
+
+	anyMessage
+
+	nic
+
+    	assetId                 
+
+                   

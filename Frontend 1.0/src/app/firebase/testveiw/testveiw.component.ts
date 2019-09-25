@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../../firebase/model';
+
 import { NotifiService } from '../notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+
+import { BookAsset } from '../../models/BookAssetModel';
+import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-testveiw',
@@ -10,17 +14,18 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class TestveiwComponent implements OnInit {
 
-  list:Employee[];
-  constructor(private ser : NotifiService,private firestore:AngularFirestore) { }
+  list:BookAsset[];
+ 
+  constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.ser.getEmployees().subscribe(actionArry => {
+    this.ser.Bookasset().subscribe(actionArry => {
       this.list = actionArry.map(item => {
         return {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
 
-        } as Employee;
+        } as BookAsset;
       })
       this.ser.updatedDataSelection(this.list.length);
     });
@@ -28,15 +33,37 @@ export class TestveiwComponent implements OnInit {
       console.log(data);
     })
   }
-  onEdit(emp:Employee){
-    this.ser.FormData=Object.assign({},emp);
-  }
+ 
   onDelete(id:string){
     if(confirm("Are you sure")){
-      this.firestore.doc('employeee/'+id).delete();
+      this.firestore.doc('BookAssetNotification/'+id).delete();
     }
 
   }
+
+  
+// Open booking popup form
+openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
+  console.log();
+  const modalRef = this.modalService.open(ViewSingleNotificationComponent);
+  modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+  modalRef.componentInstance.assetCategory = assetCategory;
+  modalRef.componentInstance.notificationType = notificationType;
+  modalRef.componentInstance.requestedNic = requestedNic;
+  modalRef.componentInstance.massege = massege;
+  modalRef.componentInstance.beginDate = beginDate;
+  modalRef.componentInstance.dueDate = dueDate;
+  modalRef.componentInstance.username = username;
+
+
+  modalRef.result.then((result) => {
+    console.log(result);
+  }).catch((error) => {
+    console.log(error);
+  });
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 }

@@ -1,0 +1,63 @@
+/////////Computer///////
+Brand Name            -  brandName
+Date                  -  boughtDate
+Price                  -  buyingPrice
+Warranty Period       -    yrs     : number
+                           months    : number
+                           days     : number
+Company Name          -  boughtCompanyName
+Company Address       -  boughtCampanyAddress
+Company Contact Number    - companyContact
+Category- Laptop, PC     -   assetCategory     (  Laptop, PC )
+Quantity                 -  ////
+Display Size              -  displaySize
+Capacity                -  capacity
+RAM            -            ram
+Processor      -         processor 
+Discription    -         description
+              -        
+
+////Projector///////
+
+
+Brand Name  ''
+Date    ''
+Price   ''
+Warranty Period    ''
+Company Name          ''
+Company Address       ''
+Company Contact Number   ''
+Category   -           assetCategory     (  Projector )
+Type-                 CategoryTypes  ( Portable, Installation, Short Throw, Large Venu, Home cinema )
+Quantity   '///
+Description ''
+
+//////Furniture///////
+
+
+Brand Name  ''
+Date  ''
+Price  ''
+Warranty Period'''
+Company Name    ''
+Company Address   ''
+Company Contact Number   ''
+Category-   assetCategory     (  Furniture )
+type   -   categoryTypes (office table, office chair, cuphbourd, sofa set )
+Quantity  ///
+Description   ''
+
+
+//Other///////
+
+
+Category - Television, Sound system, CPU, Routers
+Brand Name  ''
+Date ''
+Price  ''
+Warranty Period  ''
+Company Name   ''
+Company Address   ''
+Company Contact Number  ''
+Quantity ///
+Description  ''

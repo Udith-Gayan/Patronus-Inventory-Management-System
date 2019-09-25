@@ -27,11 +27,21 @@ import { VFurnitureComponent } from '../../viewAllAssetCatagary/vfurniture/vfurn
 import { VProjecterComponent } from '../../viewAllAssetCatagary/vprojecter/vprojecter.component';
 import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown/complain-breakedown.component';
 import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
+import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
+import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
+import { AboutUsComponent } from '../../maps/about-us/about-us.component';
+import { WelcomeComponent } from '../../maps/welcome/welcome.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
      component: DashboardComponent,
      children:[
+        {
+            path: '',
+            redirectTo: 'complainBreakedown',
+            pathMatch: 'full',
+          },
+
          {
              path:'complainBreakedown',
              component:ComplainBreakedownComponent
@@ -71,7 +81,7 @@ export const AdminLayoutRoutes: Routes = [
                     },
                     {
                         path:'back',
-                        component:ViewAssetComponent
+                        component:ViewBreakedownComponent
                     }
                     
 
@@ -163,25 +173,57 @@ export const AdminLayoutRoutes: Routes = [
         ],
 
     },
-    { path: 'welcome', component: MapsComponent },
+    { path: 'welcome',
+     component: MapsComponent,
+     children:[
+        {
+            path: '',
+            redirectTo: 'welcome',
+            pathMatch: 'full',
+          },
+         {
+            
+                path:'aboutUs',
+                component:AboutUsComponent
+                
+          
+         },
+         {
+            path:'welcome',
+            component:WelcomeComponent
+         
+        }
+     ]
+    
+    },
     { 
         path: 'notifications', 
         component: NotificationsComponent ,
         children:[
             {
                 path:'',
-                redirectTo: 'view',
+                redirectTo: 'bookNotification',
                 pathMatch: 'full',
                 
             },
             {
-                path:'view',
+                path:'bookNotification',
                 component:TestveiwComponent
             },
             {
                 path:'show',
                 component:TestshowComponent
+            },
+            {
+                path:'breakDownNotification',
+                component:ViewBrekDownComponent
+            },
+            {
+                path:'requestNotification',
+                component:ViewRequestAssetComponent
+                
             }
+          
         ]
     
     },

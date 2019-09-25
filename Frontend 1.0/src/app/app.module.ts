@@ -1,10 +1,11 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpModule } from '@angular/http';   // test
 
 
 import { AppRoutingModule } from './app.routing';
@@ -28,7 +29,7 @@ import { ViewAssetComponent } from './user-profile/view-asset/view-asset.compone
 import { RegistorAssetComponent } from './user-profile/registor-asset/registor-asset.component';
 import { ComputerComponent } from './AssetCatagary/computer/computer.component';
 import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
-import { AngularFireModule } from "@angular/fire";
+import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
@@ -39,7 +40,20 @@ import { ViewAllEmpDelailComponent } from './PopupModals/view-all-emp-delail/vie
 import { ViewAllAssetDetailComponent } from './PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 import { VFurnitureComponent } from './viewAllAssetCatagary/vfurniture/vfurniture.component';
 import { VProjecterComponent } from './viewAllAssetCatagary/vprojecter/vprojecter.component';
+import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-interceptor.service';
+
+
 import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.component';
+import { ViewBrekDownComponent } from './firebase/view-brek-down/view-brek-down.component';
+import { ViewRequestAssetComponent } from './firebase/view-request-asset/view-request-asset.component';
+import { ViewSingleNotificationComponent } from './PopupModals/view-single-notification/view-single-notification.component';
+import { ViewSingleAssetNotiComponent } from './PopupModals/view-single-asset-noti/view-single-asset-noti.component';
+import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/view-single-emp-noti.component';
+import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
+import { ConfireDialogService } from './DialogModals/Confire-Dialog.service';
+import { ConfireDialogComponent } from './DialogModals/confire-dialog/confire-dialog.component';
+import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
+
 
 
 
@@ -62,17 +76,12 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
     AngularFirestoreModule,
     EmpCompenentModule,
     ReactiveFormsModule
-
-
-
-
-
-
-
-
+    
+    
 
 
   ],
+
   declarations: [
     AppComponent,
     AdminLayoutComponent,
@@ -83,26 +92,38 @@ import { BookAssetComponent } from './EMPLOYEE_DASHBOARD/book-asset/book-asset.c
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
-  
-  
+    ViewSingleNotificationComponent,
+    ViewSingleAssetNotiComponent,
+    ViewSingleEmpNotiComponent,
+    RequestAssetModalComponent,
+    ConfireDialogComponent
    
     
-
-
-
-
-
-
-
-
+    
+   
+    
+   
+   
 
   ],
-  providers: [NotifiService],
+  exports: [  
+    ConfireDialogComponent  
+],
+  
+
+
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService,ConfireDialogService ],
   bootstrap: [AppComponent],
   entryComponents: [
   BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
-    ViewAllAssetDetailComponent
+    ViewAllAssetDetailComponent,
+    ViewSingleNotificationComponent,
+    ViewSingleAssetNotiComponent,
+    ViewSingleEmpNotiComponent,
+    RequestAssetModalComponent,
+      
   ]
 })
+
 export class AppModule { }

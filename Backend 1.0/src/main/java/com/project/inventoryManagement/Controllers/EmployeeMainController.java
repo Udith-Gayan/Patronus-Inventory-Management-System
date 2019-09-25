@@ -6,11 +6,15 @@ import com.project.inventoryManagement.Models.LoginResponse;
 import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+
+
+// @CrossOrigin(origins = "*",allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/employees")
-@CrossOrigin(origins = "*",allowedHeaders = "*")
+@CrossOrigin
 public class  EmployeeMainController {
 
 
@@ -19,7 +23,8 @@ public class  EmployeeMainController {
     private EmployeeMainRepository empMainRepo;
 
 
-
+    @Autowired
+    private PasswordEncoder bcryptEncoder;
 
 
 
@@ -88,6 +93,8 @@ public class  EmployeeMainController {
           empMainRepo.save(m1);
       }
       else {
+
+          m1.setPassword(bcryptEncoder.encode(m1.getPassword()));   // encoded password using bcrption
           empMainRepo.save(m1);
       }
         return empMainRepo.findByNic(m1.getNic());

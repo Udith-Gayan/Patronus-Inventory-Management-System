@@ -36,7 +36,7 @@ export class RegistorEmpComponent implements OnInit {
 
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  getEmp(id:number){
+  getEmp(id: number){
     this.userservice.getAllEmployeee().subscribe();
 
   }

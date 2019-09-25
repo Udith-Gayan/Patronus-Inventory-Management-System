@@ -5,25 +5,30 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="panel-header panel-header-sm">
 </div>
+
+
+
+
 <div class="main-content">
  
     <div class="row">
         <div class="col-md-11">
              <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-                        
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                              <a class="nav-link"  routerLink="/employee/registor">Register </a>
+             
+                        <ul class="navbar-nav mr-auto" *ngIf= "status =='Asset Manager'">
+                            <li class="nav-item active" >
+                              <a class="nav-link"  routerLink="/employee/registor"> Register Employee </a>
                               
                             </li>
                            
                           </ul>
+                       
                         
                       
                         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                           <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                              <a class="nav-link" routerLink="/employee/view-employee">view <span class="sr-only">(current)</span></a>
+                              <a class="nav-link" routerLink="/employee/view-employee">Register view <span class="sr-only">(current)</span></a>
                             </li>
                            
                            

@@ -1,0 +1,10 @@
+In employee registration, 
+ Mobile number must be
+        required
+        10 digit length
+
+ nic must be 
+      required
+
+confirm password must be designed.
+

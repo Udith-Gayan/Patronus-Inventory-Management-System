@@ -25,6 +25,12 @@ public class Breakdown implements Serializable {
     @Column(name = "message")
     private String anyMessage;
 
+    @Column(name = "complainedNic")    // newly added
+    private String complainedNic;
+
+    @Column(name = "assetId")    // newly added
+    private String assetId;
+
     @Column(name = "warranty_status")
     private boolean warrantyStatus;
 

@@ -1,0 +1,38 @@
+<div class="modal-header" style="background-color: rgb(76, 151, 151)">
+    <h4 class="modal-title" style="color: blue">{{username}} {{lastname}}</h4><h5 style="color: chocolate">ID Number : {{employeeId}}</h5>
+   <!-- <button></button> -->
+  
+    
+  
+  </div>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+    <div class="modal-boy">
+      <div class="container">
+  
+          <div class="form-groupp">          
+            <br>                                             <!--Changed here-->
+              <label for="nic">NIC No : <b>{{username}}</b>  </label> <br> <br>
+              <label for="firstname">First Name : <b>{{assetId}}</b>  </label> <br> <br>
+              <label for="lastname">Last Name : <b>{{lastname}}</b>  </label> <br> <br>
+              <label for="email">Email : <b>{{email}}</b>  </label> <br> <br>
+              <label for="gender">gender : <b>{{gender}}</b>  </label> <br> <br>
+              <label for="contactNo">contactNo : <b>{{contactNo}}</b>  </label> <br> <br>
+              <label for="address">address : <b>{{address}}</b>  </label> <br> <br>
+              <label for="employeeId">employeeId : <b>{{employeeId}}</b>  </label> <br> <br>
+       
+         </div>
+  
+       
+  
+       
+  
+      </div>
+    </div>
+    <div class="modal-footer"  >
+      <button class="btn " style="background-color: crimson"
+        [disabled]="!myForm.valid">
+        Cancel
+      </button>
+    </div>
+  </form>
+  
