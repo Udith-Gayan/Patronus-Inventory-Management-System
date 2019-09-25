@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpModule } from '@angular/http';   // test
+
 
 
 import { AppRoutingModule } from './app.routing';
@@ -14,7 +14,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent, NgbdModalContent } from './login/login.component';
 import { NoteComponent } from './note/note.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -50,9 +50,12 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
 import { ViewSingleAssetNotiComponent } from './PopupModals/view-single-asset-noti/view-single-asset-noti.component';
 import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/view-single-emp-noti.component';
 import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
-import { ConfireDialogService } from './DialogModals/Confire-Dialog.service';
-import { ConfireDialogComponent } from './DialogModals/confire-dialog/confire-dialog.component';
-import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
+import { LogoutComponent } from './logout/logout.component';
+
+import {NgxPrintModule} from 'ngx-print';
+
+
+
 
 
 
@@ -75,9 +78,9 @@ import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     EmpCompenentModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     
-    
+   
 
 
   ],
@@ -93,36 +96,32 @@ import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
     ViewSingleNotificationComponent,
+
+    NgbdModalContent,
+
     ViewSingleAssetNotiComponent,
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
-    ConfireDialogComponent
-   
-    
-    
-   
-    
-   
-   
+    LogoutComponent,
+
+
 
   ],
-  exports: [  
-    ConfireDialogComponent  
-],
-  
 
-
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService,ConfireDialogService ],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
   bootstrap: [AppComponent],
   entryComponents: [
   BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
     ViewSingleNotificationComponent,
-    ViewSingleAssetNotiComponent,
-    ViewSingleEmpNotiComponent,
-    RequestAssetModalComponent,
-      
+    NgbdModalContent,
+
+  ],
+  exports: [NgbdModalContent,
+           ViewSingleAssetNotiComponent,
+           ViewSingleEmpNotiComponent,
+           RequestAssetModalComponent
   ]
 })
 

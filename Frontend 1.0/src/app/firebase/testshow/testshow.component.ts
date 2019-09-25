@@ -33,7 +33,7 @@ export class TestshowComponent implements OnInit {
       username:'',
       beginDate:'',
       dueDate:'',
-      bookNic:'',
+     
       assetId:'',
       description:'',
       assetCategory:'',

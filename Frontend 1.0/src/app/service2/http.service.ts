@@ -5,7 +5,6 @@ import { Asset } from '../asset/asset';
 import { Observable } from 'rxjs';
 import { BookAsset } from '../models/BookAssetModel';
 import { BreakDwonNoti } from '../firebase/BreakDownModel';
-import {  Replaynoti } from '../models/ReplayModal';
 
 
 @Injectable({
@@ -44,12 +43,6 @@ export class HttpService {
   
   requestAsset(request : BookAsset){
     return this.http.post(Constants.BASE_URL+'/assign/request/add',request,Constants.HTTP_OPTIONS);
-  }
-
-  ///////replay reject or accept 
-
-  replaynoti(replay : Replaynoti){
-    return this.http.post(Constants.BASE_URL+'//',replay,Constants.HTTP_OPTIONS);
   }
 
   deleteasset(assetId) {                              // deleteEmployee(employee :Employee){
