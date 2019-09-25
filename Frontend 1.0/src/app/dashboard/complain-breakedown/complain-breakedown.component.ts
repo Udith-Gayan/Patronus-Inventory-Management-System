@@ -6,7 +6,13 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 import { HttpService } from '../../service2/http.service';
 import { formatDate } from '@angular/common';
 
+////////////
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
 @Component({
   selector: 'app-complain-breakedown',
   templateUrl: './complain-breakedown.component.html',
@@ -64,14 +70,24 @@ export class ComplainBreakedownComponent implements OnInit {
     console.log(this.nic);
     console.log(response);
     this.chek=true;
-    alert('Notifyed successfully');
-
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 2000
+    })
 
   },
 
     ( error: any) => {
      
-      window.alert('Please Check the AssetID ');
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'AssetId went wrong!',
+        footer: '<a> Please check the AssetId Again </a>'
+      })
       
 
 

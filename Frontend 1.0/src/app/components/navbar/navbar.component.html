@@ -1,3 +1,10 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
 
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
   <div class="container-fluid">
@@ -124,18 +131,21 @@
 
            
            <!--end-->
-          <li class="nav-item" ngbDropdown>
+          <li class="nav-item" ngbDropdown >
             <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
                   <i class="now-ui-icons users_single-02"></i>
               <p>
                 <span class="d-lg-none d-md-block">Some Actions</span>
               </p>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1" >
                   <a class="dropdown-item" href="#" style="color: rgb(70, 82, 119)"> <b>Edit porfile</b> </a>
-              <a class="dropdown-item" href="#"  routerLink="/home" style="color: rgb(70, 82, 119)"> <b>LogOut</b></a>
-            
               
+                
+              <a class="dropdown-item"   style="color: rgb(70, 82, 119)"> <b (click)="login()">LogOut
+             
+              <a *ngIf= "con == 'true'" routerLink="/home"> </a></b></a>
+          
             </div>
           </li>
           
