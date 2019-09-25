@@ -212,4 +212,46 @@ returns a list of assignings: Assign
 /************************************************************************************************************************************/
 
 
+// Approve requests by Asset Manager and department head
+
+by Department Head url: [POST] http://localhost:8080/assign/confirmation/departmenthead
+by asset Manager url: [POST] http://localhost:8080/assign/confirmation/assetmanager
+
+Frontend request must send a bodyas below
+
+  {
+    "id": 2  // assign id must be sent to backend
+  }
+
+If succeeded, 
+   returns ResponseEntity.ok(updatedModel: AssignModel)
+if failed
+ return null;
+
+/********************************************************************************************************************************/
+
+
+// Reject requests by Asset Manager and department head
+
+by Department Head url: [POST] http://localhost:8080/assign/reject/departmenthead
+by asset Manager url: [POST] http://localhost:8080/assign/reject/assetmanager
+
+Frontend request must send a bodyas below
+
+  {
+    "id": 2  // assign id must be sent to backend
+  }
+
+If succeeded, 
+   returns ResponseEntity.ok(updatedModel: AssignModel)
+if failed
+ return null;
+
+
+/****************************************************************************************************************************************/
+
+
+
+
+
 

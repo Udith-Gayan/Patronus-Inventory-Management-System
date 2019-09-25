@@ -29,6 +29,7 @@ public class BookingAssetController {
     EmployeeMainRepository empRepo;
 
     ////////////////////////////////////
+    // add a new booking
     @PostMapping(path = "/book/add")
     public AssignModel addNewBooking(@RequestBody AssignModel m1) {
         System.out.println("requestBody: " + m1.toString());
@@ -79,6 +80,8 @@ public class BookingAssetController {
 
     }
     ////////////////////////////////
+
+    // view all bookings
     @GetMapping(path = "/book/view/all")
     public Iterable<AssignModel> viewAllBookings(){
 
