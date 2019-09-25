@@ -149,6 +149,8 @@ This url returns a record of breakdown made in the below format.
 {
     "id": 49,
     "anyMessage": "no message yet",
+    "": "",
+    "" : "" ,
     "warrantyStatus": false,
     "informedDate": "2019-08-04T04:47:14.797+0000",
     "informedBy": {
@@ -185,4 +187,29 @@ This url returns a record of breakdown made in the below format.
 }
 
 
+
+
 /**********************************************************************************************************************************/
+
+
+// Show all pending requests by Department head ( requests not yet approved by department head)
+
+url : (GET) http://localhost:8080/assign/request/view/pending/departmentHead
+
+returns  list of assignings: Assign  
+
+
+
+/***********************************************************************************************************************************/
+
+// Show all pending requests by AssetManager ( requests not yet approved by asst Manager  But  already approved by department head)
+
+url: (GET) http://localhost:8080/assign/request/view/pending/assetMananger
+
+returns a list of assignings: Assign 
+
+
+/************************************************************************************************************************************/
+
+
+

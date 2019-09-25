@@ -69,14 +69,25 @@ public class BookingAssetController {
         }
 
         System.out.println("Line 7");
-        assignRepo.save(m1);
+        AssignModel savedm1 = assignRepo.save(m1);
         System.out.println("Line 8");
         System.out.println("Assigned saved Successfully !!!");
 
-        return m1;
+        return savedm1;
 
 
 
     }
     ////////////////////////////////
+    @GetMapping(path = "/book/view/all")
+    public Iterable<AssignModel> viewAllBookings(){
+
+        System.out.println("Request came to get all Bookings");
+
+        return assignRepo.findAllbyRequestType("BOOKING");
+    }
+
+
+    ///////////////////////////////////
+
 }

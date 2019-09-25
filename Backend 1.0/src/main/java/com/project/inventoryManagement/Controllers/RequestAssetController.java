@@ -72,11 +72,43 @@ public class RequestAssetController {
         }
 
         System.out.println("Line 7");
-        assignRepo.save(m1);
+        AssignModel savedm1 = assignRepo.save(m1);
         System.out.println("Line 8");
         System.out.println("Assigned saved Successfully !!!");
 
-        return m1;
+        return savedm1;
 
     }
+
+    ///////////////////////////////////////////////////////////////////////////
+
+    // View All requests
+    @GetMapping(path = "/request/view/all")
+    public Iterable<AssignModel> viewAllRequests(){
+        System.out.println("Request came to get all requests");
+        return assignRepo.findAllbyRequestType("REQUEST");
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    // view pending requests by Department head
+    @GetMapping(path = "/request/view/pending/departmentHead")
+    public Iterable<AssignModel> viewPendingsByDepartmentHead(){
+        System.out.println("Request came to get all pending requests by department head");
+        return assignRepo.findByRequestTypeAndApprovedByDepartmentHeadAAndApprovedByAssetManager("REQUEST",false,false);
+    }
+
+    ////////////////////////////////////////////////////////////////
+
+    // view pending requests by Asset Manager head
+    @GetMapping(path = "/request/view/pending/assetMananger")
+    public Iterable<AssignModel> viewPendingsByAssetMAanager(){
+        System.out.println("Request came to get all pending requests by AssetManager");
+        return assignRepo.findByRequestTypeAndApprovedByDepartmentHeadAAndApprovedByAssetManager("REQUEST",true,false);
+    }
+
+    /////////////////////////////////////////////
+
+
+
 }
