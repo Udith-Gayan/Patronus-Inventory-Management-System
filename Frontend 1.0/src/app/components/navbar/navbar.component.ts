@@ -21,6 +21,7 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     status:string = sessionStorage.getItem('status');
+    userName:string = sessionStorage.getItem('firstname');
    
 //notification
 test : Date = new Date();

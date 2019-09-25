@@ -29,6 +29,8 @@ import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown
 import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
 import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
 import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
+import { AboutUsComponent } from '../../maps/about-us/about-us.component';
+import { WelcomeComponent } from '../../maps/welcome/welcome.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
@@ -171,7 +173,29 @@ export const AdminLayoutRoutes: Routes = [
         ],
 
     },
-    { path: 'welcome', component: MapsComponent },
+    { path: 'welcome',
+     component: MapsComponent,
+     children:[
+        {
+            path: '',
+            redirectTo: 'welcome',
+            pathMatch: 'full',
+          },
+         {
+            
+                path:'aboutUs',
+                component:AboutUsComponent
+                
+          
+         },
+         {
+            path:'welcome',
+            component:WelcomeComponent
+         
+        }
+     ]
+    
+    },
     { 
         path: 'notifications', 
         component: NotificationsComponent ,
@@ -199,6 +223,7 @@ export const AdminLayoutRoutes: Routes = [
                 component:ViewRequestAssetComponent
                 
             }
+          
         ]
     
     },
