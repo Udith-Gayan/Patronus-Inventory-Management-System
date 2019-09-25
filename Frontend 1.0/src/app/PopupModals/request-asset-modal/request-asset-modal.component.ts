@@ -84,6 +84,7 @@ resetForm(form ? : NgForm){
     assetCategory:'',
     requestedNic:'',
     notificationType:'',
+    bookNic:'',
 
    
   }
@@ -113,6 +114,7 @@ console.log(this.requestAsset);
   data.Discription=this.jstoday;
   data.notificationType="Requesting";
   data.username=this.fname;
+  data.bookNic=this.nic;
 
   if(form.value.id == null){
    

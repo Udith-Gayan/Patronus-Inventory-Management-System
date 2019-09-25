@@ -80,7 +80,7 @@ resetForm(form ? : NgForm){
     username:'',
     beginDate:'',
     dueDate:'',
-   
+    bookNic:'',
     assetId:'',
     description:'',
     assetCategory:'',
@@ -115,6 +115,7 @@ console.log(this.bookasset);
   data.Discription=this.jstoday;
   data.notificationType="Booking";
   data.username=this.fname;
+  data.bookNic=this.nic;
 
   if(form.value.id == null){
    

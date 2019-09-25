@@ -50,6 +50,9 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
 import { ViewSingleAssetNotiComponent } from './PopupModals/view-single-asset-noti/view-single-asset-noti.component';
 import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/view-single-emp-noti.component';
 import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
+import { ConfireDialogService } from './DialogModals/Confire-Dialog.service';
+import { ConfireDialogComponent } from './DialogModals/confire-dialog/confire-dialog.component';
+import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
 
 
 
@@ -73,7 +76,9 @@ import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/re
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     EmpCompenentModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
+    
+    
 
 
   ],
@@ -92,12 +97,21 @@ import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/re
     ViewSingleAssetNotiComponent,
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
+    ConfireDialogComponent
+    
+   
+    
    
    
 
   ],
+  exports: [  
+    ConfireDialogComponent  
+],
+  
 
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
+
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService,ConfireDialogService ],
   bootstrap: [AppComponent],
   entryComponents: [
   BookingAssetModalComponent,
@@ -106,7 +120,8 @@ import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/re
     ViewSingleNotificationComponent,
     ViewSingleAssetNotiComponent,
     ViewSingleEmpNotiComponent,
-    RequestAssetModalComponent
+    RequestAssetModalComponent,
+      
   ]
 })
 
