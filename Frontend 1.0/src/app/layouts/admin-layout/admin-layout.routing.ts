@@ -187,19 +187,19 @@ export const AdminLayoutRoutes: Routes = [
             pathMatch: 'full',
           },
          {
-            
+
                 path:'aboutUs',
                 component:AboutUsComponent
-                
-          
+
+
          },
          {
             path:'welcome',
             component:WelcomeComponent
-         
+
         }
      ]
-    
+
     },
     {
         path: 'notifications',
@@ -229,6 +229,10 @@ export const AdminLayoutRoutes: Routes = [
 
 
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 37e2828f5981123fd2bcb0e77b84c4172c3b1a0f
         ]
 
     },

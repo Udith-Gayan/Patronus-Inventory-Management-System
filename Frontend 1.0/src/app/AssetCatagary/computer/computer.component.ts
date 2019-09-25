@@ -16,17 +16,17 @@ const Swal = require('sweetalert2');
 })
 export class ComputerComponent implements OnInit {
   model:any ={}
-asset: Asset;
+  asset: Asset;
 
 
-  constructor(private userService:HttpService) { 
+  constructor(private userService:HttpService) {
     this.asset=new Asset();
-    this.asset.assetCategory="Computer";
+    this.asset.assetcategory="Computer";
     console.log(this.asset);
   }
 
   ngOnInit() {
-    
+
   }
   onSubmit() {
     console.log(this.asset);
@@ -40,7 +40,7 @@ asset: Asset;
         timer: 1500
       })
     });
-    
+
   }
 
 }

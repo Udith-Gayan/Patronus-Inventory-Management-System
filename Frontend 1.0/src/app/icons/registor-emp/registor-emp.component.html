@@ -24,7 +24,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="employee.firstname"  #firstName="ngModel" placeholder="Enter your First Name"  required firstName/>
+                                    <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="employee.firstName"  #firstName="ngModel" placeholder="Enter your First Name"  required firstName/>
                                   <span class="help-block" *ngIf="firstName.errors && firstName.errors.required && firstName.touched" style="color:red">
                                         First Name is required
                                     </span>
@@ -36,7 +36,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="employee.lastname"  #lastName="ngModel" placeholder="Enter your Last Name"  required lastName/>
+                                    <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="employee.lastName"  #lastName="ngModel" placeholder="Enter your Last Name"  required lastName/>
                                     <span class="help-block" *ngIf="lastName.errors && lastName.errors.required && lastName.touched" style="color:red">
                                           Last Name is required
                                       </span>

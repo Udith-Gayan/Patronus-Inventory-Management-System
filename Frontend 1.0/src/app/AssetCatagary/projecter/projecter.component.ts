@@ -14,7 +14,7 @@ export class ProjecterComponent implements OnInit {
   
     constructor(private userService:HttpService) { 
       this.asset=new Asset();
-      this.asset.assetCategory="Projector";
+      this.asset.assetcategory="Projector";
       console.log(this.asset);
     }
   

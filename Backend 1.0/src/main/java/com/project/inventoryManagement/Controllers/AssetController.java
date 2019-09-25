@@ -43,7 +43,7 @@ public class    AssetController {
    // Register a new asset
     @PostMapping(path="/add") // Map ONLY POST Requests
     public AssetModel addNewAsset(@RequestBody AssetModel aa1) {
-       System.out.println(aa1.toString());
+       System.out.println("Asset came:   "+ aa1.toString());
 
        return assetRegistration.registerAnAsset(aa1);
 

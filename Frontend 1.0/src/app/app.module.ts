@@ -31,7 +31,7 @@ import { ComputerComponent } from './AssetCatagary/computer/computer.component';
 import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 
 import { NotifiService } from './firebase/notifi.service';
 import { EmpCompenentModule } from './components/Emp-components/emp-components.module';
@@ -52,8 +52,17 @@ import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/v
 import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
 import { LogoutComponent } from './logout/logout.component';
 
+<<<<<<< HEAD
 import {NgxPrintModule} from 'ngx-print';
 
+=======
+
+
+
+import { ConfireDialogService } from './DialogModals/Confire-Dialog.service';
+import { ConfireDialogComponent } from './DialogModals/confire-dialog/confire-dialog.component';
+import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
+>>>>>>> 37e2828f5981123fd2bcb0e77b84c4172c3b1a0f
 
 
 
@@ -76,7 +85,7 @@ import {NgxPrintModule} from 'ngx-print';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     EmpCompenentModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
     
    
 

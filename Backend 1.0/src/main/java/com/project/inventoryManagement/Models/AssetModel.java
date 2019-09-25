@@ -28,7 +28,7 @@ public class AssetModel  {
     private String assetId;
 
     @Column(name = "assetCategory")      //use drop down menu  default other
-    private String assetCategory;      //Laptop,PC,Projector,Furniture, Television, Sound system, CPU, Routers (mikes,sound systems,UPS,displays,water filters,others)
+    private String assetcategory;      //Laptop,PC,Projector,Furniture, Television, Sound system, CPU, Routers (mikes,sound systems,UPS,displays,water filters,others)
 
     @Column(name = "brandName")
     private String brandName;

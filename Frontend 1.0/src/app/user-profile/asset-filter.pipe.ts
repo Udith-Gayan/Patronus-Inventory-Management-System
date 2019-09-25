@@ -13,7 +13,7 @@ export class AssetFilterPipe implements PipeTransform{
             return data ;
         }
         return data.filter(d=>
-            d.assetCategory.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
+            d.assetcategory.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
 
     }
     

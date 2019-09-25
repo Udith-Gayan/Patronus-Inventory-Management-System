@@ -29,25 +29,35 @@ const Swal = require('sweetalert2');
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     status:string = sessionStorage.getItem('status');
+<<<<<<< HEAD
    con:boolean=false;
    
 //notification
 test : Date = new Date();
 list:BookAsset[];
 list2:BreakDwonNoti[];
+=======
+    userName:string = sessionStorage.getItem('firstname');
+
+
+// notification
+test: Date = new Date();
+list: BookAsset[];
+list2: BreakDwonNoti[];
+>>>>>>> 37e2828f5981123fd2bcb0e77b84c4172c3b1a0f
     private data: Number ;
 ///////////////////////////
     public isCollapsed = true;
-  
 
-    constructor( private router: Router , private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) {
-      
+
+    constructor( private router: Router , private ser: NotifiService,private firestore:AngularFirestore, private modalService: NgbModal) {
+
     }
 
-    ngOnInit(){
-     
+    ngOnInit() {
 
-     ///notification genarator
+
+     // notification genarator
      this.ser.data.subscribe( data => {
        this.data = data ;
      })
@@ -74,7 +84,7 @@ list2:BreakDwonNoti[];
       this.ser.updatedDataSelection(this.list2.length+this.list.length);
     });
 
-   
+
     this.ser.data.subscribe( data => {
       console.log(data);
     })
@@ -147,8 +157,8 @@ list2:BreakDwonNoti[];
 
 
 
-   
-    
 
-   
+
+
+
 }

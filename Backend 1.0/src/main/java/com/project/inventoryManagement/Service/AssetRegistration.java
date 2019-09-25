@@ -22,17 +22,17 @@ public class AssetRegistration {
 
         //creating an aasset id according to the category
 
-        System.out.println(aa1.toString());
+        System.out.println("Asset oassed again: "+ aa1.toString());
 
         System.out.println("line0");
 
-        if(aa1.getAssetCategory().equals("Laptop")){
+        if(aa1.getAssetcategory().equals("Laptop")){
             aa1.setAssetId("LAP");
-        }else if(aa1.getAssetCategory().equals("PC")){
+        }else if(aa1.getAssetcategory().equals("PC")){
             aa1.setAssetId("PC");
-        }else if(aa1.getAssetCategory().equals("Projector")){
+        }else if(aa1.getAssetcategory().equals("Projector")){
             aa1.setAssetId("PRJ");
-        }else if(aa1.getAssetCategory().startsWith("Fur") || aa1.getAssetCategory().startsWith("fur")){
+        }else if(aa1.getAssetcategory().startsWith("Fur") || aa1.getAssetcategory().startsWith("fur")){
             aa1.setAssetId("FUR");
         }else {
             aa1.setAssetId("OTH");
@@ -50,9 +50,9 @@ public class AssetRegistration {
 
         aa1.setBroken(false);
 
-        assetRepository.save(aa1);
+
         System.out.println("line1444");
-        return aa1;
+        return assetRepository.save(aa1);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

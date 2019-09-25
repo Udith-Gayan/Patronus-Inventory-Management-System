@@ -9,27 +9,32 @@
    
     <header class="card-header">
                                     
-            <h4 class="card-title mt-2">Furniture Register</h4>
+            <h4 class="card-title mt-2">Furniture Registration</h4>
           </header>
         
         <div class="card-body">
         
             <form class="form-horizontal"   (ngSubmit)=" onSubmit() " name="form">
         
-                    <div class="form-row">
-                    <div class="col-md-5 mb-3">
-                            <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
                    
+                            <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched">
+                    
+                            <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
+                            <div class="col-md-5 mb-3">
                         
-                            <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="">
+                            <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="" required #brandName="ngModel">
                             <option value="HP" >Damro</option>
-                              <option value="DELL" >Nilkamal</option>
-                              <option value="ASUUS" >Nisaco</option>
-                              <option value="MACBOOK" >Dambulla furnitures</option>
-                              <option value="ACCER" >Arpico furnitures</option>
-                              <option value="LENOVO" >Others</option>
+                              <option value="Nilkamal" >Nilkamal</option>
+                              <option value="Nisaco" >Nisaco</option>
+                              <option value="Dambulla furnitures" >Dambulla furnitures</option>
+                              <option value="Arpico furnitures" >Arpico furnitures</option>
+                              <option value="Others" >Others</option>
                               
                             </select>
+                            <span class="help-block" *ngIf="brandName.touched && brandName.invalid" style="color:red" >
+                                    Brand Name is Required
+                                </span>
+                                 
                     </div>
                 </div>
                       
@@ -45,113 +50,189 @@
                 </div>
 
                 
-                <div class="form-group">
-                    <label for="price" class="cols-sm-2 control-label">price</label>
+                <div class="form-group"  [class.has-error]="buyingPrice.invalid && buyingPrice.touched">
+                    <label for="buyingPrice" class="cols-sm-2 control-label">price</label>
                     <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="price" id="price"  [(ngModel)]="asset.buyingPrice" placeholder="Enter Price" />
+                            <div class="input-group">
+                                    <div class="input-group-addon">
+                                      <span class="input-group-text" id="buyingPrice">Rs.</span>
+                                    </div>
+                       
+                                <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="buyingPrice" id="buyingPrice" #buyingPrice="ngModel" [(ngModel)]="asset.buyingPrice" placeholder="Enter Price" required buyingPrice/>
                         </div>
+                            <span class="help-block" *ngIf="buyingPrice.errors && buyingPrice.errors.required && buyingPrice.touched" style="color:red">
+                                    Price is required
+                                </span> 
+                        
                     </div>
                 </div>
 
                 <!-- Default checked -->
-                <div class="form-row">
-                    <div class="col-md-5 mb-3">
-                            <label for="brandName" class="cols-sm-2 control-label">Warranty Period</label>
-                   
-                        
-                            <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="" >
-                            <option value="HP" >0</option>
-                              <option value="DELL" >1</option>
-                              <option value="ASUUS" >2</option>
-                              <option value="MACBOOK" >3</option>
-                              <option value="ACCER" >4</option>
-                              <option value="LENOVO" >5</option>
-                              
-                            </select>
+                <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched">
+                            
+                        <label for="warrantyStatus" class="cols-sm-2 control-label">Warranty Status</label>
+                    <div class="cols-sm-10">
+                     
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                          <input class="form-check-input" type="radio" required #warrantyStatus="ngModel" name="examplewarranty" id="warrantyStatus"  [(ngModel)]="asset.warrantyStatus"value="YES"  >
+                                          <label class="cols-sm-2 control-label" for="warrantyStatus"  style="margin:5px">
+                                            YES
+                                          </label>
+
+
+                                     <div class="custom-control custom-radio custom-control-inline">
+                                        <input class="form-check-input" type="radio" required #warrantyStatus="ngModel" name="warrantyStatus" id="examplwarranty"  [(ngModel)]="asset.warrantyStatus"value="NO" >
+                                           <label class="form-check-label" for="warrantyStatus"  style="margin:5px">
+                                                NO
+                                          </label>
+
+                                    </div>
+                                    <span class="help-block" *ngIf="warrantyStatus.touched && warrantyStatus.invalid" style="color:red" >
+                                            Warranty Status is required
+                                        </span>
+                              </div>
+                        </div>
                     </div>
+                     
+                            <div class="form-group">
+                                    <div class="cols-sm-10">
+                                <label for="warranty" class="cols-sm-2 control-label">Warranty Period</label>
+                    
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                            <div class="col">
+                                <label for="yrs" class="cols-sm-2 control-label">Years</label>
+                                <div class="def-number-input number-input safari_only">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                                
+                        <input class="yrs" min="0" max="10" name="yrs" value="1" type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        
+                      </div>
+                        </div>
+                        <div class="col">
+                                <label for="months" class="cols-sm-2 control-label">Months</label>
+                      <div class="def-number-input number-input safari_only">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                        <input class="months" min="0" max="12" name="months" value="1" type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        </div>
+                      </div>
+
+                    
+                      <div class="col">
+                            <label for="days" class="cols-sm-2 control-label">Days</label>
+                  <div class="def-number-input number-input safari_only">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                    <input class="days" min="0" max="31" name="days" value="1" type="number">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                    </div>
+                  </div>
                 </div>
-                      
+                        
                 
-                
-                <div class="form-group">
-                  <label for="Cname" class="cols-sm-2 control-label">Companya Name</label>
+                <div class="form-group"  [class.has-error]="boughtCompanyName.invalid && boughtCompanyName.touched">
+                  <label for="boughtCompanyName" class="cols-sm-2 control-label">Companya Name</label>
                   <div class="cols-sm-10">
-                      <div class="input-group">
-                         
-                          <input type="text" class="form-control" name="Cname" id="Cname" [(ngModel)]="asset.boughtCompanyName" placeholder="Enter Company Name" />
+                      
+                            <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                          <input type="text" class="form-control" name="boughtCompanyName" id="boughtCompanyName" [(ngModel)]="asset.boughtCompanyName" placeholder="Enter Company Name" #boughtCompanyName="ngModel" required boughtCompanyName />
+                          <span class="help-block" *ngIf="boughtCompanyName.errors && boughtCompanyName.errors.required && boughtCompanyName.touched" style="color:red">
+                                Company Name is required
+                            </span> 
                       </div>
                   </div>
-              </div>
-              <div class="form-group">
-                <label for="CAddress" class="cols-sm-2 control-label">Company Address</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
+             
+              <div class="form-group"  [class.has-error]="boughtCompanyAddress.invalid && boughtCompanyAddress.touched">
+                    <label for="boughtCompanyAddress" class="cols-sm-2 control-label">Company Address</label>
+                    <div class="cols-sm-10">
                        
-                        <input type="text" class="form-control" name="CAddress" id="CAddress"  [(ngModel)]="asset.companyAddress" placeholder="Enter Company Address" />
+                           
+                                <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="boughtCompanyAddress" id="boughtCompanyAddress"  [(ngModel)]="asset.boughtCompanyAddress"   #boughtCompanyAddress="ngModel" placeholder="Nawam Mawatha, Colombo"  required boughtCompanyAddress />
+                                <span class="help-block" *ngIf="boughtCompanyAddress.errors && boughtCompanyAddress.errors.required && boughtCompanyAddress.touched" style="color:red">
+                                        Company Address is required
+                                    </span> 
+                        </div>
                     </div>
-                </div>
-            </div>
-           
-            <div class="form-group">
-                <label for="CNo" class="cols-sm-2 control-label">Contact Number</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                       
-                        <input type="text" class="form-control" name="CNo" id="CNo"  [(ngModel)]="asset.warrantyStatus" placeholder="Enter Contact Number" />
-                    </div>
-                </div>
-            </div>
+               
+                <div class="form-group"  [class.has-error]="companyContact.invalid && companyContact.touched">
+                        <label for="companyContact" class="cols-sm-2 control-label"> Company Contact Number</label>
+                        <div class="cols-sm-10">
+                            
+                               
+                                    <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="companyContact" id="companyContact"  [(ngModel)]="asset.companyContact"   #companyContact="ngModel" placeholder="0705571128"  required companyContact />
+                                    <span class="help-block" *ngIf="companyContact.errors && companyContact.errors.required && companyContact.touched" style="color:red">
+                                             Contact Number is required
+                                        </span> 
+                            </div>
+                        </div>
+                   
            
             
             <div class="form-row">
-                <div class="col-md-6 mb-3">
-                        <label for="brandName" class="cols-sm-2 control-label">Catogarey</label>
-               
-                    
-                        <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="">
-                        <option value="HP" >Office Table</option>
-                          <option value="DELL" >Office chair</option>
-                          <option value="ASUUS" >cupbourds</option>
-                          <option value="MACBOOK" >Sofa set</option>
+             
+                    <div class="col-md-6 mb-3">
+                            <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched">
+                                        <label for="assetcategory" class="cols-sm-2 control-label"> Asset Category</label>
+                                        <select name="assetcategory" id="assetcategory" class="form-control" [(ngModel)]="asset.assetcategory"  #assetcategory="ngModel" placeholder="Category" required assetcategory>
+                                                <option value="1" >Office Table</option>
+                                                <option value="2" >Office chair</option>
+                                                <option value="3" >Cupbourds</option>
+                                                <option value="4" >Sofa set</option>
+                                        </select>
+                                        <span class="help-block" *ngIf="assetcategory.touched && assetcategory.invalid" style="color:red" >
+                                                Category is Required
+                                            </span>
+                                </div>
+                              </div>
                           
-                          
-                        </select>
-                </div>
-            
-                  
-
-                
-                <div class="col-md-6 mb-6">
-                        <label for="validationDefault01">Quantity</label>
-                        <input type="text" class="form-control" id="validationDefault01" [(ngModel)]="asset.displaySize"  placeholder="10..."
-                            required>
+                    <div class="col-md-6 mb-3">
+                            <div class="form-group"  [class.has-error]="quantity.invalid && quantity.touched">
+                                    <label for="quantity">Quantity</label>
+                                    <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="quantity" id="quantity"  [(ngModel)]="asset.quantity"   #quantity="ngModel" placeholder="Enter the Quantity"  required quantity/>
+                                        <span class="help-block" *ngIf="quantity.errors && quantity.errors.required && quantity.touched" style="color:red">
+                                                Quantity is required
+                                            </span>  
+                            </div>
+                        </div>
+                        </div>
                         
-                </div>
-            </div>
-            
-
                
                 <div class="form-group shadow-textarea">
-                    <label for="exampleFormControlTextarea6">Discription</label>
-                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
-                  </div>
-
-                  
-                    <!-- Horizontal material form -->
-
+                        <label for="exampleFormControlTextarea6">Discription</label>
+                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
+                        <small id="passwordHelpInline" class="text-muted">
+                                Must be 8-20  words
+                              </small>
+                      </div>
+    
+                      
+                        <!-- Horizontal material form -->
+    
+                            
+                        <div class="form-group ">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                        </div>
                         
-                    <div class="form-group ">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-                    </div>
-                    
-                </form>
-          
-                                    
-</div>
-</div>
-
+                    </form>
+              
+                                        
+    </div>
+    </div>
+    
+                       
+    
+                         
+                       
                    
+            
+                  
+        
 
 
