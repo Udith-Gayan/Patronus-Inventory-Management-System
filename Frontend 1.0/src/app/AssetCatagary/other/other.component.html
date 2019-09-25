@@ -8,7 +8,7 @@
               
             <div class="card-body">
             
-                <form class="form-horizontal" (ngSubmit)="onSubmit() "name="form" >
+                <form class="form-horizontal" (ngSubmit)="onSubmit() "name="form"   >
                             <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched">    
                             <label for="assetcategory" class="cols-sm-2 control-label">Category</label>
                             <div class="col-md-5 mb-3">
@@ -57,6 +57,11 @@
                                     <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="buyingPrice" id="buyingPrice"  [(ngModel)]="asset.buyingPrice"   #buyingPrice="ngModel" placeholder="Rs.100000.00"  required buyingPrice  />
                                 </div>
+                                        
+                                <div [hidden]="buyingPrice.valid || buyingPrice.pristine"
+                                class="alert alert-danger">
+                                 Price is required
+                            </div>
                                     <span class="help-block" *ngIf="buyingPrice.errors && buyingPrice.errors.required && buyingPrice.touched" style="color:red">
                                             Price is required
                                         </span> 
@@ -138,7 +143,7 @@
                                   <span class="help-block" *ngIf="boughtCompanyName.errors && boughtCompanyName.errors.required && boughtCompanyName.touched" style="color:red">
                                           Company Name is required
                                       </span> 
-
+                                      
                                 
                             </div>
                         </div>
@@ -164,6 +169,7 @@
                              
                                   <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
                                   <input type="text" class="form-control" name="companyContact" id="companyContact"  [(ngModel)]="asset.companyContact"   #companyContact="ngModel" placeholder="0705571128"  required companyContact />
+                                  
                                   <span class="help-block" *ngIf="companyContact.errors && companyContact.errors.required && companyContact.touched" style="color:red">
                                            Contact Number is required
                                       </span> 
@@ -187,6 +193,9 @@
                 <div class="form-group shadow-textarea">
                     <label for="exampleFormControlTextarea6">Discription</label>
                     <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
+                    <small id="passwordHelpInline" class="text-muted">
+                            Must be 8-20  words
+                          </small>
                   </div>
 
                   
