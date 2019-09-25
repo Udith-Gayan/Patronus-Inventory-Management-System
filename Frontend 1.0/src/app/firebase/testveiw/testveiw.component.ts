@@ -4,6 +4,8 @@ import { NotifiService } from '../notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { BookAsset } from '../../models/BookAssetModel';
+import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-testveiw',
@@ -13,7 +15,8 @@ import { BookAsset } from '../../models/BookAssetModel';
 export class TestveiwComponent implements OnInit {
 
   list:BookAsset[];
-  constructor(private ser : NotifiService,private firestore:AngularFirestore) { }
+ 
+  constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) { }
 
   ngOnInit() {
     this.ser.Bookasset().subscribe(actionArry => {
@@ -37,6 +40,30 @@ export class TestveiwComponent implements OnInit {
     }
 
   }
+
+  
+// Open booking popup form
+openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
+  console.log();
+  const modalRef = this.modalService.open(ViewSingleNotificationComponent);
+  modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+  modalRef.componentInstance.assetCategory = assetCategory;
+  modalRef.componentInstance.notificationType = notificationType;
+  modalRef.componentInstance.requestedNic = requestedNic;
+  modalRef.componentInstance.massege = massege;
+  modalRef.componentInstance.beginDate = beginDate;
+  modalRef.componentInstance.dueDate = dueDate;
+  modalRef.componentInstance.username = username;
+
+
+  modalRef.result.then((result) => {
+    console.log(result);
+  }).catch((error) => {
+    console.log(error);
+  });
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 }

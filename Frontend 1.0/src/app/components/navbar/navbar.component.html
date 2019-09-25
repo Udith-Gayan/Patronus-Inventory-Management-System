@@ -24,8 +24,12 @@
                 </div>
               </form>
               <ul class="navbar-nav">
+                  <li class="nav-item">
+
+                      <a class="nav-link" routerLink="/welcome">Home</a>
+                   </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="https://mail.google.com/mail/u/0/?tab=rm#inbox">About us
+                    <a class="nav-link" routerLink="/welcome/aboutUs">About us
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -35,10 +39,8 @@
 
                     <a class="nav-link" href="">Contact</a>
                  </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                     <i class="d-lg-none d-md-block"></i> Instagram</a>
-                </li>
+
+
 
 
 
@@ -52,7 +54,7 @@
 -->
                 <!--notification-->
 
-                <li class="nav-item"  ngbDropdown>
+                <li class="nav-item"  ngbDropdown >
                     <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
                         <i class="now-ui-icons ui-1_bell-53"><div id = "exampleCircle"><p style="color: red"><b>{{data}}</b></p></div></i>
 

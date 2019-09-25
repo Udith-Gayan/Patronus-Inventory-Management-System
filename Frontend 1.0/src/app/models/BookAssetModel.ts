@@ -9,6 +9,7 @@ export class BookAsset{
     assetCategory:string;
     requestedNic:string;
     notificationType:string;
+    bookNic:string;
 
 
 

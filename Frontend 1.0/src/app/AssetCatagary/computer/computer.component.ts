@@ -11,12 +11,12 @@ import { HttpService } from '../../service2/http.service';
 })
 export class ComputerComponent implements OnInit {
   model:any ={}
-asset: Asset;
+  asset: Asset;
 
 
   constructor(private userService:HttpService) {
     this.asset=new Asset();
-    this.asset.assetCategory="Computer";
+    this.asset.assetcategory="Computer";
     console.log(this.asset);
   }
 

@@ -11,6 +11,7 @@ import { ViewAllAssetDetailComponent } from '../view-all-asset-detail/view-all-a
 import { ViewSingleAssetNotiComponent } from '../view-single-asset-noti/view-single-asset-noti.component';
 import { ViewAllEmpDelailComponent } from '../view-all-emp-delail/view-all-emp-delail.component';
 import { Replay } from '../../models/NotifiReplay';
+import { Replaynoti } from '../../models/ReplayModal';
 
 @Component({
   selector: 'app-view-single-notification',
@@ -21,10 +22,11 @@ export class ViewSingleNotificationComponent implements OnInit {
   @Input() assetCategory: string;
   @Input() assetId: string;
   @Input() username: String;
+  @Input() bookNic:string;
 
   replay:Replay;
   myForm: FormGroup;
-
+replayNoti:Replaynoti;
   datePipe: any;
  
   today= new Date();
@@ -33,6 +35,7 @@ export class ViewSingleNotificationComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal) {
     this.createForm();
     this.replay=new Replay();
+    this.replayNoti=new Replaynoti();
    
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 
@@ -44,6 +47,8 @@ export class ViewSingleNotificationComponent implements OnInit {
 
   ngOnInit() {
     this.replay.assetId=this.assetId;
+ 
+   
     
   }
 
@@ -173,8 +178,36 @@ openEmpDetailModal(assetId){
 
 
 ////////////////////////////////////////////////////////////////////////////Reject Button
+//////////////////////////////////////////
 
+OnReplay(){
+  console.log("reject");
+  this.replayNoti.status="Reject";
+  console.log(this.replayNoti.status);
+  this.bookservices.replaynoti(this.replayNoti).subscribe((Response)=>{
+    console.log(Response);
+  });
+}
 
+onAccept(){
+  console.log("accept");
+  this.replayNoti.status="Accept";
+  this.replayNoti.assetId=this.assetId;
+  this.replayNoti.nic=this.bookNic;
+  
+  
+  console.log(this.replayNoti.status);
+  console.log(this.replayNoti.assetId);
+  console.log(this.replayNoti.nic);
+  this.bookservices.replaynoti(this.replayNoti).subscribe((response) => {
+    
+    console.log(response);
+    console.log("go to");
+   
+  
+  });
+
+}
 
 
 }

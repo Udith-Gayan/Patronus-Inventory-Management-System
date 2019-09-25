@@ -55,6 +55,9 @@ import { LogoutComponent } from './logout/logout.component';
 
 
 
+import { ConfireDialogService } from './DialogModals/Confire-Dialog.service';
+import { ConfireDialogComponent } from './DialogModals/confire-dialog/confire-dialog.component';
+import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
 
 
 
@@ -77,7 +80,9 @@ import { LogoutComponent } from './logout/logout.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     EmpCompenentModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
+
+
 
 
   ],
@@ -99,28 +104,38 @@ import { LogoutComponent } from './logout/logout.component';
     ViewSingleAssetNotiComponent,
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
-    LogoutComponent
+    LogoutComponent,
+    ConfireDialogComponent
+
+
+
+
 
 
 
 
   ],
+  exports: [
+    ConfireDialogComponent,
+    NgbdModalContent,
+           ViewSingleAssetNotiComponent,
+           ViewSingleEmpNotiComponent,
+           RequestAssetModalComponent
+],
 
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService, AngularFirestore],
+
+
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService, ConfireDialogService, AngularFirestore ],
   bootstrap: [AppComponent],
   entryComponents: [
   BookingAssetModalComponent,
     ViewAllEmpDelailComponent,
     ViewAllAssetDetailComponent,
     ViewSingleNotificationComponent,
-    NgbdModalContent,
+    NgbdModalContent
 
-  ],
-  exports: [NgbdModalContent,
-           ViewSingleAssetNotiComponent,
-           ViewSingleEmpNotiComponent,
-           RequestAssetModalComponent
   ]
+
 })
 
 export class AppModule { }

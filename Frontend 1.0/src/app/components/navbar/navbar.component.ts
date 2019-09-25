@@ -21,24 +21,26 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     status:string = sessionStorage.getItem('status');
-   
-//notification
-test : Date = new Date();
-list:BookAsset[];
-list2:BreakDwonNoti[];
+    userName:string = sessionStorage.getItem('firstname');
+
+
+// notification
+test: Date = new Date();
+list: BookAsset[];
+list2: BreakDwonNoti[];
     private data: Number ;
 ///////////////////////////
     public isCollapsed = true;
-  
 
-    constructor( private router: Router , private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) {
-      
+
+    constructor( private router: Router , private ser: NotifiService,private firestore:AngularFirestore, private modalService: NgbModal) {
+
     }
 
-    ngOnInit(){
-     
+    ngOnInit() {
 
-     ///notification genarator
+
+     // notification genarator
      this.ser.data.subscribe( data => {
        this.data = data ;
      })
@@ -65,7 +67,7 @@ list2:BreakDwonNoti[];
       this.ser.updatedDataSelection(this.list2.length+this.list.length);
     });
 
-   
+
     this.ser.data.subscribe( data => {
       console.log(data);
     })
@@ -112,8 +114,8 @@ list2:BreakDwonNoti[];
 
 
 
-   
-    
 
-   
+
+
+
 }

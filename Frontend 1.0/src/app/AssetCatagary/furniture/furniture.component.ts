@@ -15,7 +15,7 @@ asset: Asset;
 
   constructor(private userService:HttpService) { 
     this.asset=new Asset();
-    this.asset.assetCategory="Furniture";
+    this.asset.assetcategory="Furniture";
     console.log(this.asset);
   }
 
