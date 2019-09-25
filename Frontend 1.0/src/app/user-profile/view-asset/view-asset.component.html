@@ -21,7 +21,7 @@
 
       
           <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
-              
+            <option value="" >All</option>  
           <option value="Computer" >Computer</option>
           <option value="Furniture" >Furniture</option>
           <option value="Projector" >Projector</option>
@@ -44,20 +44,7 @@
             
           </select>
       </div>
-      <div class="col-md-2 mb-3">
-          <label for="status" class="cols-sm-2 control-label">Duration</label>
-
-      
-          <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
-              
-          <option value="Computer" >Computer</option>
-          <option value="Furniture" >Furniture</option>
-          <option value="Projector" >Projector</option>
-          <option value="Furniture" >Printer</option>
-          <option value="Furniture" >TV</option>
-            
-          </select>
-      </div>
+     
   </div>
 
 

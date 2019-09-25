@@ -41,6 +41,8 @@ import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-br
 import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
 import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
 import { NgxPrintModule } from 'ngx-print';
+import { AboutUsComponent } from '../../maps/about-us/about-us.component';
+import { WelcomeComponent } from '../../maps/welcome/welcome.component';
 
 
 
@@ -92,8 +94,9 @@ import { NgxPrintModule } from 'ngx-print';
     ComplainBreakedownComponent,
     ViewBreakedownComponent,
     ViewBrekDownComponent,
-    ViewRequestAssetComponent
-    
+    ViewRequestAssetComponent,
+    AboutUsComponent,
+    WelcomeComponent
 
     
   

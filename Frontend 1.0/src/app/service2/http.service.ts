@@ -7,6 +7,7 @@ import { BookAsset } from '../models/BookAssetModel';
 import { BreakDwonNoti } from '../firebase/BreakDownModel';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -44,6 +45,10 @@ export class HttpService {
   requestAsset(request : BookAsset){
     return this.http.post(Constants.BASE_URL+'/assign/request/add',request,Constants.HTTP_OPTIONS);
   }
+
+  ///////replay reject or accept 
+
+  
 
   deleteasset(assetId) {                              // deleteEmployee(employee :Employee){
     return this.http.delete(Constants.ASSET_API + '/delete', {params: {id: assetId}, observe: 'response'});    // return this.http.delete(Constants.EMPLOYEE_API+'/delete',Constants.HTTP_OPTIONS);

@@ -21,6 +21,7 @@ export class ViewSingleNotificationComponent implements OnInit {
   @Input() assetCategory: string;
   @Input() assetId: string;
   @Input() username: String;
+  @Input() bookNic:string;
 
   replay:Replay;
   myForm: FormGroup;
@@ -33,6 +34,7 @@ export class ViewSingleNotificationComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal) {
     this.createForm();
     this.replay=new Replay();
+    
    
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 
@@ -44,6 +46,8 @@ export class ViewSingleNotificationComponent implements OnInit {
 
   ngOnInit() {
     this.replay.assetId=this.assetId;
+ 
+   
     
   }
 
@@ -173,6 +177,11 @@ openEmpDetailModal(assetId){
 
 
 ////////////////////////////////////////////////////////////////////////////Reject Button
+//////////////////////////////////////////
+
+
+
+
 
 
 

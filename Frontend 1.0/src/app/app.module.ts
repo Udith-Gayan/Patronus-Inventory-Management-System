@@ -61,8 +61,6 @@ import {NgxPrintModule} from 'ngx-print';
 
 
 
-
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -103,26 +101,28 @@ import {NgxPrintModule} from 'ngx-print';
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
     LogoutComponent,
+  
 
 
 
+  ],
+  exports: [NgbdModalContent,
+           
   ],
 
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
   bootstrap: [AppComponent],
   entryComponents: [
-  BookingAssetModalComponent,
-    ViewAllEmpDelailComponent,
-    ViewAllAssetDetailComponent,
-    ViewSingleNotificationComponent,
-    NgbdModalContent,
-
-  ],
-  exports: [NgbdModalContent,
-           ViewSingleAssetNotiComponent,
-           ViewSingleEmpNotiComponent,
-           RequestAssetModalComponent
-  ]
+    BookingAssetModalComponent,
+      ViewAllEmpDelailComponent,
+      ViewAllAssetDetailComponent,
+      ViewSingleNotificationComponent,
+      ViewSingleAssetNotiComponent,
+      ViewSingleEmpNotiComponent,
+      RequestAssetModalComponent,
+        
+    ]
+ 
 })
 
 export class AppModule { }
