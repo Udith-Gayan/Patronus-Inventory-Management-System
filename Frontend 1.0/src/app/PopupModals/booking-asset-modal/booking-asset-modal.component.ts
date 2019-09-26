@@ -7,7 +7,13 @@ import { Employee } from '../../firebase/model';
 import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
+////////////
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
 
 @Component({
   selector: 'app-booking-asset-modal',
@@ -15,7 +21,7 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./booking-asset-modal.component.scss']
 })
 export class BookingAssetModalComponent implements OnInit {
-  @Input() assetCategory: string;
+  @Input() assetcategory: string;
   @Input() assetId: string;
   
   nic = sessionStorage.getItem('nic');
@@ -80,10 +86,10 @@ resetForm(form ? : NgForm){
     username:'',
     beginDate:'',
     dueDate:'',
-    bookNic:'',
+   
     assetId:'',
     description:'',
-    assetCategory:'',
+    assetcategory:'',
     requestedNic:'',
     notificationType:'',
 
@@ -110,12 +116,11 @@ console.log(this.bookasset);
 
   let data = Object.assign({}, form.value);
   delete data.id;
-  data.assetCategory=this.assetCategory;
+  data.assetcategory=this.assetcategory;
   data.assetId=this.assetId;
   data.Discription=this.jstoday;
   data.notificationType="Booking";
   data.username=this.fname;
-  data.bookNic=this.nic;
 
   if(form.value.id == null){
    
@@ -128,8 +133,14 @@ console.log(this.bookasset);
     this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
     
   }
-
-  alert('Booking Successfully');
+  Swal.fire({
+    position: 'center',
+    type: 'success',
+    title: 'Booking has been saved',
+    showConfirmButton: false,
+    timer: 2000
+  })
+  
 
   this.resetForm(form);
   

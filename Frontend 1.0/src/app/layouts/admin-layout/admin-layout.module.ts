@@ -40,8 +40,10 @@ import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown
 import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
 import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
 import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
+import { NgxPrintModule } from 'ngx-print';
 import { AboutUsComponent } from '../../maps/about-us/about-us.component';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
+
 
 
 @NgModule({
@@ -53,9 +55,12 @@ import { WelcomeComponent } from '../../maps/welcome/welcome.component';
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
-  
-
+    BsDatepickerModule.forRoot(),
+    NgxPrintModule,
+   
+    
+ 
+   
   ],
   declarations: [
     DashboardComponent,
@@ -92,12 +97,10 @@ import { WelcomeComponent } from '../../maps/welcome/welcome.component';
     ViewRequestAssetComponent,
     AboutUsComponent,
     WelcomeComponent
-    
 
     
   
-  ],
-  
+  ]
  
 
 })

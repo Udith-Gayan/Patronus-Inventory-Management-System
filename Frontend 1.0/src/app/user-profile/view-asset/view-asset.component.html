@@ -9,8 +9,6 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="" >Search</button>
 
       </div>
-      <p ><a href="" routerLink="/asset/view-asset/more">more   </a>
-      <a href="" routerLink="/asset/view-asset"> .... back</a></p>
 
     </div>
 
@@ -21,7 +19,7 @@
 
 
           <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
-              <option value="" >All Asset</option>
+            <option value="" >All</option>
           <option value="Computer" >Computer</option>
           <option value="Furniture" >Furniture</option>
           <option value="Projector" >Projector</option>
@@ -44,26 +42,12 @@
 
           </select>
       </div>
-      <div class="col-md-2 mb-3">
-          <label for="status" class="cols-sm-2 control-label">Duration</label>
-
-
-          <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
-
-          <option value="Computer" >Computer</option>
-          <option value="Furniture" >Furniture</option>
-          <option value="Projector" >Projector</option>
-          <option value="Furniture" >Printer</option>
-          <option value="Furniture" >TV</option>
-
-          </select>
-      </div>
   </div>
 
 
 
-
 <router-outlet></router-outlet>
+
 
 <div  *ngFor="let d of data |  assetfilter : searchTerm">
     <div class="card-body" *ngIf= "d.assetcategory == 'Computer'" >
@@ -105,7 +89,7 @@
           <a  *ngIf= "status =='Asset Manager'">
 
         <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
-        <a  class="btn btn-primary" (click)="deleteAsst(d.assetId)">Delete</a>
+        <a  class="btn btn-primary" (click)="deleteAsset(d.id)">Delete</a>
 
         <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>
       </a>    <!--pop up for booking-->   <a  *ngIf= "status !='Asset Manager'">
@@ -114,7 +98,6 @@
         <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
 
         </div>
-        <span class="dot" *ngIf= "d.assetId == 'OTH32'"></span>
 
 
     </div>
@@ -155,7 +138,6 @@
               <tr >
               <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
               <h6 class="card-text"> Asset Catagery :    {{d.assetcategory}}</h6>
-
             </div>
 
 
@@ -164,7 +146,7 @@
                   <a  *ngIf= "status =='Asset Manager'">
                        <!--pop up for booking-->
               <a  class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
-              <a  class="btn btn-primary" (click)="deleteEmployee()">Delete</a>
+              <a  class="btn btn-primary" (click)="deleteEmployee(d.id)">Delete</a>
 
               <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>
             </a>

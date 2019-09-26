@@ -1,63 +1,93 @@
 
-
+<!--//////////////////////////////////////////////// dialogBox-->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
 
 <div class="panel-header panel-header-sm">
- 
+  
 </div>
 <div class="main-content">
-  <div class="row">
-    <div class="col-md-11">
-      <div class="card">
-        <div class="card-header">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-11">
-                        <!-- Button trigger modal -->
-                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">BOOK</button>
-                 <!-- Modal -->
-                  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                             <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        <div class="modal-body">
-                       <form >
-                         <label for="validationDefault01">Asset Category</label>
-                           <input class="form-control mb-4" id="validationDefault01"name="AssetCategory" placeholder="AssetCategory" >
-                         <label for="validationDefault01">Brand Name</label>
-                           <input class="form-control mb-4" id="validationDefault01"name="BrandName" placeholder="BrandName" >
-                        </form>
-                     </div>
-                       <div class="modal-footer">
-                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                         <button type="button" class="btn btn-primary">Save changes</button>
-                       </div>
-                    </div>
-                  </div>
-                </div>
-      
-                <router-outlet></router-outlet>
-               </div>                              
-             </div>
-            </div>
-          </div>
+ 
+    <div class="row">
+        <div class="col-md-11">
+            
+
+          
+            <div class="card">
+              <div class="card-header">
+                
+                 <div class="container">
+                    <div class="row justify-content-center">
+                     <div class="col-md-11">
+
+
+                      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" (click)="test()">BOOK</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        
+
+                <form >
+                    
+                     
+                  
+                      <label for="validationDefault01">Asset Category</label>
+                      <input class="form-control mb-4" id="validationDefault01"name="AssetCategory" placeholder="AssetCategory" >
+                  
+                    
+                      <label for="validationDefault01">Brand Name</label>
+                      <input class="form-control mb-4" id="validationDefault01"name="BrandName" placeholder="BrandName" >
+                     
+                   </form>
+                
+                
+               
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
+  </div>
+                       <router-outlet></router-outlet>
+                     </div>                              
+                 </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
 
-
-
+ <!--
+   1)- Add an ID here
+ -->
+ <div id="2s"> 
+  <!--Your html stuff that you want to print-->
+  <h1>sajith</h1>
+</div>
+ 
+ <!--
+   2)- Add the directive name in your button (ngxPrint),
+   3)- Affect your ID to printSectionId
+ -->
+<button printSectionId="2s" ngxPrint>print</button> 
+ 
 
 
  

@@ -11,7 +11,8 @@ import { ViewAllAssetDetailComponent } from '../view-all-asset-detail/view-all-a
 import { ViewSingleAssetNotiComponent } from '../view-single-asset-noti/view-single-asset-noti.component';
 import { ViewAllEmpDelailComponent } from '../view-all-emp-delail/view-all-emp-delail.component';
 import { Replay } from '../../models/NotifiReplay';
-import { Replaynoti } from '../../models/ReplayModal';
+import { Observable } from 'rxjs';
+import { Asset } from '../../asset/asset';
 
 @Component({
   selector: 'app-view-single-notification',
@@ -19,23 +20,24 @@ import { Replaynoti } from '../../models/ReplayModal';
   styleUrls: ['./view-single-notification.component.scss']
 })
 export class ViewSingleNotificationComponent implements OnInit {
-  @Input() assetCategory: string;
+  @Input() assetcategory: string;
   @Input() assetId: string;
   @Input() username: String;
   @Input() bookNic:string;
 
   replay:Replay;
   myForm: FormGroup;
-replayNoti:Replaynoti;
+
   datePipe: any;
  
   today= new Date();
   jstoday = '';
+ data:Observable<Asset>
  
-  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal) {
+  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal,private asset : HttpService) {
     this.createForm();
     this.replay=new Replay();
-    this.replayNoti=new Replaynoti();
+    
    
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 
@@ -47,7 +49,13 @@ replayNoti:Replaynoti;
 
   ngOnInit() {
     this.replay.assetId=this.assetId;
- 
+    this.asset.getAllAssets().subscribe(res=>{
+
+      console.log(res);
+      this.data = res
+      console.log(this.data)
+      
+    })
    
     
   }
@@ -110,7 +118,7 @@ console.log(this.replay);
 
   let data = Object.assign({}, form.value);
   delete data.id;
-  data.assetCategory=this.assetCategory;
+  data.assetcategory=this.assetcategory;
   data.assetId=this.assetId;
   data.Discription=this.jstoday;
  
@@ -180,34 +188,11 @@ openEmpDetailModal(assetId){
 ////////////////////////////////////////////////////////////////////////////Reject Button
 //////////////////////////////////////////
 
-OnReplay(){
-  console.log("reject");
-  this.replayNoti.status="Reject";
-  console.log(this.replayNoti.status);
-  this.bookservices.replaynoti(this.replayNoti).subscribe((Response)=>{
-    console.log(Response);
-  });
-}
 
-onAccept(){
-  console.log("accept");
-  this.replayNoti.status="Accept";
-  this.replayNoti.assetId=this.assetId;
-  this.replayNoti.nic=this.bookNic;
-  
-  
-  console.log(this.replayNoti.status);
-  console.log(this.replayNoti.assetId);
-  console.log(this.replayNoti.nic);
-  this.bookservices.replaynoti(this.replayNoti).subscribe((response) => {
-    
-    console.log(response);
-    console.log("go to");
-   
-  
-  });
 
-}
+
+
+
 
 
 }
