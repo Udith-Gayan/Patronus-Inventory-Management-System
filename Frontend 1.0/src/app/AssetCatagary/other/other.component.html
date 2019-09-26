@@ -13,10 +13,10 @@
                             <label for="assetcategory" class="cols-sm-2 control-label">Category</label>
                             <div class="col-md-5 mb-3">
                                 <select name="assetcategory" id="assetcategory" class="form-control" [(ngModel)]="asset.assetcategory" placeholder="" #assetcategory="ngModel" required assetcategory >
-                                    <option value="tv" >Television</option>
-                                    <option value="SoundSystem" >Sound Systems</option>
-                                    <option value="Cpu" >CPU</option>
-                                    <option value="router" >Routers</option>
+                                    <option value="TV" >Television</option>
+                                    <option value="Sound System" >Sound Systems</option>
+                                    <option value="CPU" >CPU</option>
+                                    <option value="Router" >Routers</option>
                             </select>
                             <span class="help-block" *ngIf="assetcategory.touched && assetcategory.invalid" style="color:red" >
                                 Category is Required
@@ -192,7 +192,7 @@
                
                 <div class="form-group shadow-textarea">
                     <label for="exampleFormControlTextarea6">Discription</label>
-                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
+                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6"  name="description" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
                     <small id="passwordHelpInline" class="text-muted">
                             Must be 8-20  words
                           </small>

@@ -171,7 +171,7 @@
                 <div class="col-md-6 mb-6">
                         <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched">
                         <label for="assetcategory" class="cols-sm-2 control-label">Categorey</label>
-                        <select name="assetcategory" id="assetcategory" class="form-control" [(ngModel)]="asset.assetcategory" placeholder=""required assetcategory #assetcategory="ngModel">
+                        <select name="assetcategory" id="assetcategory" class="form-control" [(ngModel)]="asset.companyContact" placeholder=""required assetcategory #assetcategory="ngModel">
                         <option value="LCD" >LCD</option>
                         <option value="CRT" >CRT</option>
                         <option value="DLP" >DLP</option>
@@ -183,18 +183,18 @@
                 </div>
              
                         <div class="col-md-6 mb-3">
-                        <div class="form-group"  [class.has-error]="categorytypes.invalid && categorytypes.touched">
-                        <label for="categorytypes" class="cols-sm-2 control-label">Type</label>
+                        <div class="form-group"  [class.has-error]="categoryTypes.invalid && categoryTypes.touched">
+                        <label for="categoryTypes" class="cols-sm-2 control-label">Type</label>
                        
                 
-                    <select name="categorytypes" id="categorytypes" class="form-control" [(ngModel)]="asset.categorytypes" placeholder="" #categorytypes="ngModel" required categorytypes >
+                    <select name="categoryTypes" id="categoryTypes" class="form-control" [(ngModel)]="asset.categoryTypes" placeholder="" #categoryTypes="ngModel" required categoryTypes >
                       <option value="Portable" >Portable</option>
                       <option value="Installation" >Installation</option>
                       <option value="Shortthrow/ultrashortthrow" >Short throw/ultra short throw</option>
                       <option value="LargeVenu" >Large Venu</option>
                       <option value="Homecinema" >Home cinema</option>
                     </select>
-                    <span class="help-block" *ngIf="categorytypes.touched && categorytypes.invalid" style="color:red" >
+                    <span class="help-block" *ngIf="categoryTypes.touched && categoryTypes.invalid" style="color:red" >
                         Type is Required
                     </span>
                    
@@ -216,7 +216,7 @@
                   
                 <div class="form-group shadow-textarea">
                     <label for="exampleFormControlTextarea6">Discription</label>
-                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
+                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" name="description"  [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
                     <small id="passwordHelpInline" class="text-muted">
                             Must be 8-20  words
                           </small>

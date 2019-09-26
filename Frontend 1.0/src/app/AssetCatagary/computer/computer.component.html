@@ -197,18 +197,18 @@
 
                     <div class="form-group">
 
-                            <label for="assetcategory" class="cols-sm-2 control-label">Category</label>
+                            <label for="categoryTypes" class="cols-sm-2 control-label">Category</label>
                         <div class="cols-sm-10">
 
                                         <div class="custom-control custom-radio custom-control-inline">
-                                              <input class="form-check-input" type="radio" name="assetcategory" id="assetcategory"  [(ngModel)]="asset.assetcategory"value="Laptop"  required assetcategory>
+                                              <input class="form-check-input" type="radio" name="categoryTypes" id="categoryTypes"  [(ngModel)]="asset.categoryTypes"value="Laptop"  required categoryTypes>
                                               <label class="cols-sm-2 control-label" for="exampleRadios1"  style="margin:5px">
                                                 Laptop
                                               </label>
 
 
                                          <div class="custom-control custom-radio custom-control-inline">
-                                            <input class="form-check-input" type="radio" name="assetcategory" id="assetcategory"  [(ngModel)]="asset.assetcategory"value="PC" required assetcategory>
+                                            <input class="form-check-input" type="radio" name="categoryTypes" id="categoryTypes"  [(ngModel)]="asset.categoryTypes"value="PC" required categoryTypes>
                                                <label class="form-check-label" for="exampleRadios1"  style="margin:5px">
                                                     PC
                                               </label>
@@ -304,7 +304,7 @@
                         <div class="form-group shadow-textarea">
                             <label for="exampleFormControlTextarea6">Description</label>
 
-                            <textarea class="form-control z-depth-1"  id="exampleFormControlTextarea6" rows="3"  [(ngModel)]="asset.description" aria-describedby="passwordHelpInline" placeholder="Important notes about the assets..." ></textarea>
+                            <textarea class="form-control z-depth-1"  id="exampleFormControlTextarea6" rows="3" name="description" [(ngModel)]="asset.description" aria-describedby="passwordHelpInline" placeholder="Important notes about the assets..." ></textarea>
                             <small id="passwordHelpInline" class="text-muted">
                                     Must be 8-20  words
                                   </small>

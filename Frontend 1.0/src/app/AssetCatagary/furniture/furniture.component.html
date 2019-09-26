@@ -106,19 +106,19 @@
                             <div class="col">
                                 <label for="yrs" class="cols-sm-2 control-label">Years</label>
                                 <div class="def-number-input number-input safari_only">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                                 
                         <input class="yrs" min="0" max="10" name="yrs" value="1" type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                         
                       </div>
                         </div>
                         <div class="col">
                                 <label for="months" class="cols-sm-2 control-label">Months</label>
                       <div class="def-number-input number-input safari_only">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                         <input class="months" min="0" max="12" name="months" value="1" type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                         </div>
                       </div>
 
@@ -126,9 +126,9 @@
                       <div class="col">
                             <label for="days" class="cols-sm-2 control-label">Days</label>
                   <div class="def-number-input number-input safari_only">
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                    <input class="days" min="0" max="31" name="days" value="1" type="number">
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                    <input class="days" min="0" max="31" name="days" type="button" type="number" [(ngModel)]="asset.days">
+                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                     </div>
                   </div>
                 </div>
@@ -177,15 +177,15 @@
             <div class="form-row">
              
                     <div class="col-md-6 mb-3">
-                            <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched">
-                                        <label for="assetcategory" class="cols-sm-2 control-label"> Asset Category</label>
-                                        <select name="assetcategory" id="assetcategory" class="form-control" [(ngModel)]="asset.assetcategory"  #assetcategory="ngModel" placeholder="Category" required assetcategory>
-                                                <option value="1" >Office Table</option>
-                                                <option value="2" >Office chair</option>
-                                                <option value="3" >Cupbourds</option>
-                                                <option value="4" >Sofa set</option>
+                            <div class="form-group"  [class.has-error]="categoryTypes.invalid && categoryTypes.touched">
+                                        <label for="categoryTypes" class="cols-sm-2 control-label"> Asset Category</label>
+                                        <select name="categoryTypes" id="categoryTypes" class="form-control" [(ngModel)]="asset.categoryTypes"  #categoryTypes="ngModel" placeholder="Category" required categoryTypes>
+                                                <option value="Office Table" >Office Table</option>
+                                                <option value="Office chair" >Office chair</option>
+                                                <option value="Cupbourds" >Cupbourds</option>
+                                                <option value="Sofa set" >Sofa set</option>
                                         </select>
-                                        <span class="help-block" *ngIf="assetcategory.touched && assetcategory.invalid" style="color:red" >
+                                        <span class="help-block" *ngIf="categoryTypes.touched && categoryTypes.invalid" style="color:red" >
                                                 Category is Required
                                             </span>
                                 </div>
@@ -206,7 +206,7 @@
                
                 <div class="form-group shadow-textarea">
                         <label for="exampleFormControlTextarea6">Discription</label>
-                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
+                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" name="description" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
                         <small id="passwordHelpInline" class="text-muted">
                                 Must be 8-20  words
                               </small>
