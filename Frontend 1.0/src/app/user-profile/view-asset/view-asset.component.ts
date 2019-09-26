@@ -32,16 +32,17 @@ export class ViewAssetComponent implements OnInit {
       this.data = res
       console.log(this.data)
     })
+    //console.log(this.data);
 
 
   }
 ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
-  openFormModal(assetId,assetCategory) {
+  openFormModal(assetId,assetcategory) {
     const modalRef = this.modalService.open(BookingAssetModalComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.assetCategory = assetCategory; 
+    modalRef.componentInstance.assetcategory = assetcategory; 
    
 
     modalRef.result.then((result) => {
@@ -55,10 +56,10 @@ export class ViewAssetComponent implements OnInit {
 
 //Requesting Asset Popup
 
-openRequestmModal(assetId,assetCategory) {
+openRequestmModal(assetId,assetcategory) {
   const modalRef = this.modalService.open(RequestAssetModalComponent);
   modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-  modalRef.componentInstance.assetCategory = assetCategory; 
+  modalRef.componentInstance.assetcategory = assetcategory; 
  
 
   modalRef.result.then((result) => {
@@ -71,12 +72,12 @@ openRequestmModal(assetId,assetCategory) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //view more detail of Asset
 
-openDetailModal(assetId,ram,capacity,assetCategory){
+openDetailModal(assetId,ram,capacity,assetcategory){
   const modalRef = this.modalService.open(ViewAllAssetDetailComponent);
     modalRef.componentInstance.assetId = assetId;
     modalRef.componentInstance.ram = ram; 
     modalRef.componentInstance.capacity = capacity;
-    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.assetcategory = assetcategory;
      // Pass vallue to other form component
 
     modalRef.result.then((result) => {

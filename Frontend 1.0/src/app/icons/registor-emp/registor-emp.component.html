@@ -19,25 +19,25 @@
                    <form class="form-horizontal" #employeeForm="ngForm" (ngSubmit)=" onSubmit() ">
 
                         
-                    <div class="form-group"  [class.has-error]="firstName.invalid && firstName.touched">
-                            <label for="username" class="cols-sm-2 control-label">Frist Name</label>
+                    <div class="form-group"  [class.has-error]="firstname.invalid && firstname.touched">
+                            <label for="firstname" class="cols-sm-2 control-label">Frist Name</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="employee.firstName"  #firstName="ngModel" placeholder="Enter your First Name"  required firstName/>
-                                  <span class="help-block" *ngIf="firstName.errors && firstName.errors.required && firstName.touched" style="color:red">
+                                    <input type="text" class="form-control" name="firstname" id="firstname" [(ngModel)]="employee.firstname"  #firstname="ngModel" placeholder="Enter your First Name"  required firstname/>
+                                  <span class="help-block" *ngIf="firstname.errors && firstname.errors.required && firstname.touched" style="color:red">
                                         First Name is required
                                     </span>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group"  [class.has-error]="lastName.invalid && lastName.touched">
-                            <label for="username" class="cols-sm-2 control-label">Last Name</label>
+                        <div class="form-group"  [class.has-error]="lastname.invalid && lastname.touched">
+                            <label for="lastname" class="cols-sm-2 control-label">Last Name</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="employee.lastName"  #lastName="ngModel" placeholder="Enter your Last Name"  required lastName/>
-                                    <span class="help-block" *ngIf="lastName.errors && lastName.errors.required && lastName.touched" style="color:red">
+                                    <input type="text" class="form-control" name="lastname" id="lastname" [(ngModel)]="employee.lastname"  #lastname="ngModel" placeholder="Enter your Last Name"  required lastname/>
+                                    <span class="help-block" *ngIf="lastname.errors && lastname.errors.required && lastname.touched" style="color:red">
                                           Last Name is required
                                       </span>
                                 </div>

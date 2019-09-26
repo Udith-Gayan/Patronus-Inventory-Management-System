@@ -6,7 +6,7 @@ export class BookAsset{
     id:string;
     assetId:string;
     description:string;
-    assetCategory:string;
+    assetcategory:string;
     requestedNic:string;
     notificationType:string;
 

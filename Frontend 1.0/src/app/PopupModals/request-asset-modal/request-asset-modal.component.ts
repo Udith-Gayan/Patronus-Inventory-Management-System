@@ -14,7 +14,7 @@ import { formatDate } from '@angular/common';
 })
 export class RequestAssetModalComponent implements OnInit {
 
-  @Input() assetCategory: string;
+  @Input() assetcategory: string;
   @Input() assetId: string;
   
   nic = sessionStorage.getItem('nic');
@@ -81,7 +81,7 @@ resetForm(form ? : NgForm){
     dueDate:'',
     assetId:'',
     description:'',
-    assetCategory:'',
+    assetcategory:'',
     requestedNic:'',
     notificationType:'',
 
@@ -108,7 +108,7 @@ console.log(this.requestAsset);
 
   let data = Object.assign({}, form.value);
   delete data.id;
-  data.assetCategory=this.assetCategory;
+  data.assetcategory=this.assetcategory;
   data.assetId=this.assetId;
   data.Discription=this.jstoday;
   data.notificationType="Requesting";

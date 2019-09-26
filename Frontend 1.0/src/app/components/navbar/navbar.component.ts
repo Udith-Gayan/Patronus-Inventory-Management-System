@@ -29,22 +29,12 @@ const Swal = require('sweetalert2');
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     status:string = sessionStorage.getItem('status');
-<<<<<<< HEAD
    con:boolean=false;
    
 //notification
 test : Date = new Date();
 list:BookAsset[];
 list2:BreakDwonNoti[];
-=======
-    userName:string = sessionStorage.getItem('firstname');
-
-
-// notification
-test: Date = new Date();
-list: BookAsset[];
-list2: BreakDwonNoti[];
->>>>>>> 37e2828f5981123fd2bcb0e77b84c4172c3b1a0f
     private data: Number ;
 ///////////////////////////
     public isCollapsed = true;
@@ -134,11 +124,11 @@ list2: BreakDwonNoti[];
     ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
-  openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
+  openFormModal(assetId,assetcategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
     console.log();
     const modalRef = this.modalService.open(ViewSingleNotificationComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.assetcategory = assetcategory;
     modalRef.componentInstance.notificationType = notificationType;
     modalRef.componentInstance.requestedNic = requestedNic;
     modalRef.componentInstance.massege = massege;

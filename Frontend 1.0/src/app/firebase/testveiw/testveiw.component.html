@@ -26,7 +26,7 @@
          
             <td (click)="onEdit(a)" scope="col"><a *ngIf="a.notificationType=='Booking'" style="background-color: red">{{a.notificationType}}</a><a *ngIf="a.notificationType=='Requesting'" style="background-color: rgb(12, 175, 39)">{{a.notificationType}}</a> <br> {{a.Discription}} </td> 
              <td class="table-danger" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-            <td (click)="onEdit(a)" scope="col">{{a.assetCategory}}</td>
+            <td (click)="onEdit(a)" scope="col">{{a.assetcategory}}</td>
             <td (click)="onEdit(a)" scope="col">{{a.username}}</td>
             <td (click)="onEdit(a)" scope="col">{{a.beginDate}}</td> 
             <td (click)="onEdit(a)" scope="col">{{a.dueDate}}</td>

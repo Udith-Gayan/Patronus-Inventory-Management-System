@@ -84,7 +84,7 @@
                     <div class="table-responsive" style="height: 10cm" *ngIf= "status =='Asset Manager'" >
                     <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
                         
-                     <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                     <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                        <div class="row">
                           <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                             <img src="assets/img/printer.jpg" alt="photo">
@@ -96,7 +96,7 @@
                              <img src="assets/img/home.jpg" alt="photo">
                           </div>
                           <div class="col-xs-4">
-                            <p  style="color: rgb(40, 20, 153);font-size: 1.5ch">   {{a.assetCategory}} {{a.assetId}}  </p>
+                            <p  style="color: rgb(40, 20, 153);font-size: 1.5ch">   {{a.assetcategory}} {{a.assetId}}  </p>
                           </div><br>
                           <div class="row">
                              <div class="col-xs-4"><br>

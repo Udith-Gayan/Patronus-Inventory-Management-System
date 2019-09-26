@@ -1,21 +1,23 @@
 <div class="modal-header">
-    <h4 class="modal-title">{{assetCategory}}</h4>
+    <h4 class="modal-title">{{assetcategory}}</h4>
     <h4 class="modal-title">{{assetId}}</h4>
    <!-- <button></button> -->
   
-      <a  class="close" (click)="activeModal.dismiss('Cross click')"></a>
+      
   
   </div>
   <form [formGroup]="myForm" (ngSubmit)="submitForm()">
     <div class="modal-boy">
       <div class="container">
   
-          <div class="form-groupp">                                                       <!--Changed here-->
-              <label for="assetId">Asset Id : <b>{{assetId}}</b>  </label> <br><br>
-              <label for="assetId">Capacity : <b>{{capacity}}</b>  </label> <br><br>
-              <label for="assetId">Rsm : <b>{{ram}}</b>  </label> <br><br>
-              <label for="assetId">Rsm : <b>{{ram}}</b>  </label> <br><br>
-              <label for="assetId">Rsm : <b>{{ram}}</b>  </label> <br><br>
+          <div class="form-groupp" *ngFor="let a of data">
+            <a *ngIf="a.assetId == assetId">                                                      <!--Changed here-->
+              <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
+              <label for="assetId">Capacity : <b>{{a.id}}</b>  </label> <br><br>
+              <label for="assetcategory">assetcategory : <b>{{a.assetcategory}}</b>  </label> <br><br>
+              <label for="assetId">Rsm : <b>{{a.ram}}</b>  </label> <br><br>
+              <label for="assetId">boughtDate : <b>{{a.boughtDate}}</b>  </label> <br><br>
+            </a> 
             </div>
   
         

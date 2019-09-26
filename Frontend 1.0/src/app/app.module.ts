@@ -52,17 +52,8 @@ import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/v
 import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
 import { LogoutComponent } from './logout/logout.component';
 
-<<<<<<< HEAD
 import {NgxPrintModule} from 'ngx-print';
 
-=======
-
-
-
-import { ConfireDialogService } from './DialogModals/Confire-Dialog.service';
-import { ConfireDialogComponent } from './DialogModals/confire-dialog/confire-dialog.component';
-import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
->>>>>>> 37e2828f5981123fd2bcb0e77b84c4172c3b1a0f
 
 
 
@@ -129,6 +120,7 @@ import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
       ViewSingleAssetNotiComponent,
       ViewSingleEmpNotiComponent,
       RequestAssetModalComponent,
+      NgbdModalContent
         
     ]
  
