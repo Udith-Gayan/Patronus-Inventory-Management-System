@@ -66,10 +66,13 @@ export class ComplainBreakedownComponent implements OnInit {
     console.log("Line1");
 
   this.breakSer.breakDownservices(this.breakDown).subscribe((response) => {
+   
     console.log("Line2");
     console.log(this.nic);
     console.log(response);
     this.chek=true;
+    console.log("Line4");
+    console.log(this.chek);
     Swal.fire({
       position: 'center',
       type: 'success',
@@ -77,11 +80,37 @@ export class ComplainBreakedownComponent implements OnInit {
       showConfirmButton: false,
       timer: 2000
     })
+      ///save Firebase
+  
+  console.log();
+  let now = new Date();
+
+  let data = Object.assign({}, form.value);
+  delete data.id;
+  data.complainedNic=this.nic;
+  data.fName=this.Fname;
+  data.notificationType="BreakDown"
+  data.date=this.jstoday;
+  
+  if(form.value.id == null){
+   
+    this.firestore.collection('BreakDwonAsset').add(data);
+   console.log("line 10");
+}
+  else
+    this.firestore.doc('BreakDwonAsset/'+form.value.id).update(data);
+  this.resetForm(form);
+  console.log("line 11");
+  
+  
+
 
   },
 
     ( error: any) => {
-     
+      this.chek=false;
+      console.log("Line5");
+      console.log(this.chek);
       Swal.fire({
         type: 'error',
         title: 'Oops...',
@@ -89,37 +118,13 @@ export class ComplainBreakedownComponent implements OnInit {
         footer: '<a> Please check the AssetId Again </a>'
       })
       
-
-
-        
-   
-  
+     
   });
 
-  ///save Firebase
 
-    console.log();
-    let now = new Date();
-
-    let data = Object.assign({}, form.value);
-    delete data.id;
-    data.complainedNic=this.nic;
-    data.fName=this.Fname;
-    data.notificationType="BreakDown"
-    data.date=this.jstoday;
-    
-    if(form.value.id == null || this.chek == true){
-     
-      this.firestore.collection('BreakDwonAsset').add(data);
-     
-  }
-    else
-      this.firestore.doc('BreakDwonAsset/'+form.value.id).update(data);
-    this.resetForm(form);
-
-    
-    
   
+
+   
   }
   
 

@@ -53,6 +53,8 @@ import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/re
 import { LogoutComponent } from './logout/logout.component';
 
 import {NgxPrintModule} from 'ngx-print';
+import { ViewBreakeDownAssetComponent } from './PopupModals/view-breake-down-asset/view-breake-down-asset.component';
+import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-request-and-booking-emp-detail/view-request-and-booking-emp-detail.component';
 
 
 
@@ -101,6 +103,8 @@ import {NgxPrintModule} from 'ngx-print';
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
     LogoutComponent,
+    ViewBreakeDownAssetComponent,
+    ViewRequestAndBookingEmpDetailComponent,
   
 
 
@@ -120,7 +124,9 @@ import {NgxPrintModule} from 'ngx-print';
       ViewSingleAssetNotiComponent,
       ViewSingleEmpNotiComponent,
       RequestAssetModalComponent,
-      NgbdModalContent
+      NgbdModalContent,
+      ViewBreakeDownAssetComponent,
+      ViewRequestAndBookingEmpDetailComponent
         
     ]
  

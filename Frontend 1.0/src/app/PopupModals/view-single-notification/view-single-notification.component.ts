@@ -14,6 +14,7 @@ import { Replay } from '../../models/NotifiReplay';
 import { Observable } from 'rxjs';
 import { Asset } from '../../asset/asset';
 import { BookingAssetModalComponent } from '../booking-asset-modal/booking-asset-modal.component';
+import { ViewRequestAndBookingEmpDetailComponent } from '../view-request-and-booking-emp-detail/view-request-and-booking-emp-detail.component';
 
 @Component({
   selector: 'app-view-single-notification',
@@ -168,13 +169,13 @@ openAssetDetailModal(assetId){
 }
 
 /////////////////////////////////////////////////////////////////////////// View Employee Delail on Popup 
-openEmpDetailModal(assetId){
+openEmpDetailModal(requestedNic){
   console.log();
-  const modalRef = this.modalService.open(ViewAllEmpDelailComponent);
+  const modalRef = this.modalService.open(ViewRequestAndBookingEmpDetailComponent);
    
    // Pass vallue to other form component
-   modalRef.componentInstance.assetId = assetId;
-   
+   modalRef.componentInstance.requestedNic = requestedNic;
+   console.log(requestedNic);
    
 
     modalRef.result.then((result) => {

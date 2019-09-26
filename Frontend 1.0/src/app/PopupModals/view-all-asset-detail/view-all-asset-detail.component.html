@@ -1,17 +1,16 @@
-<div class="modal-header">
+<div class="modal-header" style="background-color: rgb(62, 163, 177)">
+ <!--Heder-->
     <h4 class="modal-title">{{assetcategory}}</h4>
     <h4 class="modal-title">{{assetId}}</h4>
-   <!-- <button></button> -->
-  
-      
-  
-  </div>
+   
+ 
+</div>
   <form [formGroup]="myForm" (ngSubmit)="submitForm()">
     <div class="modal-boy">
       <div class="container">
 
         <!---View Computer----------------------------------------------------->
-      <a >
+     
           <div class="form-groupp" *ngFor="let a of data">
             <a *ngIf="a.assetId == assetId"> 
               <a *ngIf="a.assetcategory == 'Computer' ">
@@ -29,9 +28,9 @@
               <label for="assetId">Description: <b>{{a.description}}</b>  </label> <br><br>
             </a> 
           </a>
-            </div>
+          </div>
   
-          </a>
+          
   
         <!---------------------------End----------------------------->
 

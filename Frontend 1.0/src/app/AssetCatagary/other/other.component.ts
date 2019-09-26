@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Asset } from '../../asset/asset';
 import { HttpService } from '../../service2/http.service';
+////////////
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
 
 @Component({
   selector: 'app-other',
@@ -26,7 +32,13 @@ export class OtherComponent implements OnInit {
     console.log(this.asset);
     this.userService.addEmployee(this.asset).subscribe((response)=>{
       console.log(response);
-      alert('Asset Successfully Saved');
+      Swal.fire({
+        position: 'center',
+        type: 'success',
+        title: 'Computer has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
     });
   }
 
