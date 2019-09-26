@@ -16,33 +16,33 @@ import { RequestAssetModalComponent } from '../../PopupModals/request-asset-moda
 export class ViewAssetComponent implements OnInit {
   data: Observable<Asset[]>;
 
-  //////Short by date
- 
+  ////// Short by date
 
- 
+
+
   //////
-  status:string = sessionStorage.getItem('status');
-  searchTerm :string;
+  status: string = sessionStorage.getItem('status');
+  searchTerm: string;
   constructor(private asset : HttpService, private modalService: NgbModal) { }
 ////////////////////////////////////////////////////////////////////////////////////////////////
   ngOnInit() {
-    this.asset.getAllAssets().subscribe(res=>{
+    this.asset.getAllAssets().subscribe(res => {
 
       console.log(res);
-      this.data = res
-      console.log(this.data)
-    })
+      this.data = res;
+      console.log(this.data);
+    });
 
 
   }
 ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
-  openFormModal(assetId,assetCategory) {
+  openFormModal(assetId , assetCategory) {
     const modalRef = this.modalService.open(BookingAssetModalComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.assetCategory = assetCategory; 
-   
+    modalRef.componentInstance.assetCategory = assetCategory;
+
 
     modalRef.result.then((result) => {
       console.log(result);
@@ -53,13 +53,13 @@ export class ViewAssetComponent implements OnInit {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Requesting Asset Popup
+// Requesting Asset Popup
 
-openRequestmModal(assetId,assetCategory) {
+openRequestmModal(assetId, assetCategory) {
   const modalRef = this.modalService.open(RequestAssetModalComponent);
   modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-  modalRef.componentInstance.assetCategory = assetCategory; 
- 
+  modalRef.componentInstance.assetCategory = assetCategory;
+
 
   modalRef.result.then((result) => {
     console.log(result);
@@ -69,12 +69,12 @@ openRequestmModal(assetId,assetCategory) {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//view more detail of Asset
+// view more detail of Asset
 
 openDetailModal(assetId,ram,capacity,assetCategory){
   const modalRef = this.modalService.open(ViewAllAssetDetailComponent);
     modalRef.componentInstance.assetId = assetId;
-    modalRef.componentInstance.ram = ram; 
+    modalRef.componentInstance.ram = ram;
     modalRef.componentInstance.capacity = capacity;
     modalRef.componentInstance.assetCategory = assetCategory;
      // Pass vallue to other form component
@@ -88,21 +88,21 @@ openDetailModal(assetId,ram,capacity,assetCategory){
 }
 
 
-///delete asset//
+/// delete asset//
 deleteAsst(assetId){
- 
+
     this.asset.deleteasset(assetId).subscribe((data) => {
 
                                                        // this.employees.splice(this.employees.indexOf(d),1);
                                                        console.log(data);
                                                        alert("Successfully deleted");
                                                          },
-                                                         (error)=>{
+                                                         (error) => {
                                                                     console.log(error);
                                                                   }
                                               );
- 
-  
+
+
 
 
 }

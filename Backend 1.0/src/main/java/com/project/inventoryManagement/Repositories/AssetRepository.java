@@ -14,6 +14,7 @@ public interface AssetRepository extends CrudRepository<AssetModel, Long> {
 
 
     void deleteById(long id);
+    void deleteByAssetId(String assetId);
 
     Optional<AssetModel> findByAssetId(String assetId);
 }
