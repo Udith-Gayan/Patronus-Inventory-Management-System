@@ -35,6 +35,12 @@ public class AssignModel implements Serializable {
     @Column(name = "due_date")
     private Date dueDate;
 
+    @Column(name = "date_dh_confirmed")
+    private Date dateDHConfirmed;
+
+    @Column(name = "date_am_confirmed")
+    private Date dateAMConfirmed;
+
 
     @Column(name = "asset_id")      //newly added
     private String assetId;

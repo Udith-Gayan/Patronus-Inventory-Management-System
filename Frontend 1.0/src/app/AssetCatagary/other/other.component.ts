@@ -13,8 +13,8 @@ export class OtherComponent implements OnInit {
   asset: Asset;
 
   constructor(private userService:HttpService) {
-      this.asset=new Asset();
-      this.asset.assetcategory="Other";
+      this.asset = new Asset();
+      this.asset.assetcategory = "Other";
       console.log(this.asset);
 
   }

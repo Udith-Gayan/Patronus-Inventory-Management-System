@@ -95,7 +95,7 @@ public class RequestAssetController {
     @GetMapping(path = "/request/view/pending/departmentHead")
     public Iterable<AssignModel> viewPendingsByDepartmentHead(){
         System.out.println("Request came to get all pending requests by department head");
-        return assignRepo.findByRequestTypeAndApprovedByDepartmentHeadAAndApprovedByAssetManager("REQUEST",false,false);
+        return assignRepo.findByRequestPendingByDepartmentHead("REQUEST",false,false);
     }
 
     ////////////////////////////////////////////////////////////////
@@ -104,7 +104,7 @@ public class RequestAssetController {
     @GetMapping(path = "/request/view/pending/assetMananger")
     public Iterable<AssignModel> viewPendingsByAssetMAanager(){
         System.out.println("Request came to get all pending requests by AssetManager");
-        return assignRepo.findByRequestTypeAndApprovedByDepartmentHeadAAndApprovedByAssetManager("REQUEST",true,false);
+        return assignRepo.findByRequestPendingByAssetManager("REQUEST",true,false);
     }
 
     /////////////////////////////////////////////
