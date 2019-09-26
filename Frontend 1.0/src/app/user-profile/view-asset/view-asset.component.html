@@ -1,3 +1,10 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
 
 
 <div class="form-row">
@@ -9,9 +16,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="" >Search</button>
 
       </div>
-      <p ><a href="" routerLink="/asset/view-asset/more">more   </a>
-      <a href="" routerLink="/asset/view-asset"> .... back</a></p>
-
+    
     </div>
 
     <!-- filter item using drop dwon list-->
@@ -21,7 +26,7 @@
 
       
           <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
-              <option value="" >All Asset</option>
+            <option value="" >All</option>  
           <option value="Computer" >Computer</option>
           <option value="Furniture" >Furniture</option>
           <option value="Projector" >Projector</option>
@@ -44,29 +49,16 @@
             
           </select>
       </div>
-      <div class="col-md-2 mb-3">
-          <label for="status" class="cols-sm-2 control-label">Duration</label>
-
-      
-          <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
-              
-          <option value="Computer" >Computer</option>
-          <option value="Furniture" >Furniture</option>
-          <option value="Projector" >Projector</option>
-          <option value="Furniture" >Printer</option>
-          <option value="Furniture" >TV</option>
-            
-          </select>
-      </div>
+     
   </div>
-
 
 
 
 <router-outlet></router-outlet>
 
+
 <div  *ngFor="let d of data |  assetfilter : searchTerm">
-    <div class="card-body" *ngIf= "d.assetCategory == 'Computer'" > 
+    <div class="card-body" *ngIf= "d.assetcategory == 'Computer'" > 
 <div class="card" style="background-color: rgb(62, 101, 138);height: 4cm;" >
     
 <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
@@ -92,7 +84,7 @@
         <tr >
         <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
         <h6 class="card-text"> Brand name :    {{d.ram}}</h6>
-        <h6 class="card-title" > Asset Category:         {{d.assetCategory}}</h6>
+        <h6 class="card-title" > Asset Category:         {{d.assetcategory}}</h6>
         <h6 class="card-title">Description:   {{d.description}}</h6>
        
 
@@ -105,17 +97,16 @@
           <a  *ngIf= "status =='Asset Manager'">
               
         <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
-        <a  class="btn btn-primary" (click)="deleteAsst(d.assetId)">Delete</a>
+        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
       
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetCategory)" >Book Asset</a>  
+        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
       </a>    <!--pop up for booking-->   <a  *ngIf= "status !='Asset Manager'">
-        <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetCategory)" >Request</a> 
+        <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
       </a>
-        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetCategory)">More Detail </a>
+        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
 
         </div>
-        <span class="dot" *ngIf= "d.assetId == 'OTH32'"></span>
-
+     
 
     </div>
     <!--/.Card-->
@@ -129,7 +120,7 @@
   <!---->
   <!---->
 
-  <div class="card-body" *ngIf= "d.assetCategory == 'Furniture'" > 
+  <div class="card-body" *ngIf= "d.assetcategory == 'Furniture'" > 
       <div class="card" style="background-color: rgb(143, 166, 187);height: 4cm;" >
           
       <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
@@ -154,7 +145,7 @@
               <!--Title-->
               <tr >
               <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
-              <h6 class="card-text"> Asset Catagery :    {{d.assetCategory}}</h6>
+              <h6 class="card-text"> Asset Catagery :    {{d.assetcategory}}</h6>
              
             </div>
             
@@ -183,7 +174,7 @@
         </div>
 <!--Projector card-->
 
-        <div class="card-body" *ngIf= "d.assetCategory == 'Projector'" > 
+        <div class="card-body" *ngIf= "d.assetcategory == 'Projector'" > 
             <div class="card" style="background-color: rgb(141, 191, 238);height: 4cm;" >
                 
             <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
@@ -198,7 +189,7 @@
                     <tr >
                     <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
                     <h6 class="card-text"> Brand name :    {{d.ram}}</h6>
-                    <h6 class="card-title"> Asset Category:         {{d.assetCategory}}</h6>
+                    <h6 class="card-title"> Asset Category:         {{d.assetcategory}}</h6>
                     <h6 class="card-title">Description:   {{d.description}}</h6>
 
             

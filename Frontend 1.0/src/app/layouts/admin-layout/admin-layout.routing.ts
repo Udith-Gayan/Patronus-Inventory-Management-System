@@ -30,8 +30,8 @@ import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-br
 import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
 import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
 import { AuthGuardServiceService } from '../../service/auth-guard-service.service';
-import { AboutUsComponent } from '../../maps/about-us/about-us.component';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
+import { AboutUsComponent } from '../../maps/about-us/about-us.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
@@ -229,7 +229,6 @@ export const AdminLayoutRoutes: Routes = [
 
 
             }
-
         ]
 
     },

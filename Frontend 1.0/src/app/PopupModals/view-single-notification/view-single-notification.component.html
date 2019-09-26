@@ -14,9 +14,11 @@
        
           
 
-        <div class="form-groupp">                                                       <!--Changed here-->
-            <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label>       <label for="assetId">Order By : <b>{{username}}  {{bookNic}}</b>  </label>  <br> <br>
-            <label for="assetId">Asset Category: <b>{{assetCategory}}</b>  </label> <br><br>
+        <div class="form-groupp"> 
+            
+                                                              <!--Changed here-->
+            <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label>       <label for="assetId">Order By : <b>{{username}} </b>  </label>  <br> <br>
+            <label for="assetId">Asset Category: <b>{{assetcategory}}</b>  </label> <br><br>
             <label for="assetId">Beging Date: <b>{{beginDate}} </b>  </label> <br> <br>
             <label for="assetId">Due Date : <b>{{dueDate}} </b>  </label> <br> <br>
             <label for="assetId">Description: <b>{{massege}} </b>  </label> <br> <br>
@@ -42,27 +44,22 @@
     </div>
   </div>
   <div class="modal-footer">
-      <button class="btn btn-success" type="button" (click)="openAssetDetailModal(assetId)"
+      <button class="btn btn-success" type="submit" (click)="openAssetDetailModal(assetId)"
       [disabled]="!myForm.valid">
      Asset Details
     </button>
-    <button class="btn btn-success" type="button" (click)="openEmpDetailModal(assetId)"
+    <button class="btn btn-success" type="submit" (click)="openEmpDetailModal(assetId)"
     [disabled]="!myForm.valid">
    Order Employee
   </button>
-<!----><!---->
-  <form (ngSubmit)="onAccept()">
     <button class="btn btn-success" type="submit"
       [disabled]="!myForm.valid">
       Accept
     </button>
-  </form>
-    <form (ngSubmit)="OnReplay()">
-    <button class="btn btn-success" type="submit" 
+    <button class="btn btn-success" type="submit" (click)="massage(assetId)"
     [disabled]="!myForm.valid">
    Reject
   </button>
-</form>
 
   </div>
  

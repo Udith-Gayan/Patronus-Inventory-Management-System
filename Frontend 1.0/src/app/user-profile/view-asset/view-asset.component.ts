@@ -7,6 +7,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from '../../service2/http.service';
 import { ViewAllAssetDetailComponent } from '../../PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 import { RequestAssetModalComponent } from '../../PopupModals/request-asset-modal/request-asset-modal.component';
+////////////
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
 
 @Component({
   selector: 'app-view-asset',
@@ -32,16 +39,17 @@ export class ViewAssetComponent implements OnInit {
       this.data = res
       console.log(this.data)
     })
+    //console.log(this.data);
 
 
   }
 ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
-  openFormModal(assetId,assetCategory) {
+  openFormModal(assetId,assetcategory) {
     const modalRef = this.modalService.open(BookingAssetModalComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.assetCategory = assetCategory; 
+    modalRef.componentInstance.assetcategory = assetcategory; 
    
 
     modalRef.result.then((result) => {
@@ -55,10 +63,10 @@ export class ViewAssetComponent implements OnInit {
 
 //Requesting Asset Popup
 
-openRequestmModal(assetId,assetCategory) {
+openRequestmModal(assetId,assetcategory) {
   const modalRef = this.modalService.open(RequestAssetModalComponent);
   modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-  modalRef.componentInstance.assetCategory = assetCategory; 
+  modalRef.componentInstance.assetcategory = assetcategory; 
  
 
   modalRef.result.then((result) => {
@@ -71,12 +79,12 @@ openRequestmModal(assetId,assetCategory) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //view more detail of Asset
 
-openDetailModal(assetId,ram,capacity,assetCategory){
+openDetailModal(assetId,ram,capacity,assetcategory){
   const modalRef = this.modalService.open(ViewAllAssetDetailComponent);
     modalRef.componentInstance.assetId = assetId;
     modalRef.componentInstance.ram = ram; 
     modalRef.componentInstance.capacity = capacity;
-    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.assetcategory = assetcategory;
      // Pass vallue to other form component
 
     modalRef.result.then((result) => {
@@ -91,18 +99,42 @@ openDetailModal(assetId,ram,capacity,assetCategory){
 ///delete asset//
 deleteAsst(assetId){
  
-    this.asset.deleteasset(assetId).subscribe((data) => {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.value) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      ),
 
-                                                       // this.employees.splice(this.employees.indexOf(d),1);
-                                                       console.log(data);
-                                                       alert("Successfully deleted");
-                                                         },
-                                                         (error)=>{
-                                                                    console.log(error);
-                                                                  }
-                                              );
- 
+
+      this.asset.deleteasset(assetId).subscribe((data) => {
+
+        // this.employees.splice(this.employees.indexOf(d),1);
+        console.log(data);
+       
+          },
+          (error)=>{
+                     console.log(error);
+                   }
+);
+
+
+    }
+       
   
+    
+  })
+ 
+
 
 
 }

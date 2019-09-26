@@ -1,35 +1,42 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
 <div class="table-responsive" >
-<table class="table table-condensed">
-    <thead class="black white-text">
-        <tr  class="table-primary">
-          <th class="table-active" scope="col">Date/Time</th>
-          <th class="table-active" scope="col">Asset ID</th>
-          <th scope="col">Category</th>
-          <th scope="col">Order By</th>
-          <th scope="col">From</th>
-          <th scope="col">To</th>
-          <th scope="col">Description</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-  <tbody>
+  <table class="table table-condensed">
+      <thead class="black white-text">
+          <tr  class="table-primary">
+            <th class="table-active" scope="col">Date/Time</th>
+            <th class="table-active" scope="col">Asset ID</th>
+            <th scope="col">Category</th>
+            <th scope="col">Order By</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Description</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+    <tbody>
+       
+        <tr *ngFor="let a of list" class="table-active"  style="background-color: rgb(90, 131, 207);font-size: 1.5ch;color: black">
+         
+            <td (click)="onEdit(a)" scope="col"><a *ngIf="a.notificationType=='Booking'" style="background-color: red">{{a.notificationType}}</a><a *ngIf="a.notificationType=='Requesting'" style="background-color: rgb(12, 175, 39)">{{a.notificationType}}</a> <br> {{a.Discription}} </td> 
+             <td class="table-danger" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+            <td (click)="onEdit(a)" scope="col">{{a.assetcategory}}</td>
+            <td (click)="onEdit(a)" scope="col">{{a.username}}</td>
+            <td (click)="onEdit(a)" scope="col">{{a.beginDate}}</td> 
+            <td (click)="onEdit(a)" scope="col">{{a.dueDate}}</td>
+            <td (click)="onEdit(a)" scope="col">{{a.massege}}</td>
+           <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td >View</td></button>
+            <td (click)="onDelete(a.id)" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+         
+          </tr>
+    
      
-      <tr *ngFor="let a of list" class="table-active"  style="background-color: rgb(90, 131, 207);font-size: 1.5ch;color: black">
-       
-          <td (click)="onEdit(a)" scope="col"><a *ngIf="a.notificationType=='Booking'" style="background-color: red">{{a.notificationType}}</a><a *ngIf="a.notificationType=='Requesting'" style="background-color: rgb(12, 175, 39)">{{a.notificationType}}</a> <br> {{a.Discription}} </td> 
-           <td class="table-danger" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-          <td (click)="onEdit(a)" scope="col">{{a.assetCategory}}</td>
-          <td (click)="onEdit(a)" scope="col">{{a.username}}</td>
-          <td (click)="onEdit(a)" scope="col">{{a.beginDate}}</td> 
-          <td (click)="onEdit(a)" scope="col">{{a.dueDate}}</td>
-          <td (click)="onEdit(a)" scope="col">{{a.massege}}</td>
-         <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td >View</td></button>
-          <td (click)="onDelete(a.id)" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-       
-        </tr>
-  
-   
-  </tbody>
-</table>
-</div>
+    </tbody>
+  </table>
+  </div>

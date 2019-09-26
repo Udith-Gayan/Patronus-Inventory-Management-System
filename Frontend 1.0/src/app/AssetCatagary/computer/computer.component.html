@@ -1,3 +1,11 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
+
 <div class="col-md-10">
 
             <header class="card-header">
@@ -15,10 +23,10 @@
 
                                             <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
 
-                                            <div class="col-md-6 mb-3">
-                                            <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" required brandName #brandName="ngModel">
+                                            <div class="col-md-6 mb-3" >
+                                            <select name="brandName" id="brandName" style="width: 7cm;height: 1cm;" [(ngModel)]="asset.brandName" required brandName #brandName="ngModel">
 
-
+                                                   
                                             <option value="HP" >HP</option>
                                               <option value="DELL" >DELL</option>
                                               <option value="ASUUS" >ASUUS</option>
@@ -117,19 +125,19 @@
                                 <div class="col">
                                     <label for="yrs" class="cols-sm-2 control-label">Years</label>
                                     <div class="def-number-input number-input safari_only">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
 
-                            <input class="yrs" min="0" max="10" name="yrs" value="1" type="number">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                            <input class="yrs" min="0" max="10" name="yrs" value="1" type="number" [(ngModel)]="asset.yrs">
+                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
 
                           </div>
                             </div>
                             <div class="col">
                                     <label for="months" class="cols-sm-2 control-label">Months</label>
                           <div class="def-number-input number-input safari_only">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="months" min="0" max="12" name="months" value="1" type="number">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                            <button type="button"  onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input class="months" min="0" max="12" name="months" value="1" type="number"  [(ngModel)]="asset.months">
+                            <button type="button"  onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                             </div>
                           </div>
 
@@ -137,9 +145,9 @@
                           <div class="col">
                                 <label for="days" class="cols-sm-2 control-label">Days</label>
                       <div class="def-number-input number-input safari_only">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                        <input class="days" min="0" max="31" name="days" value="1" type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                        <input class="days" min="0" max="31" name="days" value="1" type="number" id="days" [(ngModel)]="asset.boughtCompanyName" >
+                        <button type="button"  onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                         </div>
                       </div>
                     </div>

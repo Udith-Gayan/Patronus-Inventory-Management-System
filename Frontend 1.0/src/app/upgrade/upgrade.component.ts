@@ -1,38 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadVarExpr } from '@angular/compiler';
+//DialogBox
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
-  import { from } from 'rxjs';
-import { ConfireDialogService } from '../DialogModals/Confire-Dialog.service';
-import {  ConfirmDialogModule } from "../DialogModals/confirmeDialog.module";  
-  
-  
-  
- 
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
+
+
 @Component({
   selector: 'app-upgrade',
   templateUrl: './upgrade.component.html',
   styleUrls: ['./upgrade.component.scss']
 })
 export class UpgradeComponent implements OnInit {
+imgUrl:String="/assets/img/1.jpeg";
+FileToUpload:File=null;
 
-  constructor(public confirmDialogService : ConfireDialogService) { }
+
+  constructor() { }
 
   ngOnInit() {
   }
-  
+  handleFileInput(File:FileList){
 
-  //////////////////////////////////////////popup window in confirm Dialog Box//////////////////////  but this method not working
+    this.FileToUpload=File.item(0);
+    
+    
+  }
+test(){
+  const ipAPI = 'https://api.ipify.org?format=json'
 
-  showDialog() {  
-    console.log("line1");
-    this.confirmDialogService.confirmThis("Are you sure to delete?",function() {  
-      console.log("line2");
-      alert("Yes clicked");  
-    }, function () {  
-      alert("No clicked");  
-      console.log("line3");
-    })  
-  }  
+  Swal.queue([{
+    title: 'Your public IP',
+    confirmButtonText: 'Show my public IP',
+    text:
+      'Your public IP will be received ' +
+      'via AJAX request',
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      return fetch(ipAPI)
+        .then(response => response.json())
+        .then(data => Swal.insertQueueStep(data.ip))
+        .catch(() => {
+          Swal.insertQueueStep({
+            type: 'error',
+            title: 'Unable to get your public IP'
+          })
+        })
+    }
+  }])
 
-  /////////////////////////////////////////
 }
+ }

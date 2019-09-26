@@ -52,12 +52,8 @@ import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/v
 import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
 import { LogoutComponent } from './logout/logout.component';
 
+import {NgxPrintModule} from 'ngx-print';
 
-
-
-import { ConfireDialogService } from './DialogModals/Confire-Dialog.service';
-import { ConfireDialogComponent } from './DialogModals/confire-dialog/confire-dialog.component';
-import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
 
 
 
@@ -81,8 +77,8 @@ import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
     AngularFirestoreModule,
     EmpCompenentModule,
     ReactiveFormsModule
-
-
+    
+   
 
 
   ],
@@ -105,37 +101,29 @@ import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
     LogoutComponent,
-    ConfireDialogComponent
-
-
-
-
-
+  
 
 
 
   ],
-  exports: [
-    ConfireDialogComponent,
-    NgbdModalContent,
-           ViewSingleAssetNotiComponent,
-           ViewSingleEmpNotiComponent,
-           RequestAssetModalComponent
-],
+  exports: [NgbdModalContent,
+           
+  ],
 
-
-
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService, ConfireDialogService, AngularFirestore ],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
   bootstrap: [AppComponent],
   entryComponents: [
-  BookingAssetModalComponent,
-    ViewAllEmpDelailComponent,
-    ViewAllAssetDetailComponent,
-    ViewSingleNotificationComponent,
-    NgbdModalContent
-
-  ]
-
+    BookingAssetModalComponent,
+      ViewAllEmpDelailComponent,
+      ViewAllAssetDetailComponent,
+      ViewSingleNotificationComponent,
+      ViewSingleAssetNotiComponent,
+      ViewSingleEmpNotiComponent,
+      RequestAssetModalComponent,
+      NgbdModalContent
+        
+    ]
+ 
 })
 
 export class AppModule { }

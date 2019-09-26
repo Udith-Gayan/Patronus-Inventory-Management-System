@@ -1,148 +1,158 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
 
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-wrapper">
-                <div class="navbar-toggle">
-                    <button type="button" class="navbar-toggler" (click)="sidebarToggle()">
-                        <span class="navbar-toggler-bar bar1"></span>
-                        <span class="navbar-toggler-bar bar2"></span>
-                        <span class="navbar-toggler-bar bar3"></span>
-                    </button>
-                </div>
-                <a class="navbar-brand" href="#pablo"><h2>INVENTO</h2></a>
-            </div>
-            <button class="navbar-toggler" type="button" (click)="collapse()"
-              [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
-              <form>
-                <div class="input-group no-border">
+  <div class="container-fluid">
+      <div class="navbar-wrapper">
+          <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler" (click)="sidebarToggle()">
+                  <span class="navbar-toggler-bar bar1"></span>
+                  <span class="navbar-toggler-bar bar2"></span>
+                  <span class="navbar-toggler-bar bar3"></span>
+              </button>
+          </div>
+          <a class="navbar-brand" href="#pablo"><h2>INVENTO</h2></a>
+      </div>
+      <button class="navbar-toggler" type="button" (click)="collapse()"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        <span class="navbar-toggler-bar navbar-kebab"></span>
+        <span class="navbar-toggler-bar navbar-kebab"></span>
+        <span class="navbar-toggler-bar navbar-kebab"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
+        <form>
+          <div class="input-group no-border">
+             
+          </div>
+        </form>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              
+                <a class="nav-link" routerLink="/welcome">Home</a>
+             </li>
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/welcome/aboutUs">About us
+                  <span class="sr-only">(current)</span>
+              </a>
+          </li>
+                   
+                       
+          <li class="nav-item">
+              
+              <a class="nav-link" href="">Contact</a>
+           </li>
+          
+          
 
-                </div>
-              </form>
-              <ul class="navbar-nav">
-                  <li class="nav-item">
-
-                      <a class="nav-link" routerLink="/welcome">Home</a>
-                   </li>
-                <li class="nav-item active">
-                    <a class="nav-link" routerLink="/welcome/aboutUs">About us
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="">Contact</a>
-                 </li>
-
-
-
-
-
+         
+         
 <!--
-                <li class="dropdown messages-menu">
-                  <a class="nav-link" href="#pablo">
-                    <i class="now-ui-icons ui-1_bell-53">{{data}}</i>
-
-                  </a>
-                </li>
+          <li class="dropdown messages-menu">
+            <a class="nav-link" href="#pablo">
+              <i class="now-ui-icons ui-1_bell-53">{{data}}</i>
+             
+            </a>
+          </li> 
 -->
-                <!--notification-->
-
-                <li class="nav-item"  ngbDropdown >
-                    <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
-                        <i class="now-ui-icons ui-1_bell-53"><div id = "exampleCircle"><p style="color: red"><b>{{data}}</b></p></div></i>
-
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 10cm;background-color: rgb(6, 110, 214);height: 12cm;">
-
-                        <div class="container" >
-                          <div class="row"  style="background-color: rgb(8, 162, 223)">
-                            <div class="col-md-6">
-                              <div class="panel panel-primary">
-                                <div class="panel-heading" >
-                                  <h6 class="panel-title" style="color: rgb(10, 48, 161)">Notifications {{data}} </h6>
-                                  <p>You have</p>
-                                  <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                                </div>
-
-                              </div>
-                            </div>
+          <!--notification-->
+          
+          <li class="nav-item"  ngbDropdown >
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+                  <i class="now-ui-icons ui-1_bell-53"><div id = "exampleCircle"><p style="color: red"><b>{{data}}</b></p></div></i>
+               
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 10cm;background-color: rgb(6, 110, 214);height: 12cm;">
+                  
+                  <div class="container" >
+                    <div class="row"  style="background-color: rgb(8, 162, 223)">
+                      <div class="col-md-6">
+                        <div class="panel panel-primary">
+                          <div class="panel-heading" >
+                            <h6 class="panel-title" style="color: rgb(10, 48, 161)">Notifications {{data}} </h6>
+                            <p>You have</p>
+                            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                           </div>
-                          <div class="table-responsive" style="height: 10cm" *ngIf= "status =='Asset Manager'" >
-                          <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
-
-                           <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
-                             <div class="row">
-                                <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
-                                  <img src="assets/img/printer.jpg" alt="photo">
-                                 </div>
-                                <div class="col-xs-4" *ngIf= "a.assetCategory == 'Furniture'"   style="width: 1.5cm;height: 1.5cm;">
-                                  <img src="assets/img/furniture.jpeg"  alt="photo">
-                                </div>
-                                 <div class="col-xs-4" *ngIf= "a.assetCategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
-                                   <img src="assets/img/home.jpg" alt="photo">
-                                </div>
-                                <div class="col-xs-4">
-                                  <p  style="color: rgb(40, 20, 153);font-size: 1.5ch">   {{a.assetCategory}} {{a.assetId}}  </p>
-                                </div><br>
-                                <div class="row">
-                                   <div class="col-xs-4"><br>
-                                    <p style="font-size: 1.2ch">{{a.notificationType}} </p>
-                                   </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-xs-4"><br><br>
-                                    <p style="font-size: 1.2ch;">{{a.description}}</p>
-                                 </div>
-                                </div>
-                               </div>
-
-                          </button>
-                          </div>
-
-                          <div>
-
-                          </div>
-
+                         
                         </div>
-                        <div class="panel-heading" style="background-color:  rgb(6, 110, 214);width: 9cm">
-                            <a  style="color: rgb(6, 4, 20)" routerLink="/notifications">See All</a>
-                          </div>
-
-                        </div>
-
+                      </div>
                     </div>
-
-                  </li>
-
-
-
-                 <!--end-->
-                <li class="nav-item" ngbDropdown>
-                  <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
-                        <i class="now-ui-icons users_single-02"></i>
-                    <p>
-                      <span class="d-lg-none d-md-block">Some Actions</span>
-                    </p>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <a class="dropdown-item" href="#" style="color: rgb(70, 82, 119)"> <b>Edit porfile</b> </a>
-                    <a class="dropdown-item"  routerLink="/logout" style="color: rgb(70, 82, 119)"> <b>LogOut</b></a>
-
-
+                    <div class="table-responsive" style="height: 10cm" *ngIf= "status =='Asset Manager'" >
+                    <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
+                        
+                     <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                       <div class="row">
+                          <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
+                            <img src="assets/img/printer.jpg" alt="photo">
+                           </div>
+                          <div class="col-xs-4" *ngIf= "a.assetCategory == 'Furniture'"   style="width: 1.5cm;height: 1.5cm;">
+                            <img src="assets/img/furniture.jpeg"  alt="photo">
+                          </div>
+                           <div class="col-xs-4" *ngIf= "a.assetCategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
+                             <img src="assets/img/home.jpg" alt="photo">
+                          </div>
+                          <div class="col-xs-4">
+                            <p  style="color: rgb(40, 20, 153);font-size: 1.5ch">   {{a.assetcategory}} {{a.assetId}}  </p>
+                          </div><br>
+                          <div class="row">
+                             <div class="col-xs-4"><br>
+                              <p style="font-size: 1.2ch">{{a.notificationType}} </p>
+                             </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-4"><br><br>
+                              <p style="font-size: 1.2ch;">{{a.Discription}}</p>
+                           </div>
+                          </div>
+                         </div>
+                           
+                    </button>
+                    </div>
+                   
+                    <div>
+                       
+                    </div>
+                    
                   </div>
-                </li>
+                  <div class="panel-heading" style="background-color:  rgb(6, 110, 214);width: 9cm">
+                      <a  style="color: rgb(6, 4, 20)" routerLink="/notifications">See All</a>
+                    </div>
+                
+                  </div>
+                  
+              </div>
+            
+            </li>
 
 
-              </ul>
+           
+           <!--end-->
+          <li class="nav-item" ngbDropdown >
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+                  <i class="now-ui-icons users_single-02"></i>
+              <p>
+                <span class="d-lg-none d-md-block">Some Actions</span>
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                  <a class="dropdown-item" href="#" style="color: rgb(70, 82, 119)"> <b>Edit porfile</b> </a>
+              
+                
+              <a class="dropdown-item"   style="color: rgb(70, 82, 119)"> <b (click)="login()">LogOut
+             
+              <a *ngIf= "con == 'true'" routerLink="/home"> </a></b></a>
+          
             </div>
-        </div>
-    </nav>
+          </li>
+          
+          
+        </ul>
+      </div>
+  </div>
+</nav>
 
 
