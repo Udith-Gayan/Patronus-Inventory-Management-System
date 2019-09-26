@@ -6,7 +6,7 @@ import { Employee } from '../../models/employee';
 import { ImageUploadModel } from '../../models/ImageModel';
 
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -67,11 +67,11 @@ export class RegistorEmpComponent implements OnInit {
         timer: 1500
       },
       ( error: any) => {
-     
+
         alert('Please Check the AssetID ');
-        
-  
-  
+
+
+
       }
       )
 

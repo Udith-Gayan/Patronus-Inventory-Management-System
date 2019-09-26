@@ -7,7 +7,7 @@ import { HttpService } from '../../service2/http.service';
 import { formatDate } from '@angular/common';
 
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -20,7 +20,7 @@ const Swal = require('sweetalert2');
 })
 export class ComplainBreakedownComponent implements OnInit {
 
-  
+
 
   datePipe: any;
   breakDown:BreakDwonNoti;
@@ -29,9 +29,9 @@ export class ComplainBreakedownComponent implements OnInit {
   today= new Date();
   jstoday = '';
   chek:boolean =false;
-  
 
-  constructor(private ser : NotifiService,private firestore :AngularFirestore,private breakSer:HttpService) { 
+
+  constructor(private ser : NotifiService,private firestore :AngularFirestore,private breakSer:HttpService) {
     this.breakDown=new BreakDwonNoti();
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 
@@ -53,9 +53,9 @@ export class ComplainBreakedownComponent implements OnInit {
       fName:'',
       notificationType:'',
       date:''
-     
 
-     
+
+
     }
   }
   onSubmit(form:NgForm){
@@ -81,19 +81,19 @@ export class ComplainBreakedownComponent implements OnInit {
   },
 
     ( error: any) => {
-     
+
       Swal.fire({
         type: 'error',
         title: 'Oops...',
         text: 'AssetId went wrong!',
         footer: '<a> Please check the AssetId Again </a>'
       })
-      
 
 
-        
-   
-  
+
+
+
+
   });
 
   ///save Firebase
@@ -107,20 +107,20 @@ export class ComplainBreakedownComponent implements OnInit {
     data.fName=this.Fname;
     data.notificationType="BreakDown"
     data.date=this.jstoday;
-    
+
     if(form.value.id == null || this.chek == true){
-     
+
       this.firestore.collection('BreakDwonAsset').add(data);
-     
+
   }
     else
       this.firestore.doc('BreakDwonAsset/'+form.value.id).update(data);
     this.resetForm(form);
 
-    
-    
-  
+
+
+
   }
-  
+
 
 }

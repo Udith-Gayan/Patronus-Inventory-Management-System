@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Asset } from '../../asset/asset';
 import { HttpService } from '../../service2/http.service';
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+//import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 

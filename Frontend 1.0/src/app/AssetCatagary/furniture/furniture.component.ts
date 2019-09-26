@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Asset } from '../../asset/asset';
 import { HttpService } from '../../service2/http.service';
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -20,14 +20,14 @@ export class FurnitureComponent implements OnInit {
 asset: Asset;
 
 
-  constructor(private userService:HttpService) { 
+  constructor(private userService:HttpService) {
     this.asset=new Asset();
     this.asset.assetcategory="Furniture";
     console.log(this.asset);
   }
 
   ngOnInit() {
-    
+
   }
   onSubmit() {
     console.log(this.asset);
@@ -41,6 +41,6 @@ asset: Asset;
         timer: 1500
       })
     });
-    
+
   }
 }

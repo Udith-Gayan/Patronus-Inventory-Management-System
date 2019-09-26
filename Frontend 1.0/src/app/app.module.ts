@@ -61,6 +61,8 @@ import {NgxPrintModule} from 'ngx-print';
 
 
 
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -77,8 +79,8 @@ import {NgxPrintModule} from 'ngx-print';
     AngularFirestoreModule,
     EmpCompenentModule,
     ReactiveFormsModule
-    
-   
+
+
 
 
   ],
@@ -101,16 +103,17 @@ import {NgxPrintModule} from 'ngx-print';
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
     LogoutComponent,
-  
+
 
 
 
   ],
   exports: [NgbdModalContent,
-           
+
   ],
 
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
+
+providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService, AngularFirestore],  // udith-keep firestore here
   bootstrap: [AppComponent],
   entryComponents: [
     BookingAssetModalComponent,
@@ -121,9 +124,9 @@ import {NgxPrintModule} from 'ngx-print';
       ViewSingleEmpNotiComponent,
       RequestAssetModalComponent,
       NgbdModalContent
-        
+
     ]
- 
+
 })
 
 export class AppModule { }

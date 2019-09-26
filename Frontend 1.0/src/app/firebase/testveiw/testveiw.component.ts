@@ -5,7 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import { BookAsset } from '../../models/BookAssetModel';
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
@@ -21,7 +21,7 @@ const Swal = require('sweetalert2');
 export class TestveiwComponent implements OnInit {
 
   list:BookAsset[];
- 
+
   constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class TestveiwComponent implements OnInit {
       console.log(data);
     })
   }
- 
+
   onDelete(id:string){
     Swal.fire({
       title: 'Are you sure?',
@@ -55,14 +55,14 @@ export class TestveiwComponent implements OnInit {
           'Deleted!',
           'Your file has been deleted.',
           'success'
-          
+
         ),
         this.firestore.doc('BookAssetNotification/'+id).delete();
       }
     })
-    
-     
-    
+
+
+
 
   }
   openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
@@ -76,8 +76,8 @@ export class TestveiwComponent implements OnInit {
     modalRef.componentInstance.beginDate = beginDate;
     modalRef.componentInstance.dueDate = dueDate;
     modalRef.componentInstance.username = username;
-  
-  
+
+
     modalRef.result.then((result) => {
       console.log(result);
     }).catch((error) => {
@@ -85,8 +85,8 @@ export class TestveiwComponent implements OnInit {
     });
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
-  
+
+
 
 
 }
