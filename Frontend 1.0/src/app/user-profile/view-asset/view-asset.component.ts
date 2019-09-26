@@ -7,6 +7,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from '../../service2/http.service';
 import { ViewAllAssetDetailComponent } from '../../PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 import { RequestAssetModalComponent } from '../../PopupModals/request-asset-modal/request-asset-modal.component';
+////////////
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
 
 @Component({
   selector: 'app-view-asset',
@@ -92,18 +99,42 @@ openDetailModal(assetId,ram,capacity,assetcategory){
 ///delete asset//
 deleteAsst(assetId){
  
-    this.asset.deleteasset(assetId).subscribe((data) => {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.value) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      ),
 
-                                                       // this.employees.splice(this.employees.indexOf(d),1);
-                                                       console.log(data);
-                                                       alert("Successfully deleted");
-                                                         },
-                                                         (error)=>{
-                                                                    console.log(error);
-                                                                  }
-                                              );
- 
+
+      this.asset.deleteasset(assetId).subscribe((data) => {
+
+        // this.employees.splice(this.employees.indexOf(d),1);
+        console.log(data);
+       
+          },
+          (error)=>{
+                     console.log(error);
+                   }
+);
+
+
+    }
+       
   
+    
+  })
+ 
+
 
 
 }

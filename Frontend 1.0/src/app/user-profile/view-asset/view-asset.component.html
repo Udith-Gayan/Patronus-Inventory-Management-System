@@ -1,3 +1,10 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
 
 
 <div class="form-row">
@@ -90,7 +97,7 @@
           <a  *ngIf= "status =='Asset Manager'">
               
         <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
-        <a  class="btn btn-primary" (click)="deleteAsst(d.assetId)">Delete</a>
+        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
       
         <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
       </a>    <!--pop up for booking-->   <a  *ngIf= "status !='Asset Manager'">

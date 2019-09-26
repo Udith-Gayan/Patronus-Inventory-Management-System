@@ -13,6 +13,7 @@ import { ViewAllEmpDelailComponent } from '../view-all-emp-delail/view-all-emp-d
 import { Replay } from '../../models/NotifiReplay';
 import { Observable } from 'rxjs';
 import { Asset } from '../../asset/asset';
+import { BookingAssetModalComponent } from '../booking-asset-modal/booking-asset-modal.component';
 
 @Component({
   selector: 'app-view-single-notification',
