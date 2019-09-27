@@ -8,7 +8,7 @@ import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -23,7 +23,7 @@ const Swal = require('sweetalert2');
 export class BookingAssetModalComponent implements OnInit {
   @Input() assetcategory: string;
   @Input() assetId: string;
-  
+
   nic = sessionStorage.getItem('nic');
   fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;
@@ -41,13 +41,13 @@ export class BookingAssetModalComponent implements OnInit {
 
 
     //booking to assetId and enmployee Nic
-   
+
     this.bookasset.requestedNic=this.nic;
    }
 
   ngOnInit() {
     this.bookasset.assetId=this.assetId;
-    
+
   }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,7 +61,7 @@ private createForm() {
     massege:'',
     date:''
 
-   
+
   });
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,31 +86,31 @@ resetForm(form ? : NgForm){
     username:'',
     beginDate:'',
     dueDate:'',
-   
+
     assetId:'',
     description:'',
     assetcategory:'',
     requestedNic:'',
     notificationType:'',
 
-   
+
   }
 }
 onSubmit(form:NgForm){
 
-  
+
 console.log(this.bookasset);
 
   this.bookservices.bookAsset(this.bookasset).subscribe((response) => {
-    
+
     console.log(response);
-   
-  
+
+
   });
 
-  
- 
-  
+
+
+
   let now = new Date();
   console.log(this.employee);
 
@@ -123,15 +123,15 @@ console.log(this.bookasset);
   data.username=this.fname;
 
   if(form.value.id == null){
-   
+
     this.firestore.collection('BookAssetNotification').add(data);
-    
-    
-   
+
+
+
 }
   else {
     this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
-    
+
   }
   Swal.fire({
     position: 'center',
@@ -140,15 +140,11 @@ console.log(this.bookasset);
     showConfirmButton: false,
     timer: 2000
   })
-  
+
 
   this.resetForm(form);
-  
- 
 
 
-
-}
 
 
 
@@ -156,5 +152,8 @@ console.log(this.bookasset);
 
 
 
+}
 
-  
+
+
+

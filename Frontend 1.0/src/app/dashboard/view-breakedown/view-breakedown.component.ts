@@ -4,7 +4,7 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -51,7 +51,7 @@ export class ViewBreakedownComponent implements OnInit {
 
 
   }
- 
+
   onDelete(id:string){
     if(Swal.fire({
       title: 'Are you sure?',
@@ -71,7 +71,7 @@ export class ViewBreakedownComponent implements OnInit {
         this.firestore.doc('BreakDwonAsset/'+id).delete();
       }
     })){
-     
+
     }
 
   }
@@ -86,8 +86,8 @@ export class ViewBreakedownComponent implements OnInit {
     modalRef.componentInstance.beginDate = beginDate;
     modalRef.componentInstance.dueDate = dueDate;
     modalRef.componentInstance.username = username;
-  
-  
+
+
     modalRef.result.then((result) => {
       console.log(result);
     }).catch((error) => {
@@ -95,8 +95,8 @@ export class ViewBreakedownComponent implements OnInit {
     });
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
-  
+
+
 
 
 }

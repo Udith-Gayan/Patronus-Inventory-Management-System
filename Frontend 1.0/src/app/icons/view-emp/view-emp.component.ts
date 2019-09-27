@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewAllEmpDelailComponent } from '../../PopupModals/view-all-emp-delail/view-all-emp-delail.component';
 
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -63,7 +63,7 @@ export class ViewEmpComponent implements OnInit {
                                                           )
                                                         }
                                                       })
-                                                       
+
                                                          },
                                                          (error)=>{
                                                                     console.log(error);

@@ -63,6 +63,8 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
 
 
 
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -79,8 +81,8 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
     AngularFirestoreModule,
     EmpCompenentModule,
     ReactiveFormsModule
-    
-   
+
+
 
 
   ],
@@ -105,16 +107,17 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
     LogoutComponent,
     ViewBreakeDownAssetComponent,
     ViewRequestAndBookingEmpDetailComponent,
-  
+
 
 
 
   ],
   exports: [NgbdModalContent,
-           
+
   ],
 
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService],
+
+providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService, AngularFirestore],  // udith-keep firestore here
   bootstrap: [AppComponent],
   entryComponents: [
     BookingAssetModalComponent,
@@ -127,9 +130,9 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
       NgbdModalContent,
       ViewBreakeDownAssetComponent,
       ViewRequestAndBookingEmpDetailComponent
-        
+
     ]
- 
+
 })
 
 export class AppModule { }

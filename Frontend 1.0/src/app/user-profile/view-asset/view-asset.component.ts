@@ -8,11 +8,12 @@ import { HttpService } from '../../service2/http.service';
 import { ViewAllAssetDetailComponent } from '../../PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 import { RequestAssetModalComponent } from '../../PopupModals/request-asset-modal/request-asset-modal.component';
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
 
-import 'sweetalert2/src/sweetalert2.scss';
+ import Swal from 'sweetalert2/dist/sweetalert2.js';
 
-const Swal = require('sweetalert2');
+// import 'sweetalert2/src/sweetalert2.scss';
+
+// const Swal = require('sweetalert2');
 //////////////////
 
 @Component({
@@ -24,9 +25,9 @@ export class ViewAssetComponent implements OnInit {
   data: Observable<Asset[]>;
 
   //////Short by date
- 
 
- 
+
+
   //////
   status:string = sessionStorage.getItem('status');
   searchTerm :string;
@@ -49,8 +50,8 @@ export class ViewAssetComponent implements OnInit {
   openFormModal(assetId,assetcategory) {
     const modalRef = this.modalService.open(BookingAssetModalComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.assetcategory = assetcategory; 
-   
+    modalRef.componentInstance.assetcategory = assetcategory;
+
 
     modalRef.result.then((result) => {
       console.log(result);
@@ -66,8 +67,8 @@ export class ViewAssetComponent implements OnInit {
 openRequestmModal(assetId,assetcategory) {
   const modalRef = this.modalService.open(RequestAssetModalComponent);
   modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-  modalRef.componentInstance.assetcategory = assetcategory; 
- 
+  modalRef.componentInstance.assetcategory = assetcategory;
+
 
   modalRef.result.then((result) => {
     console.log(result);
@@ -82,7 +83,7 @@ openRequestmModal(assetId,assetcategory) {
 openDetailModal(assetId,ram,capacity,assetcategory){
   const modalRef = this.modalService.open(ViewAllAssetDetailComponent);
     modalRef.componentInstance.assetId = assetId;
-    modalRef.componentInstance.ram = ram; 
+    modalRef.componentInstance.ram = ram;
     modalRef.componentInstance.capacity = capacity;
     modalRef.componentInstance.assetcategory = assetcategory;
      // Pass vallue to other form component
@@ -98,7 +99,7 @@ openDetailModal(assetId,ram,capacity,assetcategory){
 
 ///delete asset//
 deleteAsst(assetId){
- 
+
   Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
@@ -120,7 +121,7 @@ deleteAsst(assetId){
 
         // this.employees.splice(this.employees.indexOf(d),1);
         console.log(data);
-       
+
           },
           (error)=>{
                      console.log(error);
@@ -129,11 +130,11 @@ deleteAsst(assetId){
 
 
     }
-       
-  
-    
+
+
+
   })
- 
+
 
 
 

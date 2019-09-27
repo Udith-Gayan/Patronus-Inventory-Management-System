@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadVarExpr } from '@angular/compiler';
 //DialogBox
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 import { Observable } from 'rxjs';
@@ -47,8 +47,8 @@ pendingRequestDH:Observable<BookAsset>
   handleFileInput(File:FileList){
 
     this.FileToUpload=File.item(0);
-    
-    
+
+
   }
 test(){
   const ipAPI = 'https://api.ipify.org?format=json'

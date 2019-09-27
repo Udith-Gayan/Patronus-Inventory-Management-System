@@ -14,7 +14,7 @@ import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-n
 import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 
 ////////////
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+//  */import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
     private listTitles: any[];
     status:string = sessionStorage.getItem('status');
    con:boolean=false;
-   
+
 //notification
 test : Date = new Date();
 list:BookAsset[];
@@ -96,7 +96,7 @@ list2:BreakDwonNoti[];
 
     login(){
       console.log("line1");
-      
+
       console.log("Line2");
       Swal.fire({
         title: 'Are you sure?',
@@ -106,21 +106,21 @@ list2:BreakDwonNoti[];
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, Logout!'
-        
+
       }).then((result) => {
         this.con=true;
         console.log(this.con);
-        
+
         if (result.value) {
           console.log(this.con);
           console.log("Line3");
-         
+
         }
       })
-     
+
 
     }
-   
+
     ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
