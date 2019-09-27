@@ -113,6 +113,7 @@ console.log(this.requestAsset);
   data.Discription=this.jstoday;
   data.notificationType="Requesting";
   data.username=this.fname;
+  data.requestedNic=this.nic;
 
   if(form.value.id == null){
    

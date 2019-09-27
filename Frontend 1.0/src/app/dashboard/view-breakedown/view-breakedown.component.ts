@@ -7,8 +7,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
-import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ViewBreakeDownAssetComponent } from '../../PopupModals/view-breake-down-asset/view-breake-down-asset.component';
+import { Observable } from 'rxjs';
+import { Asset } from '../../asset/asset';
+import { HttpService } from '../../service2/http.service';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -21,7 +24,8 @@ const Swal = require('sweetalert2');
 export class ViewBreakedownComponent implements OnInit {
 
   list:BreakDwonNoti[];
-  constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) { }
+  assetDetail:Observable<Asset>
+  constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal,private asset : HttpService) { }
 
   ngOnInit() {
     this.ser.BreakDownAsset().subscribe(actionArry => {
@@ -37,6 +41,15 @@ export class ViewBreakedownComponent implements OnInit {
     this.ser.data.subscribe( data => {
       console.log(data);
     })
+    this.asset.getAllAssets().subscribe(res=>{
+
+      console.log(res);
+      this.assetDetail = res
+      console.log(this.assetDetail)
+    })
+  
+
+
   }
 
   onDelete(id:string){
@@ -63,8 +76,8 @@ export class ViewBreakedownComponent implements OnInit {
 
   }
   openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
-    console.log();
-    const modalRef = this.modalService.open(ViewSingleNotificationComponent);
+    console.log("Line1");
+    const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
     modalRef.componentInstance.assetCategory = assetCategory;
     modalRef.componentInstance.notificationType = notificationType;

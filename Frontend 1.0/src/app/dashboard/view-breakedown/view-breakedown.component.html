@@ -23,16 +23,24 @@
       <tbody>
          
           <tr *ngFor="let a of list" class="table-active">
-              <td (click)="onEdit(a)" scope="col">{{a.date}}</td>
+           <!--
+              <a *ngFor="let asset of assetDetail">
+              <a *ngIf="asset.assetId == a.assetId">
+                
+              </a>
+            </a>
+           -->
+           <td (click)="onEdit(a)" scope="col">{{a.date}}</td>
               
-              <td (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-              <td (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>
-              <td (click)="onEdit(a)" scope="col">{{a.notificationType}}</td>
-              <td (click)="onEdit(a)" scope="col">{{a.anyMessage}}</td>
-              <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td >View</td></button>
-          
-              <td (click)="onDelete(a.id)" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-              
+           <td (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+           <td (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>
+           <td (click)="onEdit(a)" scope="col">{{a.notificationType}}</td>
+           <td (click)="onEdit(a)" scope="col">{{a.anyMessage}}</td>
+           <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td >View</td></button>
+       
+           <td (click)="onDelete(a.id)" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+           
+             
             </tr>
       
        

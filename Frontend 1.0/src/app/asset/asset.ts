@@ -14,7 +14,7 @@ export class Asset{
     companyAddress:string;
     boughtCompanyAddress:string;
     companyContact:string;
-    categorytypes:string;
+    categoryTypes:string;
     yrs:number;
     months:number;
     days:number;
