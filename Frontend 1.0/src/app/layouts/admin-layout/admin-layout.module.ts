@@ -56,7 +56,8 @@ import { WelcomeComponent } from '../../maps/welcome/welcome.component';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
-    NgxPrintModule,
+    NgxPrintModule
+    
    
     
  

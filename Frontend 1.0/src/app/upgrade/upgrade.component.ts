@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadVarExpr } from '@angular/compiler';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 //DialogBox
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { BookAsset } from '../models/BookAssetModel';
 import { HttpService } from '../service2/http.service';
 

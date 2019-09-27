@@ -43,7 +43,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             
-                            <input type="date"  class="form-control" name="Date" id="Date"  [(ngModel)]="asset.boughtDate" BsDaterangepicker />
+                            <input type="text"  class="form-control" name="Date" id="Date"  [(ngModel)]="asset.boughtDate"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" />
                         </div>
                     </div>
                 </div>
