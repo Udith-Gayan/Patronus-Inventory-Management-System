@@ -9,8 +9,8 @@
   <table class="table table-condensed">
       <thead class="black white-text">
           <tr  class="table-primary">
-            <th class="table-active" scope="col">Date/Time</th>
-            <th class="table-active" scope="col">Asset ID</th>
+            <th scope="col">Date/Time</th>
+            <th  scope="col">Asset ID</th>
             <th scope="col">Category</th>
             <th scope="col">Order By</th>
             <th scope="col">From</th>
@@ -23,18 +23,37 @@
     <tbody>
        
         <tr *ngFor="let a of list" class="table-active"  style="background-color: rgb(90, 131, 207);font-size: 1.5ch;color: black">
+
+          <!------------------------------------Boking Notification for Asset manager---------------------------------->
+ 
+            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col"><a *ngIf="a.notificationType=='Booking'" style="background-color: red">{{a.notificationType}}</a><a *ngIf="a.notificationType=='Requesting'" style="background-color: rgb(12, 175, 39)">{{a.notificationType}}</a> <br> {{a.Discription}} </td> 
+             <td class="table-danger" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.assetcategory}}</td>
+            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.username}}</td>
+            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.beginDate}}</td> 
+            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.dueDate}}</td>
+            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.massege}}</td>
+           <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" >View</td></button>
+            <td (click)="onDelete(a.id)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+       
+         <!---------------------------------------------End----------------------------------------------------------------->
+
          
-            <td (click)="onEdit(a)" scope="col"><a *ngIf="a.notificationType=='Booking'" style="background-color: red">{{a.notificationType}}</a><a *ngIf="a.notificationType=='Requesting'" style="background-color: rgb(12, 175, 39)">{{a.notificationType}}</a> <br> {{a.Discription}} </td> 
-             <td class="table-danger" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-            <td (click)="onEdit(a)" scope="col">{{a.assetcategory}}</td>
-            <td (click)="onEdit(a)" scope="col">{{a.username}}</td>
-            <td (click)="onEdit(a)" scope="col">{{a.beginDate}}</td> 
-            <td (click)="onEdit(a)" scope="col">{{a.dueDate}}</td>
-            <td (click)="onEdit(a)" scope="col">{{a.massege}}</td>
-           <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td >View</td></button>
-            <td (click)="onDelete(a.id)" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-         
-          </tr>
+          <!------------------------------------Request Notification for Department Heard---------------------------------->
+      
+          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" scope="col"> {{a.Discription}} </td> 
+           <td class="table-danger" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"  (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"  scope="col">{{a.assetcategory}}</td>
+          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" scope="col">{{a.username}}</td>
+          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" scope="col">{{a.beginDate}}</td> 
+          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"  scope="col">{{a.dueDate}}</td>
+          <td (click)="onEdit(a)"*ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"  scope="col">{{a.massege}}</td>
+         <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" >View</td></button>
+          <td (click)="onDelete(a.id)"  *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+       
+       
+         <!---------------------------------------------End----------------------------------------------------------------->
+       </tr>
     
      
     </tbody>

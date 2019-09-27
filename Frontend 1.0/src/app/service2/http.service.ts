@@ -5,6 +5,7 @@ import { Asset } from '../asset/asset';
 import { Observable } from 'rxjs';
 import { BookAsset } from '../models/BookAssetModel';
 import { BreakDwonNoti } from '../firebase/BreakDownModel';
+import { Replay } from '../models/NotifiReplay';
 
 
 
@@ -54,5 +55,42 @@ export class HttpService {
     return this.http.delete(Constants.ASSET_API + '/delete', {params: {id: assetId}, observe: 'response'});    // return this.http.delete(Constants.EMPLOYEE_API+'/delete',Constants.HTTP_OPTIONS);
   }
 
+  ////////Show all pending requests by Department head ////////
+
+  getPendingRequestDH(): Observable<any>{
+    return this.http.get(Constants.BASE_URL+'/assign/request/view/pending/departmentHead')
+   }
+
+   ////////Show all pending requests by AssetManager/////////////
+
+   getPendingRequestAM(): Observable<any>{
+    return this.http.get(Constants.BASE_URL+'/assign/request/view/pending/assetMananger')
+   }
+
+   /////////////////////////Approve requests by Asset Manager ///////////////////////////
+
+     
+  approveRequestAM(approveRequestAM : Replay){
+    return this.http.post(Constants.BASE_URL+'/assign/confirmation/assetmanager',approveRequestAM,Constants.HTTP_OPTIONS);
+  }
+
+  
+   /////////////////////////Approve requests by Department Head ///////////////////////////
+
+   approveRequestDH(approveRequestDH : Replay){
+    return this.http.post(Constants.BASE_URL+'/assign/confirmation/departmenthead',approveRequestDH,Constants.HTTP_OPTIONS);
+  }
+
+  //////////////////////////// Reject requests by Asset Manager ////////////////////////////
+
+  rejectRequestAM(rejectRequestAM : Replay){
+    return this.http.post(Constants.BASE_URL+'/assign/reject/assetmanager',rejectRequestAM,Constants.HTTP_OPTIONS);
+  }
+
+  /////////////////////////// Reject requests by department head   /////////////////////////////
+
+  rejectRequestDH(rejectRequestDH : Replay){
+    return this.http.post(Constants.BASE_URL+'/assign/reject/departmenthead',rejectRequestDH,Constants.HTTP_OPTIONS);
+  }
 
 }

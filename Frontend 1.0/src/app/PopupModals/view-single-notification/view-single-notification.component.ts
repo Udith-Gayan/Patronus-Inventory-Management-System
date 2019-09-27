@@ -27,6 +27,7 @@ export class ViewSingleNotificationComponent implements OnInit {
   @Input() username: String;
   @Input() bookNic:string;
 
+  status:string = sessionStorage.getItem('status');
   replay:Replay;
   myForm: FormGroup;
 
@@ -51,6 +52,7 @@ export class ViewSingleNotificationComponent implements OnInit {
 
   ngOnInit() {
     this.replay.assetId=this.assetId;
+    this.replay.id="2";
     this.asset.getAllAssets().subscribe(res=>{
 
       console.log(res);
@@ -186,10 +188,16 @@ openEmpDetailModal(requestedNic){
 
 }
 
+////////////////////////////////////////Accept Department Head/////////////////////////
 
-////////////////////////////////////////////////////////////////////////////Reject Button
-//////////////////////////////////////////
-
+acceptDH(){
+  console.log("Line 1");
+  this.asset.approveRequestAM(this.replay).subscribe((response)=>{
+    console.log(response);
+    console.log(this.replay.id);
+    
+  });
+}
 
 
 
