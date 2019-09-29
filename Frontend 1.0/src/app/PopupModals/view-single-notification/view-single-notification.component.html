@@ -5,7 +5,7 @@
     <a  class="close" (click)="activeModal.dismiss('Cross click')"></a>
 
 </div>
-<form [formGroup]="myForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+<form [formGroup]="myForm" #form="ngForm" >
   <div class="modal-boy">
     <div class="container">
        
@@ -35,7 +35,7 @@
                  <div class="form-group">
               <label for="massege">Description</label>
               <input type="text" 
-                class="form-control"   [(ngModel)]="replay.replayMsg"
+                class="form-control"  
                 formControlName="massege" />
             </div>
 
@@ -52,7 +52,9 @@
     [disabled]="!myForm.valid">
    Order Employee
   </button>
-    <button class="btn btn-success" type="submit"
+  <!-------------------------------------------Booking------------------------------------->
+  <a *ngIf="notificationType == 'Booking' ">
+    <button class="btn btn-success"(click)="acceptDH()"
       [disabled]="!myForm.valid">
       Accept
     </button>
@@ -60,7 +62,19 @@
     [disabled]="!myForm.valid">
    Reject
   </button>
+</a>
+<!---------------------------------------------Requesting----------------------------------------->
 
+<a *ngIf="notificationType == 'Requesting' && status == 'Asset Manager'">
+  <button class="btn btn-success" type="submit" (click)="acceptDH()"
+    [disabled]="!myForm.valid">
+    Accept
+  </button>
+  <button class="btn btn-success" type="submit" (click)="massage(assetId)"
+  [disabled]="!myForm.valid">
+ Reject
+</button>
+</a>
   </div>
  
 </form>

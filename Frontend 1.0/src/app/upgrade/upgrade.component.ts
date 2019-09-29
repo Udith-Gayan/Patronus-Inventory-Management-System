@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadVarExpr } from '@angular/compiler';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 //DialogBox
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
+import { Observable, from } from 'rxjs';
+
+import { HttpService } from '../service2/http.service';
+import { pendinRequest } from '../models/pendingRequestModel';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -18,10 +23,28 @@ export class UpgradeComponent implements OnInit {
 imgUrl:String="/assets/img/1.jpeg";
 FileToUpload:File=null;
 
-
-  constructor() { }
+pendingRequestDH:Observable<pendinRequest>
+  constructor(private asset:HttpService) { }
 
   ngOnInit() {
+    /////////////////Testing//////////////////////////
+   /* this.asset.getPendingRequestAM().subscribe(res=>{
+
+      
+      console.log("Line 1");
+      console.log(res);
+      this.pendingRequestDH = res
+      console.log(this.pendingRequestDH)
+    })*/
+    console.log("Line 2");
+    this.asset.getPendingRequestDH().subscribe(res=>{
+      console.log("Line 3");
+      console.log(res);
+      console.log(res.id);
+      this.pendingRequestDH = res
+      console.log(this.pendingRequestDH)
+    })
+//////////////////////////////////////////////////////////////////
   }
   handleFileInput(File:FileList){
 

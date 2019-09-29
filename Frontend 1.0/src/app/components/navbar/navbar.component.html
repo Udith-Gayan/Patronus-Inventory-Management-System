@@ -31,21 +31,21 @@
           </div>
         </form>
         <ul class="navbar-nav">
-            <li class="nav-item">
-              
-                <a class="nav-link" routerLink="/welcome">Home</a>
-             </li>
-          <li class="nav-item active">
-              <a class="nav-link" routerLink="/welcome/aboutUs">About us
-                  <span class="sr-only">(current)</span>
-              </a>
-          </li>
-                   
-                       
           <li class="nav-item">
-              
-              <a class="nav-link" href="">Contact</a>
-           </li>
+                    
+            <a class="nav-link" routerLink="/welcome">Home</a>
+         </li>
+      <li class="nav-item active">
+          <a class="nav-link" routerLink="/welcome/aboutUs">About us
+              <span class="sr-only">(current)</span>
+          </a>
+      </li>
+               
+                   
+      <li class="nav-item">
+          
+          <a class="nav-link" routerLink="/welcome/contactUs">Contact Us</a>
+       </li>
           
           
 
@@ -81,9 +81,13 @@
                         </div>
                       </div>
                     </div>
-                    <div class="table-responsive" style="height: 10cm" *ngIf= "status =='Asset Manager'" >
+                    <div class="table-responsive" style="height: 10cm" >
                     <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
-                        
+
+                      <!-------------------------------------------------------Asset Manger Boking Notification show--------------------------------->
+                   <a *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'">
+
+
                      <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                        <div class="row">
                           <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
@@ -111,7 +115,48 @@
                          </div>
                            
                     </button>
-                    </div>
+                  </a>
+
+                  <!----------------------------------------------------------------------End Boking Notification------------------------------------------------------>
+                
+                  
+                      <!-------------------------------------------------------Asset Manger Boking Notification show--------------------------------->
+                      <a *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'">
+
+
+                        <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                          <div class="row">
+                             <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
+                               <img src="assets/img/printer.jpg" alt="photo">
+                              </div>
+                             <div class="col-xs-4" *ngIf= "a.assetCategory == 'Furniture'"   style="width: 1.5cm;height: 1.5cm;">
+                               <img src="assets/img/furniture.jpeg"  alt="photo">
+                             </div>
+                              <div class="col-xs-4" *ngIf= "a.assetCategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
+                                <img src="assets/img/home.jpg" alt="photo">
+                             </div>
+                             <div class="col-xs-4">
+                               <p  style="color: rgb(40, 20, 153);font-size: 1.5ch">   {{a.assetcategory}} {{a.assetId}}  </p>
+                             </div><br>
+                             <div class="row">
+                                <div class="col-xs-4"><br>
+                                 <p style="font-size: 1.2ch">{{a.notificationType}} </p>
+                                </div>
+                             </div>
+                             <div class="row">
+                               <div class="col-xs-4"><br><br>
+                                 <p style="font-size: 1.2ch;">{{a.Discription}}</p>
+                              </div>
+                             </div>
+                            </div>
+                              
+                       </button>
+                     </a>
+   
+                     <!----------------------------------------------------------------------End Boking Notification------------------------------------------------------>
+                     
+
+                </div>
                    
                     <div>
                        

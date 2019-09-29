@@ -21,7 +21,7 @@ const Swal = require('sweetalert2');
 export class TestveiwComponent implements OnInit {
 
   list:BookAsset[];
-
+  status:string = sessionStorage.getItem('status');
   constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) { }
 
   ngOnInit() {

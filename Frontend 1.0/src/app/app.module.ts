@@ -62,9 +62,6 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
 
 
 
-
-
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -80,7 +77,7 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     EmpCompenentModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
 
 
 
@@ -107,6 +104,7 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
     LogoutComponent,
     ViewBreakeDownAssetComponent,
     ViewRequestAndBookingEmpDetailComponent,
+   
 
 
 
