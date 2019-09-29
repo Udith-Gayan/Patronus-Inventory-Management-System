@@ -5,6 +5,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Employee } from '../../models/employee';
 import { ImageUploadModel } from '../../models/ImageModel';
 
+////////////
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
+
 @Component({
   selector: 'app-registor-emp',
   templateUrl: './registor-emp.component.html',
@@ -51,7 +59,23 @@ export class RegistorEmpComponent implements OnInit {
 
     this.userservice.addEmployee(this.employee).subscribe((response) => {
       console.log(response);
-      alert('Registor Successfully');
+      Swal.fire({
+        position: 'center',
+        type: 'success',
+        title: 'Employee has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      },
+      ( error: any) => {
+
+        alert('Please Check the AssetID ');
+
+
+
+      }
+      )
+
+
     });
     // this.userService.addEmployee(this.employee);
 

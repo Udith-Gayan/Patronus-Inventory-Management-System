@@ -40,9 +40,16 @@ import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown
 import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
 import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
 import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
+import { NgxPrintModule } from 'ngx-print';
 import { AboutUsComponent } from '../../maps/about-us/about-us.component';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
 import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
+import { ViewAllEmployeeComponent } from '../../upgrade/view-all-employee/view-all-employee.component';
+import { ViewAllAssetComponent } from '../../upgrade/view-all-asset/view-all-asset.component';
+import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly-book-asset/view-all-monthly-book-asset.component';
+import { ViewAllMonthlyBrakeDownAssetComponent } from '../../upgrade/view-all-monthly-brake-down-asset/view-all-monthly-brake-down-asset.component';
+import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-report/view-all-monthly-report.component';
+
 
 
 @NgModule({
@@ -54,9 +61,13 @@ import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
-  
-
+    BsDatepickerModule.forRoot(),
+    NgxPrintModule
+    
+   
+    
+ 
+   
   ],
   declarations: [
     DashboardComponent,
@@ -93,13 +104,18 @@ import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
     ViewRequestAssetComponent,
     AboutUsComponent,
     WelcomeComponent,
-    ContactUsComponent
+    ContactUsComponent,
     
+    ViewAllEmployeeComponent,
+    ViewAllAssetComponent,
+    ViewAllMonthlyBookAssetComponent,
+    ViewAllMonthlyBrakeDownAssetComponent,
+    ViewAllMonthlyReportComponent,
+  
 
     
   
-  ],
-  
+  ]
  
 
 })

@@ -1,38 +1,78 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadVarExpr } from '@angular/compiler';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+//DialogBox
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
-  import { from } from 'rxjs';
-import { ConfireDialogService } from '../DialogModals/Confire-Dialog.service';
-import {  ConfirmDialogModule } from "../DialogModals/confirmeDialog.module";  
-  
-  
-  
- 
+import 'sweetalert2/src/sweetalert2.scss';
+import { Observable, from } from 'rxjs';
+import { BookAsset } from '../models/BookAssetModel';
+import { HttpService } from '../service2/http.service';
+
+const Swal = require('sweetalert2');
+//////////////////
+
+
 @Component({
   selector: 'app-upgrade',
   templateUrl: './upgrade.component.html',
   styleUrls: ['./upgrade.component.scss']
 })
 export class UpgradeComponent implements OnInit {
+imgUrl:String="/assets/img/1.jpeg";
+FileToUpload:File=null;
 
-  constructor(public confirmDialogService : ConfireDialogService) { }
+pendingRequestDH:Observable<BookAsset>
+  constructor(private asset:HttpService) { }
 
   ngOnInit() {
+    /////////////////Testing//////////////////////////
+   /* this.asset.getPendingRequestAM().subscribe(res=>{
+
+      
+      console.log("Line 1");
+      console.log(res);
+      this.pendingRequestDH = res
+      console.log(this.pendingRequestDH)
+    })*/
+    console.log("Line 2");
+    this.asset.getPendingRequestDH().subscribe(res=>{
+      console.log("Line 3");
+      console.log(res);
+      console.log(res.id);
+      this.pendingRequestDH = res
+      console.log(this.pendingRequestDH)
+    })
+//////////////////////////////////////////////////////////////////
   }
-  
+  handleFileInput(File:FileList){
 
-  //////////////////////////////////////////popup window in confirm Dialog Box//////////////////////  but this method not working
+    this.FileToUpload=File.item(0);
 
-  showDialog() {  
-    console.log("line1");
-    this.confirmDialogService.confirmThis("Are you sure to delete?",function() {  
-      console.log("line2");
-      alert("Yes clicked");  
-    }, function () {  
-      alert("No clicked");  
-      console.log("line3");
-    })  
-  }  
 
-  /////////////////////////////////////////
+  }
+test(){
+  const ipAPI = 'https://api.ipify.org?format=json'
+
+  Swal.queue([{
+    title: 'Your public IP',
+    confirmButtonText: 'Show my public IP',
+    text:
+      'Your public IP will be received ' +
+      'via AJAX request',
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      return fetch(ipAPI)
+        .then(response => response.json())
+        .then(data => Swal.insertQueueStep(data.ip))
+        .catch(() => {
+          Swal.insertQueueStep({
+            type: 'error',
+            title: 'Unable to get your public IP'
+          })
+        })
+    }
+  }])
+
 }
+ }

@@ -29,9 +29,15 @@ import { ComplainBreakedownComponent } from '../../dashboard/complain-breakedown
 import { ViewBreakedownComponent } from '../../dashboard/view-breakedown/view-breakedown.component';
 import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-down.component';
 import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
-import { AboutUsComponent } from '../../maps/about-us/about-us.component';
+import { AuthGuardServiceService } from '../../service/auth-guard-service.service';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
 import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
+import { AboutUsComponent } from '../../maps/about-us/about-us.component';
+import { ViewAllAssetComponent } from '../../upgrade/view-all-asset/view-all-asset.component';
+import { ViewAllEmployeeComponent } from '../../upgrade/view-all-employee/view-all-employee.component';
+import { ViewAllMonthlyBrakeDownAssetComponent } from '../../upgrade/view-all-monthly-brake-down-asset/view-all-monthly-brake-down-asset.component';
+import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-report/view-all-monthly-report.component';
+import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly-book-asset/view-all-monthly-book-asset.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
@@ -44,24 +50,25 @@ export const AdminLayoutRoutes: Routes = [
           },
 
          {
-             path:'complainBreakedown',
-             component:ComplainBreakedownComponent
+             path: 'complainBreakedown',
+             component: ComplainBreakedownComponent
 
          },
          {
-             path:'viewBreakdownnotification',
-             component:ViewBreakedownComponent
+             path: 'viewBreakdownnotification',
+             component: ViewBreakedownComponent
          }
-     ]
-    
-    
+     ],
+     canActivate: [AuthGuardServiceService]
+
+
     },
 
 
-    { 
-        path: 'asset', 
+    {
+        path: 'asset',
         component: UserProfileComponent ,
-        children:[
+        children: [
             {
                 path: '',
                 redirectTo: 'view-asset',
@@ -69,22 +76,22 @@ export const AdminLayoutRoutes: Routes = [
               },
 
             {
-                path:'view-asset',
+                path: 'view-asset',
                 component: ViewAssetComponent,
-                children:[
+                children: [
                     {
-                        path:'book',
-                        component:TestshowComponent,
+                        path: 'book',
+                        component: TestshowComponent,
                     },
                     {
-                        path:'more',
-                        component:TableListComponent,
+                        path: 'more',
+                        component: TableListComponent,
                     },
                     {
-                        path:'back',
-                        component:ViewBreakedownComponent
+                        path: 'back',
+                        component: ViewBreakedownComponent
                     }
-                    
+
 
                 ]
 
@@ -110,33 +117,35 @@ export const AdminLayoutRoutes: Routes = [
                 {
                     path:'computer',
                     component:ComputerComponent,
-                   
+
                 },
                 {
-                    path:'projecter',
-                    component:ProjecterComponent
+                    path: 'projecter',
+                    component: ProjecterComponent
                 }
-               
+
             ]
         }
-    ]
-    
+    ],
+    canActivate: [AuthGuardServiceService]
+
     },
     { path: 'table-list', component: TableListComponent ,
-        children:[
+        children: [
             {
-                path:'computerView',
-                component:VComputerComponent
+                path: 'computerView',
+                component: VComputerComponent
             },
             {
-                path:'FurnitureView',
-                component:VFurnitureComponent
+                path: 'FurnitureView',
+                component: VFurnitureComponent
             },
             {
-                path:'projecterView',
-                component:VProjecterComponent
+                path:  'projecterView',
+                component: VProjecterComponent
             },
-        ]
+        ],
+        canActivate: [AuthGuardServiceService]
 
 
     },
@@ -149,18 +158,18 @@ export const AdminLayoutRoutes: Routes = [
                 path: '',
                 redirectTo: 'view-employee',
                 pathMatch: 'full',
-              }, 
+              },
             {
                 path: 'registor',
                 component: RegistorEmpComponent
             },
             {
-                path:'view-employee',
-                component:ViewEmpComponent
+                path:  'view-employee',
+                component: ViewEmpComponent
             },
             {
-                path:'more',
-                component:View2EmpComponent
+                path:  'more',
+                component: View2EmpComponent
             },
             {
                 path:'edit/:id',
@@ -170,8 +179,9 @@ export const AdminLayoutRoutes: Routes = [
                 path: '**',
                 redirectTo: 'employee'
               },
-            
+
         ],
+        canActivate: [AuthGuardServiceService]
 
     },
     { path: 'welcome',
@@ -183,11 +193,11 @@ export const AdminLayoutRoutes: Routes = [
             pathMatch: 'full',
           },
          {
-            
+
                 path:'aboutUs',
                 component:AboutUsComponent
-                
-          
+
+
          },
          {
             path:'welcome',
@@ -200,43 +210,73 @@ export const AdminLayoutRoutes: Routes = [
          
         }
      ]
-    
+
     },
-    { 
-        path: 'notifications', 
+    {
+        path: 'notifications',
         component: NotificationsComponent ,
         children:[
             {
                 path:'',
                 redirectTo: 'bookNotification',
                 pathMatch: 'full',
-                
+
             },
             {
-                path:'bookNotification',
-                component:TestveiwComponent
+                path: 'bookNotification',
+                component: TestveiwComponent
             },
             {
-                path:'show',
-                component:TestshowComponent
+                path: 'show',
+                component: TestshowComponent
             },
             {
-                path:'breakDownNotification',
-                component:ViewBrekDownComponent
+                path: 'breakDownNotification',
+                component: ViewBrekDownComponent
             },
             {
-                path:'requestNotification',
-                component:ViewRequestAssetComponent
-                
+                path: 'requestNotification',
+                component: ViewRequestAssetComponent
+
+
             }
-          
         ]
-    
+
     },
-    { path: 'upgrade', component: UpgradeComponent },
+    { path: 'report',
+     component: UpgradeComponent ,
+
+     children:[
+        {
+            path: '',
+            redirectTo: 'view-viewAllMonthlyReport',
+            pathMatch: 'full',
+          },
+         {
+             path:'viewAllAssetReport',
+             component:ViewAllAssetComponent
+         },
+         {
+            path:'viewallEmployeeDetailReport',
+            component:ViewAllEmployeeComponent
+        },
+        {
+            path:'viewAllBreakDownReport',
+            component:ViewAllMonthlyBrakeDownAssetComponent
+        },
+        {
+            path:'viewAllMonthlyReport',
+            component:ViewAllMonthlyReportComponent
+        },
+        {
+            path:'viewMonthlyBookAssetReport',
+            component:ViewAllMonthlyBookAssetComponent
+        }
+     ]
+    },
     {path: 'other', component: OtherComponent },
     {path: 'registor', component: RegistorEmpComponent },
-    {path:'view' ,component:TestveiwComponent},
-    {path:'show' ,component:TestshowComponent}
-    
+    {path: 'view' , component: TestveiwComponent},
+    {path: 'show' , component: TestshowComponent}
+
 ];

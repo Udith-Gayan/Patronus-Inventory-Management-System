@@ -13,6 +13,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
 import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 
+////////////
+//  */import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -21,8 +29,8 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     status:string = sessionStorage.getItem('status');
-    userName:string = sessionStorage.getItem('firstname');
-   
+   con:boolean=false;
+
 //notification
 test : Date = new Date();
 list:BookAsset[];
@@ -30,16 +38,16 @@ list2:BreakDwonNoti[];
     private data: Number ;
 ///////////////////////////
     public isCollapsed = true;
-  
 
-    constructor( private router: Router , private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) {
-      
+
+    constructor( private router: Router , private ser: NotifiService,private firestore:AngularFirestore, private modalService: NgbModal) {
+
     }
 
-    ngOnInit(){
-     
+    ngOnInit() {
 
-     ///notification genarator
+
+     // notification genarator
      this.ser.data.subscribe( data => {
        this.data = data ;
      })
@@ -66,7 +74,7 @@ list2:BreakDwonNoti[];
       this.ser.updatedDataSelection(this.list2.length+this.list.length);
     });
 
-   
+
     this.ser.data.subscribe( data => {
       console.log(data);
     })
@@ -86,15 +94,41 @@ list2:BreakDwonNoti[];
 
     }
 
+    login(){
+      console.log("line1");
+
+      console.log("Line2");
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Logout!'
+
+      }).then((result) => {
+        this.con=true;
+        console.log(this.con);
+
+        if (result.value) {
+          console.log(this.con);
+          console.log("Line3");
+
+        }
+      })
+
+
+    }
 
     ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Open booking popup form
-  openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
+  openFormModal(assetId,assetcategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
     console.log();
     const modalRef = this.modalService.open(ViewSingleNotificationComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.assetcategory = assetcategory;
     modalRef.componentInstance.notificationType = notificationType;
     modalRef.componentInstance.requestedNic = requestedNic;
     modalRef.componentInstance.massege = massege;
@@ -113,8 +147,8 @@ list2:BreakDwonNoti[];
 
 
 
-   
-    
 
-   
+
+
+
 }

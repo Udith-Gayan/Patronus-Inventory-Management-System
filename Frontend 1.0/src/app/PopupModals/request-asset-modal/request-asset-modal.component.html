@@ -17,7 +17,7 @@
 
         <div class="form-groupp">                                                       <!--Changed here-->
             <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label> <br> <br>
-            <label for="assetId">Asset Category: <b>{{assetCategory}}</b>  </label>
+            <label for="assetId">Asset Category: <b>{{assetcategory}}</b>  </label>
           </div>
          
 
@@ -37,14 +37,14 @@
         <div class="form-group">
             <label for="beginDate">Begin Date</label>
             <input 
-              class="form-control" type="date" name="beginDate" [(ngModel)]="requestAsset.beginDate"
-              formControlName="beginDate" />
+              class="form-control" type="text" name="beginDate" [(ngModel)]="requestAsset.beginDate"
+              formControlName="beginDate"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" />
           </div>
         <div class="form-group">
             <label for="dueDate">Return Date</label>
-            <input type="date"   [(ngModel)]="requestAsset.dueDate"
+            <input type="text"   [(ngModel)]="requestAsset.dueDate"
               class="form-control" 
-              formControlName="dueDate" />
+              formControlName="dueDate"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" />
           </div>
           <div class="form-group">
               <label for="massege">Description</label>

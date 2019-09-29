@@ -8,6 +8,14 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewAllEmpDelailComponent } from '../../PopupModals/view-all-emp-delail/view-all-emp-delail.component';
 
+////////////
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
+
 @Component({
   selector: 'app-view-emp',
   templateUrl: './view-emp.component.html',
@@ -38,11 +46,33 @@ export class ViewEmpComponent implements OnInit {
 
                                                        // this.employees.splice(this.employees.indexOf(d),1);
                                                        console.log(data);
-                                                       alert("Successfully deleted");
-                                                       
+                                                       Swal.fire({
+                                                        title: 'Are you sure?',
+                                                        text: "You won't be able to revert this!",
+                                                        type: 'warning',
+                                                        showCancelButton: true,
+                                                        confirmButtonColor: '#3085d6',
+                                                        cancelButtonColor: '#d33',
+                                                        confirmButtonText: 'Yes, delete it!'
+                                                      }).then((result) => {
+                                                        if (result.value) {
+                                                          Swal.fire(
+                                                            'Deleted!',
+                                                            'Your file has been deleted.',
+                                                            'success'
+                                                          )
+                                                        }
+                                                      })
+
                                                          },
                                                          (error)=>{
                                                                     console.log(error);
+                                                                    Swal.fire({
+                                                                      type: 'error',
+                                                                      title: 'Oops...',
+                                                                      text: 'Something went wrong!',
+                                                                      footer: '<a href>Why do I have this issue?</a>'
+                                                                    })
                                                                   }
                                               );
   }

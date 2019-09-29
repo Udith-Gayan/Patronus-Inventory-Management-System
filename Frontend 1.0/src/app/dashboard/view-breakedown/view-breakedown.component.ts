@@ -3,6 +3,18 @@ import { Component, OnInit } from '@angular/core';
 import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+////////////
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import 'sweetalert2/src/sweetalert2.scss';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ViewBreakeDownAssetComponent } from '../../PopupModals/view-breake-down-asset/view-breake-down-asset.component';
+import { Observable } from 'rxjs';
+import { Asset } from '../../asset/asset';
+import { HttpService } from '../../service2/http.service';
+
+const Swal = require('sweetalert2');
+//////////////////
 
 @Component({
   selector: 'app-view-breakedown',
@@ -12,7 +24,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ViewBreakedownComponent implements OnInit {
 
   list:BreakDwonNoti[];
-  constructor(private ser : NotifiService,private firestore:AngularFirestore) { }
+  assetDetail:Observable<Asset>
+  constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal,private asset : HttpService) { }
 
   ngOnInit() {
     this.ser.BreakDownAsset().subscribe(actionArry => {
@@ -28,13 +41,62 @@ export class ViewBreakedownComponent implements OnInit {
     this.ser.data.subscribe( data => {
       console.log(data);
     })
+    this.asset.getAllAssets().subscribe(res=>{
+
+      console.log(res);
+      this.assetDetail = res
+      console.log(this.assetDetail)
+    })
+  
+
+
   }
- 
+
   onDelete(id:string){
-    if(confirm("Are you sure")){
-      this.firestore.doc('BreakDwonAsset/'+id).delete();
+    if(Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        ),
+        this.firestore.doc('BreakDwonAsset/'+id).delete();
+      }
+    })){
+
     }
 
   }
+  openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
+    console.log("Line1");
+    const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
+    modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.notificationType = notificationType;
+    modalRef.componentInstance.requestedNic = requestedNic;
+    modalRef.componentInstance.massege = massege;
+    modalRef.componentInstance.beginDate = beginDate;
+    modalRef.componentInstance.dueDate = dueDate;
+    modalRef.componentInstance.username = username;
+
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 }

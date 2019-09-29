@@ -10,7 +10,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +38,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
+
+
+
         final String requestTokenHeader = request.getHeader("Authorization");
         System.out.println("Header was found and it is : " + requestTokenHeader );
         String username = null;  // email is the username
@@ -75,6 +77,19 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
         }
+
+        //////////
+        // newly added
+
+        System.out.println("setting headers are running");
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.setHeader("Access-Control-Max-Age", "3600");
+        response.setHeader("Access-Control-Allow-Headers", "authorization, content-type, xsrf-token");
+        response.addHeader("Access-Control-Expose-Headers", "xsrf-token");
+
+        /////////////
+
         chain.doFilter(request, response);
     }
 }

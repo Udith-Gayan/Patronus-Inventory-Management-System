@@ -1,3 +1,11 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
+
 <div class="col-md-10">
    
         <header class="card-header">
@@ -35,15 +43,19 @@
                             </div>
                         </div>
                
-                <div class="form-group">
-                    <label for="username" class="cols-sm-2 control-label">date</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            
-                            <input type="date"  class="form-control" name="Date" id="Date"  [(ngModel)]="asset.boughtDate" BsDaterangepicker />
+                        <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched" [class.has-success]="boughtDate.valid">
+                            <label for="boughtDate" class="cols-sm-2 control-label">date</label>
+                            <div class="cols-sm-10">
+                                
+                                    
+                                    <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate" required boughtDate #boughtDate="ngModel" bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" />
+                                    <span class="help-block" *ngIf="boughtDate.touched && boughtDate.invalid" style="color:red" >
+                                        Date is Required
+                                    </span>
+                               
+                               
+                            </div>
                         </div>
-                    </div>
-                </div>
 
                
                 <div class="form-group"  [class.has-error]="buyingPrice.invalid && buyingPrice.touched"  [class.has-success]="buyingPrice.valid">
@@ -69,34 +81,34 @@
                         </div>
                    </div>
 
-                   <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched" [class.has-success]="brandName.valid">
+                   <div class="form-group"  [class.has-error]="location.invalid && location.touched" [class.has-success]="location.valid">
                                    
                                 
-                        <label for="brandName" class="cols-sm-2 control-label">Location</label>
-                        
-                        <div class="col-md-5 mb-3" >
-                        <select name="brandName" id="brandName" style="width: 70mm;height:10mm"  [(ngModel)]="asset.brandName" required brandName #brandName="ngModel">
+                    <label for="location" class="cols-sm-2 control-label">Location</label>
+                    
+                    <div class="col-md-5 mb-3" >
+                    <select name="location" id="location" style="width: 70mm;height:10mm"  [(ngModel)]="asset.location" required location #location="ngModel">
 
-               
-                       
-                          <option value="Head office" >Head office</option>
-                          <option value="IT Department" >IT Department</option>
-                          <option value="HR Department" >HR Department</option>
-                          <option value="Finance Departmentn" >Finance Department</option>
-                          
-                          
-                        </select>
+           
+                   
+                      <option value="Head office" >Head office</option>
+                      <option value="IT Department" >IT Department</option>
+                      <option value="HR Department" >HR Department</option>
+                      <option value="Finance Departmentn" >Finance Department</option>
                       
-               
-                <span class="help-block" *ngIf="brandName.touched && brandName.invalid" style="color:red" >
-                    Location is Required
-                </span>
-                 
-                
-        </div>
+                      
+                    </select>
+                  
+           
+            <span class="help-block" *ngIf="location.touched && location.invalid" style="color:red" >
+                Location is Required
+            </span>
+             
+            
     </div>
+</div>
 
-
+               
                 <!-- Default checked -->
                 <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched"  [class.has-success]="warrantyStatus.valid">
                             
@@ -219,7 +231,7 @@
                
                 <div class="form-group shadow-textarea">
                     <label for="exampleFormControlTextarea6">Discription</label>
-                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
+                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6"  name="description" rows="3" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
                     <small id="passwordHelpInline" class="text-muted">
                             Must be 8-20  words
                           </small>

@@ -6,7 +6,13 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 import { HttpService } from '../../service2/http.service';
 import { formatDate } from '@angular/common';
 
+////////////
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
 @Component({
   selector: 'app-complain-breakedown',
   templateUrl: './complain-breakedown.component.html',
@@ -14,7 +20,7 @@ import { formatDate } from '@angular/common';
 })
 export class ComplainBreakedownComponent implements OnInit {
 
-  
+
 
   datePipe: any;
   breakDown:BreakDwonNoti;
@@ -23,9 +29,9 @@ export class ComplainBreakedownComponent implements OnInit {
   today= new Date();
   jstoday = '';
   chek:boolean =false;
-  
 
-  constructor(private ser : NotifiService,private firestore :AngularFirestore,private breakSer:HttpService) { 
+
+  constructor(private ser : NotifiService,private firestore :AngularFirestore,private breakSer:HttpService) {
     this.breakDown=new BreakDwonNoti();
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 
@@ -47,64 +53,79 @@ export class ComplainBreakedownComponent implements OnInit {
       fName:'',
       notificationType:'',
       date:''
-     
 
-     
+
+
     }
   }
   onSubmit(form:NgForm){
 
 
-/////save backend
+///// save backend
     console.log(this.breakDown);
     console.log("Line1");
 
   this.breakSer.breakDownservices(this.breakDown).subscribe((response) => {
+
     console.log("Line2");
     console.log(this.nic);
     console.log(response);
     this.chek=true;
-    alert('Notifyed successfully');
+    console.log("Line4");
+    console.log(this.chek);
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 2000
+    })
+      ///save Firebase
+
+  console.log();
+  let now = new Date();
+
+  let data = Object.assign({}, form.value);
+  delete data.id;
+  data.complainedNic=this.nic;
+  data.fName=this.Fname;
+  data.notificationType="BreakDown"
+  data.date=this.jstoday;
+
+  if(form.value.id == null){
+
+    this.firestore.collection('BreakDwonAsset').add(data);
+   console.log("line 10");
+}
+  else
+    this.firestore.doc('BreakDwonAsset/'+form.value.id).update(data);
+  this.resetForm(form);
+  console.log("line 11");
+
+
 
 
   },
 
     ( error: any) => {
-     
-      window.alert('Please Check the AssetID ');
-      
+      this.chek=false;
+      console.log("Line5");
+      console.log(this.chek);
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'AssetId went wrong!',
+        footer: '<a> Please check the AssetId Again </a>'
+      });
 
 
-        
-   
-  
   });
 
-  ///save Firebase
 
-    console.log();
-    let now = new Date();
 
-    let data = Object.assign({}, form.value);
-    delete data.id;
-    data.complainedNic=this.nic;
-    data.fName=this.Fname;
-    data.notificationType="BreakDown"
-    data.date=this.jstoday;
-    
-    if(form.value.id == null || this.chek == true){
-     
-      this.firestore.collection('BreakDwonAsset').add(data);
-     
+
+
   }
-    else
-      this.firestore.doc('BreakDwonAsset/'+form.value.id).update(data);
-    this.resetForm(form);
 
-    
-    
-  
-  }
-  
 
 }

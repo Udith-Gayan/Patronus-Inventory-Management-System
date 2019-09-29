@@ -14,7 +14,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent, NgbdModalContent } from './login/login.component';
 import { NoteComponent } from './note/note.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -31,7 +31,7 @@ import { ComputerComponent } from './AssetCatagary/computer/computer.component';
 import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 
 import { NotifiService } from './firebase/notifi.service';
 import { EmpCompenentModule } from './components/Emp-components/emp-components.module';
@@ -50,9 +50,11 @@ import { ViewSingleNotificationComponent } from './PopupModals/view-single-notif
 import { ViewSingleAssetNotiComponent } from './PopupModals/view-single-asset-noti/view-single-asset-noti.component';
 import { ViewSingleEmpNotiComponent } from './PopupModals/view-single-emp-noti/view-single-emp-noti.component';
 import { RequestAssetModalComponent } from './PopupModals/request-asset-modal/request-asset-modal.component';
-import { ConfireDialogService } from './DialogModals/Confire-Dialog.service';
-import { ConfireDialogComponent } from './DialogModals/confire-dialog/confire-dialog.component';
-import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
+import { LogoutComponent } from './logout/logout.component';
+
+import {NgxPrintModule} from 'ngx-print';
+import { ViewBreakeDownAssetComponent } from './PopupModals/view-breake-down-asset/view-breake-down-asset.component';
+import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-request-and-booking-emp-detail/view-request-and-booking-emp-detail.component';
 
 
 
@@ -75,9 +77,9 @@ import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     EmpCompenentModule,
-    ReactiveFormsModule
-    
-    
+    ReactiveFormsModule,
+
+
 
 
   ],
@@ -93,38 +95,42 @@ import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
     ViewAllAssetDetailComponent,
     BookingAssetModalComponent,
     ViewSingleNotificationComponent,
+
+    NgbdModalContent,
+
     ViewSingleAssetNotiComponent,
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
-    ConfireDialogComponent
+    LogoutComponent,
+    ViewBreakeDownAssetComponent,
+    ViewRequestAndBookingEmpDetailComponent,
    
-   
-    
-    
-   
-    
-   
-   
+
+
+
 
   ],
-  exports: [  
-    ConfireDialogComponent  
-],
-  
+  exports: [NgbdModalContent,
+
+  ],
 
 
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService,ConfireDialogService ],
+providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }, NotifiService, AngularFirestore],  // udith-keep firestore here
   bootstrap: [AppComponent],
   entryComponents: [
-  BookingAssetModalComponent,
-    ViewAllEmpDelailComponent,
-    ViewAllAssetDetailComponent,
-    ViewSingleNotificationComponent,
-    ViewSingleAssetNotiComponent,
-    ViewSingleEmpNotiComponent,
-    RequestAssetModalComponent,
-      
-  ]
+    BookingAssetModalComponent,
+      ViewAllEmpDelailComponent,
+      ViewAllAssetDetailComponent,
+      ViewSingleNotificationComponent,
+      ViewSingleAssetNotiComponent,
+      ViewSingleEmpNotiComponent,
+      RequestAssetModalComponent,
+      NgbdModalContent,
+      ViewBreakeDownAssetComponent,
+      ViewRequestAndBookingEmpDetailComponent
+
+    ]
+
 })
 
 export class AppModule { }

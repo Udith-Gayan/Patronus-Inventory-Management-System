@@ -1,17 +1,22 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
+
 <html>
 
 <form  class="text-center border border-light p-5"  #form="ngForm" (submit)="onSubmit(form)">
     <p class="h4 mb-4">Inform BreakDown </p>
-      <div class="col-md-4 mb-3">
-          
-          <input class="form-control" type="hidden" #id="ngModel" name="id" [(ngModel)]="ser.BreakDown.id">
-      </div>
+     
         
   
         <div class="form-row">
     <div class="col-md-5 mb-3">
       <label for="validationDefault01" style="color: red;">Asset Id</label>
-      <input type="text" class="form-control" id="validationDefault01"name="assetId" placeholder="assetId" [(ngModel)]="breakDown.assetId">
+      <input type="text" class="form-control" id="validationDefault01" name="assetId" placeholder="assetId" [(ngModel)]="breakDown.assetId">
     </div>
    
 

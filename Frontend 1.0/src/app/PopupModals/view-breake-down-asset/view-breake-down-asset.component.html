@@ -1,0 +1,152 @@
+<div class="modal-header" style="background-color: rgb(76, 151, 151)">
+        <h4 class="modal-title">Asset Details </h4>
+       <!-- <button></button> -->
+      
+        
+      
+      </div>
+      <form [formGroup]="myForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="modal-boy">
+          <div class="container">
+               <!---View Computer----------------------------------------------------->
+     
+          <div class="form-groupp" *ngFor="let a of data">
+                
+            <a *ngIf="a.assetId == assetId ">
+                <a *ngIf="a.assetcategory == 'Computer' ">    
+                                                                       <!--Changed here-->
+                  <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
+                  <label for="assetcategory">Assetcategory : <b>{{a.assetcategory}}</b>  </label> <br><br>
+                  <label for="assetId">Brand Name : <b>{{a.brandName}}</b>  </label> <br><br>
+                  <label for="assetId">Category Type : <b>{{a.categoryTypes}}</b>  </label> <br><br>
+                  <label for="assetId">boughtDate : <b>{{a.boughtDate}}</b>  </label> <br><br>
+                  <label for="assetId">Display Size : <b>{{a.displaySize}}</b>  </label> <br><br>
+                  <label for="assetId" >Ram : <b>{{a.ram}}</b>  </label> <br><br>
+                  <label for="assetId">Processor : <b>{{a.processor}}</b>  </label> <br><br>
+                  <label for="assetId">Capacity : <b>{{a.capacity}}</b>  </label> <br><br>
+                  <label for="assetId">Warranty : <b>{{a.warrantyStatus}}</b>  </label> <br><br>
+                  <label for="assetId">Description: <b>{{a.description}}</b>  </label> <br><br>
+                  <label for="buyingPrice">Price : <b>{{a.buyingPrice}}</b>  </label> <br><br>
+                  <a *ngIf="a.warrantyStatus == 'YES' ">
+                      <h4 style="color: brown">warranty Details</h4>
+                          <label for="boughtCompanyName">Bought Company Name : <b>{{a.boughtCompanyName}}</b>  </label> <br><br>
+                          <label for="companyContact">Company Contact : <b>{{a.companyContact}}</b>  </label> <br><br>
+                          <label for="companyContact">Company Contact : <b>{{a.yrs}}-{{a.months}}-{{a.days}}</b>  </label> <br><br>
+                  </a>
+
+                </a> 
+            </a> 
+             
+              </div>
+      
+              
+      
+            <!---------------------------End----------------------------->
+
+              <!---View Projector----------------------------------------------------->
+  
+      
+          <div class="form-groupp" *ngFor="let a of data">
+                <a *ngIf="a.assetId == assetId">   
+                  <a *ngIf="a.assetcategory == 'Projector' ">
+                       
+                  <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
+                  <label for="assetId">Asset Category : <b>{{a.assetcategory}}</b>  </label> <br><br>
+                  <label for="assetcategory">Brand Name : <b>{{a.brandName}}</b>  </label> <br><br>
+                  <label for="assetId">Category Type : <b>{{a.categoryTypes}}</b>  </label> <br><br>
+                  <label for="assetId">Bought Date : <b>{{a.boughtDate}}</b>  </label> <br><br>
+                  <label for="assetId">Warranty : <b>{{a.warrantyStatus}}</b>  </label> <br><br>
+                  <label for="assetId">Description: <b>{{a.description}}</b>  </label> <br><br>
+                  <label for="buyingPrice">Price : <b>{{a.buyingPrice}}</b>  </label> <br><br>
+                  <a *ngIf="a.warrantyStatus == 'yes' ">
+                          <label for="boughtCompanyName">Bought Company Name : <b>{{a.boughtCompanyName}}</b>  </label> <br><br>
+                          <label for="companyContact">Company Contact : <b>{{a.companyContact}}</b>  </label> <br><br>
+                          <label for="companyContact">Company Contact : <b>{{a.yrs}}-{{a.months}}-{{a.days}}</b>  </label> <br><br>
+                  </a>
+                </a> 
+              </a> 
+               
+      
+              </div>
+      
+            <!---------------------------End----------------------------->
+    
+              <!---View Furniture----------------------------------------------------->
+         
+              <div class="form-groupp" *ngFor="let a of data">
+                <a *ngIf="a.assetId == assetId">
+                    <a *ngIf="a.assetcategory == 'Furniture' ">                                                 <!--Changed here-->
+                      <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
+                      <label for="assetId">Asset Category : <b>{{a.assetcategory}}</b>  </label> <br><br>
+                      <label for="assetcategory">Brand Name : <b>{{a.brandName}}</b>  </label> <br><br>
+                      <label for="assetId">Category Type : <b>{{a.categoryTypes}}</b>  </label> <br><br>
+                      <label for="assetId">Bought Date : <b>{{a.boughtDate}}</b>  </label> <br><br>
+                      <label for="assetId">Warranty : <b>{{a.warrantyStatus}}</b>  </label> <br><br>
+                      <label for="assetId">Description: <b>{{a.description}}</b>  </label> <br><br>
+                      <label for="buyingPrice">Price : <b>{{a.buyingPrice}}</b>  </label> <br><br>
+                      <a *ngIf="a.warrantyStatus == 'yes' ">
+                              <label for="boughtCompanyName">Bought Company Name : <b>{{a.boughtCompanyName}}</b>  </label> <br><br>
+                              <label for="companyContact">Company Contact : <b>{{a.companyContact}}</b>  </label> <br><br>
+                              <label for="companyContact">Company Contact : <b>{{a.yrs}}-{{a.months}}-{{a.days}}</b>  </label> <br><br>
+                      </a>
+                </a> 
+              </a>
+                </div>
+      
+            
+      
+            <!---------------------------End----------------------------->
+    
+               <!---View Other----------------------------------------------------->
+         
+               <div class="form-groupp" *ngFor="let a of data">
+                  <a *ngIf="a.assetId == assetId">
+                      <a *ngIf="a.assetcategory == 'TV' || a.assetcategory == 'Sound System' || a.assetcategory == 'CPU' ||  a.assetcategory == 'Router' ">                                                 <!--Changed here-->
+                    <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
+                    <label for="assetcategory">Asset Category : <b>{{a.assetcategory}}</b>  </label> <br><br>
+                    <label for="boughtDate">Bought Date : <b>{{a.boughtDate}}</b>  </label> <br><br>
+                    <label for="warrantyStatus">Warranty : <b>{{a.warrantyStatus}}</b>  </label> <br><br>
+                    <label for="description">Description : <b>{{a.description}}</b>  </label> <br><br>
+                    <label for="buyingPrice">Price : <b>{{a.buyingPrice}}</b>  </label> <br><br>
+                    <a *ngIf="a.warrantyStatus == 'yes' ">
+                            <label for="boughtCompanyName">Bought Company Name : <b>{{a.boughtCompanyName}}</b>  </label> <br><br>
+                            <label for="companyContact">Company Contact : <b>{{a.companyContact}}</b>  </label> <br><br>
+                            <label for="companyContact">Company Contact : <b>{{a.yrs}}-{{a.months}}-{{a.days}}</b>  </label> <br><br>
+                    </a>
+                  </a> 
+                </a>
+                  </div>
+        
+              
+        
+              <!---------------------------End----------------------------->
+    
+    
+           
+            <div class="form-group">
+                <label for="massege">Description</label>
+                <input type="text"  class="form-control"  formControlName="massege" />
+             </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" type="submit" (click)="openAssetDetailModal(assetId)"
+            [disabled]="!myForm.valid">
+           Employee Details
+          </button>
+         
+     
+          <button class="btn btn-success" type="submit" (click)="massage(assetId)"
+          [disabled]="!myForm.valid">
+         Replay
+        </button>
+        <button class="btn btn-success" (click)="activeModal.dismiss('Cross click')"  style="background-color: crimson"
+        [disabled]="!myForm.valid" >
+       Cancel
+      </button>
+      
+        </div>
+       
+      </form>
+      

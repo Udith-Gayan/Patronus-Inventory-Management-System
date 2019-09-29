@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfireDialogComponent } from './confire-dialog.component';
+import { ViewAllAssetComponent } from './view-all-asset.component';
 
-describe('ConfireDialogComponent', () => {
-  let component: ConfireDialogComponent;
-  let fixture: ComponentFixture<ConfireDialogComponent>;
+describe('ViewAllAssetComponent', () => {
+  let component: ViewAllAssetComponent;
+  let fixture: ComponentFixture<ViewAllAssetComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfireDialogComponent ]
+      declarations: [ ViewAllAssetComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfireDialogComponent);
+    fixture = TestBed.createComponent(ViewAllAssetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

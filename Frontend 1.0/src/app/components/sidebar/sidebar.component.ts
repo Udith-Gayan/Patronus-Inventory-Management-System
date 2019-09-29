@@ -15,7 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/table-list', title: 'Assets Pools',  icon:'design_bullet-list-67', class: '' },
     { path: '/breakdown', title: 'Breakdown Asset',  icon: 'design_app', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'ui-1_bell-53', class: '' },
-    { path: '/upgrade', title: 'Reports',  icon:'ui-1_bell-53', class: '' },
+    { path: '/report', title: 'Reports',  icon:'ui-1_bell-53', class: '' },
     
     
    

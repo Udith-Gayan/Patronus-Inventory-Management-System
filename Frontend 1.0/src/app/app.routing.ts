@@ -10,24 +10,31 @@ import { notEqual } from 'assert';
 import { TestshowComponent } from './firebase/testshow/testshow.component';
 import { TestveiwComponent } from './firebase/testveiw/testveiw.component';
 import { EmpLayoutComponent } from './layouts/emp-layout/emp-layout.component';
+import { AuthGuardServiceService } from './service/auth-guard-service.service';
+import { LogoutComponent } from './logout/logout.component';
 
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full',
+    pathMatch: 'full'
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
+    pathMatch: 'full'
   },
   {
     path: 'Employee',
-    component:EmpLayoutComponent,
+    component: EmpLayoutComponent,
     children:[
       {
         path: 'x',
-        loadChildren:() => import('./layouts/emp-layout/emp-layout.module').then(m => m.EmpLayoutModule)
+        loadChildren: () => import('./layouts/emp-layout/emp-layout.module').then(m => m.EmpLayoutModule)
       }
 
-    ]
+    ] , canActivate: [AuthGuardServiceService]
   },
   {
     path: '',
@@ -37,10 +44,12 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
   }
-]},
+],
+canActivate: [AuthGuardServiceService]
+},
 
   {
-    path:'login',
+    path: 'login',
     component:LoginComponent
   },
   {
@@ -48,7 +57,7 @@ const routes: Routes =[
     component:HomeComponent,
     children:[
       {
-        path:'login',
+        path: 'login',
         component:LoginComponent
       }
     ]
@@ -58,8 +67,8 @@ const routes: Routes =[
     redirectTo: 'hom'
   },
   {
-    path:"list",
-    component:LoginComponent
+    path: 'list',
+    component: LoginComponent
 
   }
 
