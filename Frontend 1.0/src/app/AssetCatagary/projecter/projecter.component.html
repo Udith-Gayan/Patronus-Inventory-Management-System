@@ -15,7 +15,7 @@
         
         <div class="card-body">
         
-                <form  #assetsForm="ngForm"  (ngSubmit)="saveassets(assetsForm)" >
+            <form class="form-horizontal"  (ngSubmit)=" onSubmit(assetsForm) " name="form" #assetsForm="ngForm"  >
         
                     <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched" [class.has-success]="brandName.valid">
                    
@@ -37,12 +37,13 @@
                     </div>
                 </div>
                       
-                <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched" [class.has-success]="boughtDate.valid">
+               
+                <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched"  [class.has-success]="boughtDate.valid">
                     <label for="boughtDate" class="cols-sm-2 control-label">date</label>
                     <div class="cols-sm-10">
-                        
-                            
-                            <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate" required boughtDate #boughtDate="ngModel" bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" />
+                      
+
+                            <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate"  required boughtDate #boughtDate="ngModel"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }"   />
                             <span class="help-block" *ngIf="boughtDate.touched && boughtDate.invalid" style="color:red" >
                                 Date is Required
                             </span>
@@ -50,7 +51,6 @@
                        
                     </div>
                 </div>
-
                 
                 <div class="form-group"  [class.has-error]="buyingPrice.invalid && buyingPrice.touched" [class.has-success]="buyingPrice.valid">
                         <label for="buyingPrice" class="cols-sm-2 control-label">Price</label>
@@ -77,7 +77,6 @@
                         
                         <div class="col-md-5 mb-3" >
                         <select name="location" id="location" style="width: 70mm;height:10mm"  [(ngModel)]="asset.location" required location #location="ngModel">
-
                
                        
                           <option value="Head office" >Head office</option>
@@ -209,37 +208,20 @@
             
             <div class="form-row">
                 <div class="col-md-6 mb-6">
-                        <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched" [class.has-success]="assetcategory.valid">
-                        <label for="assetcategory" class="cols-sm-2 control-label">Categorey</label>
-                        <select name="assetcategory" id="assetcategory" style="width: 70mm;height:10mm"  [(ngModel)]="asset.assetcategory" placeholder=""required assetcategory #assetcategory="ngModel">
+                        <div class="form-group"  [class.has-error]="categoryTypes.invalid && categoryTypes.touched" [class.has-success]="categoryTypes.valid">
+                        <label for="categoryTypes" class="cols-sm-2 control-label">Categorey</label><br>
+                        <select name="categoryTypes" id="categoryTypes" style="width: 70mm;height:10mm"  [(ngModel)]="asset.categoryTypes" placeholder=""required categoryTypes #categoryTypes="ngModel">
                         <option value="LCD" >LCD</option>
                         <option value="CRT" >CRT</option>
                         <option value="DLP" >DLP</option>
                         </select>
-                        <span class="help-block" *ngIf="assetcategory.touched && assetcategory.invalid" style="color:red" >
+                        <span class="help-block" *ngIf="categoryTypes.touched && categoryTypes.invalid" style="color:red" >
                                 Category is Required
                             </span>
                 </div>
                 </div>
              
-                        <div class="col-md-6 mb-3">
-                        <div class="form-group"  [class.has-error]="categoryTypes.invalid && categoryTypes.touched" [class.has-success]="categoryTypes.valid">
-                        <label for="categoryTypes" class="cols-sm-2 control-label">Type</label>
                        
-                
-                    <select name="categoryTypes" id="categoryTypes" class="form-control" [(ngModel)]="asset.categoryTypes" placeholder="" #categoryTypes="ngModel" required categoryTypes >
-                      <option value="Portable" >Portable</option>
-                      <option value="Installation" >Installation</option>
-                      <option value="Shortthrow/ultrashortthrow" >Short throw/ultra short throw</option>
-                      <option value="LargeVenu" >Large Venu</option>
-                      <option value="Homecinema" >Home cinema</option>
-                    </select>
-                    <span class="help-block" *ngIf="categoryTypes.touched && categoryTypes.invalid" style="color:red" >
-                        Type is Required
-                    </span>
-                   
-            </div>
-        </div>
         </div>
             
                 <div class="form-group"  [class.has-error]="quantity.invalid && quantity.touched" [class.has-success]="quantity.valid">

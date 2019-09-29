@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../service2/http.service';
+import { Observable } from 'rxjs';
+import { pendinRequest } from '../../models/pendingRequestModel';
 
 @Component({
   selector: 'app-view-all-asset',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewAllAssetComponent implements OnInit {
 
-  constructor() { }
+  pendingRequestAM:Observable<pendinRequest>
+  constructor(private asset:HttpService) { }
 
   ngOnInit() {
+    console.log("Line 4");
+    this.asset.getPendingRequestAM().subscribe(res=>{
+      console.log("Line 5");
+      console.log(res);
+      console.log(res.id);
+      this.pendingRequestAM = res
+      console.log(this.pendingRequestAM)
+    })
   }
 
 }

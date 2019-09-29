@@ -15,9 +15,8 @@
               
               
             <div class="card-body">
-            
-                    <form  #assetsForm="ngForm"  (ngSubmit)="saveassets(assetsForm)" >
-                            <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched"  >    
+                <form class="form-horizontal"  (ngSubmit)=" onSubmit(assetsForm) " name="form" #assetsForm="ngForm"  >
+                            <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched" [class.has-success]="assetcategory.valid"  >    
                             <label for="assetcategory" class="cols-sm-2 control-label">Category</label>
                             <div class="col-md-5 mb-3">
                                 <select name="assetcategory" id="assetcategory" style="width: 70mm;height:10mm"  [(ngModel)]="asset.assetcategory" placeholder="" #assetcategory="ngModel" required assetcategory >
@@ -43,17 +42,16 @@
                             </div>
                         </div>
                
-                        <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched" [class.has-success]="boughtDate.valid">
+                        <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched"  [class.has-success]="boughtDate.valid">
                             <label for="boughtDate" class="cols-sm-2 control-label">date</label>
                             <div class="cols-sm-10">
-                                
-                                    
-                                    <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate" required boughtDate #boughtDate="ngModel" bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" />
+                              
+        
+                                    <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate"  required boughtDate #boughtDate="ngModel"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }"   />
                                     <span class="help-block" *ngIf="boughtDate.touched && boughtDate.invalid" style="color:red" >
                                         Date is Required
                                     </span>
-                               
-                               
+                              
                             </div>
                         </div>
 

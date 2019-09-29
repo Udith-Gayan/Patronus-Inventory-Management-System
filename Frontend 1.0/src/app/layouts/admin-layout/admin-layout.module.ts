@@ -43,13 +43,12 @@ import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/vie
 import { NgxPrintModule } from 'ngx-print';
 import { AboutUsComponent } from '../../maps/about-us/about-us.component';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
-import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
 import { ViewAllEmployeeComponent } from '../../upgrade/view-all-employee/view-all-employee.component';
 import { ViewAllAssetComponent } from '../../upgrade/view-all-asset/view-all-asset.component';
 import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly-book-asset/view-all-monthly-book-asset.component';
 import { ViewAllMonthlyBrakeDownAssetComponent } from '../../upgrade/view-all-monthly-brake-down-asset/view-all-monthly-brake-down-asset.component';
 import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-report/view-all-monthly-report.component';
-
+import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -104,14 +103,12 @@ import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-re
     ViewRequestAssetComponent,
     AboutUsComponent,
     WelcomeComponent,
-    ContactUsComponent,
-    
     ViewAllEmployeeComponent,
     ViewAllAssetComponent,
     ViewAllMonthlyBookAssetComponent,
     ViewAllMonthlyBrakeDownAssetComponent,
     ViewAllMonthlyReportComponent,
-  
+    ContactUsComponent
 
     
   
