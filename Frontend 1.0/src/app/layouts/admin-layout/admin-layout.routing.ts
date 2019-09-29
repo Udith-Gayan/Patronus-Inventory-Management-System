@@ -38,6 +38,8 @@ import { ViewAllMonthlyBrakeDownAssetComponent } from '../../upgrade/view-all-mo
 import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-report/view-all-monthly-report.component';
 import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly-book-asset/view-all-monthly-book-asset.component';
 
+import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
+
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
      component: DashboardComponent,
@@ -201,7 +203,12 @@ export const AdminLayoutRoutes: Routes = [
          {
             path:'welcome',
             component:WelcomeComponent
-
+         
+        },
+        {
+            path:'contactUs',
+            component:ContactUsComponent
+         
         }
      ]
 

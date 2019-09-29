@@ -48,7 +48,7 @@ import { ViewAllAssetComponent } from '../../upgrade/view-all-asset/view-all-ass
 import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly-book-asset/view-all-monthly-book-asset.component';
 import { ViewAllMonthlyBrakeDownAssetComponent } from '../../upgrade/view-all-monthly-brake-down-asset/view-all-monthly-brake-down-asset.component';
 import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-report/view-all-monthly-report.component';
-
+import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -108,7 +108,7 @@ import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-re
     ViewAllMonthlyBookAssetComponent,
     ViewAllMonthlyBrakeDownAssetComponent,
     ViewAllMonthlyReportComponent,
-  
+    ContactUsComponent
 
     
   
