@@ -36,6 +36,9 @@ public class AssetModel  {
     @Column(name = "boughtCompanyName")
     private String boughtCompanyName;
 
+    @Column(name = "location")
+    private String location;          // newly added by udith
+
     @Column(name = "buyingPrice")
     private double buyingPrice;
 

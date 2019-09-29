@@ -8,7 +8,7 @@ import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 
@@ -60,7 +60,8 @@ public class BreakdownController {
         b.setApprovedByAssetMananger(false);
         b.setAssignedToRepairManager(false);
 
-        Date currentDate = new Date();
+        LocalDate currentDate = LocalDate.now();
+        System.out.println("Now date is: " + currentDate);
         b.setInformedDate(currentDate);
 
 
