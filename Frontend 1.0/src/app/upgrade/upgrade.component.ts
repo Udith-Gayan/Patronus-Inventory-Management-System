@@ -6,8 +6,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import 'sweetalert2/src/sweetalert2.scss';
 import { Observable, from } from 'rxjs';
-import { BookAsset } from '../models/BookAssetModel';
+
 import { HttpService } from '../service2/http.service';
+import { pendinRequest } from '../models/pendingRequestModel';
 
 const Swal = require('sweetalert2');
 //////////////////
