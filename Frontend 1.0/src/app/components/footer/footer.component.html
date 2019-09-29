@@ -1,22 +1,26 @@
 
-<footer class="footer">
+<footer class="footer" style="background-color: rgb(33, 34, 34)">
         <div class="container-fluid">
           <nav>
             <ul>
-              
+                <li>
+                    <a routerLink="/welcome/welcome" style="color: lightcyan">
+                      Home
+                    </a>
+                  </li>
               <li>
-                <a href="#">
+                <a routerLink="/welcome/aboutUs" style="color: lightcyan">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#">
-                  Contact
+                <a routerLink="/welcome/contactUs" style="color: lightcyan">
+                  Contact Us
                 </a>
               </li>
             </ul>
           </nav>
-          <div class="copyright" style="color: rgb(5, 56, 116)"><b>  &copy;
+          <div class="copyright" style="color: lightcyan"><b>  &copy;
            
                 {{test | date:'medium'}}</b>
           

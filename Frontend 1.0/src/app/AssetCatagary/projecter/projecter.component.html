@@ -7,14 +7,14 @@
         
         <div class="card-body">
         
-            <form class="form-horizontal"  (ngSubmit)=" onSubmit() ">
+                <form  #assetsForm="ngForm"  (ngSubmit)="saveassets(assetsForm)" >
         
-                    <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched">
+                    <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched" [class.has-success]="brandName.valid">
                    
                             <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
                    
                             <div class="col-md-5 mb-3">
-                            <select name="brandName" id="brandName" class="form-control" [(ngModel)]="asset.brandName" placeholder="" required brandName #brandName="ngModel">
+                            <select name="brandName" id="brandName" style="width: 70mm;height:10mm"  [(ngModel)]="asset.brandName" placeholder="" required brandName #brandName="ngModel">
                             
                               <option value="Samsung" >Samsung</option>
                               <option value="Canon" >Canon</option>
@@ -41,7 +41,7 @@
                 </div>
 
                 
-                <div class="form-group"  [class.has-error]="buyingPrice.invalid && buyingPrice.touched">
+                <div class="form-group"  [class.has-error]="buyingPrice.invalid && buyingPrice.touched" [class.has-success]="buyingPrice.valid">
                         <label for="buyingPrice" class="cols-sm-2 control-label">Price</label>
                         <div class="cols-sm-10">
                                 <div class="input-group">
@@ -59,8 +59,35 @@
                         </div>
                     </div>
 
+                    <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched" [class.has-success]="brandName.valid">
+                                   
+                                
+                            <label for="brandName" class="cols-sm-2 control-label">Location</label>
+                            
+                            <div class="col-md-5 mb-3" >
+                            <select name="brandName" id="brandName" style="width: 70mm;height:10mm"  [(ngModel)]="asset.brandName" required brandName #brandName="ngModel">
+
+                   
+                           
+                              <option value="Head office" >Head office</option>
+                              <option value="IT Department" >IT Department</option>
+                              <option value="HR Department" >HR Department</option>
+                              <option value="Finance Departmentn" >Finance Department</option>
+                              
+                              
+                            </select>
+                          
+                   
+                    <span class="help-block" *ngIf="brandName.touched && brandName.invalid" style="color:red" >
+                        Location is Required
+                    </span>
+                     
+                    
+            </div>
+        </div>
+
                 <!-- Default checked -->
-                <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched">
+                <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched" [class.has-success]="warrantyStatus.valid">
                             
                         <label for="warrantyStatus" class="cols-sm-2 control-label">Warranty Status</label>
                     <div class="cols-sm-10">
@@ -99,7 +126,7 @@
                                 <div class="def-number-input number-input safari_only">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                                 
-                        <input class="yrs" min="0" max="10" name="yrs" value="1" type="number">
+                        <input class="yrs" min="0" max="10" name="yrs" value="0" type="number">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                         
                       </div>
@@ -108,7 +135,7 @@
                                 <label for="months" class="cols-sm-2 control-label">Months</label>
                       <div class="def-number-input number-input safari_only">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                        <input class="months" min="0" max="12" name="months" value="1" type="number">
+                        <input class="months" min="0" max="12" name="months" value="0" type="number">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                         </div>
                       </div>
@@ -118,7 +145,7 @@
                             <label for="days" class="cols-sm-2 control-label">Days</label>
                   <div class="def-number-input number-input safari_only">
                     <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                    <input class="days" min="0" max="31" name="days" value="1" type="number">
+                    <input class="days" min="0" max="31" name="days" value="0" type="number">
                     <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                     </div>
                   </div>
@@ -126,7 +153,7 @@
                         
                       
                 
-                <div class="form-group"  [class.has-error]="boughtCompanyName.invalid && boughtCompanyName.touched">
+                <div class="form-group"  [class.has-error]="boughtCompanyName.invalid && boughtCompanyName.touched"  [class.has-success]="boughtCompanyName.valid">
                         <label for="boughtCompanyName" class="cols-sm-2 control-label">Companya Name</label>
                         <div class="cols-sm-10">
                             
@@ -139,7 +166,7 @@
                                 
                         </div>
                     </div>
-                    <div class="form-group"  [class.has-error]="boughtCompanyAddress.invalid && boughtCompanyAddress.touched">
+                    <div class="form-group"  [class.has-error]="boughtCompanyAddress.invalid && boughtCompanyAddress.touched" [class.has-success]="boughtCompanyAddress.valid">
                       <label for="boughtCompanyAddress" class="cols-sm-2 control-label">Company Address</label>
                       <div class="cols-sm-10">
                           
@@ -153,7 +180,7 @@
                       </div>
                   
                  
-                  <div class="form-group"  [class.has-error]="companyContact.invalid && companyContact.touched">
+                  <div class="form-group"  [class.has-error]="companyContact.invalid && companyContact.touched" [class.has-success]="companyContact.valid">
                       <label for="companyContact" class="cols-sm-2 control-label"> Company Contact Number</label>
                       <div class="cols-sm-10">
                           
@@ -169,9 +196,9 @@
             
             <div class="form-row">
                 <div class="col-md-6 mb-6">
-                        <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched">
+                        <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched" [class.has-success]="assetcategory.valid">
                         <label for="assetcategory" class="cols-sm-2 control-label">Categorey</label>
-                        <select name="assetcategory" id="assetcategory" class="form-control" [(ngModel)]="asset.assetcategory" placeholder=""required assetcategory #assetcategory="ngModel">
+                        <select name="assetcategory" id="assetcategory" style="width: 70mm;height:10mm"  [(ngModel)]="asset.assetcategory" placeholder=""required assetcategory #assetcategory="ngModel">
                         <option value="LCD" >LCD</option>
                         <option value="CRT" >CRT</option>
                         <option value="DLP" >DLP</option>
@@ -183,11 +210,11 @@
                 </div>
              
                         <div class="col-md-6 mb-3">
-                        <div class="form-group"  [class.has-error]="categorytypes.invalid && categorytypes.touched">
+                        <div class="form-group"  [class.has-error]="categorytypes.invalid && categorytypes.touched" [class.has-success]="categorytypes.valid">
                         <label for="categorytypes" class="cols-sm-2 control-label">Type</label>
                        
                 
-                    <select name="categorytypes" id="categorytypes" class="form-control" [(ngModel)]="asset.categorytypes" placeholder="" #categorytypes="ngModel" required categorytypes >
+                    <select name="categorytypes" id="categorytypes" style="width: 70mm;height:10mm"  [(ngModel)]="asset.categorytypes" placeholder="" #categorytypes="ngModel" required categorytypes >
                       <option value="Portable" >Portable</option>
                       <option value="Installation" >Installation</option>
                       <option value="Shortthrow/ultrashortthrow" >Short throw/ultra short throw</option>
@@ -202,8 +229,8 @@
         </div>
         </div>
             
-                <div class="form-group"  [class.has-error]="quantity.invalid && quantity.touched">
-                        <label for="quantity">Quantity</label>
+                <div class="form-group"  [class.has-error]="quantity.invalid && quantity.touched" [class.has-success]="quantity.valid">
+                        <label for="quantity"  class="cols-sm-2 control-label">Quantity</label>
                         
                              <div class="col-md-6 mb-3">
                         <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
@@ -228,7 +255,7 @@
 
                 
                 <div class="form-group ">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button" [disabled]="assetsForm.invalid" >Register</button>
                 </div>
                 
             </form>

@@ -42,6 +42,7 @@ import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-d
 import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
 import { AboutUsComponent } from '../../maps/about-us/about-us.component';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
+import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { WelcomeComponent } from '../../maps/welcome/welcome.component';
     ViewBrekDownComponent,
     ViewRequestAssetComponent,
     AboutUsComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ContactUsComponent
     
 
     

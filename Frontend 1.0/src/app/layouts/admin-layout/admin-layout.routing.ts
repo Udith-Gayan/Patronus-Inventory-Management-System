@@ -31,6 +31,7 @@ import { ViewBrekDownComponent } from '../../firebase/view-brek-down/view-brek-d
 import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/view-request-asset.component';
 import { AboutUsComponent } from '../../maps/about-us/about-us.component';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
+import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
@@ -191,6 +192,11 @@ export const AdminLayoutRoutes: Routes = [
          {
             path:'welcome',
             component:WelcomeComponent
+         
+        },
+        {
+            path:'contactUs',
+            component:ContactUsComponent
          
         }
      ]

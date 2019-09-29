@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpModule } from '@angular/http';   // test
+
 
 
 import { AppRoutingModule } from './app.routing';
@@ -97,6 +97,7 @@ import { ConfirmDialogModule } from './DialogModals/confirmeDialog.module';
     ViewSingleEmpNotiComponent,
     RequestAssetModalComponent,
     ConfireDialogComponent
+   
    
     
     

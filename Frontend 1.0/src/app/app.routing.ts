@@ -24,7 +24,7 @@ const routes: Routes =[
     children:[
       {
         path: 'x',
-        loadChildren:'./layouts/emp-layout/emp-layout.module#EmpLayoutModule'
+        loadChildren:() => import('./layouts/emp-layout/emp-layout.module').then(m => m.EmpLayoutModule)
       }
 
     ]
@@ -35,7 +35,7 @@ const routes: Routes =[
     children: [
         {
       path: '',
-      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+      loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
   }
 ]},
 
