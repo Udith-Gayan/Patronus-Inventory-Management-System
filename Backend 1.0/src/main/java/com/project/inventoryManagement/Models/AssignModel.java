@@ -25,7 +25,7 @@ public class AssignModel implements Serializable {
     @Column(name = "request_type")
     private String requestType;              // BOOKING, REQUEST for notifications and report generations
 
-    @Temporal(TemporalType.TIMESTAMP)
+
     @CreatedDate
     @Column(name = "request_made_date")
     private LocalDate requestMadeDate;

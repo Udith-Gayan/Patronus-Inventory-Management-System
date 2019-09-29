@@ -5,15 +5,15 @@ import com.project.inventoryManagement.Models.AssignModel;
 import com.project.inventoryManagement.Models.EmployeeMainModel;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class AssignDTO implements Serializable {
 
     public long id;
     public String requestType;
-    public Date requestMadeDate;
-    public Date beginDate;
-    public Date dueDate;
+    public LocalDate requestMadeDate;
+    public LocalDate beginDate;
+    public LocalDate dueDate;
     public boolean isAssigned;
     public boolean isApprovedByAssetManager;
     public boolean isApprovedByDepartmentHead;
@@ -36,7 +36,7 @@ public class AssignDTO implements Serializable {
         this.userAssigned = a.getUserAssigned();
     }
 
-    public AssignDTO(long id, String requestType, Date requestMadeDate, Date beginDate, Date dueDate, boolean isAssigned, boolean isApprovedByAssetManager, boolean isApprovedByDepartmentHead, AssetModel requestedAsset, EmployeeMainModel userAssigned) {
+    public AssignDTO(long id, String requestType, LocalDate requestMadeDate, LocalDate beginDate, LocalDate dueDate, boolean isAssigned, boolean isApprovedByAssetManager, boolean isApprovedByDepartmentHead, AssetModel requestedAsset, EmployeeMainModel userAssigned) {
         this.id = id;
         this.requestType = requestType;
         this.requestMadeDate = requestMadeDate;
