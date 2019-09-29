@@ -22,7 +22,7 @@ export class UpgradeComponent implements OnInit {
 imgUrl:String="/assets/img/1.jpeg";
 FileToUpload:File=null;
 
-pendingRequestDH:Observable<BookAsset>
+pendingRequestDH:Observable<pendinRequest>
   constructor(private asset:HttpService) { }
 
   ngOnInit() {

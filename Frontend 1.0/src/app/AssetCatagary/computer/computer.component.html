@@ -59,13 +59,13 @@
                             <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched"  [class.has-success]="boughtDate.valid">
                     <label for="boughtDate" class="cols-sm-2 control-label">date</label>
                     <div class="cols-sm-10">
-                        <div class="input-group">
+                  
 
                             <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate"  required boughtDate #boughtDate="ngModel"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }"   />
                             <span class="help-block" *ngIf="boughtDate.touched && boughtDate.invalid" style="color:red" >
                                 Date is Required
                             </span>
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -280,7 +280,7 @@
                         <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group"  [class.has-error]="capacity.invalid && capacity.touched" [class.has-success]="capacity.valid" >
-                                    <label for="capacity" class="cols-sm-2 control-label">Capacity</label>
+                                    <label for="capacity" class="cols-sm-2 control-label">Capacity</label><br>
                                     <select name="capacity" id="capacity" name="capacity" style="width: 70mm;height:10mm"  [(ngModel)]="asset.capacity" placeholder="Capacity" required #capacity="ngModel">
                                       <option value="1TB" >1TB</option>
                                       <option value="2TB" >2TB</option>
@@ -295,9 +295,9 @@
                         </div>
 
 
-                          <div class="col-md-6 mb-6">
+                          <div class="col-md-6 mb-3">
                                         <div class="form-group"  [class.has-error]="ram.invalid && ram.touched" [class.has-success]="ram.valid">
-                                        <label for="ram" class="cols-sm-2 control-label">RAM</label>
+                                        <label for="ram" class="cols-sm-2 control-label">RAM</label><br>
 
 
                                         <select name="ram" id="ram" style="width: 70mm;height:10mm"  [(ngModel)]="asset.ram" placeholder=" RAM size" required ram #ram ="ngModel">

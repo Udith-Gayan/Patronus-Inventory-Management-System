@@ -45,13 +45,13 @@
                         <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched"  [class.has-success]="boughtDate.valid">
                             <label for="boughtDate" class="cols-sm-2 control-label">date</label>
                             <div class="cols-sm-10">
-                                <div class="input-group">
+                              
         
                                     <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate"  required boughtDate #boughtDate="ngModel"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }"   />
                                     <span class="help-block" *ngIf="boughtDate.touched && boughtDate.invalid" style="color:red" >
                                         Date is Required
                                     </span>
-                                </div>
+                              
                             </div>
                         </div>
 

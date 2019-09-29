@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Asset } from '../../asset/asset';
 import { HttpService } from '../../service2/http.service';
-<<<<<<< HEAD
 ////////////
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
@@ -9,9 +8,6 @@ import 'sweetalert2/src/sweetalert2.scss';
 
 const Swal = require('sweetalert2');
 //////////////////
-=======
-
->>>>>>> 56c75eba4c628db6ef61bd8f24b569641caa281a
 
 @Component({
   selector: 'app-other',
