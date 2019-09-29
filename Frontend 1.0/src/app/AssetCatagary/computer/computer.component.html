@@ -16,7 +16,7 @@
 
                 <div class="card-body">
                 
-                    <form class="form-horizontal" #assetsForm="ngForm"  (ngSubmit)=" onSubmit(assetsForm) " >
+                    <form class="form-horizontal" #assetsForm="ngForm"  (ngSubmit)=" onSubmit(assetsForm) " name="form" >
 
                             <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched" [class.has-success]="brandName.valid">
                                    
