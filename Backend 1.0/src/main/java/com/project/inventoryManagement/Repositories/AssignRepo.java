@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.Optional;
 
@@ -27,21 +28,25 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
    Optional<AssignModel> findById(long id);
 
    /* Confirmation */
+    @Transactional
    @Modifying
-   @Query(value = "update assign_model set isApprovedByDepartmentHead = ?2 , date_dh_confirmed = ?3 where id = ?1" , nativeQuery = true)
-   AssignModel updateDhConfirmation(long id, boolean confirmation, Date confirmedDate);
+   @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 where id = ?1" , nativeQuery = true)
+   int updateDhConfirmation(long id, boolean confirmation, Date confirmedDate);
 
+    @Transactional
    @Modifying
    @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3 where id = ?1" , nativeQuery = true)
-   AssignModel updateAmConfirmation(long id, boolean confirmation, Date confirmedDate);
+   int updateAmConfirmation(long id, boolean confirmation, Date confirmedDate);
 
   /* Rejection */
+  @Transactional
   @Modifying
-  @Query(value = "update assign_model set isApprovedByDepartmentHead = ?2 , date_dh_confirmed = ?3 where id = ?1" , nativeQuery = true)
-  AssignModel updateDhRejection(long id, boolean confirmation, Date confirmedDate);
+  @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 where id = ?1" , nativeQuery = true)
+  int updateDhRejection(long id, boolean confirmation, Date confirmedDate);
 
+    @Transactional
    @Modifying
    @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3 where id = ?1" , nativeQuery = true)
-   AssignModel updateAmRejection(long id, boolean confirmation, Date confirmedDate);
+   int updateAmRejection(long id, boolean confirmation, Date confirmedDate);
 
 }

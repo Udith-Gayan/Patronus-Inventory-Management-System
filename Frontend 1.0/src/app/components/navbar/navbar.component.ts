@@ -29,6 +29,7 @@ const Swal = require('sweetalert2');
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     status:string = sessionStorage.getItem('status');
+    nic:string = sessionStorage.getItem('nic');
    con:boolean=false;
 
 //notification

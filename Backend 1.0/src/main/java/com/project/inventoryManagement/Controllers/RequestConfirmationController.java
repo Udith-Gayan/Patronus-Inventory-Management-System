@@ -26,7 +26,7 @@ public class RequestConfirmationController {
     // Confirm by Department Head
     @PostMapping("/departmenthead")
     public ResponseEntity<AssignModel> confirmByDepartmentHead(@RequestBody RequestConfirmationDTO req){
-        System.out.println("Confirm by Department head, this id: "+ req.toString());
+        System.out.println("Confirm by Department head, this id: "+ req.getId());
 
         Optional<AssignModel> assignModelOptional = assignRepo.findById(req.id);
 
@@ -38,10 +38,12 @@ public class RequestConfirmationController {
             Date nowdate = new Date();
             dateFormat.format(nowdate);
 
-            AssignModel updatedModel = assignRepo.updateDhConfirmation(assignModelOptional.get().getId(),true, nowdate);
-            System.out.println("Confirmed DH: " + updatedModel.toString());
+            int updatedVal = assignRepo.updateDhConfirmation(assignModelOptional.get().getId(),true, nowdate);
+            System.out.println("Confirmed DH: " + updatedVal);
 
-            return ResponseEntity.ok(updatedModel);
+            Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
+            return ResponseEntity.ok(updatedModel.get());
         }
         else {
 
@@ -69,11 +71,13 @@ public class RequestConfirmationController {
             Date nowdate = new Date();
             dateFormat.format(nowdate);
 
-            AssignModel updatedModel = assignRepo.updateAmConfirmation(assignModelOptional.get().getId(),true, nowdate);
+            int updatedVal = assignRepo.updateAmConfirmation(assignModelOptional.get().getId(),true, nowdate);
 
-            System.out.println("Confirmed AM: " + updatedModel.toString());
+            System.out.println("Confirmed AM: " + updatedVal);
 
-            return ResponseEntity.ok(updatedModel);
+            Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
+            return ResponseEntity.ok(updatedModel.get());
         }
         else {
 

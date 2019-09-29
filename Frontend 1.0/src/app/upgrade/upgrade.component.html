@@ -63,6 +63,12 @@
                         
                       </nav>
 
+                      <a *ngFor="let data of pendingRequestDH">
+                        <h5>{{data.id}}</h5>
+                        <h5>{{data.requestedNic}}</h5>
+                        <h5>{{data.assetId}}</h5>
+                      </a>
+
                       <!-- Button trigger modal -->
                   <router-outlet></router-outlet>
                      </div>                              

@@ -27,7 +27,7 @@ public class RejectAssetController {
     // Reject by Department Head
     @PostMapping("/departmenthead")
     public ResponseEntity<AssignModel> rejectByDepartmentHead(@RequestBody RequestConfirmationDTO req){
-        System.out.println("Reject by Department head, this id: "+ req.toString());
+        System.out.println("Reject by Department head, this id: "+ req.getId());
 
         Optional<AssignModel> assignModelOptional = assignRepo.findById(req.id);
 
@@ -39,13 +39,16 @@ public class RejectAssetController {
             Date nowdate = new Date();
             dateFormat.format(nowdate);
 
-            AssignModel updatedModel;
+
+            int updatedVal;
             assignRepo.updateDhRejection(assignModelOptional.get().getId(),false, nowdate);
-            updatedModel = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
+            updatedVal = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
 
-            System.out.println("Rejected DH: " + updatedModel.toString());
+            System.out.println("Rejected DH: " + updatedVal);
 
-            return ResponseEntity.ok(updatedModel);
+            Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
+            return ResponseEntity.ok(updatedModel.get());
         }
         else {
 
@@ -72,12 +75,14 @@ public class RejectAssetController {
             Date nowdate = new Date();
             dateFormat.format(nowdate);
 
-            AssignModel updatedModel;
-            updatedModel = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
 
-            System.out.println("Rejected AM: " + updatedModel.toString());
+            int updatedVal;
+            updatedVal = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
 
-            return ResponseEntity.ok(updatedModel);
+            System.out.println("Rejected AM: " + updatedVal);
+            Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
+            return ResponseEntity.ok(updatedModel.get());
         }
         else {
 
