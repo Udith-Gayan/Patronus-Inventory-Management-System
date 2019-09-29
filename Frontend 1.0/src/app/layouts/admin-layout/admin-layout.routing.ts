@@ -32,6 +32,11 @@ import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/vie
 import { AuthGuardServiceService } from '../../service/auth-guard-service.service';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
 import { AboutUsComponent } from '../../maps/about-us/about-us.component';
+import { ViewAllAssetComponent } from '../../upgrade/view-all-asset/view-all-asset.component';
+import { ViewAllEmployeeComponent } from '../../upgrade/view-all-employee/view-all-employee.component';
+import { ViewAllMonthlyBrakeDownAssetComponent } from '../../upgrade/view-all-monthly-brake-down-asset/view-all-monthly-brake-down-asset.component';
+import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-report/view-all-monthly-report.component';
+import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly-book-asset/view-all-monthly-book-asset.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
@@ -232,7 +237,37 @@ export const AdminLayoutRoutes: Routes = [
         ]
 
     },
-    { path: 'upgrade', component: UpgradeComponent },
+    { path: 'report',
+     component: UpgradeComponent ,
+
+     children:[
+        {
+            path: '',
+            redirectTo: 'view-viewAllMonthlyReport',
+            pathMatch: 'full',
+          },
+         {
+             path:'viewAllAssetReport',
+             component:ViewAllAssetComponent
+         },
+         {
+            path:'viewallEmployeeDetailReport',
+            component:ViewAllEmployeeComponent
+        },
+        {
+            path:'viewAllBreakDownReport',
+            component:ViewAllMonthlyBrakeDownAssetComponent
+        },
+        {
+            path:'viewAllMonthlyReport',
+            component:ViewAllMonthlyReportComponent
+        },
+        {
+            path:'viewMonthlyBookAssetReport',
+            component:ViewAllMonthlyBookAssetComponent
+        }
+     ]
+    },
     {path: 'other', component: OtherComponent },
     {path: 'registor', component: RegistorEmpComponent },
     {path: 'view' , component: TestveiwComponent},

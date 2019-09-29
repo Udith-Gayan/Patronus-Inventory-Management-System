@@ -43,6 +43,11 @@ import { ViewRequestAssetComponent } from '../../firebase/view-request-asset/vie
 import { NgxPrintModule } from 'ngx-print';
 import { AboutUsComponent } from '../../maps/about-us/about-us.component';
 import { WelcomeComponent } from '../../maps/welcome/welcome.component';
+import { ViewAllEmployeeComponent } from '../../upgrade/view-all-employee/view-all-employee.component';
+import { ViewAllAssetComponent } from '../../upgrade/view-all-asset/view-all-asset.component';
+import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly-book-asset/view-all-monthly-book-asset.component';
+import { ViewAllMonthlyBrakeDownAssetComponent } from '../../upgrade/view-all-monthly-brake-down-asset/view-all-monthly-brake-down-asset.component';
+import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-report/view-all-monthly-report.component';
 
 
 
@@ -97,7 +102,13 @@ import { WelcomeComponent } from '../../maps/welcome/welcome.component';
     ViewBrekDownComponent,
     ViewRequestAssetComponent,
     AboutUsComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ViewAllEmployeeComponent,
+    ViewAllAssetComponent,
+    ViewAllMonthlyBookAssetComponent,
+    ViewAllMonthlyBrakeDownAssetComponent,
+    ViewAllMonthlyReportComponent,
+  
 
     
   
