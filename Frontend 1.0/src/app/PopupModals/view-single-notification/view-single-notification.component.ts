@@ -280,7 +280,7 @@ rejectDH(num1 : number,requestedNic:string,assetId:string){
   delete data.id;
   
   data.Discription=this.jstoday;
-  data.notificationType="RequestAM";
+  data.notificationType="Reject";
   data.assetId=assetId;
   data.requestedNic= requestedNic;
   data.massege="You'r Request is reject";
@@ -323,12 +323,39 @@ rejectDH(num1 : number,requestedNic:string,assetId:string){
 
 ////////////////////////////////////////////Accept Asset manger///////////////////////////////
 
-acceptAM(username){
+acceptAM(username,requestedNic : string,assetId: string){
   console.log("Line 1");
   console.log(username);
+  console.log(requestedNic);
+  console.log(assetId);
   
  this.asset.approveRequestAM(username).subscribe((response)=>{
     console.log(response);
+
+  
+    
+    
+  });
+
+  //////stored by firebase
+
+  console.log("line 10");
+  let data = Object.assign({});
+  delete data.id;
+  
+  data.Discription=this.jstoday;
+  data.notificationType="acceptAM";
+  data.assetId=assetId;
+  data.requestedNic= requestedNic;
+  data.massege="You'r Request is Accept";
+  
+  
+
+ 
+   
+    this.firestore.collection('BookAssetNotification').add(data);
+    console.log("line 6");
+
 
     ////////////dialog box
 
@@ -339,24 +366,48 @@ acceptAM(username){
       showConfirmButton: false,
       timer: 2000
     })
-    
-    
-  });
 
 
 }
 
 //////////////////////////////////////////Reject Asset manger//////////////////////////////////////////
 
-rejectAM(username){
+rejectAM(username,requestedNic : string,assetId: string){
 
   console.log(username);
+  console.log(requestedNic);
+  console.log(assetId);
   
   this.asset.rejectRequestAM(username).subscribe((response)=>{
      console.log(response);
-     
-     ///////Dialog Box
-     let timerInterval
+
+
+   });
+
+   //////stored by firebase
+
+console.log("line 10");
+let data = Object.assign({});
+delete data.id;
+
+data.Discription=this.jstoday;
+data.notificationType="rejectAM";
+data.assetId=assetId;
+data.requestedNic= requestedNic;
+data.massege="You'r Request is Accept";
+
+
+
+
+ 
+  this.firestore.collection('BookAssetNotification').add(data);
+  console.log("line 6");
+
+
+
+
+      ///////Dialog Box
+      let timerInterval
       Swal.fire({
       title: 'Succes Reject Request',
       html: 'I will close in <strong></strong> milliseconds.',
@@ -380,8 +431,8 @@ rejectAM(username){
         }
       })
      
-   });
-
+     
+    
 
 }
 

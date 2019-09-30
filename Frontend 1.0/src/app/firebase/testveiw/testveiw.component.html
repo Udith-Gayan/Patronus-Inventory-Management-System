@@ -5,55 +5,126 @@
 <script src="sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 <!-- DialogBox -->
-<div class="table-responsive" >
+<div class="table-responsive"  >
   <table class="table table-condensed">
       <thead class="black white-text">
-          <tr  class="table-primary">
-            <th scope="col">Date/Time</th>
-            <th  scope="col">Asset ID</th>
-            <th scope="col">Category</th>
-            <th scope="col">Order By</th>
-            <th scope="col">From</th>
-            <th scope="col">To</th>
-            <th scope="col">Description</th>
-            <th></th>
-            <th></th>
-          </tr>
+    
         </thead>
     <tbody>
        
-        <tr *ngFor="let a of list" class="table-active"  style="background-color: rgb(90, 131, 207);font-size: 1.5ch;color: black">
-
-          <!------------------------------------Boking Notification for Asset manager---------------------------------->
- 
-            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col"><a *ngIf="a.notificationType=='Booking'" style="background-color: red">{{a.notificationType}}</a><a *ngIf="a.notificationType=='Requesting'" style="background-color: rgb(12, 175, 39)">{{a.notificationType}}</a> <br> {{a.Discription}} </td> 
-             <td class="table-danger" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.assetcategory}}</td>
-            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.username}}</td>
-            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.beginDate}}</td> 
-            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.dueDate}}</td>
-            <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" scope="col">{{a.massege}}</td>
-           <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" >View</td></button>
-            <td (click)="onDelete(a.id)" *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-       
-         <!---------------------------------------------End----------------------------------------------------------------->
-
-         
-          <!------------------------------------Request Notification for Department Heard---------------------------------->
+   <tr *ngFor="let a of list" class="table-active"  style="background-color: rgb(90, 131, 207);font-size: 1.5ch;color: black">
+  <!------------------------------------Boking Notification for Asset manager---------------------------------->
+     <a *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'" >
+   
+       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
+         <td (click)="onEdit(a)"  scope="col" style="font-size: x-small">{{a.Discription}}</td>
+         <td (click)="onEdit(a)" scope="col">{{a.notificationType}}</td>
+         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+         <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
+         <td (click)="onEdit(a)" style="width: 3cm"scope="col">by {{a.username}}</td>
+         <td (click)="onEdit(a)"  scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
+         <td (click)="onEdit(a)"  scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+         <td></td>
+         <td></td>
+       </button>
+         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+    </a>  
+        <!---------------------------------------------End----------------------------------------------------------------->
       
-          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" scope="col"> {{a.Discription}} </td> 
-           <td class="table-danger" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"  (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"  scope="col">{{a.assetcategory}}</td>
-          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" scope="col">{{a.username}}</td>
-          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" scope="col">{{a.beginDate}}</td> 
-          <td (click)="onEdit(a)" *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"  scope="col">{{a.dueDate}}</td>
-          <td (click)="onEdit(a)"*ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"  scope="col">{{a.massege}}</td>
-         <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" >View</td></button>
-          <td (click)="onDelete(a.id)"  *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'"><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-       
-       
+
+         <!------------------------------------Request Notification for Department head---------------------------------->
+     <a *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'" >
+   
+        <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
+          <td (click)="onEdit(a)"  scope="col" style="font-size: small">{{a.Discription}}</td>
+          <td (click)="onEdit(a)" scope="col">{{a.notificationType}}</td>
+          <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+          <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
+          <td (click)="onEdit(a)" style="width: 3cm"scope="col">by {{a.username}}</td>
+          <td (click)="onEdit(a)"  scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
+          <td (click)="onEdit(a)"  scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+          <td></td>
+          <td></td>
+        </button>
+          <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+     </a>  
          <!---------------------------------------------End----------------------------------------------------------------->
-       </tr>
+       
+   <!------------------------------------Request Notification for employee(Accept department head)---------------------------------->
+   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'Department Head')  && nic == a.requestedNic" >
+   
+      <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+     
+        <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Department head and pending for Asset manager approval</td>
+       
+      </button>
+        <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+   </a>  
+       <!---------------------------------------------End----------------------------------------------------------------->
+     
+ 
+            
+   <!------------------------------------Request Notification for employee(Reject department head)---------------------------------->
+   <a *ngIf="a.notificationType == 'Reject' && status == 'Employee' && nic == a.requestedNic" >
+   
+      <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+     
+        <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was Rejected by Department head </td>
+       
+      </button>
+        <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+   </a>  
+       <!---------------------------------------------End----------------------------------------------------------------->
+     
+      
+         <!------------------------------------Request Notification form department head to AssetmAnger---------------------------------->
+   <a *ngIf="a.notificationType == 'RequestAM' && status == 'Asset Manager'" >
+   
+      <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+     
+        <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Department head.Pending for Asset manager approval</td>
+       
+      </button>
+        <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+   </a>  
+       <!---------------------------------------------End----------------------------------------------------------------->
+     
+             <!------------------------------------Request Notification form assetManeger  to employee(accept)---------------------------------->
+   <a *ngIf="a.notificationType == 'acceptAM' && status == 'Employee' && nic == a.requestedNic" >
+   
+      <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+     
+        <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Asset Manager</td>
+       
+      </button>
+        <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+   </a>  
+       <!---------------------------------------------End----------------------------------------------------------------->
+     
+
+               <!------------------------------------Request Notification form assetManeger  to employee(reject)---------------------------------->
+   <a *ngIf="a.notificationType == 'rejectAM' && status == 'Employee' && nic == a.requestedNic" >
+   
+      <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+     
+        <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was Rejected by Asset Manager</td>
+       
+      </button>
+        <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+   </a>  
+       <!---------------------------------------------End----------------------------------------------------------------->
+     
+           </tr>
     
      
     </tbody>

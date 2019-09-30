@@ -50,6 +50,7 @@ list2:BreakDwonNoti[];
 
      // notification genarator
      this.ser.data.subscribe( data => {
+       
        this.data = data ;
      })
 
@@ -81,46 +82,9 @@ list2:BreakDwonNoti[];
     })
     }
 
-    collapse(){
-      this.isCollapsed = !this.isCollapsed;
-      const navbar = document.getElementsByTagName('nav')[0];
-      console.log(navbar);
-      if (!this.isCollapsed) {
-        navbar.classList.remove('navbar-transparent');
-        navbar.classList.add('bg-white');
-      }else{
-        navbar.classList.add('navbar-transparent');
-        navbar.classList.remove('bg-white');
-      }
+    
 
-    }
-
-    login(){
-      console.log("line1");
-
-      console.log("Line2");
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, Logout!'
-
-      }).then((result) => {
-        this.con=true;
-        console.log(this.con);
-
-        if (result.value) {
-          console.log(this.con);
-          console.log("Line3");
-
-        }
-      })
-
-
-    }
+   
 
     ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

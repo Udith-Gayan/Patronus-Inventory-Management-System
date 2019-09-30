@@ -22,6 +22,7 @@ export class TestveiwComponent implements OnInit {
 
   list:BookAsset[];
   status:string = sessionStorage.getItem('status');
+  nic:string = sessionStorage.getItem('nic');
   constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) { }
 
   ngOnInit() {
