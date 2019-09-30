@@ -13,7 +13,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl: './login2.component.html',
   styleUrls: ['./login.component.scss']
 })
 
@@ -38,6 +38,26 @@ export class LoginComponent implements OnInit {
 
     console.log(this.loginRequest);
 
+    // if (this.loginRequest.username || this.loginRequest.password) {
+    //   console.log('Empty fields received');
+    //   if (this.loginRequest.username === '' && this.loginRequest.password === '') {
+    //     this.loginRequest.username = '';
+    //     this.loginRequest.password = '';
+    //     return;
+       
+ 
+    //   } else if (this.loginRequest.password === '') {
+        
+    //    this.loginRequest.password = '';
+    //    return;
+
+    //   } else {
+    //     this.loginRequest.username = '';
+    //     return;
+
+    //   }
+    // }
+
 
 
     this.userService.login(this.loginRequest).subscribe((response: WebtokenResponse) => {
@@ -55,12 +75,17 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('contactNo', response.contactNo.toString());
       this.router.navigate(['/welcome']);
 
+
+
     },
     ( error: any) => {
        console.table('Error found while loggin: ' + error.type);
 
         this.openErrorBox();
        this.router.navigate(['/login']);
+
+       this.loginRequest.username = '';
+       this.loginRequest.password = '';
 
           } );
 
