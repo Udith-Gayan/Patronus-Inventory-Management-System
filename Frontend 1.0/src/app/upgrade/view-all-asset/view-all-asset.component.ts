@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../service2/http.service';
 import { Observable } from 'rxjs';
 import { pendinRequest } from '../../models/pendingRequestModel';
+import { Asset } from '../../asset/asset';
+import { Session } from 'inspector';
 
 @Component({
   selector: 'app-view-all-asset',
@@ -9,18 +11,21 @@ import { pendinRequest } from '../../models/pendingRequestModel';
   styleUrls: ['./view-all-asset.component.scss']
 })
 export class ViewAllAssetComponent implements OnInit {
+  email:string = sessionStorage.getItem('email');
+  Fname:string = sessionStorage.getItem('firstname');
+  Lname:string = sessionStorage.getItem('lastname');
+  status:string = sessionStorage.getItem('status');
 
   pendingRequestAM:Observable<pendinRequest>
   constructor(private asset:HttpService) { }
+AllAsset:Observable<Asset>
 
   ngOnInit() {
-    console.log("Line 4");
-    this.asset.getPendingRequestAM().subscribe(res=>{
-      console.log("Line 5");
+    this.asset.getAllAssets().subscribe(res=>{
+
       console.log(res);
-      console.log(res.id);
-      this.pendingRequestAM = res
-      console.log(this.pendingRequestAM)
+      this.AllAsset = res
+      console.log(this.AllAsset)
     })
   }
 
