@@ -2,9 +2,7 @@ package com.project.inventoryManagement.Controllers;
 
 
 import com.project.inventoryManagement.Models.EmployeeMainModel;
-import com.project.inventoryManagement.Models.LoginResponse;
 import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -105,24 +103,24 @@ public class  EmployeeMainController {
 
     ///////////////// Don't touch my part below,//////////////////
 
+    /// Deprecated method
 
-
-    @PostMapping(path="/login") // Map ONLY POST Requests
-    public LoginResponse login(@RequestBody EmployeeMainModel log1) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
-
-        ////Hashing with Apache Commons Codecs sha256hex
-        log1.setPassword(DigestUtils.sha256Hex(log1.getPassword()));
-
-        EmployeeMainModel user = empMainRepo.findFirstByEmailAndPassword(log1.getEmail(),log1.getPassword());
-        if(user==null){
-            return new LoginResponse(null,"fail","User Credentials NOT Valid!!!");
-        }else{
-            return new LoginResponse(user,"success","User Credentials Valid!!!");
-        }
-
-    }
+//    @PostMapping(path="/login") // Map ONLY POST Requests
+//    public LoginResponse login(@RequestBody EmployeeMainModel log1) {
+//        // @ResponseBody means the returned String is the response, not a view name
+//        // @RequestParam means it is a parameter from the GET or POST request
+//
+//        ////Hashing with Apache Commons Codecs sha256hex
+//        log1.setPassword(DigestUtils.sha256Hex(log1.getPassword()));
+//
+//        EmployeeMainModel user = empMainRepo.findFirstByEmailAndPassword(log1.getEmail(),log1.getPassword());
+//        if(user==null){
+//            return new LoginResponse(null,"fail","User Credentials NOT Valid!!!");
+//        }else{
+//            return new LoginResponse(user,"success","User Credentials Valid!!!");
+//        }
+//
+//    }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       // Delete an employee by Nic

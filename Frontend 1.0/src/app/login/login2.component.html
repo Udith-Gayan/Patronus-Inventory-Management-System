@@ -55,7 +55,7 @@
         </span>
 
 
-				<form class="login100-form validate-form p-b-33 p-t-5" #userForm="ngForm" (ngSubmit) ="onSubmit(thisForm)" name = "login" #thisForm="ngForm">
+				<form class="login100-form validate-form p-b-33 p-t-5 form-udith" #userForm="ngForm" (ngSubmit) ="onSubmit(thisForm)" name = "login" #thisForm="ngForm">
 
 					<div class = "wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="email" name="email" id="user" placeholder="User Email" [(ngModel)] = "loginRequest.username"  #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
@@ -80,8 +80,15 @@
 						<button class="login100-form-btn" [hidden]="thisForm.invalid" [disabled]="thisForm.invalid">
 							Login
 						</button>
-					</div>
+          </div>
+
+          <div class="foot-lnk forget-password">
+            <a class="forget-password" (click)="openPasswordReset()">Forgotten Password?</a>
+        </div>
                 </form>
+
+
+
 			</div>
 		</div>
 	</div>

@@ -8,6 +8,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BookingAssetModalComponent } from '../PopupModals/booking-asset-modal/booking-asset-modal.component';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ResetModel } from './resetPassword.model';
+import { MailResponse } from './mailResponse';
 
 
 
@@ -25,9 +27,13 @@ export class LoginComponent implements OnInit {
 
 
 
+
+
   constructor(private userService: HttpService, private router: Router, private modalService: NgbModal) {
     this.employee = new Employee();
     this.loginRequest = new LoginRequest();
+
+
 
    }
 
@@ -44,10 +50,10 @@ export class LoginComponent implements OnInit {
     //     this.loginRequest.username = '';
     //     this.loginRequest.password = '';
     //     return;
-       
- 
+
+
     //   } else if (this.loginRequest.password === '') {
-        
+
     //    this.loginRequest.password = '';
     //    return;
 
@@ -100,6 +106,13 @@ export class LoginComponent implements OnInit {
     modalRef.componentInstance.name = 'Login credentials are wrong !!! Please check again and continue.. ';
   }
 
+  // Open reset box
+  public openPasswordReset() {
+    const modalRef = this.modalService.open(NgbdModalContentForresetPassword);
+    modalRef.componentInstance.name = 'Please fill the form correctly and check your Email Inbox ';
+  }
+
+
 
 /*
 // Moved to loginLogout Service file
@@ -121,7 +134,8 @@ export class LoginComponent implements OnInit {
 
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////// Another class for popup modal
 @Component({
   selector: 'ngbd-modal-content',
   template: `
@@ -133,6 +147,7 @@ export class LoginComponent implements OnInit {
     </div>
     <div class="modal-body">
       <p style="font-weight: 600;"> {{name}}!</p>
+
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
@@ -146,4 +161,119 @@ export class NgbdModalContent {
   constructor(public activeModal: NgbActiveModal) {}
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Another Class for popup for Password reset form
+@Component({
+  selector: 'ngbd-modal-contentt',
+  template: `
+    <div class="modal-header">
+      <h4 class="modal-title" style="color:green; font-size: 38px;font-weight: 600;">Reset Password</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+     <p style="font-weight: 600;"> {{name}}!</p>
+
+<!--   Reset form -->
+     <form (onSubmit)="sendMail()" #thisForm="ngForm" name = "thisForm" >
+     <div class="form-group">
+       <label for="exampleInputEmail1">Email address</label>
+       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #email="ngModel" name="email"   [(ngModel)]="resetForm.resetEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+     
+
+       <div *ngIf=" email.errors?.required && email.touched"
+       class="alert alert-danger udith-danger">
+        Required
+      </div>
+
+<div *ngIf="email.errors?.pattern && email.touched"
+   class="alert alert-danger udith-danger">
+    Not Valid
+</div>
+       </div>
+    
+
+     <div class="form-group">
+       <label for="exampleInputPassword1">New Password</label>
+       <input type="password" class="form-control" name="newPassword"  placeholder="Password" [(ngModel)]="resetForm.newPassword" #newPassword="ngModel" required>
+     </div>
+
+     <div class="form-group">
+     <label for="exampleInputPasswor2">Confirm New Password</label>
+     <input type="password" class="form-control" name="rePassword"  placeholder="Password Again" [(ngModel)]="resetForm.confirmNewPassword" #rePassword="ngModel" required>
+     </div>
+    
+       
+
+     <div class="form-check">
+
+       <button type="submit" class="btn btn-primary" (click)="sendMail()" [disabled]= "thisForm.invalid">Submit</button>
+     </div>
+   </form>
+
+   <!-- End of form -->
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+  `,
+  styleUrls: ['./login.component.scss']
+})
+
+export class NgbdModalContentForresetPassword {
+  @Input() name;
+
+  resetForm: ResetModel;
+
+  constructor(public activeModal: NgbActiveModal, private userService: HttpService) {
+    this.resetForm = new ResetModel();
+  }
+
+
+  passwordMatched: boolean = true;
+
+////////////////////////////////////////////////////////////////////////////////////
+  public sendMail() {
+    console.log('thisending method begins');
+console.log(this.resetForm);
+
+     this.userService.sendMail(this.resetForm).subscribe( (mailResponse: MailResponse) => {
+
+      if (mailResponse.code === -1) {
+            window.alert(mailResponse.message);
+            this.activeModal.close();
+          //  window.close;
+      }
+      else if(mailResponse.code === 100) {
+        window.alert(mailResponse.message);
+        window.alert('Please check your emails to confirm');
+        this.activeModal.close();
+      }
+
+     } );
+    
+
+  }
+///////////////////////////////////////////////////////////////////////////////////////////
+// on change of retyped password
+public matchPassword() {
+
+  console.log('change');
+  if (this.resetForm.newPassword !== this.resetForm.confirmNewPassword) {
+         this.passwordMatched = false;
+  } else {
+    this.passwordMatched = true;
+  }
+
+
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+}
 
