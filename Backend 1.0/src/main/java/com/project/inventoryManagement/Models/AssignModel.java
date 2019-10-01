@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -24,22 +25,22 @@ public class AssignModel implements Serializable {
     @Column(name = "request_type")
     private String requestType;              // BOOKING, REQUEST for notifications and report generations
 
-    @Temporal(TemporalType.TIMESTAMP)
+
     @CreatedDate
     @Column(name = "request_made_date")
-    private Date requestMadeDate;
+    private LocalDate requestMadeDate;
 
     @Column(name = "begin_date")
-    private Date beginDate;
+    private LocalDate beginDate;
 
     @Column(name = "due_date")
-    private Date dueDate;
+    private LocalDate dueDate;
 
     @Column(name = "date_dh_confirmed")
-    private Date dateDHConfirmed;
+    private LocalDate dateDHConfirmed;
 
     @Column(name = "date_am_confirmed")
-    private Date dateAMConfirmed;
+    private LocalDate dateAMConfirmed;
 
 
     @Column(name = "asset_id")      //newly added

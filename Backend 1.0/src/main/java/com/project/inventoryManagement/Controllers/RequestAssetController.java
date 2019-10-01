@@ -8,9 +8,7 @@ import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -44,10 +42,9 @@ public class RequestAssetController {
         m1.setApprovedByDepartmentHead(false);
 
         // Assigning created date
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        Date date = new Date();
-        // dateFormat.format(date);
-        m1.setRequestMadeDate(date);
+        LocalDate nowdate = LocalDate.now();
+        System.out.println("Now date is: " + nowdate);
+        m1.setRequestMadeDate(nowdate);
 
         System.out.println("After editing: " + m1.toString());
 

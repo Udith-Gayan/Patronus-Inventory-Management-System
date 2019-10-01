@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -41,7 +42,7 @@ public class Breakdown implements Serializable {
     private boolean isAssignedToRepairManager;
 
     @Column(name = "informed_date")
-    private Date informedDate;
+    private LocalDate informedDate;
 
     @ManyToOne(cascade= CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "informed_user_id", nullable = false, referencedColumnName = "employeeId")

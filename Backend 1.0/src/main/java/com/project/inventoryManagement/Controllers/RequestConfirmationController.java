@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -34,12 +32,17 @@ public class RequestConfirmationController {
             System.out.println("DH request model found in table. Updating to confirm ");
 
             // Assigning updated date
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-            Date nowdate = new Date();
-            dateFormat.format(nowdate);
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+//            Date nowdate = new Date();
+//            dateFormat.format(nowdate);
+
+
+            LocalDate nowdate = LocalDate.now();
+            System.out.println("Now date is: " + nowdate);
 
             int updatedVal = assignRepo.updateDhConfirmation(assignModelOptional.get().getId(),true, nowdate);
             System.out.println("Confirmed DH: " + updatedVal);
+
 
             Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
 
@@ -67,11 +70,16 @@ public class RequestConfirmationController {
             System.out.println("AM request model found in table. Updating to confirm ");
 
             // Assigning updated date
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-            Date nowdate = new Date();
-            dateFormat.format(nowdate);
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+//            Date nowdate = new Date();
+//            dateFormat.format(nowdate);
+
+
+            LocalDate nowdate = LocalDate.now();
+            System.out.println("Now date is: " + nowdate);
 
             int updatedVal = assignRepo.updateAmConfirmation(assignModelOptional.get().getId(),true, nowdate);
+
 
             System.out.println("Confirmed AM: " + updatedVal);
 
