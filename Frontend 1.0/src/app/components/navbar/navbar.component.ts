@@ -54,6 +54,8 @@ list2:BreakDwonNoti[];
        this.data = data ;
      })
 
+    
+
      this.ser.Bookasset().subscribe(actionArry => {
       this.list = actionArry.map(item => {
         return {
@@ -62,6 +64,7 @@ list2:BreakDwonNoti[];
 
         } as BookAsset;
       })
+     
      // this.ser.updatedDataSelection(this.list.length+this.list2.length);
     });
 

@@ -10,6 +10,7 @@ import { BookAsset } from '../../models/BookAssetModel';
 import 'sweetalert2/src/sweetalert2.scss';
 import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { database } from 'firebase';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -34,11 +35,24 @@ export class TestveiwComponent implements OnInit {
 
         } as BookAsset;
       })
+      
       this.ser.updatedDataSelection(this.list.length);
     });
     this.ser.data.subscribe( data => {
       console.log(data);
     })
+  ///////////
+  this.firestore.collection('BookAssetNotification',ref => ref.where('assetId','==','OTH98')).valueChanges().subscribe(data=>{
+           
+    console.log(data.length);
+    console.log("data");
+
+    // ---check current user
+    // ---get new notification count
+    
+      })
+
+  ////////
   }
 
   onDelete(id:string){
