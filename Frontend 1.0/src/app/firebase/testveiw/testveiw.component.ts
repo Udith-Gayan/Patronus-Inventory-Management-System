@@ -11,6 +11,7 @@ import 'sweetalert2/src/sweetalert2.scss';
 import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { database } from 'firebase';
+import { ViewBreakeDownAssetComponent } from '../../PopupModals/view-breake-down-asset/view-breake-down-asset.component';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -101,7 +102,25 @@ export class TestveiwComponent implements OnInit {
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  openBreakModal(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username) {
+    console.log("Line1");
+    const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
+    modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.notificationType = notificationType;
+    modalRef.componentInstance.complainedNic = complainedNic;
+    modalRef.componentInstance.massege = massege;
+    modalRef.componentInstance.beginDate = beginDate;
+    modalRef.componentInstance.dueDate = dueDate;
+    modalRef.componentInstance.username = username;
 
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
 
 }

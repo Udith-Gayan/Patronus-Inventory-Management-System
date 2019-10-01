@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Asset } from '../../asset/asset';
 import { HttpService } from '../../service2/http.service';
+import { ViewRequestAndBookingEmpDetailComponent } from '../view-request-and-booking-emp-detail/view-request-and-booking-emp-detail.component';
 
 @Component({
   selector: 'app-view-breake-down-asset',
@@ -99,6 +100,22 @@ resetForm(form ? : NgForm){
 }
 ////Book asset Registation///////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////// View Employee Delail on Popup 
+openEMPDetailModal(complainedNic){
+  console.log(complainedNic);
+  const modalRef = this.modalService.open(ViewRequestAndBookingEmpDetailComponent);
+   
+   // Pass vallue to other form component
+   modalRef.componentInstance.requestedNic = complainedNic;
+   console.log(complainedNic);
+   
 
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+
+}
 
 }

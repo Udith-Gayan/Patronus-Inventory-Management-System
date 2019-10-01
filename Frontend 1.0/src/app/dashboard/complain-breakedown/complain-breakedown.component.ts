@@ -94,11 +94,11 @@ export class ComplainBreakedownComponent implements OnInit {
 
   if(form.value.id == null){
 
-    this.firestore.collection('BreakDwonAsset').add(data);
+    this.firestore.collection('BookAssetNotification').add(data);
    console.log("line 10");
 }
   else
-    this.firestore.doc('BreakDwonAsset/'+form.value.id).update(data);
+    this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
   this.resetForm(form);
   console.log("line 11");
 
