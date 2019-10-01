@@ -15,6 +15,14 @@ import { Observable } from 'rxjs';
 import { Asset } from '../../asset/asset';
 import { BookingAssetModalComponent } from '../booking-asset-modal/booking-asset-modal.component';
 import { ViewRequestAndBookingEmpDetailComponent } from '../view-request-and-booking-emp-detail/view-request-and-booking-emp-detail.component';
+import { pendinRequest } from '../../models/pendingRequestModel';
+////////////
+//import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
 
 @Component({
   selector: 'app-view-single-notification',
@@ -26,16 +34,19 @@ export class ViewSingleNotificationComponent implements OnInit {
   @Input() assetId: string;
   @Input() username: String;
   @Input() bookNic:string;
+  @Input() id:string;
+ 
 
   status:string = sessionStorage.getItem('status');
   replay:Replay;
   myForm: FormGroup;
-
+  num:number;
   datePipe: any;
- 
+
   today= new Date();
   jstoday = '';
  data:Observable<Asset>
+ pendingRequestDH:Observable<pendinRequest>
  
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal,private asset : HttpService) {
     this.createForm();
@@ -52,7 +63,9 @@ export class ViewSingleNotificationComponent implements OnInit {
 
   ngOnInit() {
     this.replay.assetId=this.assetId;
-    this.replay.id="2";
+    
+  
+   
     this.asset.getAllAssets().subscribe(res=>{
 
       console.log(res);
@@ -60,6 +73,19 @@ export class ViewSingleNotificationComponent implements OnInit {
       console.log(this.data)
       
     })
+
+    ////////////////get assign Table/////////////
+
+    console.log("Line 2");
+    this.asset.getPendingRequestDH().subscribe(res=>{
+      console.log("Line 3");
+      console.log(res);
+      console.log(res.id);
+      this.pendingRequestDH = res
+      console.log(this.pendingRequestDH)
+    })
+
+
    
     
   }
@@ -190,18 +216,225 @@ openEmpDetailModal(requestedNic){
 
 ////////////////////////////////////////Accept Department Head/////////////////////////
 
-acceptDH(){
+acceptDH(num,requestedNic:string,assetId:string,description:string,beginDate : string,dueDate : string){
   console.log("Line 1");
-  this.asset.approveRequestAM(this.replay).subscribe((response)=>{
+  console.log(num);
+  console.log(requestedNic);
+  console.log(assetId);
+  
+  this.asset.approveRequestDH(num).subscribe((response)=>{
     console.log(response);
     console.log(this.replay.id);
     
   });
+  console.log("line 10");
+  let data = Object.assign({});
+  delete data.id;
+  
+  data.Discription=this.jstoday;
+  data.notificationType="RequestAM";
+  data.assetId=assetId;
+  data.requestedNic=requestedNic;
+  data.massege=description;
+  data.username=num;
+  data.beginDate=beginDate;
+  data.dueDate=dueDate;
+  
+
+ 
+   
+    this.firestore.collection('BookAssetNotification').add(data);
+    console.log("line 44");
+    
+   ///////////////dialog box
+
+   Swal.fire({
+    position: 'center',
+    type: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1500
+  })
+
+ 
 }
 
+////////////////////////////////////////////reject Department head////////////////////////////////
+
+
+rejectDH(num1 : number,requestedNic:string,assetId:string){
+  
+  console.log(num1);
+  
+  this.asset.rejectRequestDH(num1).subscribe((response)=>{
+    console.log(response);
+    console.log(this.replay.id);
+
+    
+  });
+
+  ////send to fire base massage to employee///////////
+
+  console.log("line 10");
+  let data = Object.assign({});
+  delete data.id;
+  
+  data.Discription=this.jstoday;
+  data.notificationType="Reject";
+  data.assetId=assetId;
+  data.requestedNic= requestedNic;
+  data.massege="You'r Request is reject";
+  
+  
+
+ 
+   
+    this.firestore.collection('BookAssetNotification').add(data);
+    console.log("line 6");
+
+
+ 
+
+     ///////Dialog Box
+     let timerInterval
+      Swal.fire({
+      title: 'Succes Reject Request',
+      html: 'I will close in <strong></strong> milliseconds.',
+      timer: 2000,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+          Swal.getContent().querySelector('strong')
+            .textContent = Swal.getTimerLeft()
+        }, 100)
+      },
+      onClose: () => {
+        clearInterval(timerInterval)
+      }
+      }).then((result) => {
+        if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.timer
+        ) {
+          console.log('I was closed by the timer')
+        }
+      })
+}
+
+////////////////////////////////////////////Accept Asset manger///////////////////////////////
+
+acceptAM(username,requestedNic : string,assetId: string){
+  console.log("Line 1");
+  console.log(username);
+  console.log(requestedNic);
+  console.log(assetId);
+  
+ this.asset.approveRequestAM(username).subscribe((response)=>{
+    console.log(response);
+
+  
+    
+    
+  });
+
+  //////stored by firebase
+
+  console.log("line 10");
+  let data = Object.assign({});
+  delete data.id;
+  
+  data.Discription=this.jstoday;
+  data.notificationType="acceptAM";
+  data.assetId=assetId;
+  data.requestedNic= requestedNic;
+  data.massege="You'r Request is Accept";
+  
+  
+
+ 
+   
+    this.firestore.collection('BookAssetNotification').add(data);
+    console.log("line 6");
+
+
+    ////////////dialog box
+
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 2000
+    })
+
+
+}
+
+//////////////////////////////////////////Reject Asset manger//////////////////////////////////////////
+
+rejectAM(username,requestedNic : string,assetId: string){
+
+  console.log(username);
+  console.log(requestedNic);
+  console.log(assetId);
+  
+  this.asset.rejectRequestAM(username).subscribe((response)=>{
+     console.log(response);
+
+
+   });
+
+   //////stored by firebase
+
+console.log("line 10");
+let data = Object.assign({});
+delete data.id;
+
+data.Discription=this.jstoday;
+data.notificationType="rejectAM";
+data.assetId=assetId;
+data.requestedNic= requestedNic;
+data.massege="You'r Request is Accept";
 
 
 
+
+ 
+  this.firestore.collection('BookAssetNotification').add(data);
+  console.log("line 6");
+
+
+
+
+      ///////Dialog Box
+      let timerInterval
+      Swal.fire({
+      title: 'Succes Reject Request',
+      html: 'I will close in <strong></strong> milliseconds.',
+      timer: 2000,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+          Swal.getContent().querySelector('strong')
+            .textContent = Swal.getTimerLeft()
+        }, 100)
+      },
+      onClose: () => {
+        clearInterval(timerInterval)
+      }
+      }).then((result) => {
+        if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.timer
+        ) {
+          console.log('I was closed by the timer')
+        }
+      })
+     
+     
+    
+
+}
 
 
 

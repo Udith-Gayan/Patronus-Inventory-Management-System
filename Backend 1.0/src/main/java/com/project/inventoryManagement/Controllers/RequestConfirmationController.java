@@ -36,11 +36,13 @@ public class RequestConfirmationController {
 //            Date nowdate = new Date();
 //            dateFormat.format(nowdate);
 
+
             LocalDate nowdate = LocalDate.now();
             System.out.println("Now date is: " + nowdate);
 
             int updatedVal = assignRepo.updateDhConfirmation(assignModelOptional.get().getId(),true, nowdate);
             System.out.println("Confirmed DH: " + updatedVal);
+
 
             Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
 
@@ -77,6 +79,7 @@ public class RequestConfirmationController {
             System.out.println("Now date is: " + nowdate);
 
             int updatedVal = assignRepo.updateAmConfirmation(assignModelOptional.get().getId(),true, nowdate);
+
 
             System.out.println("Confirmed AM: " + updatedVal);
 

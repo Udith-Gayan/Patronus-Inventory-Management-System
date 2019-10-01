@@ -56,6 +56,7 @@ import {NgxPrintModule} from 'ngx-print';
 import { ViewBreakeDownAssetComponent } from './PopupModals/view-breake-down-asset/view-breake-down-asset.component';
 import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-request-and-booking-emp-detail/view-request-and-booking-emp-detail.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
@@ -78,6 +79,7 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
     AngularFirestoreModule,
     EmpCompenentModule,
     ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
   
 
 

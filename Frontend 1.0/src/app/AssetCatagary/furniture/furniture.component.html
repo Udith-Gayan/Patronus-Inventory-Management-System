@@ -13,7 +13,7 @@
           </header>
         
         <div class="card-body">
-          <form class="form-horizontal"  (ngSubmit)=" onSubmit(assetsform) " name="form" #assetsForm="ngForm"  >
+          <form class="form-horizontal"  (ngSubmit)=" onSubmit(assetsForm) " name="form" #assetsForm="ngForm"  >
         
                    
                             <div class="form-group"  [class.has-error]="brandName.invalid && brandName.touched"  [class.has-success]="brandName.valid">
@@ -39,7 +39,7 @@
                       
                
                 <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched"  [class.has-success]="boughtDate.valid">
-                    <label for="boughtDate" class="cols-sm-2 control-label">date</label>
+                    <label for="boughtDate" class="cols-sm-2 control-label">Date</label>
                     <div class="cols-sm-10">
                       
                             
@@ -54,7 +54,7 @@
 
                 
                 <div class="form-group"  [class.has-error]="buyingPrice.invalid && buyingPrice.touched"  [class.has-success]="buyingPrice.valid">
-                    <label for="buyingPrice" class="cols-sm-2 control-label">price</label>
+                    <label for="buyingPrice" class="cols-sm-2 control-label">Price</label>
                     <div class="cols-sm-10">
                             <div class="input-group">
                                     <div class="input-group-addon">
@@ -97,6 +97,8 @@
           
   </div>
 </div>
+
+             
 
                 <!-- Default checked -->
                 <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched" [class.has-success]="warrantyStatus.valid">
@@ -207,9 +209,9 @@
             <div class="form-row">
              
                     <div class="col-md-6 mb-3">
-                            <div class="form-group"  [class.has-error]="assetcategory.invalid && assetcategory.touched" [class.has-success]="assetcategory.valid">
+                            <div class="form-group"  [class.has-error]="categoryTypes.invalid && categoryTypes.touched" [class.has-success]="categoryTypes.valid">
                                         <label for="assetcategory" class="cols-sm-2 control-label"> Asset Category</label>
-                                        <select name="assetcategory" id="assetcategory" style="width: 70mm;height:10mm" [(ngModel)]="asset.assetcategory"  #assetcategory="ngModel" placeholder="Category" required assetcategory>
+                                        <select name="categoryTypes" id="categoryTypes" style="width: 70mm;height:10mm" [(ngModel)]="asset.categoryTypes"  #categoryTypes="ngModel" placeholder="Category" required categoryTypes>
                                                 <option value="Office Table" >Office Table</option>
                                                 <option value="Office chair" >Office chair</option>
                                                 <option value="Cupbourds" >Cupbourds</option>
@@ -235,7 +237,7 @@
                         
                
                 <div class="form-group shadow-textarea">
-                        <label for="exampleFormControlTextarea6">Discription</label>
+                        <label for="exampleFormControlTextarea6">Description</label>
                         <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" name="description" [(ngModel)]="asset.description"  placeholder="Write Description here..."></textarea>
                         <small id="passwordHelpInline" class="text-muted">
                                 Must be 8-20  words
@@ -261,8 +263,3 @@
                          
                        
                    
-            
-                  
-        
-
-

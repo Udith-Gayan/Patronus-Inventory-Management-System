@@ -45,9 +45,11 @@ public class RejectAssetController {
             assignRepo.updateDhRejection(assignModelOptional.get().getId(),false, nowdate);
             updatedVal = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
 
+
             System.out.println("Rejected DH: " + updatedVal);
 
             Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
 
             return ResponseEntity.ok(updatedModel.get());
         }
@@ -76,6 +78,7 @@ public class RejectAssetController {
 //            Date nowdate = new Date();
 //            dateFormat.format(nowdate);
 
+
             LocalDate nowdate = LocalDate.now();
             System.out.println("Now date is: " + nowdate);
 
@@ -85,6 +88,7 @@ public class RejectAssetController {
 
             System.out.println("Rejected AM: " + updatedVal);
             Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
 
             return ResponseEntity.ok(updatedModel.get());
         }

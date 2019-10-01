@@ -6,6 +6,13 @@ import { HttpService } from '../../service2/http.service';
 import { NotifiService } from '../../firebase/notifi.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
+////////////
+//import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
+//////////////////
 
 @Component({
   selector: 'app-request-asset-modal',
@@ -127,13 +134,20 @@ console.log(this.requestAsset);
     
   }
 
-  alert('Request Successfully');
+ 
 
   this.resetForm(form);
   
  
-
+  Swal.fire({
+    position: 'center',
+    type: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 2000
+  })
 
 
 }
+
 }

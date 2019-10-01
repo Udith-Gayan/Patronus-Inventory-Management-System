@@ -34,7 +34,7 @@ export class NotifiService {
   }
 
   BreakDownAsset(){
-    return this.firestore.collection('BreakDwonAsset').snapshotChanges();
+    return this.firestore.collection('BookAssetNotification').snapshotChanges();
 
   }
 

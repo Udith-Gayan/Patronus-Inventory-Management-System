@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
+
 import java.time.LocalDate;
+
 import java.util.Optional;
 
 public interface AssignRepo extends CrudRepository<AssignModel, Long> {
@@ -26,6 +28,7 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
 
 
     Optional<AssignModel> findById(long id);
+
 
     /* Confirmation */
     @Transactional
@@ -48,5 +51,6 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
     @Modifying
     @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3 where id = ?1" , nativeQuery = true)
     int updateAmRejection(long id, boolean confirmation, LocalDate confirmedDate);
+
 
 }

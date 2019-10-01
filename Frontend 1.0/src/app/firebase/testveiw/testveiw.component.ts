@@ -10,6 +10,8 @@ import { BookAsset } from '../../models/BookAssetModel';
 import 'sweetalert2/src/sweetalert2.scss';
 import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { database } from 'firebase';
+import { ViewBreakeDownAssetComponent } from '../../PopupModals/view-breake-down-asset/view-breake-down-asset.component';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -22,6 +24,7 @@ export class TestveiwComponent implements OnInit {
 
   list:BookAsset[];
   status:string = sessionStorage.getItem('status');
+  nic:string = sessionStorage.getItem('nic');
   constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -33,11 +36,24 @@ export class TestveiwComponent implements OnInit {
 
         } as BookAsset;
       })
+      
       this.ser.updatedDataSelection(this.list.length);
     });
     this.ser.data.subscribe( data => {
       console.log(data);
     })
+  ///////////
+  this.firestore.collection('BookAssetNotification',ref => ref.where('assetId','==','OTH98')).valueChanges().subscribe(data=>{
+           
+    console.log(data.length);
+    console.log("data");
+
+    // ---check current user
+    // ---get new notification count
+    
+      })
+
+  ////////
   }
 
   onDelete(id:string){
@@ -86,7 +102,25 @@ export class TestveiwComponent implements OnInit {
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  openBreakModal(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username) {
+    console.log("Line1");
+    const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
+    modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.notificationType = notificationType;
+    modalRef.componentInstance.complainedNic = complainedNic;
+    modalRef.componentInstance.massege = massege;
+    modalRef.componentInstance.beginDate = beginDate;
+    modalRef.componentInstance.dueDate = dueDate;
+    modalRef.componentInstance.username = username;
 
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
 
 }

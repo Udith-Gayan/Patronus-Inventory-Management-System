@@ -84,11 +84,11 @@
                     <div class="table-responsive" style="height: 10cm" >
                     <div class="list-group" *ngFor="let a of list" style="background-color: rgb(31, 205, 253)">
 
-                      <!-------------------------------------------------------Asset Manger Boking Notification show--------------------------------->
-                   <a *ngIf="a.notificationType == 'Booking' && status == 'Asset Manager'">
+                      <!-------------------------------------------------------Department Head Notification show--------------------------------->
 
 
-                     <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                   <a *ngIf="((a.notificationType == 'RequestAM' && nic == a.requestedNic) || a.notificationType == 'Requesting')  &&  status == 'Department Head'">
+                    <button type="button" class="list-group-item list-group-item-action" style="height: 2.3cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                        <div class="row">
                           <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                             <img src="assets/img/printer.jpg" alt="photo">
@@ -99,61 +99,92 @@
                            <div class="col-xs-4" *ngIf= "a.assetCategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
                              <img src="assets/img/home.jpg" alt="photo">
                           </div>
+                        
                           <div class="col-xs-4">
-                            <p  style="color: rgb(40, 20, 153);font-size: 1.5ch">   {{a.assetcategory}} {{a.assetId}}  </p>
-                          </div><br>
-                          <div class="row">
-                             <div class="col-xs-4"><br>
-                              <p style="font-size: 1.2ch">{{a.notificationType}} </p>
-                             </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-xs-4"><br><br>
-                              <p style="font-size: 1.2ch;">{{a.Discription}}</p>
-                           </div>
-                          </div>
+                              <p  style="color: rgb(40, 20, 153);font-size: 1.4ch">  {{a.assetId}} &nbsp; &nbsp;
+                              <!--request by employee-->
+                              <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'Requesting'"> Request by emplyee to you.     </p>
+                              <!--Accept department head-->
+                              <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'RequestAM'"> was accepted by Department head.</p>
+                            
+                              <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.Discription}} </b></p>
+                            </div><br>
+                         
                          </div>
                            
                     </button>
                   </a>
 
-                  <!----------------------------------------------------------------------End Boking Notification------------------------------------------------------>
+                  <!----------------------------------------------------------------------End Deparment Head------------------------------------------------------>
                 
+
+                        <!-------------------------------------------------------Asset Manger Notification show--------------------------------->
+                        <a *ngIf="(a.notificationType == 'RequestAM' || a.notificationType == 'Booking') && status == 'Asset Manager'">
+                            <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                              <div class="row">
+                                 <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
+                                   <img src="assets/img/printer.jpg" alt="photo">
+                                  </div>
+                                 <div class="col-xs-4" *ngIf= "a.assetCategory == 'Furniture'"   style="width: 1.5cm;height: 1.5cm;">
+                                   <img src="assets/img/furniture.jpeg"  alt="photo">
+                                 </div>
+                                  <div class="col-xs-4" *ngIf= "a.assetCategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
+                                    <img src="assets/img/home.jpg" alt="photo">
+                                 </div>
+                                 
+                                 <div class="col-xs-4">
+                                    <p  style="color: rgb(40, 20, 153);font-size: 1.4ch">  {{a.assetId}}  </p> &nbsp; &nbsp;
+                                    <!--book for Asset manger-->
+                                    <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'Booking'"> Book</p>
+                                    <!--Accept department head-->
+                                    <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'RequestAM'"> was accepted by Department head.</p>
+                                  
+                                    <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.Discription}} </b></p>
+                                  </div><br>
+                                
+                                </div>
+                                  
+                           </button>
+                         </a>
+       
+                         <!----------------------------------------------------------------------End Asset Manager Notification------------------------------------------------------>
+                
+                         
                   
-                      <!-------------------------------------------------------Asset Manger Boking Notification show--------------------------------->
-                      <a *ngIf="a.notificationType == 'Requesting' && status == 'Department Head'">
+                      <!-------------------------------------------------------Employee Notification show--------------------------------->
+                      <a *ngIf="(a.notificationType == 'rejectAM' || a.notificationType == 'acceptAM' || a.notificationType == 'Reject') && status == 'Employee' && nic == a.requestedNic">
 
 
                         <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                           <div class="row">
-                             <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
+                             <div class="col-xs-4" *ngIf= "a.assetcategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                                <img src="assets/img/printer.jpg" alt="photo">
                               </div>
-                             <div class="col-xs-4" *ngIf= "a.assetCategory == 'Furniture'"   style="width: 1.5cm;height: 1.5cm;">
+                             <div class="col-xs-4" *ngIf= "a.assetcategory == 'Furniture'"   style="width: 1.5cm;height: 1.5cm;">
                                <img src="assets/img/furniture.jpeg"  alt="photo">
                              </div>
-                              <div class="col-xs-4" *ngIf= "a.assetCategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
+                              <div class="col-xs-4" *ngIf= "a.assetcategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
                                 <img src="assets/img/home.jpg" alt="photo">
                              </div>
                              <div class="col-xs-4">
-                               <p  style="color: rgb(40, 20, 153);font-size: 1.5ch">   {{a.assetcategory}} {{a.assetId}}  </p>
+                               <p  style="color: rgb(40, 20, 153);font-size: 1.4ch">  {{a.assetId}}  </p> &nbsp; &nbsp;
+                               <!--Reject Asset manger-->
+                               <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'rejectAM'"> Asset Manager reject you'r Request.You Can't Book</p>
+                               <!--Accept department head-->
+                               <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'acceptAM'"> Asset Manager Accept you'r Request.You Can't Book</p>
+                              <!--Reject Department head-->
+                              <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'Reject'"> Department Head Reject you'r Request.You Can't Book</p>
+                             
+                               <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.Discription}} </b></p>
                              </div><br>
-                             <div class="row">
-                                <div class="col-xs-4"><br>
-                                 <p style="font-size: 1.2ch">{{a.notificationType}} </p>
-                                </div>
-                             </div>
-                             <div class="row">
-                               <div class="col-xs-4"><br><br>
-                                 <p style="font-size: 1.2ch;">{{a.Discription}}</p>
-                              </div>
-                             </div>
+                            
+                          
                             </div>
                               
                        </button>
                      </a>
    
-                     <!----------------------------------------------------------------------End Boking Notification------------------------------------------------------>
+                     <!----------------------------------------------------------------------End Employee Notification------------------------------------------------------>
                      
 
                 </div>
