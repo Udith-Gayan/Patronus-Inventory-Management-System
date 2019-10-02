@@ -172,7 +172,7 @@
                                     <label for="months" class="cols-sm-2 control-label">Months</label>
                           <div class="def-number-input number-input safari_only">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="months" min="0" max="12" name="months" value="0" type="number">
+                            <input class="months" min="0" max="12" name="months" value="0" type="number" [(ngModel)]="asset.days">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                             </div>
                           </div>

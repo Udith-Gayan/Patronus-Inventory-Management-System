@@ -9,7 +9,7 @@ body{
 	margin:0;
 	color:black;
 	background:#535e5f;
-	
+
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
 .login-wrap{
@@ -86,12 +86,12 @@ body{
 .foot-lnk{
 	text-align:center;
 	color: #f2f3f5;
-	
+
 }
 
 .login-form .group .button{
-	
-	
+
+
 	color:rgb(235, 228, 228);
 	display:block;
 }
@@ -109,7 +109,7 @@ body{
 }
 
 .login-form .group .button{
-	
+
 
 
 }
@@ -119,3 +119,21 @@ body{
     color: #f0e6e6;
     background-color: #fd0c08;
   }
+
+
+div.forget-password{
+      color: maroon;
+  }
+
+a.forget-password{
+  font-size: 17px;
+
+  }
+
+.form-udith{
+  padding-bottom: 5px!important;
+}
+
+.udith-danger{
+  background-color: red!important;
+}

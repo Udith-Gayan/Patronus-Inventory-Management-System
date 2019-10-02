@@ -23,6 +23,7 @@ const Swal = require('sweetalert2');
 })
 export class ViewBreakedownComponent implements OnInit {
 
+  status:string =sessionStorage.getItem('status');
   list:BreakDwonNoti[];
   assetDetail:Observable<Asset>
   constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal,private asset : HttpService) { }
@@ -68,20 +69,20 @@ export class ViewBreakedownComponent implements OnInit {
           'Your file has been deleted.',
           'success'
         ),
-        this.firestore.doc('BreakDwonAsset/'+id).delete();
+        this.firestore.doc('BookAssetNotification/'+id).delete();
       }
     })){
 
     }
 
   }
-  openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
+  openFormModal(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username) {
     console.log("Line1");
     const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
     modalRef.componentInstance.assetCategory = assetCategory;
     modalRef.componentInstance.notificationType = notificationType;
-    modalRef.componentInstance.requestedNic = requestedNic;
+    modalRef.componentInstance.complainedNic = complainedNic;
     modalRef.componentInstance.massege = massege;
     modalRef.componentInstance.beginDate = beginDate;
     modalRef.componentInstance.dueDate = dueDate;

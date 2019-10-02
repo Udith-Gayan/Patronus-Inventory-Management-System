@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -27,7 +25,7 @@ public class RejectAssetController {
     // Reject by Department Head
     @PostMapping("/departmenthead")
     public ResponseEntity<AssignModel> rejectByDepartmentHead(@RequestBody RequestConfirmationDTO req){
-        System.out.println("Reject by Department head, this id: "+ req.toString());
+        System.out.println("Reject by Department head, this id: "+ req.getId());
 
         Optional<AssignModel> assignModelOptional = assignRepo.findById(req.id);
 
@@ -35,17 +33,25 @@ public class RejectAssetController {
             System.out.println("DH reject model found in table. Updating to confirm ");
 
             // Assigning updated date
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-            Date nowdate = new Date();
-            dateFormat.format(nowdate);
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+//            Date nowdate = new Date();
+//            dateFormat.format(nowdate);
 
-            AssignModel updatedModel;
+            LocalDate nowdate = LocalDate.now();
+            System.out.println("Now date is: " + nowdate);
+
+
+            int updatedVal;
             assignRepo.updateDhRejection(assignModelOptional.get().getId(),false, nowdate);
-            updatedModel = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
+            updatedVal = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
 
-            System.out.println("Rejected DH: " + updatedModel.toString());
 
-            return ResponseEntity.ok(updatedModel);
+            System.out.println("Rejected DH: " + updatedVal);
+
+            Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
+
+            return ResponseEntity.ok(updatedModel.get());
         }
         else {
 
@@ -68,16 +74,23 @@ public class RejectAssetController {
             System.out.println("AM reject model found in table. Updating to confirm ");
 
             // Assigning updated date
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-            Date nowdate = new Date();
-            dateFormat.format(nowdate);
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+//            Date nowdate = new Date();
+//            dateFormat.format(nowdate);
 
-            AssignModel updatedModel;
-            updatedModel = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
 
-            System.out.println("Rejected AM: " + updatedModel.toString());
+            LocalDate nowdate = LocalDate.now();
+            System.out.println("Now date is: " + nowdate);
 
-            return ResponseEntity.ok(updatedModel);
+
+            int updatedVal;
+            updatedVal = assignRepo.updateAmRejection(assignModelOptional.get().getId(),false, nowdate);
+
+            System.out.println("Rejected AM: " + updatedVal);
+            Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
+
+            return ResponseEntity.ok(updatedModel.get());
         }
         else {
 
@@ -95,3 +108,4 @@ public class RejectAssetController {
 
 
 }
+

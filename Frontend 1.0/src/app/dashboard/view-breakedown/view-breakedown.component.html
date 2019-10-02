@@ -7,40 +7,29 @@
 <!-- DialogBox -->
 
 <div class="table-responsive" >
-    <table class="table table-condensed">
+    <table class="table table-condensed" style="background-color: cornflowerblue">
         <thead class="black white-text">
-            <tr  class="table-primary">
-              <th class="table-active" scope="col">Date/Time</th>
-              <th class="table-active" scope="col">Asset ID</th>
-              <th scope="col">Complainer Nic</th>
-              <th scope="col">Order Type</th>
-              <th scope="col">Masage</th>
-              <th></th>
-              <th></th>
-             
-            </tr>
+           
           </thead>
       <tbody>
          
           <tr *ngFor="let a of list" class="table-active">
-           <!--
-              <a *ngFor="let asset of assetDetail">
-              <a *ngIf="asset.assetId == a.assetId">
-                
-              </a>
-            </a>
-           -->
-           <td (click)="onEdit(a)" scope="col">{{a.date}}</td>
-              
-           <td (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-           <td (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>
-           <td (click)="onEdit(a)" scope="col">{{a.notificationType}}</td>
-           <td (click)="onEdit(a)" scope="col">{{a.anyMessage}}</td>
-           <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)">  <td >View</td></button>
-       
-           <td (click)="onDelete(a.id)" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+         <!--brekDown Asset-->
+
+         <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager'" >
+   
+          <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username)"> 
+            <td (click)="onEdit(a)"  scope="col" style="font-size: small;size: 4cm">{{a.date}}</td>
+            <td (click)="onEdit(a)" class="table-danger" scope="col" style="size: 3cm">{{a.assetId}}</td>
+            <td  style="width: 5cm" (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>
+            <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.notificationType}}</td>
+            <td (click)="onEdit(a)" style="width: 7cm"scope="col">by {{a.anyMessage}} </td>
+            <td></td>
            
-             
+          </button>
+            <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+       </a>  
+
             </tr>
       
        

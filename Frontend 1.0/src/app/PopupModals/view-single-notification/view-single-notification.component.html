@@ -1,3 +1,11 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
+
 <div class="modal-header" style="background-color: rgb(76, 151, 151)">
   <h4 class="modal-title">Notification for {{notificationType}} </h4>
  <!-- <button></button> -->
@@ -17,13 +25,19 @@
         <div class="form-groupp"> 
             
                                                               <!--Changed here-->
-            <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label>       <label for="assetId">Order By : <b>{{username}} {{requestedNic}}</b>  </label>  <br> <br>
+            <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label>       <label for="assetId">Order By : <b> {{requestedNic}}</b>  </label>  <br> <br>
             <label for="assetId">Asset Category: <b>{{assetcategory}}</b>  </label> <br><br>
             <label for="assetId">Beging Date: <b>{{beginDate}} </b>  </label> <br> <br>
-            <label for="assetId">Due Date : <b>{{dueDate}} </b>  </label> <br> <br>
+            <label for="assetId">Due Date : <b>{{dueDate}}  </b>  </label> <br> <br>
             <label for="assetId">Description: <b>{{massege}} </b>  </label> <br> <br>
+            <label for="id">Request ID: <b>{{username}} </b>  </label> <br> <br>
             
-          
+            <a *ngFor="let data of pendingRequestDH">
+           <a *ngIf="data.requestedNic == requestedNic && data.assetId == assetId ">
+            
+              <label for="id">Request ID: <b>{{data.id}} </b>  </label> <br> <br>
+              </a>
+            </a>
 
 
           </div>
@@ -43,7 +57,9 @@
 
     </div>
   </div>
+
   <div class="modal-footer">
+      <a *ngIf="status == 'Asset Manager'">
       <button class="btn btn-success" type="submit" (click)="openAssetDetailModal(assetId)"
       [disabled]="!myForm.valid">
      Asset Details
@@ -52,28 +68,38 @@
     [disabled]="!myForm.valid">
    Order Employee
   </button>
-  <!-------------------------------------------Booking------------------------------------->
-  <a *ngIf="notificationType == 'Booking' ">
-    <button class="btn btn-success"(click)="acceptDH()"
-      [disabled]="!myForm.valid">
-      Accept
-    </button>
-    <button class="btn btn-success" type="submit" (click)="massage(assetId)"
-    [disabled]="!myForm.valid">
-   Reject
-  </button>
 </a>
-<!---------------------------------------------Requesting----------------------------------------->
-
-<a *ngIf="notificationType == 'Requesting' && status == 'Asset Manager'">
-  <button class="btn btn-success" type="submit" (click)="acceptDH()"
+  <!-------------------------------------------Requesting------------------------------------->
+  <a *ngIf="notificationType == 'Requesting' && status == 'Department Head' ">
+      <a *ngFor="let data of pendingRequestDH">
+          <a *ngIf="data.requestedNic == requestedNic && data.assetId == assetId ">
+           
+    <button class="btn btn-success"(click)="acceptDH(data.id,data.requestedNic,data.assetId,data.description,data.beginDate,data.dueDate)"
     [disabled]="!myForm.valid">
     Accept
   </button>
-  <button class="btn btn-success" type="submit" (click)="massage(assetId)"
+  <button class="btn btn-success" (click)="rejectDH(data.id,data.requestedNic,data.assetId)"
   [disabled]="!myForm.valid">
  Reject
 </button>
+              
+             </a>
+           </a>
+
+</a>
+<!---------------------------------------------Requesting Asset manager----------------------------------------->
+
+<a *ngIf="notificationType == 'RequestAM' && status == 'Asset Manager'">
+     
+          <button class="btn btn-success"  (click)="acceptAM(username,requestedNic,assetId)"
+            [disabled]="!myForm.valid">
+            Accept 
+          </button>
+          <button class="btn btn-success" (click)="rejectAM(username,requestedNic,assetId)"
+          [disabled]="!myForm.valid">
+           Reject
+           </button>
+      
 </a>
   </div>
  

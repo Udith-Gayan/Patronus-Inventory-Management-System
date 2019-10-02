@@ -22,17 +22,29 @@ public class AssetRegistration {
 
         //creating an aasset id according to the category
 
-        System.out.println("Asset oassed again: "+ aa1.toString());
+        System.out.println("Asset passed again: "+ aa1.toString());
 
         System.out.println("line0");
 
-        if(aa1.getAssetcategory().equals("Laptop")){
-            aa1.setAssetId("LAP");
-        }else if(aa1.getAssetcategory().equals("PC")){
-            aa1.setAssetId("PC");
+        if(aa1.getAssetcategory().equals("Computer")){
+
+            if(aa1.getCategoryTypes().equals("Laptop")){
+                aa1.setAssetId("LAP");
+            }else if(aa1.getCategoryTypes().equals("PC")){
+                aa1.setAssetId("DPC");
+            }
+
+        }else if(aa1.getAssetcategory().equals("UPS")){
+            aa1.setAssetId("UPS");
         }else if(aa1.getAssetcategory().equals("Projector")){
             aa1.setAssetId("PRJ");
-        }else if(aa1.getAssetcategory().startsWith("Fur") || aa1.getAssetcategory().startsWith("fur")){
+        }else if(aa1.getAssetcategory().equals("SoundSystem")){
+            aa1.setAssetId("SND");
+        }else if(aa1.getAssetcategory().equals("tv")){
+            aa1.setAssetId("TLV");
+        }else if(aa1.getAssetcategory().equals("router")){
+            aa1.setAssetId("RTR");
+        } else if(aa1.getAssetcategory().startsWith("Fur") || aa1.getAssetcategory().startsWith("fur")){
             aa1.setAssetId("FUR");
         }else {
             aa1.setAssetId("OTH");

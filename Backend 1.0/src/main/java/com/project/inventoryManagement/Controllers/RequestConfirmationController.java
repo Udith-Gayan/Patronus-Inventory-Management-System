@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -26,7 +24,7 @@ public class RequestConfirmationController {
     // Confirm by Department Head
     @PostMapping("/departmenthead")
     public ResponseEntity<AssignModel> confirmByDepartmentHead(@RequestBody RequestConfirmationDTO req){
-        System.out.println("Confirm by Department head, this id: "+ req.toString());
+        System.out.println("Confirm by Department head, this id: "+ req.getId());
 
         Optional<AssignModel> assignModelOptional = assignRepo.findById(req.id);
 
@@ -34,14 +32,21 @@ public class RequestConfirmationController {
             System.out.println("DH request model found in table. Updating to confirm ");
 
             // Assigning updated date
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-            Date nowdate = new Date();
-            dateFormat.format(nowdate);
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+//            Date nowdate = new Date();
+//            dateFormat.format(nowdate);
 
-            AssignModel updatedModel = assignRepo.updateDhConfirmation(assignModelOptional.get().getId(),true, nowdate);
-            System.out.println("Confirmed DH: " + updatedModel.toString());
 
-            return ResponseEntity.ok(updatedModel);
+            LocalDate nowdate = LocalDate.now();
+            System.out.println("Now date is: " + nowdate);
+
+            int updatedVal = assignRepo.updateDhConfirmation(assignModelOptional.get().getId(),true, nowdate);
+            System.out.println("Confirmed DH: " + updatedVal);
+
+
+            Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
+            return ResponseEntity.ok(updatedModel.get());
         }
         else {
 
@@ -65,15 +70,22 @@ public class RequestConfirmationController {
             System.out.println("AM request model found in table. Updating to confirm ");
 
             // Assigning updated date
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-            Date nowdate = new Date();
-            dateFormat.format(nowdate);
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+//            Date nowdate = new Date();
+//            dateFormat.format(nowdate);
 
-            AssignModel updatedModel = assignRepo.updateAmConfirmation(assignModelOptional.get().getId(),true, nowdate);
 
-            System.out.println("Confirmed AM: " + updatedModel.toString());
+            LocalDate nowdate = LocalDate.now();
+            System.out.println("Now date is: " + nowdate);
 
-            return ResponseEntity.ok(updatedModel);
+            int updatedVal = assignRepo.updateAmConfirmation(assignModelOptional.get().getId(),true, nowdate);
+
+
+            System.out.println("Confirmed AM: " + updatedVal);
+
+            Optional<AssignModel> updatedModel = assignRepo.findById(req.id);
+
+            return ResponseEntity.ok(updatedModel.get());
         }
         else {
 

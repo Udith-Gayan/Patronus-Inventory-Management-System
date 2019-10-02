@@ -37,6 +37,11 @@ export class HttpService {
     return this.http.delete(Constants.EMPLOYEE_API + '/delete', {params: {nic: nicNumber}, observe: 'response'});    // return this.http.delete(Constants.EMPLOYEE_API+'/delete',Constants.HTTP_OPTIONS);
   }
 
+  // reset password mail sender
+  sendMail(resetForm){
+    return this.http.post(Constants.BASE_URL + '/resetpassword/sendmail', resetForm);
+  }
+
 
   ///////////////////feedaback/////////////////////////
   feedbackemployee(feedaback : Feedback){

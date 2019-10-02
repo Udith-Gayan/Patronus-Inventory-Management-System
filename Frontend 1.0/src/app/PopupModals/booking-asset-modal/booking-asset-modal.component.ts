@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms';
 import { BookAsset } from '../../models/BookAssetModel';
@@ -11,6 +11,7 @@ import { formatDate } from '@angular/common';
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
+import { BsDatepickerDirective } from 'ngx-bootstrap/datepicker/public_api';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -21,6 +22,14 @@ const Swal = require('sweetalert2');
   styleUrls: ['./booking-asset-modal.component.scss']
 })
 export class BookingAssetModalComponent implements OnInit {
+  currentDate = new Date();
+  minDate: Date;
+  maxDate: Date;
+  minDate2: Date;
+  maxDate2: Date;
+
+  
+ 
   @Input() assetcategory: string;
   @Input() assetId: string;
 
@@ -33,11 +42,28 @@ export class BookingAssetModalComponent implements OnInit {
   employee:Employee;
   today= new Date();
   jstoday = '';
+
+  form = new FormGroup({
+    dateYMD: new FormControl(new Date()),
+    
+  });
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore) {
     this.createForm();
     this.bookasset=new BookAsset();
     this.employee=new Employee();
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
+////begin date hide in this calander
+    this.minDate = new Date();
+    this.maxDate = new Date();
+    this.minDate.setDate(this.minDate.getDate());
+    this.maxDate.setDate(this.maxDate.getDate() + 14);
+
+    ////due date date hide 
+
+    this.minDate2 = new Date();
+    this.maxDate2 = new Date();
+    this.minDate2.setDate(this.minDate.getDate());
+    this.maxDate2.setDate(this.maxDate.getDate() + 60);
 
 
     //booking to assetId and enmployee Nic

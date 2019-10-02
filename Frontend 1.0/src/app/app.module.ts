@@ -14,7 +14,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent, NgbdModalContent } from './login/login.component';
+import { LoginComponent, NgbdModalContent, NgbdModalContentForresetPassword } from './login/login.component';
 import { NoteComponent } from './note/note.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -56,6 +56,7 @@ import {NgxPrintModule} from 'ngx-print';
 import { ViewBreakeDownAssetComponent } from './PopupModals/view-breake-down-asset/view-breake-down-asset.component';
 import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-request-and-booking-emp-detail/view-request-and-booking-emp-detail.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
@@ -78,6 +79,8 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
     AngularFirestoreModule,
     EmpCompenentModule,
     ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
+  
 
 
 
@@ -104,8 +107,8 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
     LogoutComponent,
     ViewBreakeDownAssetComponent,
     ViewRequestAndBookingEmpDetailComponent,
-   
 
+    NgbdModalContentForresetPassword
 
 
 
@@ -127,7 +130,8 @@ providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorSer
       RequestAssetModalComponent,
       NgbdModalContent,
       ViewBreakeDownAssetComponent,
-      ViewRequestAndBookingEmpDetailComponent
+      ViewRequestAndBookingEmpDetailComponent,
+      NgbdModalContentForresetPassword
 
     ]
 

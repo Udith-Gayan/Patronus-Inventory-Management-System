@@ -70,27 +70,27 @@ export class HttpService {
    /////////////////////////Approve requests by Asset Manager ///////////////////////////
 
      
-  approveRequestAM(approveRequestAM : Replay){
-    return this.http.post(Constants.BASE_URL+'/assign/confirmation/assetmanager',approveRequestAM,Constants.HTTP_OPTIONS);
+  approveRequestAM(id : number){
+    return this.http.post(Constants.BASE_URL+'/assign/confirmation/assetmanager',id,Constants.HTTP_OPTIONS);
   }
 
   
    /////////////////////////Approve requests by Department Head ///////////////////////////
 
-   approveRequestDH(approveRequestDH : Replay){
-    return this.http.post(Constants.BASE_URL+'/assign/confirmation/departmenthead',approveRequestDH,Constants.HTTP_OPTIONS);
+   approveRequestDH(id : number){
+    return this.http.post(Constants.BASE_URL+'/assign/confirmation/departmenthead',id,Constants.HTTP_OPTIONS);
   }
 
   //////////////////////////// Reject requests by Asset Manager ////////////////////////////
 
-  rejectRequestAM(rejectRequestAM : Replay){
-    return this.http.post(Constants.BASE_URL+'/assign/reject/assetmanager',rejectRequestAM,Constants.HTTP_OPTIONS);
+  rejectRequestAM(id : number){
+    return this.http.post(Constants.BASE_URL+'/assign/reject/assetmanager',id,Constants.HTTP_OPTIONS);
   }
 
   /////////////////////////// Reject requests by department head   /////////////////////////////
 
-  rejectRequestDH(rejectRequestDH : Replay){
-    return this.http.post(Constants.BASE_URL+'/assign/reject/departmenthead',rejectRequestDH,Constants.HTTP_OPTIONS);
+  rejectRequestDH(id : number){
+    return this.http.post(Constants.BASE_URL+'/assign/reject/departmenthead',id,Constants.HTTP_OPTIONS);
   }
 
 }

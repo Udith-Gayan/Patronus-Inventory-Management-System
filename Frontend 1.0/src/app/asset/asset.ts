@@ -18,6 +18,8 @@ export class Asset{
     yrs:number;
     months:number;
     days:number;
+    location:string;
+    quantity:string;
  
 
 }
