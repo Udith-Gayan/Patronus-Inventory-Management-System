@@ -156,7 +156,7 @@
                                     <div class="def-number-input number-input safari_only">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus" ></button>
                                     
-                            <input class="yrs" min="0" max="10" name="yrs" value="0" type="number">
+                            <input class="yrs" min="0" max="10" name="yrs" [(ngModel)]="asset.yrs" type="number">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                             
                           </div>
@@ -164,9 +164,9 @@
                             <div class="col">
                                     <label for="months" class="cols-sm-2 control-label">Months</label>
                           <div class="def-number-input number-input safari_only">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="months" min="0" max="12" name="months" value="0" type="number" [(ngModel)]="asset.days">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                            <button onclick="this.parentNode.querySelector('input[type=string]').stepDown()" class="minus"></button>
+                            <input class="months" min="0" max="12" name="months" value="0" type="text" [(ngModel)]="asset.months">
+                            <button onclick="this.parentNode.querySelector('input[type=string]').stepUp()" class="plus"></button>
                             </div>
                           </div>
 
