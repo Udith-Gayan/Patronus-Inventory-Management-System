@@ -18,7 +18,8 @@ export class ViewAllAssetComponent implements OnInit {
   Fname:string = sessionStorage.getItem('firstname');
   Lname:string = sessionStorage.getItem('lastname');
   status:string = sessionStorage.getItem('status');
-today=new Date();
+  today=new Date();
+
   pendingRequestAM:Observable<pendinRequest>
   constructor(private asset:HttpService) { }
 AllAsset:Observable<Asset>
@@ -33,8 +34,6 @@ AllAsset:Observable<Asset>
     })
   }
 
-  onclick(){
-    window.print();
-  }
+  
 
 }
