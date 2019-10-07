@@ -82,6 +82,8 @@ public class JwtAuthenticationController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
 
+
+        System.out.println("2.AES encrypted Password is: " + user.getPassword());
         /* AES decryption for the password */
 
         String decryptedPsd = null;
@@ -95,6 +97,7 @@ public class JwtAuthenticationController {
             ex.printStackTrace();
         }
 
+        System.out.println("2.Descrypted Password is: " + decryptedPsd);
         user.setPassword(decryptedPsd);
 
         /************************************/
