@@ -84,7 +84,16 @@ public class JwtAuthenticationController {
 
         /* AES decryption for the password */
 
-        String decryptedPsd = AESForCrossOrigin.decryptText(user.getPassword(),"1234567890123456") ;
+        String decryptedPsd = null;
+        try {
+            Field field = Class.forName("javax.crypto.JceSecurity").
+                    getDeclaredField("isRestricted");
+            field.setAccessible(true);
+            field.set(null, java.lang.Boolean.FALSE);
+            decryptedPsd = AESForCrossOrigin.decryptText(user.getPassword(),"1234567890123456") ;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
         user.setPassword(decryptedPsd);
 
