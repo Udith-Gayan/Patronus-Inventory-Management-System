@@ -81,6 +81,18 @@ public class JwtAuthenticationController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
+
+        /* AES decryption for the password */
+
+        String decryptedPsd = AESForCrossOrigin.decryptText(user.getPassword(),"1234567890123456") ;
+
+        user.setPassword(decryptedPsd);
+
+        /************************************/
+
+
+
+
         return ResponseEntity.ok(userDetailsService.save(user));
     }
 /////////////////////////////
