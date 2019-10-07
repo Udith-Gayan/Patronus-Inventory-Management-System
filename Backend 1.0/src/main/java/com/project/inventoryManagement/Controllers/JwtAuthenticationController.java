@@ -80,7 +80,7 @@ public class JwtAuthenticationController {
 //////////////////////////////
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
+    public ResponseEntity<?> saveUser(@RequestBody EmployeeMainModel user) throws Exception {
 
 
         System.out.println("2.AES encrypted Password is: " + user.getPassword());

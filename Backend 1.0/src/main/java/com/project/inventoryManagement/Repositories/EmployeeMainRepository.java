@@ -1,6 +1,7 @@
 package com.project.inventoryManagement.Repositories;
 
 import com.project.inventoryManagement.Models.EmployeeMainModel;
+import com.project.inventoryManagement.Models.UserDTO;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -11,6 +12,11 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface EmployeeMainRepository extends CrudRepository<EmployeeMainModel, Long> {
+
+    EmployeeMainModel save(EmployeeMainModel employeeMainModel);
+
+    EmployeeMainModel save(UserDTO employeeMainModel);
+
     EmployeeMainModel findByEmailAndPassword(String email,String password);
 
     EmployeeMainModel findFirstByEmailAndPassword(String email,String password);
