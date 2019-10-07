@@ -6,6 +6,7 @@ import com.project.inventoryManagement.Models.SecretkeyModel;
 import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
 import com.project.inventoryManagement.Repositories.SecretkeyRepo;
 import com.project.inventoryManagement.Service.AES;
+import com.project.inventoryManagement.Service.AESForCrossOrigin;
 import com.project.inventoryManagement.Service.MailService;
 import com.project.inventoryManagement.components.EmailReceiverComponent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import java.lang.reflect.Field;
 
 @RestController
 @RequestMapping(value = "/resetpassword")
@@ -39,6 +41,24 @@ public class ResetPasswordController {
     @PostMapping(path="/sendmail")
     public Object sendWithAttachment(@RequestBody ResetFormDTO resetForm) throws MessagingException {
 
+  /************************/
+        System.out.println("***********front Encrypted Password is:   "+ resetForm.getNewPassword());
+        String decryptedPsd = null;
+        try {
+            Field field = Class.forName("javax.crypto.JceSecurity").
+                    getDeclaredField("isRestricted");
+            field.setAccessible(true);
+            field.set(null, java.lang.Boolean.FALSE);
+            decryptedPsd = AESForCrossOrigin.decryptText(resetForm.getNewPassword(),"1234567890123456") ;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        //   String decryptedPsd = AESForCrossOrigin.decryptText(authenticationRequest.getPassword(),"1234567890123456") ;
+
+
+        System.out.println("***********Decryped Password is:   "+ decryptedPsd);
+        resetForm.setNewPassword(decryptedPsd);
+/*************************/
 
         System.out.println("Reset Form received: "+ resetForm.toString());
 
@@ -133,7 +153,7 @@ public class ResetPasswordController {
 
         /*******************************/
         // Checking if secretkey exists in db
-
+/*
         if(secretkeyRepo.existsBySkey(sk)){
             System.out.println("secret key found on database.You can continue reseting");
             secretkeyRepo.deleteAll();
@@ -144,6 +164,9 @@ public class ResetPasswordController {
             System.out.println("Secret key deleted from database. by error method");
             return "Unauthorized resetting. Reset Failed !!! ";
         }
+
+
+ */
         /*********************************/
         // Decryting email and password using the secretkey
         String decryptedEmail = AES.decrypt(newEml,sk);
@@ -160,6 +183,8 @@ public class ResetPasswordController {
 
         String encodedPassword = bcryptEncoder.encode(decryptedPsd);
 
+        /*
+
         if(empRepo.updatePassword(decryptedEmail,encodedPassword)){
             System.out.println("Successfully , Password updated the database.");
             return "Successfully updated the Password.\n" +
@@ -172,7 +197,9 @@ public class ResetPasswordController {
                     "<a href=\"http://localhost:4200/login\">http://localhost:4200/login</a>";
         }
 
+*/
 
+        return " Successfulllllllllllll!!";
 
     }
 

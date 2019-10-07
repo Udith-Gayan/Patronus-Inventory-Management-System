@@ -80,7 +80,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     EmpCompenentModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot()
-  
+
 
 
 
