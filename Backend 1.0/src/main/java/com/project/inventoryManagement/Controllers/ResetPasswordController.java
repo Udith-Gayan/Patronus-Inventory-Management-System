@@ -6,7 +6,6 @@ import com.project.inventoryManagement.Models.SecretkeyModel;
 import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
 import com.project.inventoryManagement.Repositories.SecretkeyRepo;
 import com.project.inventoryManagement.Service.AES;
-import com.project.inventoryManagement.Service.AESForCrossOrigin;
 import com.project.inventoryManagement.Service.MailService;
 import com.project.inventoryManagement.components.EmailReceiverComponent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
-import java.lang.reflect.Field;
 
 @RestController
 @RequestMapping(value = "/resetpassword")
@@ -41,27 +39,31 @@ public class ResetPasswordController {
     @PostMapping(path="/sendmail")
     public Object sendWithAttachment(@RequestBody ResetFormDTO resetForm) throws MessagingException {
 
+
+        /******* 333 - AES decryption ***/
   /************************/
-        System.out.println("***********front Encrypted Password is:   "+ resetForm.getNewPassword());
-        String decryptedPsd = null;
-        try {
-            Field field = Class.forName("javax.crypto.JceSecurity").
-                    getDeclaredField("isRestricted");
-            field.setAccessible(true);
-            field.set(null, java.lang.Boolean.FALSE);
-            decryptedPsd = AESForCrossOrigin.decryptText(resetForm.getNewPassword(),"1234567890123456") ;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        //   String decryptedPsd = AESForCrossOrigin.decryptText(authenticationRequest.getPassword(),"1234567890123456") ;
-
-
-        System.out.println("***********Decryped Password is:   "+ decryptedPsd);
-        resetForm.setNewPassword(decryptedPsd);
-/*************************/
+//        System.out.println("***********front Encrypted Password is:   "+ resetForm.getNewPassword());
+//        String decryptedPsd = null;
+//        try {
+//            Field field = Class.forName("javax.crypto.JceSecurity").
+//                    getDeclaredField("isRestricted");
+//            field.setAccessible(true);
+//            field.set(null, java.lang.Boolean.FALSE);
+//            decryptedPsd = AESForCrossOrigin.decryptText(resetForm.getNewPassword(),"1234567890123456") ;
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//        //   String decryptedPsd = AESForCrossOrigin.decryptText(authenticationRequest.getPassword(),"1234567890123456") ;
+//
+//
+//        System.out.println("***********Decryped Password is:   "+ decryptedPsd);
+//        resetForm.setNewPassword(decryptedPsd);
+/**********  333 - end ***************/
 
         System.out.println("Reset Form received: "+ resetForm.toString());
 
+
+        /***********  Bellow part must be enable *****************************************/
         // Checking if email is valid according to database
 /*
         if(!empRepo.existsByEmail(resetForm.getNewPassword())){

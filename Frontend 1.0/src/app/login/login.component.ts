@@ -66,14 +66,18 @@ export class LoginComponent implements OnInit {
     //   }
     // }
     console.log( 'line1');
-    let encryptedpsd = crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString();
-     console.log(crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString());
-    // this.loginRequest.password = crypto.AES.encrypt(this.loginRequest, 'udith');
-    console.log( 'line2');
-   // console.log('Encrypted key is: ' + crypto.AES.decrypt(encryptedpsd, '1234567890123456'));
-    console.log('line3' + typeof encryptedpsd);
+    /************AES part */
 
-     this.loginRequest.password = encryptedpsd;
+    let encryptedpsd = crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString();
+  //    console.log(crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString());
+  //   // this.loginRequest.password = crypto.AES.encrypt(this.loginRequest, 'udith');
+  //   console.log( 'line2');
+  //  // console.log('Encrypted key is: ' + crypto.AES.decrypt(encryptedpsd, '1234567890123456'));
+  //   console.log('line3' + typeof encryptedpsd);
+
+  //    this.loginRequest.password = encryptedpsd;
+
+     /********** AES end */
 
     this.userService.login(this.loginRequest).subscribe((response: WebtokenResponse) => {
       console.log(response);
@@ -250,14 +254,17 @@ export class NgbdModalContentForresetPassword {
 console.log(this.resetForm);
 
 console.log( 'line1');
-    const encryptedpsd = crypto.AES.encrypt(this.resetForm.newPassword , '1234567890123456').toString();
-     console.log(crypto.AES.encrypt(this.resetForm.newPassword , '1234567890123456').toString());
-    // this.loginRequest.password = crypto.AES.encrypt(this.loginRequest, 'udith');
-    console.log( 'line2');
-   // console.log('Encrypted key is: ' + crypto.AES.decrypt(encryptedpsd, '1234567890123456'));
-    console.log('line3' + typeof encryptedpsd);
+/*****************************AES begins */
+  //   const encryptedpsd = crypto.AES.encrypt(this.resetForm.newPassword , '1234567890123456').toString();
+  //    console.log(crypto.AES.encrypt(this.resetForm.newPassword , '1234567890123456').toString());
+  //   // this.loginRequest.password = crypto.AES.encrypt(this.loginRequest, 'udith');
+  //   console.log( 'line2');
+  //  // console.log('Encrypted key is: ' + crypto.AES.decrypt(encryptedpsd, '1234567890123456'));
+  //   console.log('line3' + typeof encryptedpsd);
 
-    this.resetForm.newPassword = encryptedpsd;
+  //   this.resetForm.newPassword = encryptedpsd;
+
+    /********************AES end */
 
 
      this.userService.sendMail(this.resetForm).subscribe( (mailResponse: MailResponse) => {
