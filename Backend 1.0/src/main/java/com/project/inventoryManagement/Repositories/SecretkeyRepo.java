@@ -11,4 +11,7 @@ public interface SecretkeyRepo extends CrudRepository<SecretkeyModel, Long> {
 
 
     boolean existsBySkey(String skey);
+
+    SecretkeyModel findBySkey(String skey);
+
 }

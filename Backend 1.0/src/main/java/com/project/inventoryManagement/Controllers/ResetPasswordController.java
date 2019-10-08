@@ -84,13 +84,18 @@ public class ResetPasswordController {
         SecretkeyModel secretModel = new SecretkeyModel();
         secretModel.setSkey(secretKey);
 
+        String encodedPassword = bcryptEncoder.encode(resetForm.getNewPassword());  // new
+        secretModel.setPassword(encodedPassword); // new
+        secretModel.setEmail(resetForm.getResetEmail()); // new
+
+
           secretkeyRepo.save(secretModel);
         System.out.println("Secret key saved to DB , Successful");
 
 
         /*************************************/
 
-        /*****************************************************/
+        /************ 455 AES*****************************************/
 
         String encryptedEmail = null;
         String encryptedPsd = null;
@@ -106,7 +111,7 @@ public class ResetPasswordController {
 
 
 
-        /**********************************************/
+        /************ 455 end**********************************/
 
 
 
@@ -117,7 +122,7 @@ public class ResetPasswordController {
         String mailSubject = "Reset Password Confirmation";
         String mailBody = "Please follow the following link to confirm your request to change the password.\nClick : " +
                 "http://localhost:8080/resetpassword/confirm/userbyemail/234f42c3c3c4c4c4v4vh8hgfgdf4dfkdweml443mlfm45mfr5fgrt55gt5gt5gt5tgtgttggtgg5gg5grg5to56go6hgbhko6ok6tk6kt?id=vf4v5vrrjvcvvvxccvcxc&"+
-                "psd=" + encryptedPsd + "&req=codegen@codgen.com&eml=" + encryptedEmail + "&email=resetme.codegen@codegen.com&sk="+ secretKey;
+                "sk="+ secretKey;
                //password is as @param(psd) , email is as @param(eml)
 
         /*
@@ -143,21 +148,27 @@ public class ResetPasswordController {
 
     @GetMapping(path="/confirm/userbyemail/234f42c3c3c4c4c4v4vh8hgfgdf4dfkdweml443mlfm45mfr5fgrt55gt5gt5gt5tgtgttggtgg5gg5grg5to56go6hgbhko6ok6tk6kt")
     @ResponseBody
-    public String confirmAndUpdateDatabase(@RequestParam String eml, @RequestParam String psd, @RequestParam String sk){
+    public String confirmAndUpdateDatabase( @RequestParam String sk){
 
-        System.out.println("Received encrypted email is "+ eml + "  and encrypted password is "+ psd +  "  secret key is "+ sk);
-
-        /*Modifying the encryption with replacing  spaces with plus sign */
-        String newEml = eml.replaceAll(" ","+");
-        String newPsd = psd.replaceAll(" ","+");
-
-        System.out.println("Modifyied encrypted email is "+ newEml + "  and modyfied password is "+ newPsd +  "  secret key is "+ sk);
+//        System.out.println("Received encrypted email is "+ eml + "  and encrypted password is "+ psd +  "  secret key is "+ sk);
+//
+//        /*Modifying the encryption with replacing  spaces with plus sign */
+//        String newEml = eml.replaceAll(" ","+");
+//        String newPsd = psd.replaceAll(" ","+");
+//
+//        System.out.println("Modifyied encrypted email is "+ newEml + "  and modyfied password is "+ newPsd +  "  secret key is "+ sk);
 
         /*******************************/
+
+        String newPassword = null;
+        String email = null;
+
         // Checking if secretkey exists in db
-/*
+
         if(secretkeyRepo.existsBySkey(sk)){
             System.out.println("secret key found on database.You can continue reseting");
+            newPassword = secretkeyRepo.findBySkey(sk).getPassword();
+            email = secretkeyRepo.findBySkey(sk).getEmail();
             secretkeyRepo.deleteAll();
             System.out.println("Secret key deleted from database.");
         }else{
@@ -168,26 +179,26 @@ public class ResetPasswordController {
         }
 
 
- */
+
         /*********************************/
-        // Decryting email and password using the secretkey
-        String decryptedEmail = AES.decrypt(newEml,sk);
-        String decryptedPsd = AES.decrypt(newPsd,sk);
-
-
-
-        System.out.println("decrypted email: "+ decryptedEmail);
-        System.out.println("decrypted password: "+ decryptedPsd);
+//        // Decryting email and password using the secretkey
+//        String decryptedEmail = AES.decrypt(newEml,sk);
+//        String decryptedPsd = AES.decrypt(newPsd,sk);
+//
+//
+//
+//        System.out.println("decrypted email: "+ decryptedEmail);
+//        System.out.println("decrypted password: "+ decryptedPsd);
 
         /***************************************/
 
 
 
-        String encodedPassword = bcryptEncoder.encode(decryptedPsd);
+//        String encodedPassword = bcryptEncoder.encode(decryptedPsd);
 
-        /*
 
-        if(empRepo.updatePassword(decryptedEmail,encodedPassword)){
+
+        if(empRepo.updatePassword(email,newPassword)!=0){
             System.out.println("Successfully , Password updated the database.");
             return "Successfully updated the Password.\n" +
                     "Please login again with new password - " +
@@ -199,9 +210,9 @@ public class ResetPasswordController {
                     "<a href=\"http://localhost:4200/login\">http://localhost:4200/login</a>";
         }
 
-*/
 
-        return " Successfulllllllllllll!!";
+
+//        return " Successfulllllllllllll!!";
 
     }
 

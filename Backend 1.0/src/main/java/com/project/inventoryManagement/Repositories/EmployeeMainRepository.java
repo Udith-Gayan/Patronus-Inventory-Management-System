@@ -33,5 +33,5 @@ public interface EmployeeMainRepository extends CrudRepository<EmployeeMainModel
     @Transactional
     @Modifying
     @Query(value = "update employee_main set password = ?2 where email = ?1" , nativeQuery = true)
-    boolean updatePassword(String email, String password);
+    int updatePassword(String email, String password);
 }
