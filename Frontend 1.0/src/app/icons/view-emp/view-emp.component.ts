@@ -7,6 +7,7 @@ import { error } from 'util';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewAllEmpDelailComponent } from '../../PopupModals/view-all-emp-delail/view-all-emp-delail.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 ////////////
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
@@ -23,21 +24,36 @@ const Swal = require('sweetalert2');
 })
 export class ViewEmpComponent implements OnInit {
   data: Observable<Employee[]>;
+  tempo: any;
   employees: Employee[];
   searchTerm :string;
   status:string = sessionStorage.getItem('status');
   submitted = false;
   message: string;
-  constructor(private emp:HttpService ,private _router : Router, private modalService: NgbModal) { }
+  dd: Employee;
+  i: number;
+  constructor(private emp:HttpService ,private _router : Router, private modalService: NgbModal, private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.emp.getAllEmployeee()
-    .subscribe(res=>{
-      console.log(res)
-      this.data = res
-      console.log(this.data)
+    .subscribe(res => {
+      console.log(res);
+       this.tempo = res;
+       this.data = res;
+       this.i = -1;
+       for (this.dd of res ) {
+        console.log('Usersssss');
+          this.i++;
+          console.log(this.dd.img.substring(36, this.dd.img.length - 2));
+          this.data[this.i].img = this.domSanitizer.bypassSecurityTrustUrl(this.dd.img.substring(36, this.dd.img.length - 2));
+          // this.data[this.i].img = this.dd.img.substring(36, this.dd.img.length - 2);
+       }
 
-    })
+
+      console.log('Dataaaa');
+      console.log(this.data);
+
+    });
   }
 
   ////////////////////////////////////////////////////////////////////////////

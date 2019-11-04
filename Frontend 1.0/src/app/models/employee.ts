@@ -1,5 +1,5 @@
 export class Employee{
-    fastname: string;
+    firstname: string;
     lastname: string;
     nic: string;
     gender: string;
