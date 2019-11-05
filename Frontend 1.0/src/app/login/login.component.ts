@@ -10,8 +10,8 @@ import { BookingAssetModalComponent } from '../PopupModals/booking-asset-modal/b
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ResetModel } from './resetPassword.model';
 import { MailResponse } from './mailResponse';
-import * as crypto from 'crypto-js';
-import { CryptoJS } from 'crypto-js';
+//import * as crypto from 'crypto-js';
+//import { CryptoJS } from 'crypto-js';
 
 
 @Component({
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
     console.log( 'line1');
     /************AES part */
 
-    let encryptedpsd = crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString();
+    //let encryptedpsd = crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString();
   //    console.log(crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString());
   //   // this.loginRequest.password = crypto.AES.encrypt(this.loginRequest, 'udith');
   //   console.log( 'line2');
