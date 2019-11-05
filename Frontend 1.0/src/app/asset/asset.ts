@@ -16,7 +16,7 @@ export class Asset{
     companyContact:string;
     categoryTypes:string;
     yrs:number;
-    months:number;
+    months:string;
     days:number;
     location:string;
     quantity:string;

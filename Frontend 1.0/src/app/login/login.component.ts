@@ -10,8 +10,8 @@ import { BookingAssetModalComponent } from '../PopupModals/booking-asset-modal/b
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ResetModel } from './resetPassword.model';
 import { MailResponse } from './mailResponse';
-// import * as crypto from 'crypto-js';
-// import { CryptoJS } from 'crypto-js';
+//import * as crypto from 'crypto-js';
+//import { CryptoJS } from 'crypto-js';
 
 
 @Component({
