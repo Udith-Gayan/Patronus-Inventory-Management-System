@@ -1,8 +1,16 @@
 package com.project.inventoryManagement.Models;
 
-public class UserDTO {
+import lombok.Data;
+
+@Data
+public class UserDTO extends EmployeeMainModel {
     private String username;
+
     private String password;
+
+
+
+
 
     public String getUsername() {
         return username;

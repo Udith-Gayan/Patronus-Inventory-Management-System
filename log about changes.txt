@@ -12,6 +12,7 @@ structure:
 	"contactNo":"1rr222",     //unique
 	"address":"Kegalle",
         "status": "Event Organizer"        // use a drop menu to select this
+      
 	
  }
 
@@ -50,7 +51,10 @@ structure:
          "months": "3" ,           //  warranty months
          "days": "0" ,             // warranty days
          "broken": false       // boolean ; auto set by backend
-         "companyContact":
+         "companyContact":   // int max=10
+         "boughtCompanyAddress":         ,//string
+         "location":       ,// 
+      
 }
 
 * other fields must be set to null if there is no data
