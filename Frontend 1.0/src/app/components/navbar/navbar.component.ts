@@ -12,7 +12,9 @@ import { ViewAllAssetDetailComponent } from '../../PopupModals/view-all-asset-de
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewSingleNotificationComponent } from '../../PopupModals/view-single-notification/view-single-notification.component';
 import { BreakDwonNoti } from '../../firebase/BreakDownModel';
+///
 
+///
 ////////////
 //  */import Swal from 'sweetalert2/dist/sweetalert2.js';
 
@@ -113,6 +115,27 @@ list2:BreakDwonNoti[];
   }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// logout
+
+logout() {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, Logout!'
+  }).then((result) => {
+    if (result.value) {
+      
+      sessionStorage.clear();
+      this.router.navigate(['/home']);
+    }
+  });
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

@@ -32,7 +32,7 @@ public class BreakdownController {
 
 // add a breakdown
     @PostMapping(path = "add")
-    public Breakdown addNewDamage(@RequestBody Breakdown b){
+    public Breakdown addNewDamage(@RequestBody Breakdown b) throws Exception {
         // Assigning references
         System.out.println(b);
         Optional<AssetModel> assetOptional = assetRepository.findByAssetId(b.getAssetId());    // changed
@@ -45,6 +45,8 @@ public class BreakdownController {
         } else {
             System.out.println("Line 4");
             System.out.println("Such Asset is NOT found in AssetModel table");
+
+            throw new Exception("Asset Not found");
         }
 
 
@@ -55,10 +57,14 @@ public class BreakdownController {
             b.setInformedBy(empRepo.findByNic(b.getComplainedNic()));       // changed
         }else {
             System.out.println("informed user is NOT found in EmployeeModel table.");
+            throw new Exception("Employee Not found");
         }
 
         b.setApprovedByAssetMananger(false);
         b.setAssignedToRepairManager(false);
+        b.setTouchedByAssetManager(false);
+
+
 
         LocalDate currentDate = LocalDate.now();
         System.out.println("Now date is: " + currentDate);
@@ -73,10 +79,16 @@ public class BreakdownController {
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    // Approve by asset manager
-
+    // Reject breakdown and make asset available in the pool
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // View all breakdowns  for report generation
+    @GetMapping(path = "all")
+    public Iterable<Breakdown> getAllBreakdowns(){
+        System.out.println("Finding all Breakdowns...");
+        final Iterable<Breakdown> all = breakdownRepo.findAll();
+        System.out.println(" all Breakdowns found successfully!");
+        return all;
+    }
 
 
 }

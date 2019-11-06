@@ -80,10 +80,16 @@ public class AssignModel implements Serializable {
     @Column(name = "is_am_touched" , columnDefinition = "boolean default false")       //    touch flag
     private boolean isAmTouched;
 
+    @Column(name = "returned" , columnDefinition = "boolean default false")
+    private boolean returned;
+
+    @Column(name = "issued" , columnDefinition = "boolean default false")
+    private boolean issued;
+
 /////////////////////////////////////////////////////////////////////
 
 
-    //Overiding Getters and setters
+    // Overiding Getters and setters
 
 
     public void setRequestType(String request) {
