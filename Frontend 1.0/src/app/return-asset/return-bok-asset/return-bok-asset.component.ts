@@ -11,7 +11,7 @@ import { returnBook } from '../../models/ReturnBookAsset';
 })
 export class ReturnBokAssetComponent implements OnInit {
   AllBook:Observable<returnBook>
-  searchTerm :string;
+  searchTerm : string;
    issue:number=-1;
 
   
@@ -41,6 +41,8 @@ export class ReturnBokAssetComponent implements OnInit {
       
       
     });
+    this.ngOnInit();
+
 
 
 
@@ -54,6 +56,7 @@ export class ReturnBokAssetComponent implements OnInit {
       console.log(response);
       
     });
+    this.ngOnInit();
 
 
 

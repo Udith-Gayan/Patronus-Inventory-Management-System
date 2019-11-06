@@ -137,7 +137,7 @@ deleteAsst(assetId){
   })
 
 
-
+  this.ngOnInit();
 
 }
 

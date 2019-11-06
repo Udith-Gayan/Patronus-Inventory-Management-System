@@ -107,19 +107,29 @@ export class HttpService {
 
    ///////////////////////all Request////////////////////////////////////////////////
    getAllRequest(): Observable<any>{
-    return this.http.get(Constants.BASE_URL+'/request/all')
+    return this.http.get(Constants.BASE_URL+'/assign/request/view/approved/all')
    }
 
    ///////////////////////////////////////////////////book asset issue ////////////////////
    
-   IssueBookAssset(id : number){
-    return this.http.post(Constants.BASE_URL+'/issue/issue',id,Constants.HTTP_OPTIONS);
-  }
+   //*IssueBookAssset(id : number){
+    //return this.http.post(Constants.BASE_URL+'/issue/issue',id,Constants.HTTP_OPTIONS);
+  //}//
 
    ///////////////////////////////////////////////////book asset return ////////////////////
    
-   ReturnBookAssset(id : number){
-    return this.http.post(Constants.BASE_URL+'/return/return',id,Constants.HTTP_OPTIONS);
-  }
+  
+
+  IssueBookAssset(id) {                              // deleteEmployee(employee :Employee){
+    return this.http.get(Constants.BASE_URL+'/issue/issue', {params: {id: id}, observe: 'response'}); 
+
+}
+ReturnBookAssset(id) {                              // deleteEmployee(employee :Employee){
+  return this.http.get(Constants.BASE_URL+'/return/return', {params: {id: id}, observe: 'response'}); 
+
+}
+
+
+
 
 }

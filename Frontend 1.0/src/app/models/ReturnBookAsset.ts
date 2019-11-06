@@ -6,7 +6,8 @@ export class returnBook{
     dueDate:string;
     userAssigned:Employee;
     id:number;
-    
+    returned:string;
+
 
 
 }

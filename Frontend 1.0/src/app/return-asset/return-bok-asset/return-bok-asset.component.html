@@ -9,9 +9,9 @@
  
        </div>
 
-<div *ngFor="let book of AllBook | employeeFilter:searchTerm">
+<div *ngFor="let book of AllBook | employeeFilter : searchTerm">
 
-<div class="card-body" > 
+<div class="card-body" *ngIf="!book.returned"> 
         <div class="card" style="background-color: rgb(173, 214, 226);height: 2cm;" > 
           <div class="row" > 
  
@@ -26,7 +26,7 @@
              <td style="width: 4cm;">{{book.userAssigned.contactNo}}</td>
            
 
-            <td class="btn btn-primary" (click)="IssueAsset(book.id)" *ngIf=" book.id != issue"  >Issue</td>
+            <td class="btn btn-primary" (click)="IssueAsset(book.id)" *ngIf="!book.issued"  >Issue</td>
             <a  class="btn btn-primary" (click)="ReturnAsset(book.id)">Return</a>
              
               <!--pop up for booking-->   
