@@ -39,28 +39,34 @@
         <tr > 
           <th class="th-sm" style="width: 3cm">AssetID
         </th>
-          <th class="th-sm" style="width: 3cm">BrandName
+          <th class="th-sm" style="width: 3cm">Warranty Status
           </th>
-          <th class="th-sm" style="width: 3cm">
+          <th class="th-sm" style="width: 3cm">Category
           </th>
-          <th class="th-sm">Nic
+          <th class="th-sm">Location
             </th>
-          <th class="th-sm">Email
+          <th class="th-sm">Company contact No
           </th>
-          <th class="th-sm"> Address
+          <th class="th-sm"> Complaner Name
           </th>
-          <th class="th-sm">contact Number 
+          <th class="th-sm">Complaner Contact Number 
           </th>
           
         
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let emp of AllBook  | employeeFilter1 : searchTerm1">
-          <td style="width: 3cm">{{emp.status}}</td>
+        <tr *ngFor="let asset of AllBrekdown |  assetfilter : searchTerm">
+          
+          <td style="width: 3cm;">{{asset.assetId}}</td>
+          <td style="width: 5cm;">{{asset.brokenAsset.warrantyStatus}}</td>
+          <td style="width: 5cm;">{{asset.brokenAsset.assetcategory}}</td>
+   
+           <td style="width: 7cm;">{{asset.brokenAsset.location}}</td>
+           <td style="width: 3cm;">{{asset.brokenAsset.companyContact}}</td>
+           <td style="width: 9cm;">{{asset.informedBy.firstname}} {{asset.informedBy.lastname}}</td>
+           <td style="width: 4cm;">{{asset.informedBy.contactNo}}</td>
          
-          <td>{{emp.address}}</td>
-          <td>{{emp.contactNo}}</td>
         </tr>
        
       </tbody>

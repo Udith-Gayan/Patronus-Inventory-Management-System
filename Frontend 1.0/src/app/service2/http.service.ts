@@ -128,7 +128,12 @@ ReturnBookAssset(id) {                              // deleteEmployee(employee :
   return this.http.get(Constants.BASE_URL+'/return/return', {params: {id: id}, observe: 'response'}); 
 
 }
+/////////////////////////////releseeBrokenAsset///////////////////////////
 
+ReleaseBrokenAsset(assetId){
+  return this.http.get(Constants.BASE_URL+'/return/return', {params: {id: assetId}, observe: 'response'}); 
+
+}
 
 
 

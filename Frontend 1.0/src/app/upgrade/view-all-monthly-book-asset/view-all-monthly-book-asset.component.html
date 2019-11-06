@@ -36,15 +36,15 @@
           <tr > 
             <th class="th-sm" style="width: 3cm">AssetID
           </th>
-            <th class="th-sm" style="width: 3cm">BrandName
+            <th class="th-sm" style="width: 3cm">From
             </th>
-            <th class="th-sm" style="width: 3cm">
+            <th class="th-sm" style="width: 3cm">To
             </th>
-            <th class="th-sm">Nic
+            <th class="th-sm">Catagory
               </th>
-            <th class="th-sm">Email
+            <th class="th-sm">Name
             </th>
-            <th class="th-sm"> Address
+            <th class="th-sm"> NIC
             </th>
             <th class="th-sm">contact Number 
             </th>
@@ -53,11 +53,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let emp of AllBook  | employeeFilter1 : searchTerm1">
-            <td style="width: 3cm">{{emp.status}}</td>
+          <tr *ngFor="let asset of AllBook |  assetfilter : searchTerm">
+          
+            <td style="width: 3cm;">{{asset.assetId}}</td>
+            <td style="width: 5cm;">{{asset.beginDate}}</td>
+            <td style="width: 5cm;">{{asset.dueDate}}</td>
            
-            <td>{{emp.address}}</td>
-            <td>{{emp.contactNo}}</td>
+             <td style="width: 7cm;">{{asset.requestedAsset.assetcategory}}</td>
+             <td style="width: 9cm;">{{asset.userAssigned.firstname}} {{asset.userAssigned.lastname}}</td>
+             <td style="width: 3cm;">{{asset.requestedNic}}</td>
+             <td style="width: 4cm;">{{asset.userAssigned.contactNo}}</td>
+           
           </tr>
          
         </tbody>

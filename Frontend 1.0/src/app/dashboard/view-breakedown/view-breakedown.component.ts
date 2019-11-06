@@ -96,7 +96,22 @@ export class ViewBreakedownComponent implements OnInit {
     });
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////release button/////////////////////////
 
+ReleaseAsset(assetId : number){
+  {
+    console.log(assetId);
+
+    this.asset.ReleaseBrokenAsset(assetId).subscribe((response)=>{
+      console.log(response);
+      
+    });
+    this.ngOnInit();
+
+
+
+  }
+}
 
 
 

@@ -121,4 +121,28 @@ export class ViewEmpComponent implements OnInit {
     });
   }
 
+
+  //////////////blockAset/////////////////////
+BlockAsset(nic : string){
+ console.log(nic);
+ this.emp.BlockEmp(nic).subscribe((response)=>{
+  console.log(response);
+  
+});
+
+
+  }
+
+  /////////////////////Unblock/////////////////
+  UnBlockAsset(nic : string){
+    console.log(nic);
+    this.emp.UnBlockEmp(nic).subscribe((response)=>{
+     console.log(response);
+     
+   });
+   
+   
+     }
+
+
 }
