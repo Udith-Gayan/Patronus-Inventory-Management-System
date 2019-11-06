@@ -1,8 +1,6 @@
 package com.project.inventoryManagement.Service;
 
-import com.project.inventoryManagement.Models.DaoUser;
 import com.project.inventoryManagement.Models.EmployeeMainModel;
-import com.project.inventoryManagement.Models.UserDTO;
 import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
 import com.project.inventoryManagement.Repositories.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,11 +66,16 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     /////////////////////
     // For saving new users
-    public DaoUser save(UserDTO user) {
-        DaoUser newUser = new DaoUser();
-        newUser.setUsername(user.getUsername());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));     // set this in saving password for the real project
-        return userDao.save(newUser);
+    public EmployeeMainModel save(EmployeeMainModel user) {
+//        DaoUser newUser = new DaoUser();
+//        newUser.setUsername(user.getFirstname());
+        System.out.println("line23");
+        user.setPassword(bcryptEncoder.encode(user.getPassword()));     // set this in saving password for the real project
+        System.out.println("line25: "+ user.getPassword());
+
+        return employeeMainRepository.save(user);
+
+
     }
 
 

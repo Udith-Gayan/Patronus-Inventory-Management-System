@@ -3,9 +3,7 @@ package com.project.inventoryManagement.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,6 +13,8 @@ import java.util.List;
 @Table(name = "employee_main")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @ToString(exclude = { "assign"})
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class EmployeeMainModel implements Serializable {
@@ -50,6 +50,9 @@ public class EmployeeMainModel implements Serializable {
 
     @Column(name = "address")
     private String address;
+
+    @Column(name = "unblocked")      //newly added
+    private boolean unblocked;
 
     @Lob
     @Column(name = "img")

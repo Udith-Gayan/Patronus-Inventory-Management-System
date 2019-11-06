@@ -57,6 +57,7 @@ import { ViewBreakeDownAssetComponent } from './PopupModals/view-breake-down-ass
 import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-request-and-booking-emp-detail/view-request-and-booking-emp-detail.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+// import { BCrypt } from 'bcrypt';
 
 
 
@@ -81,7 +82,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     EmpCompenentModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot()
-  
+
 
 
 

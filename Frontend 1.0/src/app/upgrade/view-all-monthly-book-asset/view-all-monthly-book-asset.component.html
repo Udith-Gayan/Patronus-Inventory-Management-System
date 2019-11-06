@@ -1,9 +1,93 @@
-<p>view-all-monthly-book-asset works!</p>
 
-<div id="2s"> 
-    <!--Your html stuff that you want to print-->
-    <h1>sajith</h1>
+
+  <div class="col-md-2 mb-3">
+      <label for="status" class="cols-sm-2 control-label">Book Asset</label>
+  
+  
+      <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm1" placeholder="">
+        <option value="" >All</option>  
+      <option value="Employee" >Employee</option>
+      <option value="Asset manager" >Asset manger</option>
+      <option value="Depart mentHead" >Department Head</option>
+      <option value="Event Oraganzer" >Event Organzer</option>
+      <option value="CEO" >CEO</option>
+        
+      </select>
   </div>
+        
+  <div id="2s"> 
+    <!----------------------------------All Asset Table---------------------------------------->
+  <br><br>
+    <h5 style="text-align: center">Book Asset</h5><br>
+    <hr  id="line" style="margin-top: 13px;"> 
    
-  <button printSectionId="2s" ngxPrint>print</button> 
-   
+  
+    <table id="selectedColumn" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead style="background-color: burlywood;color: black;font-weight: bold">
+          <tr > 
+            <th class="th-sm" style="width: 3cm">AssetID
+          </th>
+            <th class="th-sm" style="width: 3cm">BrandName
+            </th>
+            <th class="th-sm" style="width: 3cm">
+            </th>
+            <th class="th-sm">Nic
+              </th>
+            <th class="th-sm">Email
+            </th>
+            <th class="th-sm"> Address
+            </th>
+            <th class="th-sm">contact Number 
+            </th>
+            
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of AllEmp  | employeeFilter1 : searchTerm1">
+            <td style="width: 3cm">{{emp.status}}</td>
+            <td style="width: 3cm">{{emp.fastname}}  {{emp.lastname}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.nic}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.address}}</td>
+            <td>{{emp.contactNo}}</td>
+          </tr>
+         
+        </tbody>
+        <tfoot>
+          <tr>
+            <th style="width: 3cm">AssetID
+            </th>
+            <th style="width: 3cm">Category
+            </th>
+            <th>location
+            </th>
+            <th>Bought Date
+            </th>
+            <th>Company
+            </th>
+            <th>Warranty Status
+            </th>
+            <th>Quantity
+              </th>
+          </tr>
+        </tfoot>
+      </table>
+    <!-------------------------------------end------------------------------------------------->
+     <pre style="text-align:right;">  <br> <br> ----------------- <br> <br>{{status}} <br>{{Fname}} {{Lname}} <br>{{email}} {{curent}}</pre>
+     <pre style=""><p>{{today | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p> </pre>
+     <pre style="text-align:right;"></pre>
+    
+  </div>
+     
+  
+   <div class="text-center" style="align-content: center">
+    <button  printSectionId="2s"
+    ngxPrint class="btn btn-primary hidden-print" ><span class="glyphicon glyphicon-print" style="align-content: center" aria-hidden="true"><i class="fa fa-print" style="font-size:24px"></i></span> Print</button>
+  
+  
+   </div>
+      
+  
+  

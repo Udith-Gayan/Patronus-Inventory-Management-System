@@ -10,7 +10,8 @@ import { BookingAssetModalComponent } from '../PopupModals/booking-asset-modal/b
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ResetModel } from './resetPassword.model';
 import { MailResponse } from './mailResponse';
-
+//import * as crypto from 'crypto-js';
+//import { CryptoJS } from 'crypto-js';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
   employee: Employee;
 
   loginRequest: LoginRequest;
+
 
 
 
@@ -63,8 +65,19 @@ export class LoginComponent implements OnInit {
 
     //   }
     // }
+    console.log( 'line1');
+    /************AES part */
 
+    // let encryptedpsd = crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString();
+  //    console.log(crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString());
+  //   // this.loginRequest.password = crypto.AES.encrypt(this.loginRequest, 'udith');
+  //   console.log( 'line2');
+  //  // console.log('Encrypted key is: ' + crypto.AES.decrypt(encryptedpsd, '1234567890123456'));
+  //   console.log('line3' + typeof encryptedpsd);
 
+  //    this.loginRequest.password = encryptedpsd;
+
+     /********** AES end */
 
     this.userService.login(this.loginRequest).subscribe((response: WebtokenResponse) => {
       console.log(response);
@@ -85,6 +98,7 @@ export class LoginComponent implements OnInit {
 
     },
     ( error: any) => {
+
        console.table('Error found while loggin: ' + error.type);
 
         this.openErrorBox();
@@ -92,6 +106,8 @@ export class LoginComponent implements OnInit {
 
        this.loginRequest.username = '';
        this.loginRequest.password = '';
+
+       window.sessionStorage.clear();
 
           } );
 
@@ -180,7 +196,7 @@ export class NgbdModalContent {
      <div class="form-group">
        <label for="exampleInputEmail1">Email address</label>
        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #email="ngModel" name="email"   [(ngModel)]="resetForm.resetEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
-     
+
 
        <div *ngIf=" email.errors?.required && email.touched"
        class="alert alert-danger udith-danger">
@@ -192,7 +208,7 @@ export class NgbdModalContent {
     Not Valid
 </div>
        </div>
-    
+
 
      <div class="form-group">
        <label for="exampleInputPassword1">New Password</label>
@@ -203,8 +219,8 @@ export class NgbdModalContent {
      <label for="exampleInputPasswor2">Confirm New Password</label>
      <input type="password" class="form-control" name="rePassword"  placeholder="Password Again" [(ngModel)]="resetForm.confirmNewPassword" #rePassword="ngModel" required>
      </div>
-    
-       
+
+
 
      <div class="form-check">
 
@@ -240,6 +256,20 @@ export class NgbdModalContentForresetPassword {
     console.log('thisending method begins');
 console.log(this.resetForm);
 
+console.log( 'line1');
+/*****************************AES begins */
+  //   const encryptedpsd = crypto.AES.encrypt(this.resetForm.newPassword , '1234567890123456').toString();
+  //    console.log(crypto.AES.encrypt(this.resetForm.newPassword , '1234567890123456').toString());
+  //   // this.loginRequest.password = crypto.AES.encrypt(this.loginRequest, 'udith');
+  //   console.log( 'line2');
+  //  // console.log('Encrypted key is: ' + crypto.AES.decrypt(encryptedpsd, '1234567890123456'));
+  //   console.log('line3' + typeof encryptedpsd);
+
+  //   this.resetForm.newPassword = encryptedpsd;
+
+    /********************AES end */
+
+
      this.userService.sendMail(this.resetForm).subscribe( (mailResponse: MailResponse) => {
 
       if (mailResponse.code === -1) {
@@ -254,7 +284,7 @@ console.log(this.resetForm);
       }
 
      } );
-    
+
 
   }
 ///////////////////////////////////////////////////////////////////////////////////////////

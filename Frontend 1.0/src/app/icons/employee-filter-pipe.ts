@@ -16,3 +16,19 @@ export class EmployeeFilterPipe implements PipeTransform{
 
     }
 }
+
+@Pipe({
+    name:'employeeFilter1'
+})
+
+
+export class EmployeeFilterPipe1 implements PipeTransform{
+    transform(data:Employee[],searchTerm1:string):Employee[]{
+        if(!data || !searchTerm1){
+            return data ;
+        }
+        return data.filter(employee=>
+            employee.status.toLowerCase().indexOf(searchTerm1.toLowerCase()) !== -1)
+
+    }
+}

@@ -24,7 +24,7 @@ import { ProjecterComponent } from '../../AssetCatagary/projecter/projecter.comp
 import { ComputerComponent } from '../../AssetCatagary/computer/computer.component';
 import { TestveiwComponent } from '../../firebase/testveiw/testveiw.component';
 import { TestshowComponent } from '../../firebase/testshow/testshow.component';
-import { EmployeeFilterPipe } from '../../icons/employee-filter-pipe';
+import { EmployeeFilterPipe, EmployeeFilterPipe1 } from '../../icons/employee-filter-pipe';
 import { AssetFilterPipe } from '../../user-profile/asset-filter.pipe';
 import { View2EmpComponent } from '../../icons/view2-emp/view2-emp.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -108,7 +108,8 @@ import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
     ViewAllMonthlyBookAssetComponent,
     ViewAllMonthlyBrakeDownAssetComponent,
     ViewAllMonthlyReportComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    EmployeeFilterPipe1 
 
     
   

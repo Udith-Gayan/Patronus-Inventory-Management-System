@@ -31,6 +31,7 @@ export class ViewAssetComponent implements OnInit {
   //////
   status:string = sessionStorage.getItem('status');
   searchTerm :string;
+  searchTerm1 :string;
   constructor(private asset : HttpService, private modalService: NgbModal) { }
 ////////////////////////////////////////////////////////////////////////////////////////////////
   ngOnInit() {
