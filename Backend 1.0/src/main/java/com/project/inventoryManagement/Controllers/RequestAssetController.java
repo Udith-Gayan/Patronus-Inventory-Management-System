@@ -110,6 +110,12 @@ public class RequestAssetController {
 
     /////////////////////////////////////////////
 
+    @GetMapping(path = "/request/view/approved/all")
+    public Iterable<AssignModel> getAllAprrovedAssigningsByAssetMananger(){
+        System.out.println(" Get All Aprroved requests by Asset Manager");
+        return assignRepo.findAllApprovedRequests();
+    }
+    //////////////////////////////////////////////
 
 
 }

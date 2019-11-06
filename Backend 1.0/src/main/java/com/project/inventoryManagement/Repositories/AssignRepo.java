@@ -41,7 +41,7 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
     @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3 , is_am_touched = true where id = ?1" , nativeQuery = true)
     int updateAmConfirmation(long id, boolean confirmation, LocalDate confirmedDate);
 
-    /* Rejection */
+    /* Rejection by Department Head */
     @Transactional
     @Modifying
     @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 , is_dh_touched = true where id = ?1" , nativeQuery = true)
@@ -54,15 +54,21 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
 
     Iterable<AssignModel> findAllByRequestType(String requestType);
 
+
+    // Asset returned
     @Transactional
     @Modifying
     @Query(value = "update assign_model set returned = true where id = ?1", nativeQuery = true)
     int updateReturnedAsset(long id);
 
+    // Asset issued
     @Transactional
     @Modifying
     @Query(value = "update assign_model set issued = true where id = ?1", nativeQuery = true)
     int updateIssuedAsset(long id);
 
 
+    // All approved requests
+    @Query(value = "select * from assign_model where request_type='REQUEST' and is_approved_by_asset_manager = true and is_approved_by_department_head = true and is_am_touched = true and is_dh_touched = true ", nativeQuery = true)
+    Iterable<AssignModel> findAllApprovedRequests();
 }

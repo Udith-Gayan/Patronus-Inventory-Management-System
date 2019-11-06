@@ -23,7 +23,7 @@ public class AssignModel implements Serializable {
     private long id;
 
     @Column(name = "request_type")
-    private String requestType;              // BOOKING, REQUEST for notifications and report generations
+    private String requestType;              // BOOK REQUEST for notifications and report generations
 
 
     @CreatedDate
