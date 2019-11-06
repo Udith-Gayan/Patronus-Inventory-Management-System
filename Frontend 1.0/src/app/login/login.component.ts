@@ -98,6 +98,7 @@ export class LoginComponent implements OnInit {
 
     },
     ( error: any) => {
+
        console.table('Error found while loggin: ' + error.type);
 
         this.openErrorBox();
@@ -105,6 +106,8 @@ export class LoginComponent implements OnInit {
 
        this.loginRequest.username = '';
        this.loginRequest.password = '';
+
+       window.sessionStorage.clear();
 
           } );
 

@@ -8,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
-
 // @CrossOrigin(origins = "*",allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/employees")
@@ -140,5 +139,42 @@ public class  EmployeeMainController {
 
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Block a user from accessing the app
+
+        @GetMapping(path = "/blockuser")
+        public int blockEmployee(@RequestParam String nic){
+
+             System.out.println("blocking the following nic: "+ nic);
+             EmployeeMainModel mm = empMainRepo.findByNic(nic);
+
+             //if asset Manager, blocking not allowed
+             if(mm.getStatus().equals("Asset Manager")){
+                 System.out.println("Asset Mananger blocking himself.\nNot Allowed for that");
+                 return -100;
+             }
+
+
+             return empMainRepo.blockEmployee(nic);
+
+
+        }
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Unblock a user from accessing the app
+
+    @GetMapping(path = "/unblockuser")
+    public int unBlockEmployee(@RequestParam String nic){
+        System.out.println("blocking the following nic: "+ nic);
+
+
+        return empMainRepo.unblockEmployee(nic);
+
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

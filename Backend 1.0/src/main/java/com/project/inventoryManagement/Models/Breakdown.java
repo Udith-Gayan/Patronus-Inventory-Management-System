@@ -44,6 +44,9 @@ public class Breakdown implements Serializable {
     @Column(name = "informed_date")
     private LocalDate informedDate;
 
+//    @Column(name = "is_am_touched")
+//    private boolean isTouchedByAssetManager;
+
     @ManyToOne(cascade= CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "informed_user_id", nullable = false, referencedColumnName = "employeeId")
     private EmployeeMainModel informedBy;

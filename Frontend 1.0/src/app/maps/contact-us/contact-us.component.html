@@ -24,31 +24,38 @@
             </div>
             
             <!-- Body -->
+            <form (ngSubmit)="sendFeedback()">
             <div class="md-form">
               <i class="fas fa-user prefix grey-text"></i>
-              <input type="text" id="form-name" class="form-control">
               <label for="form-name">Your name </label>
+              <input type="text" id="name" class="form-control" name="name" [(ngModel)]="feedback.fname" >
+              
             </div>
             <div class="md-form">
               <i class="fas fa-envelope prefix grey-text"></i>
-              <input type="text" id="form-email" class="form-control">
               <label for="form-email">Your email </label>
+              <input type="text" id="form-email" class="form-control" name="email" [(ngModel)]="feedback.email">
+              
             </div>
             <div class="md-form">
               <i class="fas fa-tag prefix grey-text"></i>
-              <input type="text" id="form-Subject" class="form-control">
               <label for="form-Subject">Subject </label>
+              <input type="text" id="form-Subject" class="form-control" name="subject" [(ngModel)]="feedback.subject">
+              
             </div>
             <div class="md-form">
               <i class="fas fa-pencil-alt prefix grey-text"></i>
-              <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
               <label for="form-text">Send message </label>
+              <textarea id="form-text" class="form-control md-textarea" rows="3" name="message" [(ngModel)]="feedback.message"></textarea>
+            
             </div>
             <div class="text-center">
-              <button class="btn btn-light-blue">Submit</button>
+              <button class="btn btn-light-blue" >Submit</button>
             </div>
+          </form>
           </div>
         </div>
+
         <!-- Form with header -->
   
       </div>

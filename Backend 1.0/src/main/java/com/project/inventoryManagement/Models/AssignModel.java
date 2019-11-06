@@ -74,6 +74,12 @@ public class AssignModel implements Serializable {
     private EmployeeMainModel userAssigned;
 
 
+    @Column(name = "is_dh_touched" , columnDefinition = "boolean default false")         //   touch flag
+    private boolean isDhTouched;
+
+    @Column(name = "is_am_touched" , columnDefinition = "boolean default false")       //    touch flag
+    private boolean isAmTouched;
+
 /////////////////////////////////////////////////////////////////////
 
 

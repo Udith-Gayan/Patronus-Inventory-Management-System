@@ -34,4 +34,16 @@ public interface EmployeeMainRepository extends CrudRepository<EmployeeMainModel
     @Modifying
     @Query(value = "update employee_main set password = ?2 where email = ?1" , nativeQuery = true)
     int updatePassword(String email, String password);
+
+    @Transactional
+    @Modifying
+    @Query(value = "update employee_main set unblocked = false where nic = ?1", nativeQuery = true)
+    int blockEmployee(String nic);
+
+    @Transactional
+    @Modifying
+    @Query(value = "update employee_main set unblocked = true where nic = ?1", nativeQuery = true)
+    int unblockEmployee(String nic);
+
+
 }

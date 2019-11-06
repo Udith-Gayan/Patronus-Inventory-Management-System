@@ -41,6 +41,10 @@ public class RequestAssetController {
         m1.setApprovedByAssetManager(false);
         m1.setApprovedByDepartmentHead(false);
 
+        LocalDate dd = LocalDate.of(0000,01,01);
+        m1.setDateDHConfirmed(dd);
+        m1.setDateAMConfirmed(dd);
+
         // Assigning created date
         LocalDate nowdate = LocalDate.now();
         System.out.println("Now date is: " + nowdate);
