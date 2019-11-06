@@ -64,6 +64,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -109,7 +111,14 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ViewBreakeDownAssetComponent,
     ViewRequestAndBookingEmpDetailComponent,
 
-    NgbdModalContentForresetPassword
+    NgbdModalContentForresetPassword,
+
+   
+    
+
+   
+
+    
 
 
 

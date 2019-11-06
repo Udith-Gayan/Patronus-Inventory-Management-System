@@ -93,4 +93,22 @@ export class HttpService {
     return this.http.post(Constants.BASE_URL+'/assign/reject/departmenthead',id,Constants.HTTP_OPTIONS);
   }
 
+
+  ///////////////////////////all book asset////////////////////////////////////////////////
+  getAllBookAsset(): Observable<any>{
+    return this.http.get(Constants.BASE_URL+'/booking/all')
+   }
+
+   ////////////////////////all breakdown///////////////////////////////////////////////
+   
+   getAllBreakdown(): Observable<any>{
+    return this.http.get(Constants.BASE_URL+'/breakdown/all')
+   }
+
+   ///////////////////////all Request////////////////////////////////////////////////
+   getAllRequest(): Observable<any>{
+    return this.http.get(Constants.BASE_URL+'/request/all')
+   }
+   
+
 }

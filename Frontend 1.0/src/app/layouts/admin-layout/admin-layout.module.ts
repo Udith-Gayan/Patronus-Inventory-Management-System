@@ -49,6 +49,11 @@ import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly
 import { ViewAllMonthlyBrakeDownAssetComponent } from '../../upgrade/view-all-monthly-brake-down-asset/view-all-monthly-brake-down-asset.component';
 import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-report/view-all-monthly-report.component';
 import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
+import { ViewAllRequestAssetsComponent } from '../../upgrade/view-all-request-assets/view-all-request-assets.component';
+import { ReturnAssetComponent } from '../../return-asset/return-asset.component';
+import { ReturnBokAssetComponent } from '../../return-asset/return-bok-asset/return-bok-asset.component';
+import { ReturnRequestAssetComponent } from '../../return-asset/return-request-asset/return-request-asset.component';
+
 
 
 @NgModule({
@@ -109,8 +114,15 @@ import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
     ViewAllMonthlyBrakeDownAssetComponent,
     ViewAllMonthlyReportComponent,
     ContactUsComponent,
-    EmployeeFilterPipe1 
+    EmployeeFilterPipe1 ,
+    ViewAllRequestAssetsComponent,
+    ReturnAssetComponent,
+    ReturnBokAssetComponent,
 
+    ReturnRequestAssetComponent,
+
+    
+    
     
   
   ]
