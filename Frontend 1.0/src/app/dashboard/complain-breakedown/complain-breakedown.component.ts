@@ -111,14 +111,16 @@ export class ComplainBreakedownComponent implements OnInit {
       this.chek=false;
       console.log("Line5");
       console.log(this.chek);
+      console.log(error);
+      // Popup 
       Swal.fire({
         type: 'error',
         title: 'Oops...',
-        text: 'AssetId went wrong!',
+        text: error.error.message,
         footer: '<a> Please check the AssetId Again </a>'
       });
 
-
+      this.resetForm(form);
   });
 
 

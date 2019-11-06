@@ -54,4 +54,15 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
 
     Iterable<AssignModel> findAllByRequestType(String requestType);
 
+    @Transactional
+    @Modifying
+    @Query(value = "update assign_model set returned = true where id = ?1", nativeQuery = true)
+    int updateReturnedAsset(long id);
+
+    @Transactional
+    @Modifying
+    @Query(value = "update assign_model set issued = true where id = ?1", nativeQuery = true)
+    int updateIssuedAsset(long id);
+
+
 }
