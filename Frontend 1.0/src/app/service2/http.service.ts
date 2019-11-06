@@ -109,6 +109,17 @@ export class HttpService {
    getAllRequest(): Observable<any>{
     return this.http.get(Constants.BASE_URL+'/request/all')
    }
+
+   ///////////////////////////////////////////////////book asset issue ////////////////////
    
+   IssueBookAssset(id : number){
+    return this.http.post(Constants.BASE_URL+'/issue/issue',id,Constants.HTTP_OPTIONS);
+  }
+
+   ///////////////////////////////////////////////////book asset return ////////////////////
+   
+   ReturnBookAssset(id : number){
+    return this.http.post(Constants.BASE_URL+'/return/return',id,Constants.HTTP_OPTIONS);
+  }
 
 }
