@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '../models/constants';
 import { Employee } from '../models/employee';
 import { Observable } from 'rxjs';
+import { Feedback } from '../models/Feedback';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,6 @@ export class HttpService {
     return this.http.get(Constants.EMPLOYEE_API + '/all');
   }
 
-
   deleteEmployee(nicNumber){                              // deleteEmployee(employee :Employee){
     return this.http.delete(Constants.EMPLOYEE_API + '/delete', {params: {nic: nicNumber}, observe: 'response'});    // return this.http.delete(Constants.EMPLOYEE_API+'/delete',Constants.HTTP_OPTIONS);
   }
@@ -40,6 +40,12 @@ export class HttpService {
   // reset password mail sender
   sendMail(resetForm){
     return this.http.post(Constants.BASE_URL + '/resetpassword/sendmail', resetForm);
+  }
+
+
+  ///////////////////feedaback/////////////////////////
+  feedbackemployee(feedaback : Feedback){
+      return this.http.post(Constants.BASE_URL + '/feedback/feedbackform',feedaback,Constants.HTTP_OPTIONS);
   }
 
 

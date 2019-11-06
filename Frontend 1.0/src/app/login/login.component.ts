@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
     console.log( 'line1');
     /************AES part */
 
-    //let encryptedpsd = crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString();
+    // let encryptedpsd = crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString();
   //    console.log(crypto.AES.encrypt(this.loginRequest.password, '1234567890123456').toString());
   //   // this.loginRequest.password = crypto.AES.encrypt(this.loginRequest, 'udith');
   //   console.log( 'line2');
@@ -98,6 +98,7 @@ export class LoginComponent implements OnInit {
 
     },
     ( error: any) => {
+
        console.table('Error found while loggin: ' + error.type);
 
         this.openErrorBox();
@@ -105,6 +106,8 @@ export class LoginComponent implements OnInit {
 
        this.loginRequest.username = '';
        this.loginRequest.password = '';
+
+       window.sessionStorage.clear();
 
           } );
 

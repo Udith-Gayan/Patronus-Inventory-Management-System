@@ -38,10 +38,9 @@ public class BookingAssetController {
         m1.setApprovedByAssetManager(true);
         m1.setApprovedByDepartmentHead(true);
 
-        // Assigning created date
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-//        Date date = new Date();
-//        // dateFormat.format(date);
+        LocalDate dd = LocalDate.of(0000,01,01);
+        m1.setDateDHConfirmed(dd);
+        m1.setDateAMConfirmed(dd);
 
 
         // Date created

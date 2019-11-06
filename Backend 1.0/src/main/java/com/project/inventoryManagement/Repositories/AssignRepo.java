@@ -20,10 +20,10 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
     @Query(value = "SELECT * from assign_model where request_type = ?1", nativeQuery = true)
     Iterable<AssignModel> findAllbyRequestType(String requestType);
 
-    @Query(value = "select * from assign_model where request_type = ?1 and is_approved_by_department_head = ?2 and is_approved_by_asset_manager = ?3 and date_dh_confirmed is null and date_am_confirmed is null" , nativeQuery = true)
+    @Query(value = "select * from assign_model where request_type = ?1 and is_approved_by_department_head = ?2 and is_approved_by_asset_manager = ?3 and is_dh_touched = false" , nativeQuery = true)
     Iterable<AssignModel> findByRequestPendingByDepartmentHead(String requestType , boolean headApproved, boolean managerApproved);
 
-    @Query(value = "select * from assign_model where request_type = ?1 and is_approved_by_department_head = ?2 and is_approved_by_asset_manager = ?3 and date_dh_confirmed is not null and date_am_confirmed is null" , nativeQuery = true)
+    @Query(value = "select * from assign_model where request_type = ?1 and is_approved_by_department_head = ?2 and is_approved_by_asset_manager = ?3 and is_dh_touched = true and is_am_touched = false" , nativeQuery = true)
     Iterable<AssignModel> findByRequestPendingByAssetManager(String requestType , boolean headApproved, boolean managerApproved);
 
 
@@ -33,24 +33,25 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
     /* Confirmation */
     @Transactional
     @Modifying
-    @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 where id = ?1" , nativeQuery = true)
+    @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 , is_dh_touched = true where id = ?1" , nativeQuery = true)
     int updateDhConfirmation(long id, boolean confirmation, LocalDate confirmedDate);
 
     @Transactional
     @Modifying
-    @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3 where id = ?1" , nativeQuery = true)
+    @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3 , is_am_touched = true where id = ?1" , nativeQuery = true)
     int updateAmConfirmation(long id, boolean confirmation, LocalDate confirmedDate);
 
     /* Rejection */
     @Transactional
     @Modifying
-    @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 where id = ?1" , nativeQuery = true)
+    @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 , is_dh_touched = true where id = ?1" , nativeQuery = true)
     int updateDhRejection(long id, boolean confirmation, LocalDate confirmedDate);
 
     @Transactional
     @Modifying
-    @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3 where id = ?1" , nativeQuery = true)
+    @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3  , is_am_touched = true where id = ?1" , nativeQuery = true)
     int updateAmRejection(long id, boolean confirmation, LocalDate confirmedDate);
 
+    Iterable<AssignModel> findAllByRequestType(String requestType);
 
 }

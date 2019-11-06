@@ -3,21 +3,21 @@
     <div class="col-md-2 mb-3" style="align-content: right">
         <label for="status" class="cols-sm-4 control-label">Asset Catagory</label>
 
-    
+
         <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
-          <option value="" >All</option>  
+          <option value="" >All</option>
         <option value="Computer" >Computer</option>
         <option value="Furniture" >Furniture</option>
         <option value="Projector" >Projector</option>
         <option value="Printer" >Printer</option>
         <option value="TV" >TV</option>
-          
+
         </select>
     </div>
-    
-    
 
-<div id="2s"> 
+
+
+<div id="2s">
   <!----------------------------------All Asset Table---------------------------------------->
 <br><br>
 <hr  id="line" style="margin-top: 13px;"> 
@@ -38,7 +38,7 @@
           </th>
           <th class="th-sm">Bought Date
           </th>
-          <th class="th-sm">Company 
+          <th class="th-sm">Company
           </th>
           <th class="th-sm">Warranty Status
           </th>
@@ -56,7 +56,7 @@
           <td>{{asset.warrantyStatus}}</td>
           <td>{{asset.quantity}}</td>
         </tr>
-       
+
       </tbody>
       <tfoot>
         <tr>
@@ -81,9 +81,9 @@
    <pre style="text-align:right;">  <br> <br> ----------------- <br> <br>{{status}} <br>{{Fname}} {{Lname}} <br>{{email}} {{curent}}</pre>
    <pre style=""><p>{{today | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p> </pre>
    <pre style="text-align:right;"></pre>
-  
+
 </div>
-   
+
 
  <div class="text-center" style="align-content: center">
   <button  printSectionId="2s"
@@ -91,5 +91,5 @@
 
 
  </div>
-    
+
 
