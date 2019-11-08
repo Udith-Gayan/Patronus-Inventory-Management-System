@@ -2,19 +2,16 @@ package com.project.inventoryManagement.Controllers;
 
 
 import com.google.common.collect.Lists;
-import com.project.inventoryManagement.Models.AssetModel;
-import com.project.inventoryManagement.Models.AssignModel;
-import com.project.inventoryManagement.Models.EmployeeMainModel;
-import com.project.inventoryManagement.Repositories.AssetRepository;
-import com.project.inventoryManagement.Repositories.AssignRepo;
-import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
-import com.project.inventoryManagement.Repositories.IDNumberRepo;
+import com.project.inventoryManagement.Models.*;
+import com.project.inventoryManagement.Repositories.*;
 import com.project.inventoryManagement.Service.AssetRegistration;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/asset")
@@ -65,10 +62,32 @@ public class    AssetController {
     }
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    @Autowired
+    private ModelMapper modelMapper;
+
+    @Autowired
+    AssetRepository assetRepository;
+
+    @Autowired
+    DeletedAssetRepo deletedAssetRepo;
+
     // Delete Asset by ID
     @DeleteMapping(path = "/delete")
     public boolean deleteAssetById(@RequestParam long id){
         System.out.println("delete id received: "+ id);
+
+        Optional<AssetModel> e = assetRepository.findById(id);
+        AssetModel es = e.get();
+
+        // Mapping
+        DeletedAssetModel dam = modelMapper.map(es, DeletedAssetModel.class);
+
+        LocalDate today = LocalDate.now();
+        dam.setDeletedDate(today);
+
+        System.out.println("Mapping asset to deleted okay");
+        deletedAssetRepo.save(dam);
+
         assetRepo.deleteById(id);
         System.out.println("Deleted");
         return true;
@@ -86,7 +105,7 @@ public class    AssetController {
         Iterable<AssignModel> assignsNotDateFiltered = assignRepo.findByNicAndAmConfirmedAndReturnedAndIssued(owner.getEmployeeId());  //two queries with issued and not
 
          LocalDate today = LocalDate.now();
-        List<AssignModel> filteredList = Lists.newArrayList(assignsNotDateFiltered);
+         List<AssignModel> filteredList = Lists.newArrayList(assignsNotDateFiltered);
 
 
 
