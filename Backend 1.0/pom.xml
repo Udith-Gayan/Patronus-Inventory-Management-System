@@ -60,6 +60,22 @@
 			<optional>true</optional>
 		</dependency>
 
+<!--		Google Guava-->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>10.0.1</version>
+		</dependency>
+
+<!--		Model Mapper to DTO-->
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.5</version>
+		</dependency>
+
+
 <!--		&lt;!&ndash;Model Mapping DTO&ndash;&gt;-->
 <!--		<dependency>-->
 <!--			<groupId>org.modelmapper</groupId>-->

@@ -6,9 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
-
 import java.time.LocalDate;
-
+import java.util.List;
 import java.util.Optional;
 
 public interface AssignRepo extends CrudRepository<AssignModel, Long> {
@@ -44,12 +43,12 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
     /* Rejection by Department Head */
     @Transactional
     @Modifying
-    @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 , is_dh_touched = true where id = ?1" , nativeQuery = true)
+    @Query(value = "update assign_model set is_approved_by_department_head = ?2 , date_dh_confirmed = ?3 , is_dh_touched = true , returned = true where id = ?1" , nativeQuery = true)
     int updateDhRejection(long id, boolean confirmation, LocalDate confirmedDate);
 
     @Transactional
     @Modifying
-    @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3  , is_am_touched = true where id = ?1" , nativeQuery = true)
+    @Query(value = "update assign_model set is_approved_by_asset_manager = ?2 , date_am_confirmed = ?3  , is_am_touched = true , returned= true where id = ?1" , nativeQuery = true)
     int updateAmRejection(long id, boolean confirmation, LocalDate confirmedDate);
 
     Iterable<AssignModel> findAllByRequestType(String requestType);
@@ -58,8 +57,8 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
     // Asset returned
     @Transactional
     @Modifying
-    @Query(value = "update assign_model set returned = true where id = ?1", nativeQuery = true)
-    int updateReturnedAsset(long id);
+    @Query(value = "update assign_model set returned = true , due_date = ?2 where id = ?1", nativeQuery = true)
+    int updateReturnedAsset(long id, LocalDate today);
 
     // Asset issued
     @Transactional
@@ -71,4 +70,16 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
     // All approved requests
     @Query(value = "select * from assign_model where request_type='REQUEST' and is_approved_by_asset_manager = true and is_approved_by_department_head = true and is_am_touched = true and is_dh_touched = true ", nativeQuery = true)
     Iterable<AssignModel> findAllApprovedRequests();
+
+    // All owned assets
+    @Query(value = "select * from assign_model where assigned_user_id = ?1 and is_approved_by_asset_manager = true and returned = false", nativeQuery = true)
+    Iterable<AssignModel> findByNicAndAmConfirmedAndReturned(long id);
+
+    // All owned assets
+    @Query(value = "select * from assign_model where assigned_user_id = ?1 and is_approved_by_asset_manager = true and returned = false and issued = true", nativeQuery = true)
+    Iterable<AssignModel> findByNicAndAmConfirmedAndReturnedAndIssued(long id);   /// make issued true here
+
+    @Query(value = "select * from assign_model where asset_id = ?1 and issued = false and returned = false" , nativeQuery = true)
+    List<AssignModel> findAllFutureDates(String assetId);
+
 }
