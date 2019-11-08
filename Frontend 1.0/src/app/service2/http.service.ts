@@ -93,4 +93,43 @@ export class HttpService {
     return this.http.post(Constants.BASE_URL+'/assign/reject/departmenthead',id,Constants.HTTP_OPTIONS);
   }
 
+
+  ///////////////////////////all book asset////////////////////////////////////////////////
+  getAllBookAsset(): Observable<any>{
+    return this.http.get(Constants.BASE_URL+'/booking/all')
+   }
+
+   ////////////////////////all breakdown///////////////////////////////////////////////
+   
+   getAllBreakdown(): Observable<any>{
+    return this.http.get(Constants.BASE_URL+'/breakdown/all')
+   }
+
+   ///////////////////////all Request////////////////////////////////////////////////
+   getAllRequest(): Observable<any>{
+    return this.http.get(Constants.BASE_URL+'/assign/request/view/approved/all')
+   }
+
+   ///////////////////////////////////////////////////book asset issue ////////////////////
+   
+   //*IssueBookAssset(id : number){
+    //return this.http.post(Constants.BASE_URL+'/issue/issue',id,Constants.HTTP_OPTIONS);
+  //}//
+
+   ///////////////////////////////////////////////////book asset return ////////////////////
+   
+  
+
+  IssueBookAssset(id) {                              // deleteEmployee(employee :Employee){
+    return this.http.get(Constants.BASE_URL+'/issue/issue', {params: {id: id}, observe: 'response'}); 
+
+}
+ReturnBookAssset(id) {                              // deleteEmployee(employee :Employee){
+  return this.http.get(Constants.BASE_URL+'/return/return', {params: {id: id}, observe: 'response'}); 
+
+}
+
+
+
+
 }

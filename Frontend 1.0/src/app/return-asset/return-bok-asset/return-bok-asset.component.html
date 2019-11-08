@@ -1,0 +1,43 @@
+
+<!----------------------------------------Television-------------------------------------------------------------------->
+<div class="col-6">
+    <h3 style="margin:20px; align-content: center">Company All Booked Assets</h3>
+     </div>
+     <div class="form-inline">
+         <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm" aria-label="Search" style="width: 8cm; margin: 1cm"/>
+         <button class="btn btn-outline-success my-2 my-sm-0" type="" >Search</button>
+ 
+       </div>
+
+<div *ngFor="let book of AllBook | employeeFilter : searchTerm">
+
+<div class="card-body" *ngIf="!book.returned"> 
+        <div class="card" style="background-color: rgb(173, 214, 226);height: 2cm;" > 
+          <div class="row" > 
+ 
+          <!--Text-->
+          <div class="card-body">
+            <td style="width: 3cm;">{{book.assetId}}</td>
+            <td style="width: 4cm;">{{book.beginDate}}</td>
+            <td style="width: 4cm;">{{book.dueDate}}</td>
+            <td style="width: 6cm;">{{book.userAssigned.firstname}} {{book.userAssigned.lastname}}</td>
+             <td style="width: 6cm;">{{book.userAssigned.email}}</td>
+             <td style="width: 3cm;">{{book.requestedNic}}</td>
+             <td style="width: 4cm;">{{book.userAssigned.contactNo}}</td>
+           
+
+            <td class="btn btn-primary" (click)="IssueAsset(book.id)" *ngIf="!book.issued"  >Issue</td>
+            <a  class="btn btn-primary" (click)="ReturnAsset(book.id)">Return</a>
+             
+              <!--pop up for booking-->   
+            
+           
+          </div>
+        </div>
+      </div> 
+    </div>
+
+</div>
+
+      <!----------------------------------------------------------------------- End Television---------------------------------------------------------->
+   

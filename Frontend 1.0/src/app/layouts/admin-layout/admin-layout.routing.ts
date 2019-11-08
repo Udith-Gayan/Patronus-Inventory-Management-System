@@ -39,6 +39,10 @@ import { ViewAllMonthlyReportComponent } from '../../upgrade/view-all-monthly-re
 import { ViewAllMonthlyBookAssetComponent } from '../../upgrade/view-all-monthly-book-asset/view-all-monthly-book-asset.component';
 
 import { ContactUsComponent } from '../../maps/contact-us/contact-us.component';
+import { ViewAllRequestAssetsComponent } from '../../upgrade/view-all-request-assets/view-all-request-assets.component';
+import { ReturnAssetComponent } from '../../return-asset/return-asset.component';
+import { ReturnBokAssetComponent } from '../../return-asset/return-bok-asset/return-bok-asset.component';
+import { ReturnRequestAssetComponent } from '../../return-asset/return-request-asset/return-request-asset.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
@@ -250,7 +254,7 @@ export const AdminLayoutRoutes: Routes = [
      children:[
         {
             path: '',
-            redirectTo: 'view-viewAllMonthlyReport',
+            redirectTo: 'viewAllMonthlyReport',
             pathMatch: 'full',
           },
          {
@@ -272,12 +276,42 @@ export const AdminLayoutRoutes: Routes = [
         {
             path:'viewMonthlyBookAssetReport',
             component:ViewAllMonthlyBookAssetComponent
+        },
+        {
+            path:'viewAllRequestAssets',
+            component:ViewAllRequestAssetsComponent
+
         }
+
      ]
     },
     {path: 'other', component: OtherComponent },
     {path: 'registor', component: RegistorEmpComponent },
     {path: 'view' , component: TestveiwComponent},
-    {path: 'show' , component: TestshowComponent}
+    {path: 'show' , component: TestshowComponent},
+    {
+        path:'return',
+        component:ReturnAssetComponent,
+        children:[
+            {
+                path:'',
+                redirectTo:'return-book-asset',
+                pathMatch:'full',
+
+            },
+         {
+             path:'return-book-asset',
+             component: ReturnBokAssetComponent,
+         
+         },
+         {
+             path:'return-request-asset',
+             component:ReturnRequestAssetComponent,
+         }
+        ]
+        
+        
+    }
+
 
 ];

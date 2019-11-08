@@ -22,6 +22,7 @@ const Swal = require('sweetalert2');
 export class UpgradeComponent implements OnInit {
 imgUrl:String="/assets/img/1.jpeg";
 FileToUpload:File=null;
+color:boolean=true;
 
 pendingRequestDH:Observable<pendinRequest>
   constructor(private asset:HttpService) { }
@@ -49,6 +50,15 @@ pendingRequestDH:Observable<pendinRequest>
 
 
   }
+
+  
+abc(){
+  console.log("line1 Sajith");
+  this.color=false;
+  console.log(this.color);
+}
+
+
   handleFileInput(File:FileList){
 
     this.FileToUpload=File.item(0);

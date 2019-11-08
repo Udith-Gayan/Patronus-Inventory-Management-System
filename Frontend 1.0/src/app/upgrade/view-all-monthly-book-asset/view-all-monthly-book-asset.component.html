@@ -1,9 +1,14 @@
 
+<!-- filter item using drop dwon list-->
+
+
+
 
   <div class="col-md-2 mb-3">
-      <label for="status" class="cols-sm-2 control-label">Book Asset</label>
-  
-  
+      
+      <label for="status" class="cols-sm-2 control-label">Asset Catagory</label>
+
+    
       <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm1" placeholder="">
         <option value="" >All</option>  
       <option value="Employee" >Employee</option>
@@ -18,7 +23,11 @@
   <div id="2s"> 
     <!----------------------------------All Asset Table---------------------------------------->
   <br><br>
-    <h5 style="text-align: center">Book Asset</h5><br>
+  <h5 style="text-align: center"><b>CodeGen International (Pvt) Ltd.</b> </h5><br>
+  <p style="text-align: center">Trace Expert City, Bay 1-5, Maradana Rd, Colombo 01, Sri Lanka.</p><br>
+  <h5 style="text-align: center"><b>Report of All Booking Assets' Details within a Month</b> </h5><br>
+ 
+
     <hr  id="line" style="margin-top: 13px;"> 
    
   
@@ -44,12 +53,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let emp of AllEmp  | employeeFilter1 : searchTerm1">
+          <tr *ngFor="let emp of AllBook  | employeeFilter1 : searchTerm1">
             <td style="width: 3cm">{{emp.status}}</td>
-            <td style="width: 3cm">{{emp.fastname}}  {{emp.lastname}}</td>
-            <td>{{emp.gender}}</td>
-            <td>{{emp.nic}}</td>
-            <td>{{emp.email}}</td>
+           
             <td>{{emp.address}}</td>
             <td>{{emp.contactNo}}</td>
           </tr>

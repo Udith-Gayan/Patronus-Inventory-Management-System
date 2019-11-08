@@ -20,6 +20,8 @@ export class Asset{
     days:number;
     location:string;
     quantity:string;
+    email:string;
+    firstname: string;
  
 
 }
