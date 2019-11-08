@@ -65,7 +65,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
