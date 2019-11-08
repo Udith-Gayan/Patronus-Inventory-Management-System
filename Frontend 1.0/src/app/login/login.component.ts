@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('nic', response.nic);
       sessionStorage.setItem('email', response.email);
       sessionStorage.setItem('contactNo', response.contactNo.toString());
+      sessionStorage.setItem('unblocked', response.unblocked.toString());
       this.router.navigate(['/welcome']);
 
 

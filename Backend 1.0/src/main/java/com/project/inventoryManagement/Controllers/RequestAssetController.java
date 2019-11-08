@@ -40,6 +40,9 @@ public class RequestAssetController {
         m1.setAssigned(true);
         m1.setApprovedByAssetManager(false);
         m1.setApprovedByDepartmentHead(false);
+        if(m1.getDescription() == null){
+            m1.setDescription("-");
+        }
 
         LocalDate dd = LocalDate.of(0000,01,01);
         m1.setDateDHConfirmed(dd);

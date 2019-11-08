@@ -57,9 +57,33 @@ header,
        transform: rotate(360deg);
      }
    }
-   .loginButton{
-     background-color: brown;
-     size: 2cm;
-   }
+  //  .loginButton{
+  //    background-color: brown;
+  //    size: 2cm;
+  //  }
 
-
+   .myButton {
+    box-shadow: 0px 2px 13px 0px #f0f7fa;
+    background:linear-gradient(to bottom, #547f93 5%, #054258 100%);
+    background-color:#33bdef;
+    border-radius:19px;
+    border:2px solid #507690;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Verdana;
+    font-size:19px!important;
+    font-weight:bold;
+    padding:13px 24px;
+    text-decoration:none;
+    text-shadow:1px 3px 1px #5b6178;
+    padding-left: 45px;
+  }
+  .myButton:hover {
+    background:linear-gradient(to bottom, #3da6d8 5%, #054258 100%);
+    background-color:#019ad2;
+  }
+  .myButton:active {
+    position:relative;
+    top:5px;
+  }

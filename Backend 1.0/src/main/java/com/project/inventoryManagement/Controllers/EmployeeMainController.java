@@ -83,21 +83,17 @@ public class  EmployeeMainController {
     // Register a new employee & update an employee
     @PostMapping(path="/add") // Map ONLY POST Requests
     public EmployeeMainModel addNewEmployee(@RequestBody EmployeeMainModel m1) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
 
-        ////Hashing with Apache Commons Codecs sha256hex
-       // m1.setPassword(DigestUtils.sha256Hex(m1.getPassword()));
       System.out.println(m1.toString());
 
-      if(empMainRepo.findByEmail(m1.getEmail()) != null || empMainRepo.findByNic(m1.getNic()) != null){
+      if(empMainRepo.findByEmail(m1.getEmail()) != null || empMainRepo.findByNic(m1.getNic()) != null){   // Update an existing user
           System.out.println("Same email-"+ m1.getEmail()+" found. Values are updated");
           EmployeeMainModel m2 = empMainRepo.findByEmail(m1.getEmail());
           System.out.println("****m2:"+ m2.toString());
           empMainRepo.delete(m2);
         //  m1.setEmployeeId(m2.getEmployeeId());
           System.out.println("****m1:"+ m1.toString());
-          empMainRepo.save(m1);
+          empMainRepo.save(m1);                           // this is wrong
       }
       else {
 

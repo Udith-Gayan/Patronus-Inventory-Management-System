@@ -39,6 +39,10 @@ public class BookingAssetController {
         m1.setApprovedByDepartmentHead(true);
         m1.setAmTouched(true);
 
+        if(m1.getDescription() == null){
+            m1.setDescription("-");
+        }
+
         LocalDate dd = LocalDate.of(0001,01,01);
         m1.setDateDHConfirmed(dd);
         m1.setDateAMConfirmed(dd);
