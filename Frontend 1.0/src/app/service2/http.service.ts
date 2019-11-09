@@ -132,14 +132,14 @@ ReturnBookAssset(id) {                              // deleteEmployee(employee :
 /////////////////////////////releseeBrokenAsset///////////////////////////
 
 ReleaseBrokenAsset(assetId){
-  return this.http.get(Constants.BASE_URL+'/return/return', {params: {id: assetId}, observe: 'response'}); 
+  return this.http.get(Constants.BASE_URL+'/breakdown/release', {params: {id: assetId}, observe: 'response'}); 
 
 }
 
 /////////////////////////get All Own Asset/////////////////////////////////
 
-getAllOwnAssets() : Observable<any>{
-  return this.http.get(Constants.BASE_URL+'/')
+getAllOwnAssets(nic) : Observable<any>{
+  return this.http.get(Constants.BASE_URL+'/asset/my/asset',{params: {nic: nic}, observe: 'response'})
 
 }
 

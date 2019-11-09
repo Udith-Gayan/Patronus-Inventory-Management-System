@@ -98,19 +98,22 @@ export class ViewBreakedownComponent implements OnInit {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////release button/////////////////////////
 
-ReleaseAsset(assetId : number){
-  {
+ReleaseAsset(assetId : string , id : string){
+  
     console.log(assetId);
+    console.log(id);
+
 
     this.asset.ReleaseBrokenAsset(assetId).subscribe((response)=>{
       console.log(response);
+      console.log('line-1');
       
     });
     this.ngOnInit();
 
 
 
-  }
+  
 }
 
 
