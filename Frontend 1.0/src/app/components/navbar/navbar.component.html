@@ -62,7 +62,7 @@
           <!--notification-->
           
           <li class="nav-item"  ngbDropdown >
-              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+              <a class="nav-link" id="dropdownBasic1" (click)="countnoti()" ngbDropdownToggle>
                   <i class="now-ui-icons ui-1_bell-53"><div id = "exampleCircle"><p style="color: red"><b>{{data}}</b></p></div></i>
                
               </a>
@@ -119,8 +119,9 @@
                 
 
                         <!-------------------------------------------------------Asset Manger Notification show--------------------------------->
-                        <a *ngIf="(a.notificationType == 'RequestAM' || a.notificationType == 'Booking') && status == 'Asset Manager'">
-                            <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                        <a *ngIf="(a.notificationType == 'RequestAM' || a.notificationType == 'Booking' || a.notificationType != 'BreakDown') && status == 'Asset Manager'">
+                        
+                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.2cm;;" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                               <div class="row">
                                  <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                                    <img src="assets/img/printer.jpg" alt="photo">
@@ -138,18 +139,55 @@
                                     <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'Booking'"> Book</p>
                                     <!--Accept department head-->
                                     <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'RequestAM'"> was accepted by Department head.</p>
-                                  
+                                  <!--breakdwon asset-->
+                                  <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'BreakDown'"> You have a BreakDown Notification.</p>
                                     <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.Discription}} </b></p>
                                   </div><br>
                                 
                                 </div>
+                          
                                   
-                           </button>
+                           </button>    
                          </a>
+
+
        
                          <!----------------------------------------------------------------------End Asset Manager Notification------------------------------------------------------>
                 
-                         
+                      
+                           <!-------------------------------------------------------Asset Manger breakdwon Notification show--------------------------------->
+                        <a *ngIf="(a.notificationType == 'BreakDown') && status == 'Asset Manager'">
+                       
+                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.2cm;"  (click)="openFormModal1(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                              <div class="row">
+                                 <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
+                                   <img src="assets/img/printer.jpg" alt="photo">
+                                  </div>
+                                 <div class="col-xs-4" *ngIf= "a.assetCategory == 'Furniture'"   style="width: 1.5cm;height: 1.5cm;">
+                                   <img src="assets/img/furniture.jpeg"  alt="photo">
+                                 </div>
+                                  <div class="col-xs-4" *ngIf= "a.assetCategory == 'Computer'"  style="width: 1.5cm;height: 1.5cm;">
+                                    <img src="assets/img/home.jpg" alt="photo">
+                                 </div>
+                                 
+                                 <div class="col-xs-4">
+                                    <p  style="color: rgb(40, 20, 153);font-size: 1.4ch">  {{a.assetId}}  </p> &nbsp; &nbsp;
+                                   <!--breakdwon asset-->
+                                  <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'BreakDown'"> You have a BreakDown Notification.</p>
+                                    <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.Discription}} </b></p>
+                                  </div><br>
+                                
+                                </div>
+                          
+                                  
+                           </button>  
+                         </a>
+
+
+       
+                         <!----------------------------------------------------------------------End Asset Manager Notification------------------------------------------------------>
+                
+
                   
                       <!-------------------------------------------------------Employee Notification show--------------------------------->
                       <a *ngIf="(a.notificationType == 'rejectAM' || a.notificationType == 'acceptAM' || a.notificationType == 'Reject') && status == 'Employee' && nic == a.requestedNic">
@@ -184,6 +222,8 @@
                        </button>
                      </a>
    
+
+                     
                      <!----------------------------------------------------------------------End Employee Notification------------------------------------------------------>
                      
 

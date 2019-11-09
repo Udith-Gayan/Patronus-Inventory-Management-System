@@ -19,6 +19,7 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 //  */import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
+import { ViewBreakeDownAssetComponent } from '../../PopupModals/view-breake-down-asset/view-breake-down-asset.component';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -33,6 +34,7 @@ export class NavbarComponent implements OnInit {
     status:string = sessionStorage.getItem('status');
     nic:string = sessionStorage.getItem('nic');
    con:boolean=false;
+
 
 //notification
 test : Date = new Date();
@@ -50,8 +52,9 @@ list2:BreakDwonNoti[];
     ngOnInit() {
 
 
-     // notification genarator
+     // notification count genarator
      this.ser.data.subscribe( data => {
+
        
        this.data = data ;
      })
@@ -137,9 +140,32 @@ logout() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+openFormModal1(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username) {
+    console.log("Line1");
+    const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
+    modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.notificationType = notificationType;
+    modalRef.componentInstance.complainedNic = complainedNic;
+    modalRef.componentInstance.massege = massege;
+    modalRef.componentInstance.beginDate = beginDate;
+    modalRef.componentInstance.dueDate = dueDate;
+    modalRef.componentInstance.username = username;
 
 
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
+  countnoti(){
+    console.log("Line 100");
+    this.data=0;
+    
+  }
 
+  
 
 }
