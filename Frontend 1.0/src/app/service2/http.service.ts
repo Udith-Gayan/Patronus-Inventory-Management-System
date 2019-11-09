@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { BookAsset } from '../models/BookAssetModel';
 import { BreakDwonNoti } from '../firebase/BreakDownModel';
 import { Replay } from '../models/NotifiReplay';
+import { MonthlyReport } from '../models/MonthlyReport';
 
 
 
@@ -140,6 +141,13 @@ ReleaseBrokenAsset(assetId){
 getAllOwnAssets() : Observable<any>{
   return this.http.get(Constants.BASE_URL+'/')
 
+}
+
+/////////////////////////////Monthly Report//////////////////////////////////
+
+sendDetails(monthlyReport :MonthlyReport){
+  return this.http.post(Constants.ASSET_API+'/add',monthlyReport,Constants.HTTP_OPTIONS);
+ 
 }
 
 
