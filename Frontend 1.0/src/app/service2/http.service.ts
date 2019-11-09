@@ -135,6 +135,14 @@ ReleaseBrokenAsset(assetId){
 
 }
 
+/////////////////////////get All Own Asset/////////////////////////////////
+
+getAllOwnAssets() : Observable<any>{
+  return this.http.get(Constants.BASE_URL+'/')
+
+}
+
+
 
 
 }

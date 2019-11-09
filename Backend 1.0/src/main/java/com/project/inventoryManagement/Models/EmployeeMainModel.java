@@ -51,7 +51,7 @@ public class EmployeeMainModel implements Serializable {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "unblocked")      //newly added
+    @Column(name = "unblocked", columnDefinition = "boolean default true")      //newly added
     private boolean unblocked;
 
     @Lob

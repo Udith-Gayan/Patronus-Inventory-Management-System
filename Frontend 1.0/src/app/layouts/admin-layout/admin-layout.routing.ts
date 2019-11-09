@@ -43,6 +43,7 @@ import { ViewAllRequestAssetsComponent } from '../../upgrade/view-all-request-as
 import { ReturnAssetComponent } from '../../return-asset/return-asset.component';
 import { ReturnBokAssetComponent } from '../../return-asset/return-bok-asset/return-bok-asset.component';
 import { ReturnRequestAssetComponent } from '../../return-asset/return-request-asset/return-request-asset.component';
+import { OwnAssetComponent } from '../../user-profile/own-asset/own-asset.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'breakdown',
@@ -79,6 +80,11 @@ export const AdminLayoutRoutes: Routes = [
                 redirectTo: 'view-asset',
                 pathMatch: 'full',
               },
+              {
+                path: 'own-asset',
+                component:OwnAssetComponent,
+
+            },
 
             {
                 path: 'view-asset',
@@ -96,6 +102,7 @@ export const AdminLayoutRoutes: Routes = [
                         path: 'back',
                         component: ViewBreakedownComponent
                     }
+                   
 
 
                 ]

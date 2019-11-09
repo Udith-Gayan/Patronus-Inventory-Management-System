@@ -62,12 +62,13 @@ export class HttpService {
   ///////////////////////////block Employee//////////////////////
 
   BlockEmp(nic){
-    return this.http.get(Constants.EMPLOYEE_API + '/employees/blockuser', {params: {nic: nic}, observe: 'response'});
+    console.log(' Block http request ran')
+    return this.http.get(Constants.BASE_URL+ '/employees/blockuser', {params: {nic: nic}, observe: 'response'});
   }
 
   ///////////////////////////UnblockEmp////////////////////////
   UnBlockEmp(nic){
-    return this.http.get(Constants.EMPLOYEE_API + '/employees/unblockuser', {params: {nic: nic}, observe: 'response'});
+    return this.http.get(Constants.BASE_URL + '/employees/unblockuser', {params: {nic: nic}, observe: 'response'});
  
   }
 }

@@ -173,13 +173,11 @@
                             <div class="cols-sm-10">
                                
                                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="password" pattern="(?=.{5,})" id="password"  [(ngModel)]="employee.password" #password="ngModel" placeholder="Enter your Password" required password />
+                                    <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="employee.password" #password="ngModel" placeholder="Enter your Password" required password />
                                     <span class="help-block" style="color: red" *ngIf="password.errors?.required && password.touched">
                                       Password is required
                                   </span>
-                                  <span class="help-block" style="color: red" *ngIf="password.errors?.pattern && password.touched">
-                                    The password must be atleast 5 characters 
-                                </span>
+                                  
                                   
                                 </div>
                             </div>

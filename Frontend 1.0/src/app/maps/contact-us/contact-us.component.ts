@@ -22,6 +22,7 @@ export class ContactUsComponent implements OnInit {
     console.log(this.feedback);
     this.service.feedbackemployee(this.feedback).subscribe((res)=>{
       console.log(res);
+      
             
     } );
   }

@@ -1,0 +1,340 @@
+
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
+
+
+<div class="form-row">
+    <div class="col-6">
+   <h3 style="margin:50px; align-content: center">My Asset Details</h3>
+    </div>
+    <div class="form-inline">
+        <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm" aria-label="Search" style="width: 8cm; margin: 1cm"/>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="" >Search</button>
+
+      </div>
+    
+    </div>
+
+    <!-- filter item using drop dwon list-->
+    <div class="form-row">
+      <div class="col-md-2 mb-3">
+          <label for="status" class="cols-sm-2 control-label">Asset Catagory</label>
+
+      
+          <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm" placeholder="">
+            <option value="" >All</option>  
+          <option value="Computer" >Computer</option>
+          <option value="Furniture" >Furniture</option>
+          <option value="Projector" >Projector</option>
+          <option value="Printer" >Printer</option>
+          <option value="TV" >TV</option>
+            
+          </select>
+      </div>
+     
+  </div>
+
+
+
+<router-outlet></router-outlet>
+
+<div  *ngFor="let d of data |  assetfilter : searchTerm">
+ 
+  
+<!----------------------------------------Computer-------------------------------------------------------------------->
+  <div class="card-body" *ngIf= "d.assetcategory == 'Computer'" > 
+    <div class="card" style="background-color: rgb(62, 101, 138);height: 4cm;" > 
+      <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+       <div class="card-body text-primary">
+        <img src="assets/img/home.jpg"  alt="photo">
+       </div>
+      </div>
+  <!--Card-- *ngIf= "d.assetCategory == 'Computer'"-->
+
+       <div class="card-body" >
+      
+        <tr >
+          
+        <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+        <h6 class="card-text"> Brand name :    {{d.brandName}}</h6>
+        <h6 class="card-title" > Asset Category:         {{d.assetcategory}}</h6>
+        <h6 class="card-title">Description:   {{d.description}}</h6>
+       
+      </div>
+      <!--Text-->
+      <div class="card-body">
+        <a  *ngIf= "status =='Asset Manager'">
+        <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
+        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+        </a>    <!--pop up for booking-->   
+        <a  *ngIf= "status !='Asset Manager'">
+          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+        </a>
+       
+        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a><br>
+       
+      </div>
+
+    </div>
+  </div> 
+</div>
+  <!----------------------------------------------------------------------- End Computer---------------------------------------------------------->
+
+
+
+  <!-- -->
+  <!---->
+  <!---->
+
+<!----------------------------------------Television-------------------------------------------------------------------->
+<div class="card-body" *ngIf= "d.assetcategory == 'tv'" > 
+    <div class="card" style="background-color: rgb(67, 166, 196);height: 4cm;" > 
+      <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+       <div class="card-body text-primary">
+        <img src="assets/img/TV.jpg"  alt="photo">
+       </div>
+      </div>
+  <!--Card-- *ngIf= "d.assetCategory == 'Television'"-->
+
+       <div class="card-body" >
+      
+        <tr >
+        <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+        <h6 class="card-text"> Brand name :    {{d.brandName}}</h6>
+        <h6 class="card-title" > Asset Category:         {{d.assetcategory}}</h6>
+        <h6 class="card-title">Description:   {{d.description}}</h6>
+     
+      </div>
+      <!--Text-->
+      <div class="card-body">
+        <a  *ngIf= "status =='Asset Manager'">
+        <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
+        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+        </a>    <!--pop up for booking-->   
+        <a  *ngIf= "status !='Asset Manager'">
+          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+        </a>
+        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+      </div>
+    </div>
+  </div> 
+</div>
+  <!----------------------------------------------------------------------- End Television---------------------------------------------------------->
+
+
+  
+<!----------------------------------------UPS-------------------------------------------------------------------->
+<div class="card-body" *ngIf= "d.assetcategory == 'UPS'" > 
+    <div class="card" style="background-color: rgb(55, 215, 226);height: 4cm;" > 
+      <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+       <div class="card-body text-primary">
+        <img src="assets/img/UPS.jpg"  alt="photo">
+       </div>
+      </div>
+  <!--Card-- *ngIf= "d.assetCategory == 'Television'"-->
+
+       <div class="card-body" >
+      
+        <tr >
+        <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+        <h6 class="card-text"> Brand name :    {{d.brandName}}</h6>
+        <h6 class="card-title" > Asset Category:         {{d.assetcategory}}</h6>
+        <h6 class="card-title">Description:   {{d.description}}</h6>
+     
+      </div>
+      <!--Text-->
+      <div class="card-body">
+        <a  *ngIf= "status =='Asset Manager'">
+        <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
+        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+        </a>    <!--pop up for booking-->   
+        <a  *ngIf= "status !='Asset Manager'">
+          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+        </a>
+        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+      </div>
+    </div>
+  </div> 
+</div>
+  <!----------------------------------------------------------------------- End CPU---------------------------------------------------------->
+
+
+
+    
+<!----------------------------------------Sound System-------------------------------------------------------------------->
+<div class="card-body" *ngIf= "d.assetcategory == 'SoundSystem'" > 
+    <div class="card" style="background-color: rgb(111, 100, 138);height: 4cm;" > 
+      <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+       <div class="card-body text-primary">
+        <img src="assets/img/Sound.jpg"  alt="photo">
+       </div>
+      </div>
+  <!--Card-- *ngIf= "d.assetCategory == 'Television'"-->
+
+       <div class="card-body" >
+      
+        <tr >
+        <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+        <h6 class="card-text"> Brand name :    {{d.brandName}}</h6>
+        <h6 class="card-title" > Asset Category:         {{d.assetcategory}}</h6>
+        <h6 class="card-title">Description:   {{d.description}}</h6>
+     
+      </div>
+      <!--Text-->
+      <div class="card-body">
+        <a  *ngIf= "status =='Asset Manager'">
+        <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
+        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+        </a>    <!--pop up for booking-->   
+        <a  *ngIf= "status !='Asset Manager'">
+          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+        </a>
+        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+      </div>
+    </div>
+  </div> 
+</div>
+  <!----------------------------------------------------------------------- End Sound System---------------------------------------------------------->
+
+
+
+<!----------------------------------------Router-------------------------------------------------------------------->
+<div class="card-body" *ngIf= "d.assetcategory == 'router'" > 
+    <div class="card" style="background-color: rgb(12, 188, 241);height: 4cm;" > 
+      <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+       <div class="card-body text-primary">
+        <img src="assets/img/Router.jpg"  alt="photo">
+       </div>
+      </div>
+  <!--Card-- *ngIf= "d.assetCategory == 'Television'"-->
+
+       <div class="card-body" >
+      
+        <tr >
+        <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+        <h6 class="card-text"> Brand name :    {{d.brandName}}</h6>
+        <h6 class="card-title" > Asset Category:         {{d.assetcategory}}</h6>
+        <h6 class="card-title">Description:   {{d.description}}</h6>
+     
+      </div>
+      <!--Text-->
+      <div class="card-body">
+        <a  *ngIf= "status =='Asset Manager'">
+        <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
+        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+        </a>    <!--pop up for booking-->   
+        <a  *ngIf= "status !='Asset Manager'">
+          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+        </a>
+        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+      </div>
+    </div>
+  </div> 
+</div>
+  <!----------------------------------------------------------------------- End Router---------------------------------------------------------->
+
+
+
+
+
+
+
+
+<!----------------------------------------Furniture-------------------------------------------------------------------->
+ 
+  <div class="card-body" *ngIf= "d.assetcategory == 'Furniture'" > 
+    <div class="card" style="background-color: rgb(143, 166, 187);height: 4cm;" >
+     <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+       <div class="card-body text-primary">
+        <img src="assets/img/furniture.jpeg"  alt="photo">
+       </div>
+     </div>
+     <div class="card-body" >
+     <!--Title-->
+      <tr >
+          <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+          <h6 class="card-text"> Brand name :    {{d.brandName}}</h6>
+          <h6 class="card-title"> Asset Category:         {{d.assetcategory}}</h6>
+          <h6 class="card-title">Description:   {{d.description}}</h6>
+
+  </div>
+   <!--Text-->
+  <div class="card-body">
+      <a  *ngIf= "status =='Asset Manager'">
+          <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+          <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
+          <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+          </a>    <!--pop up for booking-->   
+          <a  *ngIf= "status !='Asset Manager'">
+            <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+          </a>
+          <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+        </div>
+</div> 
+</div>
+</div>
+ <!----------------------------------------------------------------------- End Furniture---------------------------------------------------------->
+
+
+
+
+
+<!-------------------------------------------------------------Projector card-------------------------------------------->
+
+        <div class="card-body" *ngIf= "d.assetcategory == 'Projector'" > 
+            <div class="card" style="background-color: rgb(141, 191, 238);height: 4cm;" >
+                
+            <div class="row" > <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+                       
+                <div class="card-body text-primary">
+                    <img src="assets/img/printer.jpg" 
+                    alt="photo">
+                </div>
+              </div>
+                  <div class="card-body" >
+                    <!--Title-->
+                    <tr >
+                    <h4 class="card-content">Asset Id:     {{d.assetId}}</h4>
+                    <h6 class="card-text"> Brand name :    {{d.brandName}}</h6>
+                    <h6 class="card-title"> Asset Category:         {{d.assetcategory}}</h6>
+                    <h6 class="card-title">Description:   {{d.description}}</h6>
+
+            
+                  </div>
+                  
+            
+                    <!--Text-->
+                    <div class="card-body">
+                        <a  *ngIf= "status =='Asset Manager'">
+                            <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
+                            <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
+                            <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+                            </a>    <!--pop up for booking-->   
+                            <a  *ngIf= "status !='Asset Manager'">
+                              <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+                            </a>
+                            <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+                          
+                    </div>
+            
+            
+                </div>
+                <!--/.Card-->
+                </div>
+              </div>
+              <!----------------------------------------end-------------------------------------------------------------------->
+           
+
+</div>
+
+  
