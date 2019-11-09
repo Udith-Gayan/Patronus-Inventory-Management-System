@@ -60,8 +60,11 @@ public class BreakdownController {
             throw new Exception("Employee Not found");
         }
 
-        b.setApprovedByAssetMananger(false);
-        b.setAssignedToRepairManager(false);
+        if(b.getAnyMessage() == null) {
+            b.setAnyMessage("-");
+        }
+
+        b.setReleasedByAm(false);
         b.setTouchedByAssetManager(false);
 
 
@@ -89,6 +92,21 @@ public class BreakdownController {
         System.out.println(" all Breakdowns found successfully!");
         return all;
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    // Release an asset
+
+    @GetMapping(path = "/release")
+    public boolean releaseARepairedAsset(@RequestParam String assetId){
+        System.out.println("Releasing the asset : "+ assetId);
+        assetRepository.updateReleasedAsset(assetId);
+        breakdownRepo.updateReleased(assetId);
+
+        return true;
+    }
+
+    /////////////////////////////////////////////////////////////////////////
+
 
 
 }

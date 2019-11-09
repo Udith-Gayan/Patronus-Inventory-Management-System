@@ -24,7 +24,7 @@ public class AssetModel  {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "assetId", unique = true,length = 20)
+    @Column(name = "asset_id", unique = true,length = 20)
     private String assetId;
 
     @Column(name = "assetCategory")      //use drop down menu  default other
