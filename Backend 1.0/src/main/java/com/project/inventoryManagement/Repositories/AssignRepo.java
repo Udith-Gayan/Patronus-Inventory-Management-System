@@ -71,12 +71,12 @@ public interface AssignRepo extends CrudRepository<AssignModel, Long> {
     @Query(value = "select * from assign_model where request_type='REQUEST' and is_approved_by_asset_manager = true and is_approved_by_department_head = true and is_am_touched = true and is_dh_touched = true ", nativeQuery = true)
     Iterable<AssignModel> findAllApprovedRequests();
 
-    // All owned assets
+    //  //All owned assets
     @Query(value = "select * from assign_model where assigned_user_id = ?1 and is_approved_by_asset_manager = true and returned = false", nativeQuery = true)
     Iterable<AssignModel> findByNicAndAmConfirmedAndReturned(long id);
 
     // All owned assets
-    @Query(value = "select * from assign_model where assigned_user_id = ?1 and is_approved_by_asset_manager = true and returned = false and issued = true", nativeQuery = true)
+    @Query(value = "select * from assign_model where assigned_user_id = ?1 and is_approved_by_asset_manager = true and returned = false and issued = false", nativeQuery = true)
     Iterable<AssignModel> findByNicAndAmConfirmedAndReturnedAndIssued(long id);   /// make issued true here
 
     @Query(value = "select * from assign_model where asset_id = ?1 and issued = false and returned = false" , nativeQuery = true)
