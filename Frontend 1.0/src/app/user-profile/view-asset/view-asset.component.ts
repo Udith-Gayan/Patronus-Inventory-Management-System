@@ -141,4 +141,9 @@ deleteAsst(assetId){
 
 }
 
+BlockAsset(assetId : number){
+  console.log(assetId);
+
+}
+
 }

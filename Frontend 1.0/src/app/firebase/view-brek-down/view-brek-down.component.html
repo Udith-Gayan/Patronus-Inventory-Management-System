@@ -1,28 +1,36 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
+
 <div class="table-responsive" >
-    <table class="table table-condensed">
+    <table class="table table-condensed" style="background-color: cornflowerblue">
         <thead class="black white-text">
-            <tr  class="table-primary">
-              <th class="table-active" scope="col">Date/Time</th>
-              <th class="table-active" scope="col">Asset ID</th>
-              <th scope="col">Category</th>
-              <th scope="col">Order By</th>
-              <th scope="col">From</th>
-              <th scope="col">To</th>
-              <th scope="col">Description</th>
-            </tr>
-          </thead>
+           
+         </thead>
       <tbody>
          
           <tr *ngFor="let a of list" class="table-active">
-              <td (click)="onEdit(a)" scope="col">{{a.Discription}}</td>
-              <td class="table-danger" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-              <td (click)="onEdit(a)" scope="col">{{a.assetcategory}}</td>
-              <td (click)="onEdit(a)" scope="col">{{a.username}}</td>
-              <td (click)="onEdit(a)" scope="col">{{a.beginDate}}</td>
-              <td (click)="onEdit(a)" scope="col">{{a.dueDate}}</td>
-              <td (click)="onEdit(a)" scope="col">{{a.massege}}</td>
-              <td (click)="onDelete(a.id)" ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-              
+         <!--brekDown Asset-->
+
+         <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager'" >
+   
+          <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username)"> 
+            <td (click)="onEdit(a)"  scope="col" style="font-size: small;size: 4cm">{{a.date}}</td>
+            <td (click)="onEdit(a)" class="table-danger" scope="col" style="size: 3cm">{{a.assetId}}</td>
+            <td  style="width: 4cm" (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>
+            <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.notificationType}}</td>
+            <td (click)="onEdit(a)" style="width: 6cm"scope="col">by {{a.anyMessage}} </td>
+            <td></td>
+           
+          </button>
+          <a  class="btn btn"  style="width: 2cm"(click)="ReleaseAsset(a.assetId)">Releas</a>
+            <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+       </a>  
+
             </tr>
       
        

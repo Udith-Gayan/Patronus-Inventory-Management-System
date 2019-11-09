@@ -59,7 +59,7 @@ export class ViewEmpComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
   deleteEmployee(nic){
     this.emp.deleteEmployee(nic).subscribe((data) => {
-
+      this.ngOnInit();
                                                        // this.employees.splice(this.employees.indexOf(d),1);
                                                        console.log(data);
                                                        Swal.fire({
@@ -91,6 +91,7 @@ export class ViewEmpComponent implements OnInit {
                                                                     })
                                                                   }
                                               );
+                                             
   }
 ///////////////////////////////////////////////////////////////////////////////
   editButtonEmployee(epmId:number){
@@ -120,5 +121,32 @@ export class ViewEmpComponent implements OnInit {
       console.log(error);
     });
   }
+
+
+  //////////////blockAset/////////////////////
+  BlockEmp(nic : string){
+  console.log("line 1");
+ console.log(nic);
+ this.emp.BlockEmp(nic).subscribe((response)=>{
+  console.log(response);
+  this.ngOnInit();
+  
+});
+
+
+  }
+
+  /////////////////////Unblock/////////////////
+  UnBlockEmp(nic : string){
+    console.log(nic);
+    this.emp.UnBlockEmp(nic).subscribe((response)=>{
+     console.log(response);
+     this.ngOnInit();
+     
+   });
+   
+   
+     }
+
 
 }

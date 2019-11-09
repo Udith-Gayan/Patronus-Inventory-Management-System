@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Asset } from '../../asset/asset';
 import { HttpService } from '../../service2/http.service';
+import { returnBook } from '../../models/ReturnBookAsset';
 
 @Component({
   selector: 'app-view-all-monthly-book-asset',
@@ -16,7 +17,7 @@ export class ViewAllMonthlyBookAssetComponent implements OnInit {
   Lname:string = sessionStorage.getItem('lastname');
   status:string = sessionStorage.getItem('status');
 
-  AllBook:Observable<Asset>
+  AllBook:Observable<returnBook>
   today=new Date();
   constructor(private asset: HttpService) { }
 

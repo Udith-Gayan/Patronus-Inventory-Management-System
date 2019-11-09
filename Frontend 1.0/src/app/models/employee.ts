@@ -10,4 +10,5 @@ export class Employee{
     employeeId: string;
     status: string;
     img: string;
+    unblocked:boolean;
 }

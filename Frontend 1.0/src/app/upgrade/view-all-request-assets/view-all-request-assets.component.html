@@ -32,29 +32,31 @@
         <tr >
           <th class="th-sm" style="width: 3cm">AssetID
           </th>
-          <th class="th-sm" style="width: 3cm">Category
+          <th class="th-sm" style="width: 3cm">From
           </th>
-          <th class="th-sm">location
+          <th class="th-sm">To
           </th>
-          <th class="th-sm">Bought Date
+          <th class="th-sm">Employee Name
           </th>
-          <th class="th-sm">Company 
+          <th class="th-sm">Asset Category 
           </th>
-          <th class="th-sm">Warranty Status
+          <th class="th-sm">Asset Maneger Approv Date
           </th>
-          <th class="th-sm">Quantity
+          <th class="th-sm">Employee contactNo
             </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let asset of AllAsset |  assetfilter : searchTerm">
-          <td style="width: 3cm">{{asset.assetId}}</td>
-          <td style="width: 3cm">{{asset.assetcategory}}</td>
-          <td>{{asset.location}}</td>
-          <td>{{asset.boughtDate | date:'yyyy-MM-dd'}}</td>
-          <td>{{asset.boughtCompanyAddress}}</td>
-          <td>{{asset.warrantyStatus}}</td>
-          <td>{{asset.quantity}}</td>
+        <tr *ngFor="let asset of AllRequest |  assetfilter : searchTerm">
+          
+          <td style="width: 3cm;">{{asset.assetId}}</td>
+          <td style="width: 5cm;">{{asset.beginDate}}</td>
+          <td style="width: 5cm;">{{asset.dueDate}}</td>
+          <td style="width: 9cm;">{{asset.userAssigned.firstname}} {{asset.userAssigned.lastname}}</td>
+           <td style="width: 7cm;">{{asset.requestedAsset.assetcategory}}</td>
+           <td style="width: 3cm;">{{asset.dateAMConfirmed}}</td>
+           <td style="width: 4cm;">{{asset.userAssigned.contactNo}}</td>
+         
         </tr>
        
       </tbody>

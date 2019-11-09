@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../service2/http.service';
 import { Asset } from '../../asset/asset';
 import { Observable } from 'rxjs';
+import { returnBook } from '../../models/ReturnBookAsset';
 
 @Component({
   selector: 'app-view-all-monthly-brake-down-asset',
@@ -17,7 +18,7 @@ export class ViewAllMonthlyBrakeDownAssetComponent implements OnInit {
   today=new Date();
 
   constructor(private asset:HttpService) { }
-  AllBrekdown:Observable<Asset>
+  AllBrekdown:Observable<returnBook>
   ngOnInit() {
 
     this.asset.getAllBreakdown().subscribe(res=>{

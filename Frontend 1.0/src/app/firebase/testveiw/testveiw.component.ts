@@ -25,6 +25,8 @@ export class TestveiwComponent implements OnInit {
   list:BookAsset[];
   status:string = sessionStorage.getItem('status');
   nic:string = sessionStorage.getItem('nic');
+  fname:string=sessionStorage.getItem('firstname');
+  count:number=0;
   constructor(private ser : NotifiService,private firestore:AngularFirestore,private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -53,7 +55,23 @@ export class TestveiwComponent implements OnInit {
     
       })
 
-  ////////
+  ////////test count///////////////
+
+  
+    this.firestore.collection('BookAssetNotification',ref => ref.where('username', '>=', this.fname)
+      )
+      
+      .snapshotChanges().subscribe(snapshots => {
+        console.log("line -0");
+     console.log(snapshots);
+     console.log(snapshots.length);
+        })
+  this.count=+1;
+ 
+  console.log('line 1');
+console.log("line 2-"+this.count);
+
+
   }
 
   onDelete(id:string){
@@ -121,6 +139,12 @@ export class TestveiwComponent implements OnInit {
       console.log(error);
     });
   }
+
+
+  /////////////////////////////get count///////////////////////////////////
+
+  
+  
 
 
 }

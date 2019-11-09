@@ -26,34 +26,91 @@
   <!-- Card Dark -->
 
 
-  <div class="card" style="background-color: rgb(143, 166, 187);height: 4cm;" *ngFor="let d of data | employeeFilter:searchTerm">
+<div class="card" style="height: 4cm;" *ngFor="let d of data | employeeFilter:searchTerm">
+<div style="background-color: rgb(114, 158, 156);" *ngIf="d.unblocked ">
     <div class="row">
       <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
 
           <div class="card-body text-primary" style="padding: 0px 0px 0px 0px;">
 
-              <img [src]="d.img" alt="photo" style="height: 150px; width: 150px;">
+              <img [src]="d.img" alt="photo" style="height: 160px; width: 150px;">
 
               <!-- <img src="assets/img/home.jpg" alt="photo"> -->
           </div>
         </div>
-
-
-
         <div class="card-body">
 
-     <p>Name      : {{d.firstname}} {{d.lastname}}</p>
-     <p>NIC No  :{{d.nic}} </p>
-      <p class="card-title" > <a >Email     : {{d.email}}</a></p>
-
+     <p> <b > Name  :</b>  {{d.firstname}} {{d.lastname}} </p>
+     <p> <b style="width: 12cm;" > NIC No  :</b>{{d.nic}} </p>
+      <p class="card-title" > <a >  <b style="width: 4cm;"> Email  :</b>{{d.email}}</a></p>
 
     </div>
     <div class="card-body">
       <div  *ngIf= "status =='Asset Manager'">
-        <a  class="btn btn-primary"(click)="editButtonEmployee(d)" style="margin: 1cm;" >Update</a>
+        <a  class="btn btn-primary"(click)="editButtonEmployee(d)"  >Update</a>
         <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)" style="color: rgb(250, 248, 246);background-color: rgb(53, 88, 128)">Delete</a>
+        <a  *ngIf= "status =='Asset Manager'">
+            <a  class="btn btn-danger" (click)="BlockEmp(d.nic)" *ngIf="d.unblocked && (d.status !='Asset Manager')">Block</a> 
+            <a  class="btn btn-success"  (click)="UnBlockEmp(d.nic)" *ngIf="!d.unblocked">UnBlock</a> 
+          </a>
+       
       </div>
-        <a  class="btn-primary white-text d-flex justify-content-end" style="background-color: rgb(143, 166, 187)" (click)="openFormModal(d.nic,d.firstname,d.email,d.lastname,d.gender,d.contactNo,d.address,d.employeeId)" ><p style="color: chartreuse">More Detail <i class="fas fa-angle-double-right"></i></p></a>
+        <a  class="btn-primary white-text d-flex justify-content-end" style="background-color: rgb(86, 128, 125)" (click)="openFormModal(d.nic,d.firstname,d.email,d.lastname,d.gender,d.contactNo,d.address,d.employeeId)" ><p style="color: rgb(199, 204, 194)">More Detail <i class="fas fa-angle-double-right"></i></p></a>
     </div>
   </div>
   </div>
+
+
+
+   <!----------------------Block Employee-------------------------------->
+
+
+   <!------------------------------------>
+
+      <div style="background-color: rgb(231, 176, 144);" *ngIf="!d.unblocked ">
+          <div class="row">
+            <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
+      
+                <div class="card-body text-primary" style="padding: 0px 0px 0px 0px;">
+      
+                    <img [src]="d.img" alt="photo" style="height: 160px; width: 150px;">
+      
+                    <!-- <img src="assets/img/home.jpg" alt="photo"> -->
+                </div>
+              </div>
+      
+      
+      
+              <div class="card-body">
+      
+           <p> 
+              <b > Name  :</b> 
+                   {{d.firstname}} {{d.lastname}}
+            </p>
+           <p> <b style="width: 12cm;" > NIC No  :</b>{{d.nic}} </p>
+            <p class="card-title" > <a >  <b style="width: 4cm;"> Email  :</b>{{d.email}}</a></p>
+      
+      
+          </div>
+          <div class="card-body">
+            <div  *ngIf= "status =='Asset Manager'">
+              <a  class="btn btn-primary"(click)="editButtonEmployee(d)"  >Update</a>
+              <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)" style="color: rgb(250, 248, 246);background-color: rgb(53, 88, 128)">Delete</a>
+              <a  *ngIf= "status =='Asset Manager'">
+                  <a  class="btn btn-danger" (click)="BlockEmp(d.nic)" *ngIf="d.unblocked && (d.status !='Asset Manager')">Block</a> 
+                  <a  class="btn btn-success"  (click)="UnBlockEmp(d.nic)" *ngIf="!d.unblocked">UnBlock</a> 
+                </a>
+             
+            </div>
+              <a  class="btn-primary white-text d-flex justify-content-end" style="background-color: rgb(221, 141, 87)" (click)="openFormModal(d.nic,d.firstname,d.email,d.lastname,d.gender,d.contactNo,d.address,d.employeeId)" ><p style="color: rgb(29, 31, 27)">More Detail <i class="fas fa-angle-double-right"></i></p></a>
+          </div>
+        </div>
+        </div>
+      
+      </div>
+        
+      
+         <!----------------------Block Employee-------------------------------->
+
+   
+    

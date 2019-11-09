@@ -17,15 +17,16 @@
      <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager'" >
    
        <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
-         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}}</td>
+        <a class="nav-item">
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}}</td>
          <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
          <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
          <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
-         <td (click)="onEdit(a)" style="width: 3cm"scope="col">by {{a.username}}</td>
-         <td (click)="onEdit(a)"  scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
-         <td (click)="onEdit(a)"  scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+         <td (click)="onEdit(a)" style="width: 3.7cm"scope="col">by {{a.username}}</td>
+         <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
+         <td (click)="onEdit(a)" style="width: 3cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
          <td></td>
-         <td></td>
+         <td></td></a>
        </button>
          <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
     </a>  
@@ -34,12 +35,12 @@
         <!-------------------------------------------BreakDwon Aset mangar------------------------------------------->
 
         <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager'" >
-   
+  
           <button  (click)="openBreakModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username)"> 
             <td (click)="onEdit(a)"  scope="col" style="font-size: small;size: 4cm">{{a.date}}</td>
-            <td (click)="onEdit(a)" class="table-danger" scope="col" style="size: 6cm">{{a.assetId}} is reported as a Breakdown by {{a.complainedNic}}</td>
+            <td (click)="onEdit(a)" class="" scope="col" style="size: 8cm"><b>{{a.assetId}} </b> is reported as a Breakdown by <b>{{a.complainedNic}}</b></td>
             
-            <td (click)="onEdit(a)" style="width: 8cm"scope="col"><b>Description -:</b>  {{a.anyMessage}} </td>
+            <td (click)="onEdit(a)" style="width: 9.5cm"scope="col"><b>Description -:</b>  {{a.anyMessage}} </td>
             <td></td>
            
           </button>
