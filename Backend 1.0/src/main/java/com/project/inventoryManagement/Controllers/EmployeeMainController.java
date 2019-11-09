@@ -98,6 +98,7 @@ public class  EmployeeMainController {
       else {
 
           m1.setPassword(bcryptEncoder.encode(m1.getPassword()));   // encoded password using bcrption
+          m1.setUnblocked(true);
           empMainRepo.save(m1);
       }
         return empMainRepo.findByNic(m1.getNic());
