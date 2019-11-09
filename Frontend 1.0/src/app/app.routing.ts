@@ -48,6 +48,7 @@ const routes: Routes = [
 canActivate: [AuthGuardServiceService]
 },
 
+
   {
     path: 'login',
     component:LoginComponent

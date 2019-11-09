@@ -34,8 +34,8 @@ public class FeedbackController {
         EmailReceiverComponent emailComponent = new EmailReceiverComponent("ug.indraka@gmail.com");  //asset manager is the receiver
 
         String subject = "FEEDBACK-" + form.getSubject();
-        String message = "FeedBack sent by \"" + form.fname + "\" with \"" + form.getEmail() +"\" .\nMessage:\n\n     \""+ form.getFname() + "\"\n\n" +
-                "<b>End of Message</b>";
+        String message = "FeedBack sent by \"" + form.fname + "\" with \"" + form.getEmail() +"\" .\nMessage:\n\n     \""+ form.getMessage() + "\"\n\n" +
+                "~~End of Message~~";
 
         try {
             mailService.sendEmailWithAttachment(emailComponent,subject,message);

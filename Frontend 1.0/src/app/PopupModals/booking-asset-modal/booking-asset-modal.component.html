@@ -44,7 +44,7 @@
       </div>
      
         <div class="form-group">
-            <label for="beginDate">Begin Date</label>
+            <label for="beginDate">From</label>
             <input 
               class="form-control" type="text" name="beginDate" [(ngModel)]="bookasset.beginDate"
               formControlName="beginDate"   placeholder="beginDate" bsDatepicker [minDate]="minDate" [maxDate]="maxDate" [bsConfig]="{containerClass: 'theme-dark-blue',dateInputFormat: 'YYYY-MM-DD'  }"/>
@@ -53,10 +53,10 @@
 
 
         <div class="form-group">
-            <label for="dueDate">Return Date</label>
+            <label for="dueDate">To</label>
             <input type="text"   [(ngModel)]="bookasset.dueDate"
               class="form-control" 
-              formControlName="dueDate"   #datepickerYMD="bsDatepicker" placeholder="beginDate" bsDatepicker [minDate]="minDate2" [maxDate]="maxDate2" [bsConfig]="{containerClass: 'theme-dark-blue',dateInputFormat: 'YYYY-MM-DD'  }" />
+              formControlName="dueDate"   #datepickerYMD="bsDatepicker" placeholder="2012.12.20" bsDatepicker [minDate]="minDate2" [maxDate]="maxDate2" [bsConfig]="{containerClass: 'theme-dark-blue',dateInputFormat: 'YYYY-MM-DD'  }" />
           </div>
          
         

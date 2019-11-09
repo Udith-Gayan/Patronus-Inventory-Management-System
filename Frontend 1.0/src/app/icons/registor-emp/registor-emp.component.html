@@ -90,22 +90,27 @@
                                         Contact Number is required
                                     </span>
                                     <span class="help-block" *ngIf=" contactNo.errors?.pattern && contactNo.touched" style="color:red">
-                                        10 digits only
+                                        10 digits only & Characters are not allowed
                                     </span>
                             </div>
                         </div>
                    
                     <div class="form-group"  [class.has-error]="status.invalid && status.touched"  [class.has-success]="status.valid">
-                    <div class="col-md-5 mb-3">
+                    
                           <label for="status" class="cols-sm-2 control-label">Status</label>
-                 
+                          <div class="cols-sm-10">
+                          <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                       
-                          <select name="status" id="status" style="width: 70mm;height:10mm"  [(ngModel)]="employee.status" placeholder=" Status" required #status="ngModel">
+                          <select name="status" id="status" style="width: 70mm;height:10mm"  [(ngModel)]="employee.status" placeholder=" Status" required status #status="ngModel">
+                            <option [ngValue]="undefined" hidden>ex: Manager, CEO...</option>
                             <option value="CEO" >CEO</option>
                           <option value="Manager" >Manager</option>
                             <option value="Department Head" >Department Head</option>
                             <option value="Event Organixzer" >Event Organixzer</option>
                             <option value="Employee" >Employee</option>
+                            <option value="Store Keeper" >Store Keeper</option>
+                            <option value="Store Keeper" >Project Manager</option>
+
                             
                           </select>
                           <span class="help-block" *ngIf="status.touched && status.invalid" style="color:red" >
@@ -117,7 +122,7 @@
 
                         <label for="username" class="cols-sm-2 control-label">Gender</label>
                     <div class="cols-sm-10">
-                      <span class="form-check-input"><i class="fa fa-user" aria-hidden="true"></i></span>
+                      <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                                     <div class="custom-control custom-radio custom-control-inline">
                                           <input class="form-check-input" type="radio" required   #gender="ngModel" name="gender" id="gender"  [(ngModel)]="employee.gender" value="Male"  >
                                           <label class="cols-sm-2 control-label" for="gender"  style="margin:10px">
@@ -126,7 +131,7 @@
 
 
                                      <div class="custom-control custom-radio custom-control-inline">
-                                        <input class="form-check-input" type="radio" required #gender="ngModel" name="gender" id="gender"  [(ngModel)]="employee.gender" value="Female" >
+                                        <input class="input-group-addon" type="radio" required #gender="ngModel" name="gender" id="gender"  [(ngModel)]="employee.gender" value="Female" >
                                            <label class="form-check-label" for="gender"  style="margin:10px">
                                                 Female
                                           </label>
@@ -173,7 +178,7 @@
                             <div class="cols-sm-10">
                                
                                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="employee.password" #password="ngModel" placeholder="Enter your Password" required password />
+                                    <input type="password" class="form-control" name="password"  id="password"  [(ngModel)]="employee.password" #password="ngModel" placeholder="Enter your Password" required password />
                                     <span class="help-block" style="color: red" *ngIf="password.errors?.required && password.touched">
                                       Password is required
                                   </span>

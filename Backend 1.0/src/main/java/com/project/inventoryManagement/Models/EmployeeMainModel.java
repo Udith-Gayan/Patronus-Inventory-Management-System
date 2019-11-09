@@ -148,14 +148,22 @@ public class EmployeeMainModel implements Serializable {
         this.status = status;
     }
 
-  /*  public byte[] getImg() {
-        return img;
+    public boolean isUnblocked() {
+        return unblocked;
     }
 
-    public void setImg(byte[] img) {
-        this.img = img;
+    public void setUnblocked(boolean unblocked) {
+        this.unblocked = unblocked;
     }
-*/
+
+    /*  public byte[] getImg() {
+            return img;
+        }
+
+        public void setImg(byte[] img) {
+            this.img = img;
+        }
+    */
     public List<AssignModel> getAssign() {
         return assign;
     }

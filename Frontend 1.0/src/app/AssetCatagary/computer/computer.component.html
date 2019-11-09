@@ -13,7 +13,7 @@
 
             <header class="card-header">
 
-                    <h4 class="card-title mt-2">Computer Registration</h4>
+                     <h4 class="card-title mt-2">Computer Registration</h4>
                   </header>
 
 
@@ -27,9 +27,9 @@
                                             <label for="brandName" class="cols-sm-2 control-label">Brand Name</label>
 
                                             <div class="col-md-6 mb-3" >
-                                            <select name="brandName" id="brandName" style="width: 7cm;height: 1cm;" [(ngModel)]="asset.brandName" required brandName #brandName="ngModel">
-
-                                                   
+                                            <select  name="brandName" id="brandName" style="width: 7cm;height: 1cm;" [(ngModel)]="asset.brandName" required brandName #brandName="ngModel">
+                                                    
+                                                <option [ngValue]="undefined" hidden>ex: HP, DELL....</option>
                                             <option value="HP" >HP</option>
                                               <option value="DELL" >DELL</option>
                                               <option value="ASUUS" >ASUUS</option>
@@ -44,9 +44,10 @@
                                         Brand Name is Required
                                     </span>
 
-
+                                    
                             </div>
                         </div>
+                        
 
                         <div class="form-group">
 
@@ -60,7 +61,7 @@
 
 
                             <div class="form-group"  [class.has-error]="boughtDate.invalid && boughtDate.touched"  [class.has-success]="boughtDate.valid">
-                    <label for="boughtDate" class="cols-sm-2 control-label">date</label>
+                    <label for="boughtDate" class="cols-sm-2 control-label">Purchased Date</label>
                     <div class="cols-sm-10">
                   
 
@@ -83,7 +84,7 @@
                                     </div>
                        
                                 <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="buyingPrice" id="buyingPrice" pattern="^(0|[1-9]\d*)(\.\d+)?$" #buyingPrice="ngModel" [(ngModel)]="asset.buyingPrice" placeholder="Enter Price" required buyingPrice/>
+                            <input type="text" class="form-control" name="buyingPrice" id="buyingPrice" pattern="^(0|[1-9]\d*)(\.\d+)?$" #buyingPrice="ngModel" [(ngModel)]="asset.buyingPrice" placeholder="100000.00" required buyingPrice/>
                         </div>
                             <span class="help-block" *ngIf=" buyingPrice.errors?.required && buyingPrice.touched" style="color:red">
                                     Price is required
@@ -100,9 +101,9 @@
                     <label for="location" class="cols-sm-2 control-label">Location</label>
                     
                     <div class="col-md-5 mb-3" >
-                    <select name="location" id="location" style="width: 70mm;height:10mm"  [(ngModel)]="asset.location" required location #location="ngModel">
+                    <select name="location" id="location" style="width: 70mm;height:10mm"  [(ngModel)]="asset.location" required location #location="ngModel" >
   
-                     
+                        <option [ngValue]="undefined" hidden>ex: IT,HR....</option>
                       <option value="Head office" >Head office</option>
                       <option value="IT Department" >IT Department</option>
                       <option value="HR Department" >HR Department</option>
@@ -134,7 +135,7 @@
                                               <label class="cols-sm-2 control-label" for="warrantyStatus"  style="margin:5px">
                                                 YES
                                               </label>
-
+                                            </div>
 
                                          <div class="custom-control custom-radio custom-control-inline">
                                             <input class="form-check-input" type="radio" required #warrantyStatus="ngModel" name="warrantyStatus" id="examplwarranty"  [(ngModel)]="asset.warrantyStatus"value="NO" >
@@ -142,14 +143,14 @@
                                                     NO
                                               </label>
 
-                                        </div>
+                                            </div>
                                         <span class="help-block" *ngIf="warrantyStatus.touched && warrantyStatus.invalid" style="color:red" >
                                                 Warranty Status is required
                                             </span>
                                   </div>
                             </div>
-                        </div>
-
+                       
+                  
                                 <div class="form-group">
                                         <div class="cols-sm-10">
                                     <label for="warranty" class="cols-sm-2 control-label">Warranty Period</label>
@@ -158,50 +159,72 @@
                         </div>
 
                         <div class="form-row">
-                                <div class="col">
-                                    <label for="yrs" class="cols-sm-2 control-label">Years</label>
-                                    <div class="def-number-input number-input safari_only">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus" ></button>
+                            <div class="col-md-4 mb-3">
+                                    <div class="form-group" >
+                                    <label for="yrs" class="cols-sm-2 control-label">Years</label><br>
+                                    <select name="yrs" id="yrs" name="yrs" style="width: 45mm;height:10mm"  [(ngModel)]="asset.yrs" placeholder="yrs" required #yrs="ngModel">
+                                        <option [ngValue]="undefined" hidden>0 </option>
+                                      <option value="1 years" >1 year</option>
+                                      <option value="2 years" >2 year</option>
+                                      <option value="3 years" >3  year</option>
+                                      <option value="4 years" >4 year</option>
+                                      <option value="5 years" >5 year</option>
+                                      <option value="8 yeras" >8 year</option>
+                                      <option value="10 years" >10 year</option>
+                                    </select>
                                     
-                            <input class="yrs" min="0" max="10" name="yrs" [(ngModel)]="asset.yrs" type="number">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                            
-                          </div>
                             </div>
-                            <div class="col">
-                                    <label for="months" class="cols-sm-2 control-label">Months</label>
-                          <div class="def-number-input number-input safari_only">
-                            <button onclick="this.parentNode.querySelector('input[type=string]').stepDown()" class="minus"></button>
-                            <input class="months" min="0" max="12" name="months" value="0" type="text" [(ngModel)]="asset.months">
-                            <button onclick="this.parentNode.querySelector('input[type=string]').stepUp()" class="plus"></button>
-                            </div>
-                          </div>
-
-
-                          <div class="col">
-                                <label for="days" class="cols-sm-2 control-label">Days</label>
-                      <div class="def-number-input number-input safari_only">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                        <input class="days" min="0" max="31" name="days" value="0" type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                         </div>
-                      </div>
+
+                        <div class="col-md-4 mb-3">
+                                <div class="form-group"   >
+                                <label for="months" class="cols-sm-2 control-label">Months</label><br>
+                                <select name="months" id="months" name="months" style="width: 45mm;height:10mm"  [(ngModel)]="asset.months" placeholder="months" required #months="ngModel">
+                                    <option [ngValue]="undefined" hidden>0</option>
+                                  <option value="1 month" >1 month</option>
+                                  <option value="2 months" >2 month</option>
+                                  <option value="5 months" >5 month</option>
+                                  <option value="8 months" >8 months</option> 
+                                  <option value="10 months" >10 months</option>
+                                </select>
+                               
+
+                        </div>
                     </div>
-                            
+
+
+
+                          <div class="col-md-4 mb-3">
+                                        <div class="form-group" >
+                                        <label for="days" class="cols-sm-2 control-label">Days</label><br>
+
+
+                                        <select name="days" id="days" style="width: 45mm;height:10mm"  [(ngModel)]="asset.days" placeholder=" Days" required days #days ="ngModel">
+                                            <option [ngValue]="undefined" hidden>0</option>
+                                          <option value="7 days" >7 days</option>
+                                          <option value="10 days" >10 days</option> 
+                                          <option value="14 days" >14 days</option>
+                                          <option value="21 days" >21 days</option>
+                                        </select>
+                                        
+                                </div>
+                            </div>
+                        </div>
                         
                         
+                   
                         <div class="form-group"  [class.has-error]="boughtCompanyName.invalid && boughtCompanyName.touched" [class.has-success]="boughtCompanyName.valid">
                           <label for="boughtCompanyName" class="cols-sm-2 control-label">Companya Name</label>
                           <div class="cols-sm-10">
-                              <div class="input-group">
+                             
                                     <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="boughtCompanyName" id="boughtCompanyName"  [(ngModel)]="asset.boughtCompanyName"   #boughtCompanyName="ngModel" placeholder="Enter your Company Name"  required boughtCompanyName />
+                                    <input type="text" class="form-control" name="boughtCompanyName" id="boughtCompanyName"  [(ngModel)]="asset.boughtCompanyName"   #boughtCompanyName="ngModel" placeholder="xxxxxx (Pvt) Ltd."  required boughtCompanyName />
                                     <span class="help-block" *ngIf="boughtCompanyName.errors && boughtCompanyName.errors.required && boughtCompanyName.touched" style="color:red">
                                             Company Name is required
                                         </span>
+  
 
-
-                              </div>
+                              
                           </div>
                       </div>
                       <div class="form-group"  [class.has-error]="boughtCompanyAddress.invalid && boughtCompanyAddress.touched" [class.has-success]="boughtCompanyAddress.valid">
@@ -210,7 +233,7 @@
 
 
                                     <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="boughtCompanyAddress" id="boughtCompanyAddress"  [(ngModel)]="asset.boughtCompanyAddress"   #boughtCompanyAddress="ngModel" placeholder="Nawam Mawatha, Colombo"  required boughtCompanyAddress />
+                                    <input type="text" class="form-control" name="boughtCompanyAddress" id="boughtCompanyAddress"  [(ngModel)]="asset.boughtCompanyAddress"   #boughtCompanyAddress="ngModel" placeholder="No:xx,City,Counrty"  required boughtCompanyAddress />
                                     <span class="help-block" *ngIf="boughtCompanyAddress.errors && boughtCompanyAddress.errors.required && boughtCompanyAddress.touched" style="color:red">
                                             Company Address is required
                                         </span>
@@ -221,7 +244,7 @@
                             <label for="companyContact" class="cols-sm-2 control-label"> Company Contact Number</label>
                             <div class="cols-sm-10">
                                    
-                                    <input type="text" class="form-control" name="companyContact" id="companyContact" pattern="^\d{10}$" minlength="10" required maxlength="10" [(ngModel)]="asset.companyContact"   #companyContact="ngModel" placeholder="Enter Contact Number"  required companyContact />
+                                    <input type="text" class="form-control" name="companyContact" id="companyContact" pattern="^\d{10}$" minlength="10" required maxlength="10" [(ngModel)]="asset.companyContact"   #companyContact="ngModel" placeholder="070 557 1128"  required companyContact />
                                     <span class="help-block" *ngIf="  companyContact.errors?.required && companyContact.touched" style="color:red">
                                             Contact Number is required
                                         </span>
@@ -263,7 +286,7 @@
                         <div class="form-group"  [class.has-error]="quantity.invalid && quantity.touched"  [class.has-success]="quantity.valid" >
                                 <label for="quantity" class="cols-sm-2 control-label">Quantity</label>
                                 <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="quantity" id="quantity" pattern="^\d+$" [(ngModel)]="asset.quantity"   #quantity="ngModel" placeholder="Enter the Quantity"  required quantity/>
+                                    <input type="text" class="form-control" name="quantity" id="quantity" pattern="^\d+$" [(ngModel)]="asset.quantity"   #quantity="ngModel" placeholder="0"  required quantity/>
                                     <span class="help-block" *ngIf=" quantity.errors?.required && quantity.touched" style="color:red">
                                             Quantity is required
                                         </span>
@@ -274,25 +297,32 @@
                     </div>
 
 
-                            <div class="col-md-6 mb-3">
+                    <div class="col-md-6 mb-3">
                             <div class="form-group"  [class.has-error]="displaySize.invalid && displaySize.touched" [class.has-success]="displaySize.valid">
 
                                     <label for="displaySize">Display Size</label>
+                                    
+                                   
                                     <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="displaySize" id="displaySize"  [(ngModel)]="asset.displaySize"   #displaySize="ngModel" placeholder="Dispaly Size"  required displaySize/>
+                                    <input type="text" class="form-control" name="displaySize" id="displaySize"  [(ngModel)]="asset.displaySize"   #displaySize="ngModel" placeholder="ex: 17,12...."  required displaySize/>
+                                    
+                                    
                                     <span class="help-block" *ngIf="displaySize.errors && displaySize.errors.required && displaySize.touched" style="color:red">
                                             Dispaly Size is required
                                         </span>
-
+                                    
                             </div>
                         </div>
                     </div>
+                   
+                    
 
                         <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group"  [class.has-error]="capacity.invalid && capacity.touched" [class.has-success]="capacity.valid" >
                                     <label for="capacity" class="cols-sm-2 control-label">Capacity</label><br>
                                     <select name="capacity" id="capacity" name="capacity" style="width: 70mm;height:10mm"  [(ngModel)]="asset.capacity" placeholder="Capacity" required #capacity="ngModel">
+                                        <option [ngValue]="undefined" hidden>ex: 1TB, 2TB....</option>
                                       <option value="1TB" >1TB</option>
                                       <option value="2TB" >2TB</option>
                                       <option value="3TB" >3TB</option>
@@ -312,6 +342,7 @@
 
 
                                         <select name="ram" id="ram" style="width: 70mm;height:10mm"  [(ngModel)]="asset.ram" placeholder=" RAM size" required ram #ram ="ngModel">
+                                            <option [ngValue]="undefined" hidden>ex: 2GB,4GB....</option>
                                           <option value="2GB" >2GB</option>
                                           <option value="4GB" >4GB</option>
                                           <option value="6GB" >6GB</option>
@@ -335,6 +366,7 @@
                                                 <label for="processor" class="cols-sm-2 control-label">Processor</label>
                                                 <div class="col-md-6 mb-6">
                                         <select name="processor" id="processor" style="width: 70mm;height:10mm"  [(ngModel)]="asset.processor" placeholder="Processor" required #processor="ngModel">
+                                            <option [ngValue]="undefined" hidden>ex: i7,i5....</option>
                                           <option value="i7" >i7</option>
                                           <option value="i5" >i5</option>
                                           <option value="i3" >i3</option>
@@ -349,9 +381,9 @@
                         <div class="form-group shadow-textarea">
                             <label for="exampleFormControlTextarea6">Description</label>
 
-                            <textarea class="form-control z-depth-1"  id="exampleFormControlTextarea6" required maxlength="75" rows="3" name="description" [(ngModel)]="asset.description" aria-describedby="passwordHelpInline" placeholder="Important notes about the assets..." ></textarea>
+                            <textarea class="form-control z-depth-1"  id="exampleFormControlTextarea6" maxlength="240" rows="3" name="description" [(ngModel)]="asset.description" aria-describedby="passwordHelpInline" placeholder="Important notes about the assets..." ></textarea>
                             <small id="passwordHelpInline" class="text-muted">
-                                    Must be 8-20  words
+                                    Must be less than 240 words
                                   </small>
                           </div>
 

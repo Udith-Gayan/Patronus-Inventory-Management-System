@@ -9,8 +9,9 @@ export class LoginLogoutServService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem('basicauth');
+    console.log('Session unblocked: ' +  + (sessionStorage.getItem('unblocked') === 'true') );
     console.log('User is logged in ' + !(user === null));
-    return !(user === null);
+    return (!(user === null) && (sessionStorage.getItem('unblocked') === 'true'));
   }
 
   // Logout function
@@ -18,6 +19,7 @@ export class LoginLogoutServService {
     console.warn('User is logging out...');
     sessionStorage.removeItem('basicauth');
     sessionStorage.removeItem('status');
+    sessionStorage.clear();
   }
 
 

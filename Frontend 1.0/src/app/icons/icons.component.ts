@@ -15,7 +15,11 @@ export class IconsComponent implements OnInit {
   status:string = sessionStorage.getItem('status');
   employee : Employee;
   showLoadingIndicator =true;
-  imgUrl:string="/assets/img/1.jpeg";
+  imgUrl: string="/assets/img/1.jpeg";
+
+  isButtonActive: boolean = true;
+ 
+
   constructor(private userService : HttpService,private _router:Router) {
     this.employee = new Employee();
     this._router.events.subscribe((RouterEvent:Event)=>{
@@ -26,11 +30,12 @@ export class IconsComponent implements OnInit {
       if(RouterEvent instanceof NavigationEnd){
         this.showLoadingIndicator=false;
       }
-    })
+    });
   }
 
   ngOnInit() {
   }
+
   submitted = false;
 
 
@@ -38,15 +43,25 @@ export class IconsComponent implements OnInit {
   onSubmit() {
     console.log(this.employee);
     this.submitted = true;
-    this.userService.addEmployee(this.employee).subscribe((response)=>{
+    this.userService.addEmployee(this.employee).subscribe((response) => {
       console.log(response);
       alert('Register Successfully');
     });
     // this.userService.addEmployee(this.employee);
 
   }
-  logchange(data){
+
+  logchange(data) {
     console.log(data);
+  }
+
+
+  toggle1() {
+       this.isButtonActive = true;
+  }
+
+  toggle2() {
+      this.isButtonActive = false;
   }
 
 }

@@ -17,6 +17,8 @@ public class IssueAssetController {
     @GetMapping(path = "issue")
     boolean returnAsset(@RequestParam int id){
 
+
+        System.out.println("Asset Issued from Assign Id: "+ id);
       int x = assignRepo.updateIssuedAsset(id);
 
 

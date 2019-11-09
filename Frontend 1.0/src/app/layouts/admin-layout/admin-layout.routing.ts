@@ -162,7 +162,7 @@ export const AdminLayoutRoutes: Routes = [
 
     },
 
-    { path: 'typography', component: TypographyComponent },
+    { path: 'typography', component: TypographyComponent, canActivate: [AuthGuardServiceService] },
     {
         path: 'employee', component: IconsComponent,
         children: [
@@ -221,7 +221,8 @@ export const AdminLayoutRoutes: Routes = [
             component:ContactUsComponent
          
         }
-     ]
+     ],
+     canActivate: [AuthGuardServiceService]
 
     },
     {
@@ -252,7 +253,8 @@ export const AdminLayoutRoutes: Routes = [
 
 
             }
-        ]
+        ],
+        canActivate: [AuthGuardServiceService]
 
     },
     { path: 'report',
@@ -290,7 +292,8 @@ export const AdminLayoutRoutes: Routes = [
 
         }
 
-     ]
+     ],
+     canActivate: [AuthGuardServiceService]
     },
     {path: 'other', component: OtherComponent },
     {path: 'registor', component: RegistorEmpComponent },
@@ -315,7 +318,8 @@ export const AdminLayoutRoutes: Routes = [
              path:'return-request-asset',
              component:ReturnRequestAssetComponent,
          }
-        ]
+        ],
+        canActivate: [AuthGuardServiceService]
         
         
     }

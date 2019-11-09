@@ -73,8 +73,9 @@ public class JwtAuthenticationController {
         final String lastname = thisUser.getLastname();
         final String img = thisUser.getImg();
         final String contactNo = thisUser.getContactNo();
+        final boolean unblocked = thisUser.isUnblocked();
         // return ResponseEntity.ok(new JwtResponse(token));    // old
-        return ResponseEntity.ok(new JwtResponse(token, status, email, nic, firstname, lastname, img, contactNo));   // added newly
+        return ResponseEntity.ok(new JwtResponse(token, status, email, nic, firstname, lastname, img, contactNo, unblocked));   // added newly
     }
 
 //////////////////////////////

@@ -17,8 +17,9 @@ public class JwtResponse implements Serializable {
     private final String lastname;
     private final String img;
     private final String contactNo;
+    private final boolean unblocked;
 
-    public JwtResponse(String token, String status, String email, String nic, String firstname, String lastname, String img, String contactNo) {
+    public JwtResponse(String token, String status, String email, String nic, String firstname, String lastname, String img, String contactNo, boolean unblocked) {
         this.token = token;
         this.status = status;                    // added
         this.email = email;
@@ -27,6 +28,7 @@ public class JwtResponse implements Serializable {
         this.lastname = lastname;
         this.img = img;
         this.contactNo = contactNo;
+        this.unblocked = unblocked;
     }
 
     public String getStatus() {

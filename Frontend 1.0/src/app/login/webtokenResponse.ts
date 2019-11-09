@@ -7,4 +7,5 @@ export class WebtokenResponse {
   img: string;
   firstname: string;
   lastname: string;
+  unblocked: boolean;
 }

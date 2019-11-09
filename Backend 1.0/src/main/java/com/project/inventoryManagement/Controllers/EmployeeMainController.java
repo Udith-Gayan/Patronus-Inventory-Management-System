@@ -1,8 +1,11 @@
 package com.project.inventoryManagement.Controllers;
 
 
+import com.project.inventoryManagement.Models.DeletedEmployeesModel;
 import com.project.inventoryManagement.Models.EmployeeMainModel;
+import com.project.inventoryManagement.Repositories.DeletedEmployeesRepo;
 import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
+import com.project.inventoryManagement.Service.DeletedEmployeeMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +25,13 @@ public class  EmployeeMainController {
 
     @Autowired
     private PasswordEncoder bcryptEncoder;
+
+    @Autowired
+    private DeletedEmployeeMapping deletedEmployeeMapping;
+
+    @Autowired
+    private DeletedEmployeesRepo deletedEmployeesRepo;
+
 
 
 
@@ -73,21 +83,17 @@ public class  EmployeeMainController {
     // Register a new employee & update an employee
     @PostMapping(path="/add") // Map ONLY POST Requests
     public EmployeeMainModel addNewEmployee(@RequestBody EmployeeMainModel m1) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
 
-        ////Hashing with Apache Commons Codecs sha256hex
-       // m1.setPassword(DigestUtils.sha256Hex(m1.getPassword()));
       System.out.println(m1.toString());
 
-      if(empMainRepo.findByEmail(m1.getEmail()) != null || empMainRepo.findByNic(m1.getNic()) != null){
+      if(empMainRepo.findByEmail(m1.getEmail()) != null || empMainRepo.findByNic(m1.getNic()) != null){   // Update an existing user
           System.out.println("Same email-"+ m1.getEmail()+" found. Values are updated");
           EmployeeMainModel m2 = empMainRepo.findByEmail(m1.getEmail());
           System.out.println("****m2:"+ m2.toString());
           empMainRepo.delete(m2);
         //  m1.setEmployeeId(m2.getEmployeeId());
           System.out.println("****m1:"+ m1.toString());
-          empMainRepo.save(m1);
+          empMainRepo.save(m1);                           // this is wrong
       }
       else {
 
@@ -124,18 +130,23 @@ public class  EmployeeMainController {
 
       // Delete an employee by Nic
     @DeleteMapping(path = "/delete")
-    public boolean deleteEmployeeByNic(@RequestParam String nic){
+    public boolean deleteEmployeeByNic(@RequestParam String nic) throws Exception {
         System.out.println("delete nic received: "+ nic);
-        try {
+
+            EmployeeMainModel m1 = empMainRepo.findByNic(nic);
+
+            if(m1.getStatus().equals("Asset Manager")){
+                throw new Exception("Asset Manager cannot be deleted");
+            }
+
+            DeletedEmployeesModel dm = deletedEmployeeMapping.mapToDeletedEmployeeModel(m1);
+            deletedEmployeesRepo.save(dm);
+            System.out.println("Deleted employee saved to deleteed table\nNow deleting...");
+
             empMainRepo.deleteByNic(nic);
             System.out.println("Deleted");
             return true;
-        } catch(Exception e) {
-            System.out.println("Exception display as : " + e);
-//            EmployeeMainModel mm = empMainRepo.findByNic(nic);
-//            for(asset : mm.getAssign(). )
-            return false;
-        }
+
 
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
