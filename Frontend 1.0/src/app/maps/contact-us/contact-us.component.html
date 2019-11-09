@@ -25,29 +25,51 @@
             
             <!-- Body -->
             <form (ngSubmit)="sendFeedback()">
+                <div class="form-group"  [class.has-error]="fname.invalid && fname.touched"  [class.has-success]="fname.valid">
             <div class="md-form">
               <i class="fas fa-user prefix grey-text"></i>
               <label for="form-name">Your name </label>
-              <input type="text" id="name" class="form-control" name="name" [(ngModel)]="feedback.fname" >
-              
+              <input type="text" id="fname" class="form-control" name="fname" [(ngModel)]="feedback.fname" pattern="^[a-zA-Z]*$" #fname="ngModel" placeholder="Enter your Name" required fname >
+              <span class="help-block" *ngIf="fname.errors?.required && fname.touched" style="color:red">
+                   Name is required
+              </span>
+              <span class="help-block" *ngIf="fname.errors?.pattern && fname.touched" style="color:red">
+              Only alphabetical characters allowed
+              </span>
             </div>
+                </div>
+                <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
             <div class="md-form">
               <i class="fas fa-envelope prefix grey-text"></i>
               <label for="form-email">Your email </label>
-              <input type="text" id="form-email" class="form-control" name="email" [(ngModel)]="feedback.email">
-              
+              <input type="text" id="form-email" class="form-control" name="email" [(ngModel)]="feedback.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  #email="ngModel" placeholder="Enter your Email" required email>
+              <span class="help-block" *ngIf=" email.errors?.required && email.touched" style="color:red">
+                  Email is required
+              </span>
+              <span class="help-block" *ngIf=" email.errors?.pattern && email.touched" style="color: red">
+                    Valid Email needed
+                </span>
+              </div>
             </div>
+            <div class="form-group"  [class.has-error]="subject.invalid && subject.touched"  [class.has-success]="subject.valid">
             <div class="md-form">
               <i class="fas fa-tag prefix grey-text"></i>
               <label for="form-Subject">Subject </label>
-              <input type="text" id="form-Subject" class="form-control" name="subject" [(ngModel)]="feedback.subject">
-              
+              <input type="text" id="form-Subject" class="form-control" name="subject" [(ngModel)]="feedback.subject"  #subject="ngModel" placeholder="Enter subject" required subject >
+              <span class="help-block" *ngIf="subject.errors && subject.errors.required && subject.touched" style="color:red">
+                  Subject is required
+             </span>
             </div>
+            </div>
+            <div class="form-group"  [class.has-error]="message.invalid && message.touched"  [class.has-success]="message.valid">
             <div class="md-form">
               <i class="fas fa-pencil-alt prefix grey-text"></i>
               <label for="form-text">Send message </label>
-              <textarea id="form-text" class="form-control md-textarea" rows="3" name="message" [(ngModel)]="feedback.message"></textarea>
-            
+              <textarea id="form-text" class="form-control md-textarea" rows="3" name="message" [(ngModel)]="feedback.message"  #message="ngModel" placeholder="Your Message Here" required message></textarea>
+              <span class="help-block" *ngIf="message.errors && message.errors.required && message.touched" style="color:red">
+                  Message is required
+             </span>
+            </div>
             </div>
             <div class="text-center">
               <button class="btn btn-light-blue" >Submit</button>

@@ -1,4 +1,7 @@
 export class Employee{
+  reset() {
+    throw new Error("Method not implemented.");
+  }
     firstname: string;
     lastname: string;
     nic: string;
