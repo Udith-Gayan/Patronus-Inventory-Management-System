@@ -59,24 +59,27 @@ export class RegistorEmpComponent implements OnInit {
 
     this.userservice.addEmployee(this.employee).subscribe((response) => {
       console.log(response);
+      
       Swal.fire({
         position: 'center',
         type: 'success',
         title: 'Employee has been saved',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
+        
       },
       ( error: any) => {
 
         alert('Please Check the AssetID ');
-
-
+         
+       
 
       }
       )
 
 
     });
+    this.resetForm();
     // this.userService.addEmployee(this.employee);
 
   }
@@ -169,5 +172,21 @@ console.log('line11');
     }
   }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+resetForm(){
+  this.employee.email='';
+  this.employee.address='';
+  this.employee.contactNo='';
+  this.employee.firstname='';
+  this.employee.gender='';
+  this.employee.img='';
+  this.employee.lastname='';
+  this.employee.nic='';
+  this.employee.password='';
+  this.employee.status='';
+  
+
+}
 
 }
