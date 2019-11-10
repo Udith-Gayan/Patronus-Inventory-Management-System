@@ -56,20 +56,21 @@ export class ViewBreakedownComponent implements OnInit {
   onDelete(id:string){
     if(Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: "You won't be able to Release this!",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, Release it!'
     }).then((result) => {
       if (result.value) {
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        ),
-        this.firestore.doc('BookAssetNotification/'+id).delete();
+          'Released!',
+          'Your file has been Released.',
+          'success',
+          this.firestore.doc('BookAssetNotification/'+id).delete(),
+        )
+       
       }
     })){
 
@@ -107,10 +108,11 @@ ReleaseAsset(assetId : string , id : string){
     this.asset.ReleaseBrokenAsset(assetId).subscribe((response)=>{
       console.log(response);
       console.log('line-1');
-      
+  
+      this.onDelete(id);
     });
     this.ngOnInit();
-
+   
 
 
   

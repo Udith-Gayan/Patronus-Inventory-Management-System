@@ -132,7 +132,7 @@ ReturnBookAssset(id) {                              // deleteEmployee(employee :
 /////////////////////////////releseeBrokenAsset///////////////////////////
 
 ReleaseBrokenAsset(assetId){
-  return this.http.get(Constants.BASE_URL+'/breakdown/release', {params: {id: assetId}, observe: 'response'}); 
+  return this.http.get(Constants.BASE_URL+'/breakdown/release', {params: {assetId: assetId}, observe: 'response'}); 
 
 }
 

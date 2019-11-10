@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-
+  status:string = sessionStorage.getItem('status');
   constructor() {}
  
   

@@ -11,7 +11,7 @@ import { Asset } from '../asset/asset';
 export class DashboardComponent implements OnInit {
   Ass:Asset[]=[];
   Bname:String;
-  
+  status:string = sessionStorage.getItem('status');
   constructor() { }
 
   ngOnInit() {

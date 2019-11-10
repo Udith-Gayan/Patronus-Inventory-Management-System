@@ -110,7 +110,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ViewBreakeDownAssetComponent,
     ViewRequestAndBookingEmpDetailComponent,
 
-    NgbdModalContentForresetPassword,
+    NgbdModalContentForresetPassword
 
    
 

@@ -7,7 +7,7 @@
         </div>
         </a>
         <a href="#" class="simple-text logo-normal">
-            <b>{{Fname}} {{Lname}}</b>
+            <b>{{status}}</b>
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -15,15 +15,42 @@
         <ul class="nav">
             <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
                 
-                <a [routerLink]="[menuItem.path]">
+              
                    
                      
-                    
-                  
+                    <!-----------------------------CEO------------------------>
+                <a *ngIf="(status=='CEO')">
+                        <a [routerLink]="[menuItem.path]">
                     <i class="now-ui-icons {{menuItem.icon}}"></i>
+                  
                     <p>{{menuItem.title}}</p>
-               
                 </a>
+                </a>
+                    <!-------------------------Asset Manager------------------->
+                <a *ngIf="(status=='Asset Manager')">
+                    <a *ngIf="(menuItem.title!='Return Asset')" [routerLink]="[menuItem.path]">
+                        <i *ngIf="(menuItem.title!='Return Asset')" class="now-ui-icons {{menuItem.icon}}"></i>
+                        <p *ngIf="(menuItem.title!='Return Asset')">{{menuItem.title}}</p>
+                    </a>
+                </a>
+                    <!------------------Strore keeper-------------------------->
+
+                <a *ngIf="(status=='Store Keeper')">
+                        <a *ngIf="(menuItem.title != 'Reports')"  [routerLink]="[menuItem.path]">
+                            <i *ngIf="(menuItem.title != 'Reports') "  class="now-ui-icons {{menuItem.icon}}"></i>
+                            <p *ngIf="(menuItem.title != 'Reports') " >{{menuItem.title}}</p>
+                        </a>
+                </a>
+                <!---------------------------Department head------------------------>
+
+
+                  <a *ngIf="(status=='Department Head') || (status =='Employee') || (status == 'Event Organixzer') || (status == 'Manager')">
+                        <a *ngIf="(menuItem.title != 'Reports') && (menuItem.title !='Return Asset')" [routerLink]="[menuItem.path]">
+                            <i *ngIf="(menuItem.title != 'Reports') && (menuItem.title !='Return Asset')" class="now-ui-icons {{menuItem.icon}}"></i>
+                            <p *ngIf="(menuItem.title != 'Reports') && (menuItem.title !='Return Asset')">{{menuItem.title}}</p>
+                        </a>
+                </a>
+               
             </li>
         </ul>
         </b>
