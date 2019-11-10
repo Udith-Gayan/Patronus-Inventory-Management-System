@@ -52,6 +52,6 @@ public interface EmployeeMainRepository extends CrudRepository<EmployeeMainModel
     // Update details of an employee
     @Transactional
     @Modifying
-    @Query(value = "update employee_main set contact_no = ?2 , status = ?3 , address = ?4 where nic = ?1", nativeQuery = true)
-    int updateEmployee(String nic, String contactNo, String status, String address);
+    @Query(value = "update employee_main set contact_no = ?2 , status = ?3 , address = ?4 , location = ?5 where nic = ?1", nativeQuery = true)
+    int updateEmployee(String nic, String contactNo, String status, String address, String location);
 }
