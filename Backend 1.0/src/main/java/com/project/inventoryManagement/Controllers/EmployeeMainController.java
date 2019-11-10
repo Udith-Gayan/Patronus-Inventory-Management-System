@@ -88,16 +88,30 @@ public class  EmployeeMainController {
 
       if(empMainRepo.findByEmail(m1.getEmail()) != null || empMainRepo.findByNic(m1.getNic()) != null){   // Update an existing user
           System.out.println("Same email-"+ m1.getEmail()+" found. Values are updated");
-          EmployeeMainModel m2 = empMainRepo.findByEmail(m1.getEmail());
-          System.out.println("****m2:"+ m2.toString());
-          empMainRepo.delete(m2);
-        //  m1.setEmployeeId(m2.getEmployeeId());
-          System.out.println("****m1:"+ m1.toString());
-          empMainRepo.save(m1);                           // this is wrong
+          EmployeeMainModel exUser = empMainRepo.findByNic(m1.getNic());
+          String newContactNo, newstatus, newaddress;
+          newContactNo = m1.getContactNo();
+          newstatus = m1.getStatus();
+          newaddress = m1.getAddress();
+
+          if(m1.getStatus() == null){
+              newstatus = exUser.getStatus();
+          }
+          if(m1.getContactNo() == null){
+              newContactNo = exUser.getContactNo();
+          }
+         if(m1.getAddress() == null) {
+             newaddress = exUser.getAddress();
+         }
+
+         System.out.println("Updating...");
+         empMainRepo.updateEmployee(m1.getNic(),newContactNo,newstatus,newaddress);
+          System.out.println("Updated");
       }
       else {
 
           m1.setPassword(bcryptEncoder.encode(m1.getPassword()));   // encoded password using bcrption
+          m1.setUnblocked(true);
           empMainRepo.save(m1);
       }
         return empMainRepo.findByNic(m1.getNic());

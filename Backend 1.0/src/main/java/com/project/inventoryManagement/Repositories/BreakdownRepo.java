@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public interface BreakdownRepo extends CrudRepository<Breakdown, Long> {
 
@@ -14,5 +15,8 @@ public interface BreakdownRepo extends CrudRepository<Breakdown, Long> {
     @Modifying
     @Query(value = "update breakdowns set is_released_by_am = true where asset_id = ?1" , nativeQuery = true)
     int updateReleased(String assetId);
+
+    @Query(value = "select * from breakdowns", nativeQuery = true)
+    List<Breakdown> findAllAsList();
 
 }

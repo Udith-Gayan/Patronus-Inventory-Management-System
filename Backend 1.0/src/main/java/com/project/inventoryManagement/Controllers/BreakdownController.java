@@ -90,6 +90,9 @@ public class BreakdownController {
         System.out.println("Finding all Breakdowns...");
         final Iterable<Breakdown> all = breakdownRepo.findAll();
         System.out.println(" all Breakdowns found successfully!");
+
+
+
         return all;
     }
 
