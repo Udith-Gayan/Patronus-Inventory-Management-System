@@ -71,4 +71,11 @@ export class HttpService {
     return this.http.get(Constants.BASE_URL + '/employees/unblockuser', {params: {nic: nic}, observe: 'response'});
  
   }
+
+  /////////////////////////update Employeee///////////////////////
+
+  updateEmployee(employee:Employee){
+    return this.http.post(Constants.EMPLOYEE_API + '/add', employee, Constants.HTTP_OPTIONS);
+  
+  }
 }

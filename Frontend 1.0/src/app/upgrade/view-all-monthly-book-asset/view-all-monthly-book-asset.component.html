@@ -32,22 +32,23 @@
    
   
     <table id="selectedColumn" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-        <thead style="background-color: burlywood;color: black;font-weight: bold">
+        <thead style="background-color: rgb(60, 123, 148);color: black;font-weight: bold">
           <tr > 
-            <th class="th-sm" style="width: 3cm">AssetID
+            <th class="th-sm" style="width: 4cm;font-size: large;"><b>AssetID </b>
           </th>
-            <th class="th-sm" style="width: 3cm">From
+          <th class="th-sm" style="width: 4cm;font-size: large;"><b>Asset Catagory </b>
+          </th>
+          <th class="th-sm" style="width: 4cm;font-size: large;"><b>Employee Name </b>
+          </th>
+          <th class="th-sm" style="width: 4cm;font-size: large;"> <b>Employee NIC</b>
+          </th>
+          <th class="th-sm" style="width: 4cm;font-size: large;"> <b> Contact Number</b>
+          </th>
+            <th class="th-sm" style="width: 4cm;font-size: large;"> <b>From</b>
             </th>
-            <th class="th-sm" style="width: 3cm">To
+            <th class="th-sm" style="width: 4cm;font-size: large;"><b> To </b>
             </th>
-            <th class="th-sm">Catagory
-              </th>
-            <th class="th-sm">Name
-            </th>
-            <th class="th-sm"> NIC
-            </th>
-            <th class="th-sm">contact Number 
-            </th>
+           
             
           
           </tr>
@@ -56,13 +57,16 @@
           <tr *ngFor="let asset of AllBook |  assetfilter : searchTerm">
           
             <td style="width: 3cm;">{{asset.assetId}}</td>
+            
+            <td style="width: 7cm;">{{asset.requestedAsset.assetcategory}}</td>
+            
+            <td style="width: 9cm;">{{asset.userAssigned.firstname}} {{asset.userAssigned.lastname}}</td>
+            
+            <td style="width: 3cm;">{{asset.requestedNic}}</td>
+            <td style="width: 4cm;">{{asset.userAssigned.contactNo}}</td>
+          
             <td style="width: 5cm;">{{asset.beginDate}}</td>
             <td style="width: 5cm;">{{asset.dueDate}}</td>
-           
-             <td style="width: 7cm;">{{asset.requestedAsset.assetcategory}}</td>
-             <td style="width: 9cm;">{{asset.userAssigned.firstname}} {{asset.userAssigned.lastname}}</td>
-             <td style="width: 3cm;">{{asset.requestedNic}}</td>
-             <td style="width: 4cm;">{{asset.userAssigned.contactNo}}</td>
            
           </tr>
          

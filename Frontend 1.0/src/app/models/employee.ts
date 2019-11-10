@@ -14,4 +14,5 @@ export class Employee{
     status: string;
     img: string;
     unblocked:boolean;
+    location:string;
 }

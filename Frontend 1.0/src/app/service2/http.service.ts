@@ -145,9 +145,15 @@ getAllOwnAssets(nic) : Observable<any>{
 
 /////////////////////////////Monthly Report//////////////////////////////////
 
-sendDetails(monthlyReport :MonthlyReport){
-  return this.http.post(Constants.ASSET_API+'/add',monthlyReport,Constants.HTTP_OPTIONS);
- 
+sendDetails(year,month) : Observable<any>{
+  return this.http.get(Constants.BASE_URL+'/report/monthly',{params: {year: year,month: month}, observe: 'response'})
+
+}
+////////////////////////////Send Book AssetID//////////////////////////////////
+
+sendAssetId(assetId) : Observable<any>{
+  return this.http.get(Constants.BASE_URL+'/futuredates/get',{params: {assetId: assetId}, observe: 'response'})
+
 }
 
 

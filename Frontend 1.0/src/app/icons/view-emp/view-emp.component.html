@@ -47,7 +47,7 @@
     </div>
     <div class="card-body">
       <div  *ngIf= "status =='Asset Manager'">
-        <a  class="btn btn-primary"(click)="editButtonEmployee(d)"  >Update</a>
+        <a  class="btn btn-primary"(click)="openUpdateEmp1(d.nic)"  >Update</a>
         <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)" style="color: rgb(250, 248, 246);background-color: rgb(53, 88, 128)">Delete</a>
         <a  *ngIf= "status =='Asset Manager'">
             <a  class="btn btn-danger" (click)="BlockEmp(d.nic)" *ngIf="d.unblocked && (d.status !='Asset Manager')">Block</a> 
@@ -95,7 +95,7 @@
           </div>
           <div class="card-body">
             <div  *ngIf= "status =='Asset Manager'">
-              <a  class="btn btn-primary"(click)="editButtonEmployee(d)"  >Update</a>
+              <a  class="btn btn-primary" (click)="openUpdateEmp1(d.nic)"  >Update</a>
               <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)" style="color: rgb(250, 248, 246);background-color: rgb(53, 88, 128)">Delete</a>
               <a  *ngIf= "status =='Asset Manager'">
                   <a  class="btn btn-danger" (click)="BlockEmp(d.nic)" *ngIf="d.unblocked && (d.status !='Asset Manager')">Block</a> 

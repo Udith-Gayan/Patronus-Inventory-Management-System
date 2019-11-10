@@ -1,0 +1,87 @@
+<!--//////////////////////////////////////////////// dialogBox-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- DialogBox -->
+
+
+<div class="modal-header" style="background-color: rgb(62, 163, 177)">
+  <h4 class="modal-title">Update Employee</h4>
+ <!-- <button></button> -->
+
+    <a  class="close" (click)="activeModal.dismiss('Cross click')"></a>
+
+</div>
+<form [formGroup]="myForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <div class="modal-boy">
+    <div class="container">
+       
+        
+     
+
+      
+          
+
+      
+
+    
+     
+        <div class="form-group">
+            <label for="beginDate">Contact Number</label>
+            <input 
+              class="form-control" type="text" name="ContactNo" [(ngModel)]="employee.contactNo"
+              formControlName="beginDate"   placeholder="Keep empty if not">
+          </div>
+
+
+            <div class="form-group">
+                <label for="beginDate">Address</label>
+                <input 
+                  class="form-control" type="text" name="Address" [(ngModel)]="employee.address"
+                  formControlName="beginDate"   placeholder="Keep empty if not">
+              </div>
+
+             
+                  
+                     <div class="form-group">
+                        <label for="beginDate">Status</label> <br>
+                        <select name="status" id="status" style="width: 70mm;height:10mm" [(ngModel)]="employee.status" formControlName="beginDate" placeholder=" Status" >
+                        <option [ngValue]="undefined" hidden>ex: Manager, CEO...</option>
+                        <option value="CEO" >CEO</option>
+                       <option value="Manager" >Manager</option>
+                        <option value="Department Head" >Department Head</option>
+                        <option value="Event Organixzer" >Event Organixzer</option>
+                        <option value="Employee" >Employee</option>
+                        <option value="Store Keeper" >Store Keeper</option>
+                        <option value="Store Keeper" >Project Manager</option>
+                        </select>
+     
+                    </div>
+                  
+                    
+                    <label for="beginDate">Location</label> <br>
+                    <select name="location" id="location" style="width: 70mm;height:10mm" formControlName="beginDate" [(ngModel)]="employee.location"  >
+  
+                            <option [ngValue]="undefined" hidden>ex: IT,HR....</option>
+                          <option value="Head office" >Head office</option>
+                          <option value="IT Department" >IT Department</option>
+                          <option value="HR Department" >HR Department</option>
+                          <option value="Finance Departmentn" >Finance Department</option>
+                          <option value="Head office" >Front table</option>
+                          <option value="Head office" >Lobby</option>
+                          <option value="Head office" >Store Room</option>
+                          
+                        </select>
+                  
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success" type="submit" (click)="onSubmit()"
+      [disabled]="!myForm.valid">
+     UPDATE
+    </button>
+  </div>
+</form>
