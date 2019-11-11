@@ -6,5 +6,6 @@ export class Employee{
    OrderDate:string;
    ReturnDate:string;
    notificationType:string;
+   seen:string;
 
 }

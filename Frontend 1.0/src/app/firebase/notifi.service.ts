@@ -25,6 +25,11 @@ export class NotifiService {
     this.dataSource.next(data);
   }
 
+  updateUser(userKey, value){
+    value.nameToSearch = value.name.toLowerCase();
+    return this.firestore.collection('BookAssetNotification').doc(userKey).set(value);
+  }
+
   Bookasset(){
     return this.firestore.collection('BookAssetNotification').snapshotChanges();
   }
@@ -47,5 +52,10 @@ export class NotifiService {
 
     
   }
+
+  update_massage(recordID,record){
+    this.firestore.doc('BookAssetNotification/' + recordID).update(record);
+  }
+
 }
  

@@ -4,21 +4,19 @@
 
 
 
-  <div class="col-md-2 mb-3">
-      
-      <label for="status" class="cols-sm-2 control-label">Asset Catagory</label>
-
-    
-      <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm1" placeholder="">
-        <option value="" >All</option>  
-      <option value="Employee" >Employee</option>
-      <option value="Asset manager" >Asset manger</option>
-      <option value="Depart mentHead" >Department Head</option>
-      <option value="Event Oraganzer" >Event Organzer</option>
-      <option value="CEO" >CEO</option>
-        
-      </select>
-  </div>
+<div class="col-md-2 mb-3"><br>
+  <select name="status" id="status" class="form-control"  [(ngModel)]="searchTerm">
+  <option value="" >All</option>  
+  <option value="Computer" >Computer</option>
+  <option value="Furniture" >Furniture</option>
+  <option value="Projector" >Projector</option>
+  <option value="tv" >Television</option>
+  <option value="SoundSystem" >Sound Systems</option>
+  <option value="UPS" >UPS</option>
+  <option value="router" >Routers</option> 
+  </select>
+  <label for="status" class="cols-sm-2 control-label">Asset Catagory</label>
+</div>
         
   <div id="2s"> 
     <!----------------------------------All Asset Table---------------------------------------->

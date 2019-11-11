@@ -14,9 +14,11 @@
        
    <tr *ngFor="let a of list" class="table-active"  style="background-color: rgb(90, 131, 207);font-size: 1.5ch;color: black">
   <!------------------------------------Boking Notification for Asset manager---------------------------------->
-     <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager'" >
+
+
+     <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager' && a.massege !='seen'" >
    
-       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) ">
+       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) " style="background-color: blanchedalmond;">
         <a class="nav-item">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}}</td>
          <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
@@ -31,6 +33,32 @@
          <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
     </a>  
         <!---------------------------------------------End----------------------------------------------------------------->
+
+        <!------------------------------------seeen------------------------------------------------------->
+
+        <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager' && a.massege=='seen'" >
+   
+            <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username) " style="background-color: rgb(56, 22, 134);">
+             <a class="nav-item">
+             <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}}</td>
+              <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
+              <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
+              <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
+              <td (click)="onEdit(a)" style="width: 3.7cm"scope="col">by {{a.username}}</td>
+              <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
+              <td (click)="onEdit(a)" style="width: 3cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+              <td></td>
+              <td></td></a>
+            </button>
+              <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+         </a>  
+             <!---------------------------------------------End----------------------------------------------------------------->
+     
+     
+
+
+
+
       
         <!-------------------------------------------BreakDwon Aset mangar------------------------------------------->
 
