@@ -28,7 +28,7 @@ public class FutureDatesController {
 
          System.out.println("Size of assigns: "+ assigns.size());
         System.out.println("qurieddddd");
-         List<FutureDatesDTO> dateArrayList = new ArrayList<FutureDatesDTO>(); 
+         List<FutureDatesDTO> dateArrayList = new ArrayList<FutureDatesDTO>();
         System.out.println("quriedddaaaaaaaad");
 
         int count = 0;

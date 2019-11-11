@@ -6,6 +6,7 @@ import com.project.inventoryManagement.Models.AssignModel;
 import com.project.inventoryManagement.Repositories.AssetRepository;
 import com.project.inventoryManagement.Repositories.AssignRepo;
 import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
+import com.project.inventoryManagement.Service.DateCheckerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,10 +27,21 @@ public class BookingAssetController {
     @Autowired
     EmployeeMainRepository empRepo;
 
+
+    @Autowired
+    DateCheckerService dateCheckerService;
+
     ////////////////////////////////////
     // add a new booking
     @PostMapping(path = "/book/add")
-    public AssignModel addNewBooking(@RequestBody AssignModel m1) {
+    public AssignModel addNewBooking(@RequestBody AssignModel m1) throws Exception{
+
+
+        if(!dateCheckerService.isAvailable(m1.getAssetId(),m1.getBeginDate(),m1.getDueDate())){
+            throw new Exception("Asset has been already reserved during the given period. Please select another period.");
+        }
+
+
         System.out.println("requestBody: " + m1.toString());
 
         // Auto filling areas as this is a request
