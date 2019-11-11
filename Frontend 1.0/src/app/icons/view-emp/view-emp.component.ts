@@ -13,6 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
+import { UpdateEmployeeComponent } from '../../PopupModals/update-employee/update-employee.component';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -147,6 +148,21 @@ export class ViewEmpComponent implements OnInit {
    
    
      }
+
+     // Open update popup form
+     openUpdateEmp1(nic) {
+    console.log("line 1");
+    const modalRef = this.modalService.open(UpdateEmployeeComponent);
+      // Pass vallue to other form component
+      modalRef.componentInstance.nic = nic;
+    
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
 
 }

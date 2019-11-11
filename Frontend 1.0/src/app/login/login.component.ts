@@ -103,7 +103,7 @@ export class LoginComponent implements OnInit {
        console.table('Error found while loggin: ' + error.type);
 
         this.openErrorBox();
-       this.router.navigate(['/login']);
+this.router.navigate(['/login']);
 
        this.loginRequest.username = '';
        this.loginRequest.password = '';
@@ -294,7 +294,7 @@ public matchPassword() {
 
   console.log('change');
   if (this.resetForm.newPassword !== this.resetForm.confirmNewPassword) {
-         this.passwordMatched = false;
+         this.passwordMatched = true;
   } else {
     this.passwordMatched = true;
   }

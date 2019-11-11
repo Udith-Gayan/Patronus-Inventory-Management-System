@@ -20,6 +20,7 @@ export class UserProfileComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.toggle1(1);
   }
   
   onSubmit() {
@@ -29,5 +30,11 @@ export class UserProfileComponent implements OnInit {
       alert('Asset Successfully Saved');
     });
     
+  }
+  isButtonActive: number = 0;
+
+  toggle1( val) {
+    console.log(' val ='+ val);
+    this.isButtonActive = val;
   }
 }

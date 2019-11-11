@@ -28,6 +28,7 @@ export class ComputerComponent implements OnInit {
   ngOnInit() {
 
   }
+  
   onSubmit() {
     console.log(this.asset);
     this.userService.addEmployee(this.asset).subscribe((response)=>{
@@ -40,7 +41,27 @@ export class ComputerComponent implements OnInit {
         timer: 1500
       })
     });
+    this.resetForm();
+  }
+  resetForm(){
+    this.asset.days='';
+    this.asset.displaySize='';
+    this.asset.location='';
+    this.asset.months ='';
+    this.asset.processor='';
+    this.asset.quantity=1;
+    this.asset.ram='';
+    this.asset.warrantyStatus='';
+    this.asset.yrs='' ;
+    this.asset.boughtCompanyAddress='';
+    this.asset.boughtCompanyName='';
+    this.asset.boughtDate='';
+    this.asset.brandName='';
+    this.asset.buyingPrice;
+    this.asset.capacity='';
+    this.asset.description='';
+    this.asset.companyContact='';
+    this.asset.categoryTypes='';
 
   }
-
 }

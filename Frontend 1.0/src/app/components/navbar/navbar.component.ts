@@ -166,6 +166,13 @@ openFormModal1(assetId,assetCategory,notificationType,complainedNic,massege,begi
     
   }
 
-  
+  isButtonActive: number = 0;
 
+  toggle1( val) {
+    console.log(' val ='+ val);
+    this.isButtonActive = val;
+  }
+  
+ 
 }
+

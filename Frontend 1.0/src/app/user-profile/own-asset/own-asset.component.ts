@@ -10,14 +10,16 @@ import { ownAsset } from '../../models/ownAsset';
 })
 export class OwnAssetComponent implements OnInit {
 ownAsset : Observable<ownAsset>
+nic = sessionStorage.getItem('nic');
   constructor(private ownasset : HttpService) {  }
 
   ngOnInit() {
-    this.ownasset.getAllOwnAssets().subscribe(res=>{
+    this.ownasset.getAllOwnAssets(this.nic).subscribe(res=>{
 
       console.log(res);
-      this.ownAsset = res
-      console.log(this.ownAsset)
+      this.ownAsset = res.body;
+      console.log("line2");
+      console.log(this.ownAsset);
     })
   }
 

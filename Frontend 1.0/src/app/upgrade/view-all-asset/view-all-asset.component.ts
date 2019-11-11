@@ -19,10 +19,11 @@ export class ViewAllAssetComponent implements OnInit {
   Lname:string = sessionStorage.getItem('lastname');
   status:string = sessionStorage.getItem('status');
   today=new Date();
+  searchTerm :string;
 
   pendingRequestAM:Observable<pendinRequest>
   constructor(private asset:HttpService) { }
-AllAsset:Observable<Asset>
+AllAsset:Observable<Asset[]>
 
   ngOnInit() {
    

@@ -11,14 +11,20 @@ import { Asset } from '../asset/asset';
 export class DashboardComponent implements OnInit {
   Ass:Asset[]=[];
   Bname:String;
-  
+  status:string = sessionStorage.getItem('status');
   constructor() { }
 
   ngOnInit() {
    
-
+    this.toggle1(1);
 
     
 
+  }
+  isButtonActive: number = 0;
+
+  toggle1( val) {
+    console.log(' val ='+ val);
+    this.isButtonActive = val;
   }
 }

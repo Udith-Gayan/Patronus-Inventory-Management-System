@@ -65,7 +65,7 @@ export const AdminLayoutRoutes: Routes = [
              component: ViewBreakedownComponent
          }
      ],
-     canActivate: [AuthGuardServiceService]
+    canActivate: [AuthGuardServiceService]
 
 
     },
@@ -139,7 +139,7 @@ export const AdminLayoutRoutes: Routes = [
             ]
         }
     ],
-    canActivate: [AuthGuardServiceService]
+    //canActivate: [AuthGuardServiceService]
 
     },
     { path: 'table-list', component: TableListComponent ,
@@ -157,7 +157,7 @@ export const AdminLayoutRoutes: Routes = [
                 component: VProjecterComponent
             },
         ],
-        canActivate: [AuthGuardServiceService]
+       // canActivate: [AuthGuardServiceService]
 
 
     },
@@ -193,7 +193,7 @@ export const AdminLayoutRoutes: Routes = [
               },
 
         ],
-        canActivate: [AuthGuardServiceService]
+       // canActivate: [AuthGuardServiceService]
 
     },
     { path: 'welcome',
@@ -222,7 +222,7 @@ export const AdminLayoutRoutes: Routes = [
          
         }
      ],
-     canActivate: [AuthGuardServiceService]
+     //canActivate: [AuthGuardServiceService]
 
     },
     {
@@ -254,7 +254,7 @@ export const AdminLayoutRoutes: Routes = [
 
             }
         ],
-        canActivate: [AuthGuardServiceService]
+       // canActivate: [AuthGuardServiceService]
 
     },
     { path: 'report',
@@ -293,7 +293,7 @@ export const AdminLayoutRoutes: Routes = [
         }
 
      ],
-     canActivate: [AuthGuardServiceService]
+    // canActivate: [AuthGuardServiceService]
     },
     {path: 'other', component: OtherComponent },
     {path: 'registor', component: RegistorEmpComponent },
@@ -319,7 +319,7 @@ export const AdminLayoutRoutes: Routes = [
              component:ReturnRequestAssetComponent,
          }
         ],
-        canActivate: [AuthGuardServiceService]
+       // canActivate: [AuthGuardServiceService]
         
         
     }

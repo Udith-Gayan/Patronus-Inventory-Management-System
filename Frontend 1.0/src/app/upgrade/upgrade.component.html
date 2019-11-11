@@ -27,7 +27,7 @@
                         
                         <ul class="navbar-nav mr-auto"  *ngIf= "status =='Asset Manager'">
                             <li class="nav-item active">
-                              <a class="btn btn" routerLink="/asset/registor-asset">Register Asset </a>
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 1" (click)="toggle1(1)"  routerLink="/asset/registor-asset">Register Asset </a>
                               
                             </li>
                            
@@ -37,27 +37,33 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                           <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                              <a class="btn btn" routerLink="/report/viewAllMonthlyReport"   (click)="abc()">Monthly Report</a>
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 1" (click)="toggle1(1)" style="color: beige;"
+                              routerLink="/report/viewAllMonthlyReport"   (click)="abc()">Monthly Report</a>
                             </li>
 
                             <li class="nav-item active">
-                              <a class="btn btn" id="" routerLink="/report/viewAllBreakDownReport">Monthly BreakeDown Assets</a>
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 2" (click)="toggle1(2)" style="color: beige;"
+                               id="" routerLink="/report/viewAllBreakDownReport">Monthly BreakeDown Assets</a>
                             </li>
                             
                             <li class="nav-item active">
-                              <a class="btn btn" routerLink="/report/viewMonthlyBookAssetReport">Monthly Book Assets</a>
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 3" (click)="toggle1(3)" style="color: beige;"
+                               routerLink="/report/viewMonthlyBookAssetReport">Monthly Book Assets</a>
                             </li>
 
                             <li class="nav-item active">
-                                <a class="btn btn" routerLink="/report/viewAllRequestAssets">Monthly Request Assets</a>
+                                <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 4" (click)="toggle1(4)" style="color: beige;" 
+                                 routerLink="/report/viewAllRequestAssets">Monthly Request Assets</a>
                               </li>
 
                             <li class="nav-item active">
-                              <a class="btn btn" routerLink="/report/viewallEmployeeDetailReport">Company Employees</a>
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 5" (click)="toggle1(5)" style="color: beige;"
+                               routerLink="/report/viewallEmployeeDetailReport">Company Employees</a>
                             </li>
 
                             <li class="nav-item active">
-                              <a class="btn btn" routerLink="/report/viewAllAssetReport">Company Assets</a>
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 6" (click)="toggle1(6)" style="color: beige;"
+                               routerLink="/report/viewAllAssetReport">Company Assets</a>
                             </li>
 
                            

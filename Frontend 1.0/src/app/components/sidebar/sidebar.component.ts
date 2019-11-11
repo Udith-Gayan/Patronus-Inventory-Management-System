@@ -16,7 +16,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/breakdown', title: 'Breakdown Asset',  icon: 'design_app', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'ui-1_bell-53', class: '' },
     { path: '/report', title: 'Reports',  icon:'design_bullet-list-67', class: '' },
-    { path: '/return', title: 'Return Asset',  icon:'design_app', class: '' },
+    { path: '/return', title: 'Return Asset',  icon:'design_app', class: '' }
     
     
    
@@ -34,6 +34,7 @@ export class SidebarComponent implements OnInit {
   menuItems: any[];
   Fname = sessionStorage.getItem('firstname');
   Lname = sessionStorage.getItem('lastname');
+  status = sessionStorage.getItem('status');
   constructor() { }
 
   ngOnInit() {

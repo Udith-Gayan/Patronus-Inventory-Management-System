@@ -11,7 +11,7 @@ import { returnBook } from '../../models/ReturnBookAsset';
 })
 
 export class ViewAllMonthlyBookAssetComponent implements OnInit {
-
+  searchTerm : string;
   email:string = sessionStorage.getItem('email');
   Fname:string = sessionStorage.getItem('firstname');
   Lname:string = sessionStorage.getItem('lastname');
@@ -19,6 +19,7 @@ export class ViewAllMonthlyBookAssetComponent implements OnInit {
 
   AllBook:Observable<returnBook>
   today=new Date();
+  
   constructor(private asset: HttpService) { }
 
   ngOnInit() {

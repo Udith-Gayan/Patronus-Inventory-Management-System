@@ -20,6 +20,7 @@ export class ViewAllEmployeeComponent implements OnInit {
 
   AllEmp:Observable<Employee>
   today=new Date();
+  searchTerm :string;
   constructor(private empservice: HttpService) { }
 
   ngOnInit() {

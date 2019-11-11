@@ -16,6 +16,7 @@ export class ViewAllMonthlyBrakeDownAssetComponent implements OnInit {
   Lname:string = sessionStorage.getItem('lastname');
   status:string = sessionStorage.getItem('status');
   today=new Date();
+  searchTerm : string;
 
   constructor(private asset:HttpService) { }
   AllBrekdown:Observable<returnBook>

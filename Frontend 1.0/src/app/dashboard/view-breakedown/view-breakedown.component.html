@@ -23,12 +23,12 @@
             <td (click)="onEdit(a)" class="table-danger" scope="col" style="size: 3cm">{{a.assetId}}</td>
             <td  style="width: 4cm" (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>
             <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.notificationType}}</td>
-            <td (click)="onEdit(a)" style="width: 6cm"scope="col">by {{a.anyMessage}} </td>
+            <td (click)="onEdit(a)" style="width: 7cm"scope="col">by {{a.anyMessage}} </td>
             <td></td>
            
           </button>
-          <a  class="btn btn"  style="width: 2cm"(click)="ReleaseAsset(a.assetId)">Releas</a>
-            <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+         
+            <td (click)="ReleaseAsset(a.assetId,a.id)"  ><button>release</button></td>
        </a>  
 
             </tr>

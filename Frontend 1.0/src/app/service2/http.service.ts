@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { BookAsset } from '../models/BookAssetModel';
 import { BreakDwonNoti } from '../firebase/BreakDownModel';
 import { Replay } from '../models/NotifiReplay';
+import { MonthlyReport } from '../models/MonthlyReport';
 
 
 
@@ -13,6 +14,7 @@ import { Replay } from '../models/NotifiReplay';
   providedIn: 'root'
 })
 export class HttpService {
+  Asset: { days: string; displaySize: string; location: string; months: string; processor: string; };
 
   constructor(private http: HttpClient) {}
 
@@ -131,14 +133,27 @@ ReturnBookAssset(id) {                              // deleteEmployee(employee :
 /////////////////////////////releseeBrokenAsset///////////////////////////
 
 ReleaseBrokenAsset(assetId){
-  return this.http.get(Constants.BASE_URL+'/return/return', {params: {id: assetId}, observe: 'response'}); 
+  return this.http.get(Constants.BASE_URL+'/breakdown/release', {params: {assetId: assetId}, observe: 'response'}); 
 
 }
 
 /////////////////////////get All Own Asset/////////////////////////////////
 
-getAllOwnAssets() : Observable<any>{
-  return this.http.get(Constants.BASE_URL+'/')
+getAllOwnAssets(nic) : Observable<any>{
+  return this.http.get(Constants.BASE_URL+'/asset/my/asset',{params: {nic: nic}, observe: 'response'})
+
+}
+
+/////////////////////////////Monthly Report//////////////////////////////////
+
+sendDetails(year,month) : Observable<any>{
+  return this.http.get(Constants.BASE_URL+'/report/monthly',{params: {year: year,month: month}, observe: 'response'})
+
+}
+////////////////////////////Send Book AssetID//////////////////////////////////
+
+sendAssetId(assetId) : Observable<any>{
+  return this.http.get(Constants.BASE_URL+'/futuredates/get',{params: {assetId: assetId}, observe: 'response'})
 
 }
 

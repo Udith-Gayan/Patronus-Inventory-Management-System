@@ -11,6 +11,7 @@ export class returnBook{
     requestedAsset:Asset;
     informedBy:Employee;
     brokenAsset:Asset;
+   
 
 
 

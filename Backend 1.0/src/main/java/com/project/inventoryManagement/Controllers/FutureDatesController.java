@@ -24,14 +24,17 @@ public class FutureDatesController {
 
         List<AssignModel> assigns;
          assigns = assignRepo.findAllFutureDates(assetId);
-
+        System.out.println("qurieddddd");
          final List<FutureDatesDTO> dateArray = null;
-         
+        System.out.println("quriedddaaaaaaaad");
 
          assigns.forEach(ass -> {
+             System.out.println(ass.toString());
                                   FutureDatesDTO aDate = new FutureDatesDTO(ass.getBeginDate(),ass.getDueDate());
+             System.out.println("qurieddddd");
                                  // assert dateArray != null;
                                   dateArray.add(aDate);
+             System.out.println("1");
                                   });
 
 
