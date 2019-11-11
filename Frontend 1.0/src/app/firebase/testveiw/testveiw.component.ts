@@ -99,7 +99,7 @@ console.log("line 2-"+this.count);
 
 
   }
-  openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
+  openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username,idE) {
     console.log();
     const modalRef = this.modalService.open(ViewSingleNotificationComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
@@ -118,9 +118,31 @@ console.log("line 2-"+this.count);
       console.log(error);
     });
 
-///////////////////////////////////
+/////////////////////////////////// update firebase ////////////////////////
+console.log("update seen1");
+console.log(idE);
+console.log(massege);
+console.log("update seen2");
 
+console.log(this.list);
+this.list.forEach(id => {
+  console.log("Update seen3");
+  console.log(id);
+  if(id.id == idE){
+    console.log(assetId);
+    console.log("Update seen4");
+   id.massege="seen";
+   console.log(id.massege);
+    this.firestore.doc('BookAssetNotification/'+id).update(massege);
+
+
+
+
+  }
   
+});
+
+
 
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -30,7 +30,7 @@
                 <a *ngIf="(status=='Asset Manager')">
                     <a *ngIf="(menuItem.title!='Return Asset')" [routerLink]="[menuItem.path]">
                         <i *ngIf="(menuItem.title!='Return Asset')" class="now-ui-icons {{menuItem.icon}}"></i>
-                        <p *ngIf="(menuItem.title!='Return Asset')">{{menuItem.title}}</p>
+                        <p *ngIf="(menuItem.title!='Return Asset')" style="font-size: 0.36cm;color: rgb(143, 146, 145); font-family: monospace;" > {{menuItem.title}} </p>
                     </a>
                 </a>
                     <!------------------Strore keeper-------------------------->
@@ -38,7 +38,7 @@
                 <a *ngIf="(status=='Store Keeper')">
                         <a *ngIf="(menuItem.title != 'Reports')"  [routerLink]="[menuItem.path]">
                             <i *ngIf="(menuItem.title != 'Reports') "  class="now-ui-icons {{menuItem.icon}}"></i>
-                            <p *ngIf="(menuItem.title != 'Reports') " >{{menuItem.title}}</p>
+                            <p *ngIf="(menuItem.title != 'Reports') " style="font-size: 0.346m;color: rgb(143, 146, 145); font-family: monospace;" >{{menuItem.title}}</p>
                         </a>
                 </a>
                 <!---------------------------Department head------------------------>
@@ -47,7 +47,7 @@
                   <a *ngIf="(status=='Department Head') || (status =='Employee') || (status == 'Event Organixzer') || (status == 'Manager')">
                         <a *ngIf="(menuItem.title != 'Reports') && (menuItem.title !='Return Asset')" [routerLink]="[menuItem.path]">
                             <i *ngIf="(menuItem.title != 'Reports') && (menuItem.title !='Return Asset')" class="now-ui-icons {{menuItem.icon}}"></i>
-                            <p *ngIf="(menuItem.title != 'Reports') && (menuItem.title !='Return Asset')">{{menuItem.title}}</p>
+                            <p *ngIf="(menuItem.title != 'Reports') && (menuItem.title !='Return Asset')" style="font-size: 0.36cm;color: rgb(143, 146, 145); font-family: monospace;">{{menuItem.title}}</p>
                         </a>
                 </a>
                
