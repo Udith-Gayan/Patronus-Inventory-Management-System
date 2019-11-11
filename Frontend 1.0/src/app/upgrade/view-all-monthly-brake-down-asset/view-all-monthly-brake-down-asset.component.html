@@ -60,7 +60,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let asset of AllBrekdown |  assetfilter : searchTerm">
+        <tr *ngFor="let asset of AllBrekdown |  assetfilterBreak : searchTerm">
           
           <td style="width: 3cm;">{{asset.assetId}}</td>
           <td style="width: 5cm;">{{asset.brokenAsset.warrantyStatus}}</td>

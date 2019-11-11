@@ -52,7 +52,7 @@ export class ViewAssetComponent implements OnInit {
     console.log("line-89");
     console.log(assetId);
     this.asset.sendAssetId(assetId).subscribe(res=>{
-console.log("line-90");
+    console.log("line-90");
       console.log(res);
       this.data = res
       console.log(this.data)
@@ -131,6 +131,7 @@ deleteAsst(assetId){
 
         // this.employees.splice(this.employees.indexOf(d),1);
         console.log(data);
+        this.ngOnInit();
 
           },
           (error)=>{

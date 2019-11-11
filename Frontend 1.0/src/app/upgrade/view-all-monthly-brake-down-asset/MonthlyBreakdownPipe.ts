@@ -5,7 +5,7 @@ import { returnBook } from '../../models/ReturnBookAsset';
 
 
 @Pipe({
-    name:'assetfilter'
+    name:'assetfilterBreak'
 })
 
 export class MonthlyBrekdownpipe implements PipeTransform{

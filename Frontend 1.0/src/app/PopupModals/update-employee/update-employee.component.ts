@@ -70,6 +70,8 @@ onSubmit() {
 
   this.userService.updateEmployee(this.employee).subscribe((response) => {
     console.log(response);
+    this.resetForm();
+    this.ngOnInit();
     Swal.fire({
       position: 'center',
       type: 'success',
@@ -91,9 +93,9 @@ onSubmit() {
     )
 
   });
-  this.resetForm();
+  
   // this.userService.addEmployee(this.employee);
-
+  this.ngOnInit();
 }
 resetForm(){
   this.employee.email='';

@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistorAssetComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit() {
-    this.toggle1(1);
+    
   }
 
   isButtonActive: number = 0;

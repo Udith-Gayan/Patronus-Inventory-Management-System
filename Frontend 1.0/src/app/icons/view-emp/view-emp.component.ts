@@ -80,8 +80,7 @@ export class ViewEmpComponent implements OnInit {
                                                           )
                                                         }
                                                       })
-
-                                                         },
+ },
                                                          (error)=>{
                                                                     console.log(error);
                                                                     Swal.fire({
@@ -105,6 +104,9 @@ export class ViewEmpComponent implements OnInit {
 
   ////
   openFormModal(nic,firstname,email,lastname,gender,contactNo,address,employeeId) {
+    this.ngOnInit();
+    this.ngOnInit();
+    this.ngOnInit();
     const modalRef = this.modalService.open(ViewAllEmpDelailComponent);
     modalRef.componentInstance.nic = nic;
     modalRef.componentInstance.lastname = lastname;
@@ -118,6 +120,7 @@ export class ViewEmpComponent implements OnInit {
 
     modalRef.result.then((result) => {
       console.log(result);
+      this.ngOnInit();
     }).catch((error) => {
       console.log(error);
     });
@@ -152,6 +155,7 @@ export class ViewEmpComponent implements OnInit {
      // Open update popup form
      openUpdateEmp1(nic) {
     console.log("line 1");
+    this.ngOnInit();
     const modalRef = this.modalService.open(UpdateEmployeeComponent);
       // Pass vallue to other form component
       modalRef.componentInstance.nic = nic;

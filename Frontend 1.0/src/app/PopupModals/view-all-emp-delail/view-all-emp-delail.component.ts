@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./view-all-emp-delail.component.scss']
 })
 export class ViewAllEmpDelailComponent implements OnInit {
+
+  
   @Input() nic: number;
   @Input() firstname: string;
 
@@ -16,18 +18,22 @@ export class ViewAllEmpDelailComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder) {
     this.createForm();
+    this.ngOnInit();
    }
 
 
   ngOnInit() {
   }
   private createForm() {
+    this.ngOnInit();
     this.myForm = this.formBuilder.group({
       username: '',
       password: ''
     });
+    this.ngOnInit();
   }
   closeModal() {
+    this.ngOnInit();
     this.activeModal.close('Modal Closed');
   }
 
