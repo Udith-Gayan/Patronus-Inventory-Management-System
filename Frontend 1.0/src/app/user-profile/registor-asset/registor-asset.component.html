@@ -8,30 +8,33 @@
             <h5>Asset Category</h5>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-              <a class="nav-link"  href="" routerLink="/asset/registor-asset/computer">
+              <a  class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 1" (click)="toggle1(1)"   href="" routerLink="/asset/registor-asset/computer">
                <img src="assets/img/laptop.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
                  Computer
                  <span class="sr-only">(current)</span>
               </a>
                 </li>
-                <li class="nav-item">
-              <a class="nav-link " href="#"  routerLink="/asset/registor-asset/projecter">
+                <li class="nav-item ">
+                  <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 2" (click)="toggle1(2)"  href="#"  routerLink="/asset/registor-asset/projecter">
                 <img src="assets/img/printer.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                 Projecter
+                 Projector
+                 <span class="sr-only">(current)</span>
                </a>
                </li>
                <li class="nav-item">
  
-              <a class="nav-link" href="#" routerLink="/asset/registor-asset/furniture">
+              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 3" (click)="toggle1(3)"  href="#" routerLink="/asset/registor-asset/furniture">
                 <img src="assets/img/furniture.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
                   Furniture
+                  <span class="sr-only">(current)</span>
                </a>
                </li>
                <li class="nav-item">
       
-              <a class="nav-link" href="#"  routerLink="/asset/registor-asset/other">
+              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 4" (click)="toggle1(4)"  href="#"  routerLink="/asset/registor-asset/other">
                 <img src="assets/img/scanner.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
                 Others
+                <span class="sr-only">(current)</span>
                 </a>
                </li>
               </ul>

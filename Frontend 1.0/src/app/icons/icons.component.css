@@ -63,14 +63,20 @@
       transform: rotate(360deg);
     }
   }
+  .btn.btn:hover{
+    background: rgb(19, 85, 139);
+   
+  }
 
   .btn-group-toggle {
-    background-color: rgba(64, 245, 255, 0.09);
+    background-color:rgb(87, 84, 84);
   }
 
   .active-button {
-    background-color: rgba(64, 246, 255, 0.56);
-    border-color: rgba(243, 255, 7, 0.666);
+     background-color: rgba(9, 14, 56, 0.56); 
+    border-color: rgba(117, 127, 243, 0.666);
     border-width: 0.3mm;
   }
   
+  
+ 

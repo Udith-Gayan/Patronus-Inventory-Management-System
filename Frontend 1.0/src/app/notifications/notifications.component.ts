@@ -12,6 +12,12 @@ export class NotificationsComponent implements OnInit {
  
   
   ngOnInit() {
+    this.toggle1(1);
   }
+  isButtonActive: number = 0;
 
+  toggle1( val) {
+    console.log(' val ='+ val);
+    this.isButtonActive = val;
+  }
 }

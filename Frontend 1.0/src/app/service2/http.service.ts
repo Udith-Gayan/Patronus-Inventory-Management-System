@@ -14,6 +14,7 @@ import { MonthlyReport } from '../models/MonthlyReport';
   providedIn: 'root'
 })
 export class HttpService {
+  Asset: { days: string; displaySize: string; location: string; months: string; processor: string; };
 
   constructor(private http: HttpClient) {}
 

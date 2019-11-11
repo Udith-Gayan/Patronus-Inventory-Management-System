@@ -15,11 +15,11 @@ export class Asset{
     boughtCompanyAddress:string;
     companyContact:string;
     categoryTypes:string;
-    yrs:number;
+    yrs:string;
     months:string;
-    days:number;
+    days:string;
     location:string;
-    quantity:string;
+    quantity:number;
     email:string;
     firstname: string;
  

@@ -82,7 +82,7 @@
                                     <div class="input-group-addon">
                                       <span class="input-group-text" id="buyingPrice">Rs.</span>
                                     </div>
-                       
+                                
                                 <span class="input-group-addon"><i class="fa fa-model" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="buyingPrice" id="buyingPrice" pattern="^(0|[1-9]\d*)(\.\d+)?$" #buyingPrice="ngModel" [(ngModel)]="asset.buyingPrice" placeholder="100000.00" required buyingPrice/>
                         </div>
@@ -160,9 +160,9 @@
 
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                                    <div class="form-group" >
+                                    <div class="form-group"  >
                                     <label for="yrs" class="cols-sm-2 control-label">Years</label><br>
-                                    <select name="yrs" id="yrs" name="yrs" style="width: 45mm;height:10mm"  [(ngModel)]="asset.yrs" placeholder="yrs" required #yrs="ngModel">
+                                    <select name="yrs" id="yrs" name="yrs" style="width: 45mm;height:10mm"  [(ngModel)]="asset.yrs" placeholder="yrs"  #yrs="ngModel">
                                         <option [ngValue]="undefined" hidden>0 </option>
                                       <option value="1 years" >1 year</option>
                                       <option value="2 years" >2 year</option>
@@ -179,7 +179,7 @@
                         <div class="col-md-4 mb-3">
                                 <div class="form-group"   >
                                 <label for="months" class="cols-sm-2 control-label">Months</label><br>
-                                <select name="months" id="months" name="months" style="width: 45mm;height:10mm"  [(ngModel)]="asset.months" placeholder="months" required #months="ngModel">
+                                <select name="months" id="months"  style="width: 45mm;height:10mm"  [(ngModel)]="asset.months" placeholder="months"  #months="ngModel">
                                     <option [ngValue]="undefined" hidden>0</option>
                                   <option value="1 month" >1 month</option>
                                   <option value="2 months" >2 month</option>
@@ -199,7 +199,7 @@
                                         <label for="days" class="cols-sm-2 control-label">Days</label><br>
 
 
-                                        <select name="days" id="days" style="width: 45mm;height:10mm"  [(ngModel)]="asset.days" placeholder=" Days" required days #days ="ngModel">
+                                        <select name="days" id="days" style="width: 45mm;height:10mm"  [(ngModel)]="asset.days" placeholder=" Days"  #days ="ngModel">
                                             <option [ngValue]="undefined" hidden>0</option>
                                           <option value="7 days" >7 days</option>
                                           <option value="10 days" >10 days</option> 

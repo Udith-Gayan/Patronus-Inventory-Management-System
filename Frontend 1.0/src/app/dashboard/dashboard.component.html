@@ -12,8 +12,8 @@
              <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
                         
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                              <a class="nav-link"  routerLink="/breakdown/complainBreakedown">Complain Asset </a>
+                            <li class="nav-item ">
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 1" (click)="toggle1(1)"   routerLink="/breakdown/complainBreakedown" style="color: beige;">Complain Breakdowns </a>
                               
                             </li>
                            
@@ -22,8 +22,11 @@
                       
                         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                           <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active" *ngIf="status =='Asset Manager'">
-                              <a class="nav-link" routerLink="/breakdown/viewBreakdownnotification" >view breakDwon Asset <span class="sr-only">(current)</span></a>
+                           <a class="nav-link" routerLink="/breakdown/viewBreakdownnotification" >view breakDwon Asset <span class="sr-only">(current)</span></a>
+                            <li class="nav-item" *ngIf="status =='Asset Manager'">
+                              <a a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 2" (click)="toggle1(2)"  routerLink="/breakdown/viewBreakdownnotification" style="color: beige;">View Breakdwons 
+                                <span class="sr-only">(current)</span>
+                              </a>
                             </li>
                            
                            

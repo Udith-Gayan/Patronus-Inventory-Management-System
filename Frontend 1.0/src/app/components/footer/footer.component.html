@@ -1,23 +1,22 @@
 
 <footer class="footer" style="background-color: rgb(33, 34, 34)">
         <div class="container-fluid">
-          <nav>
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-bottom">
+              <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link"  routerLink="/welcome/welcome" style="color: lightcyan">
-                      Home
-                       <span class="sr-only">(current)</span>
+                    <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 1" (click)="toggle1(1)"  routerLink="/welcome">Home
+                      <span class="sr-only">(current)</span>
                     </a>
                   </li>
               <li class="nav-item">
-                <a class="nav-link"  routerLink="/welcome/aboutUs" style="color: lightcyan">
-                  About Us
-                </a>
+                  <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 2" (click)="toggle1(2)" routerLink="/welcome/aboutUs">About us
+                    <span class="sr-only">(current)</span>
+                  </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/welcome/contactUs" style="color: lightcyan">
-                  Contact Us
-                </a>
+                  <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 3" (click)="toggle1(3)" routerLink="/welcome/contactUs">Contact Us
+                    <span class="sr-only">(current)</span>
+                  </a>
               </li>
             </ul>
           </nav>
