@@ -51,7 +51,7 @@ list2:BreakDwonNoti[];
 
     ngOnInit() {
 
-
+      this.toggle1(1);
      // notification count genarator
      this.ser.data.subscribe( data => {
 
