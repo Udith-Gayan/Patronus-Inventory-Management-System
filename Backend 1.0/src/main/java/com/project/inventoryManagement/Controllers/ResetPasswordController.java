@@ -1,11 +1,11 @@
 package com.project.inventoryManagement.Controllers;
 
 import com.project.inventoryManagement.DTO.ResetFormDTO;
+import com.project.inventoryManagement.DTO.Responses.Errors.ResetEmailNotFoundError;
 import com.project.inventoryManagement.DTO.Responses.Success.ResetEmailSuccess;
 import com.project.inventoryManagement.Models.SecretkeyModel;
 import com.project.inventoryManagement.Repositories.EmployeeMainRepository;
 import com.project.inventoryManagement.Repositories.SecretkeyRepo;
-import com.project.inventoryManagement.Service.AES;
 import com.project.inventoryManagement.Service.MailService;
 import com.project.inventoryManagement.components.EmailReceiverComponent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,13 +65,13 @@ public class ResetPasswordController {
 
         /***********  Bellow part must be enable *****************************************/
         // Checking if email is valid according to database
-/*
+
         if(!empRepo.existsByEmail(resetForm.getNewPassword())){
 
             ResetEmailNotFoundError errorObject = new ResetEmailNotFoundError(false,-1,"Unauthenticated Email");
              return errorObject;
         }
-*/
+
        /****************************************************/
         /* Generating a random secret key */
 
@@ -97,18 +97,18 @@ public class ResetPasswordController {
 
         /************ 455 AES*****************************************/
 
-        String encryptedEmail = null;
-        String encryptedPsd = null;
-        encryptedEmail = AES.encrypt(resetForm.getResetEmail(), secretKey);
-        encryptedPsd = AES.encrypt(resetForm.getNewPassword(), secretKey);
-          /* Encrypting the password and email using AES */
-
-        System.out.println("Encrypting.....");
-
-        System.out.println("Final encrypted email: " + encryptedEmail);
-        System.out.println("Final encrypted password: " + encryptedPsd);
-
-
+//        String encryptedEmail = null;
+//        String encryptedPsd = null;
+//        encryptedEmail = AES.encrypt(resetForm.getResetEmail(), secretKey);
+//        encryptedPsd = AES.encrypt(resetForm.getNewPassword(), secretKey);
+//          /* Encrypting the password and email using AES */
+//
+//        System.out.println("Encrypting.....");
+//
+//        System.out.println("Final encrypted email: " + encryptedEmail);
+//        System.out.println("Final encrypted password: " + encryptedPsd);
+//
+//
 
 
         /************ 455 end**********************************/

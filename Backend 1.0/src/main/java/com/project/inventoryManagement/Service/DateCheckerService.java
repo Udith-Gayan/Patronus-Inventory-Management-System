@@ -86,7 +86,7 @@ public class DateCheckerService {
 
 
         assigns.forEach(ass -> {
-            System.out.println(ass.toString());
+          //  System.out.println(ass.toString());
             FutureDatesDTO aDate = new FutureDatesDTO(ass.getBeginDate(), ass.getDueDate());
             System.out.println("qurieddddd");
             // assert dateArray != null;

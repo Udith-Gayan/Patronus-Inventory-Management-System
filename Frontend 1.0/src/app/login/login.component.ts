@@ -193,39 +193,50 @@ export class NgbdModalContent {
      <p style="font-weight: 600;"> {{name}}!</p>
 
 <!--   Reset form -->
-     <form (onSubmit)="sendMail()" #thisForm="ngForm" name = "thisForm" >
+     <form (onSubmit)="sendMail()" #thisForm = "ngForm" name = "thisForm" >
      <div class="form-group">
-       <label for="exampleInputEmail1">Email address</label>
-       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #email="ngModel" name="email"   [(ngModel)]="resetForm.resetEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+       <label for="email">Email address</label><span style = "color:red;">*</span>
+       <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" #email="ngModel" name="email"   [(ngModel)]="resetForm.resetEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+       </div>
 
-
-       <div *ngIf=" email.errors?.required && email.touched"
+       <div [hidden]=" email.pristine || email.valid"
        class="alert alert-danger udith-danger">
-        Required
+        Valid Email required
       </div>
 
-<div *ngIf="email.errors?.pattern && email.touched"
-   class="alert alert-danger udith-danger">
-    Not Valid
-</div>
-       </div>
 
 
      <div class="form-group">
        <label for="exampleInputPassword1">New Password</label>
-       <input type="password" class="form-control" name="newPassword"  placeholder="Password" [(ngModel)]="resetForm.newPassword" #newPassword="ngModel" required>
+       <input type="password" class="form-control" name="newPassword"  placeholder="Password" [(ngModel)]="resetForm.newPassword" #newPassword="ngModel" (change) = "enterP($event)" required>
      </div>
+
+     <div [hidden]=" newPassword.pristine || newPassword.valid"
+     class="alert alert-danger udith-danger">
+      Required
+     </div>
+
+
 
      <div class="form-group">
      <label for="exampleInputPasswor2">Confirm New Password</label>
-     <input type="password" class="form-control" name="rePassword"  placeholder="Password Again" [(ngModel)]="resetForm.confirmNewPassword" #rePassword="ngModel" required>
+     <input type="password" class="form-control" name="rePassword"  placeholder="Password Again" [(ngModel)]="resetForm.confirmNewPassword" #rePassword="ngModel" (change)= "confirmP($event)" required>
      </div>
+     <div [hidden]=" rePassword.pristine || rePassword.valid"
+     class="alert alert-danger udith-danger">
+      Required
+     </div>
+
+     <div [hidden]="passwordMatched"
+      class="alert alert-danger udith-danger">
+       Not matching !
+      </div>
 
 
 
      <div class="form-check">
 
-       <button type="submit" class="btn btn-primary" (click)="sendMail()" [disabled]= "thisForm.invalid">Submit</button>
+       <button type="submit" class="btn btn-primary" (click)="sendMail()" [hidden]= "!thisForm.valid || !passwordMatched || !email.valid">Submit</button>
      </div>
    </form>
 
@@ -250,7 +261,7 @@ export class NgbdModalContentForresetPassword {
   }
 
 
-  passwordMatched: boolean = true;
+ 
 
 ////////////////////////////////////////////////////////////////////////////////////
   public sendMail() {
@@ -290,15 +301,36 @@ console.log( 'line1');
   }
 ///////////////////////////////////////////////////////////////////////////////////////////
 // on change of retyped password
-public matchPassword() {
 
-  console.log('change');
-  if (this.resetForm.newPassword !== this.resetForm.confirmNewPassword) {
-         this.passwordMatched = true;
-  } else {
-    this.passwordMatched = true;
-  }
 
+enteredPassword: string;
+repassword: string;
+passwordMatched = true;
+
+public confirmP(event) {
+
+console.log('confirmed password= ' + event.srcElement.value);
+this.repassword = event.srcElement.value;
+
+if (this.enteredPassword === this.repassword) {
+  this.passwordMatched = true;
+} else {
+this.passwordMatched = false;
+}
+
+}
+
+
+public enterP(event) {
+
+  console.log('Entered password= '+ event.srcElement.value);
+  this.enteredPassword = event.srcElement.value;
+
+if (this.enteredPassword === this.repassword) {
+     this.passwordMatched = true;
+} else {
+  this.passwordMatched = false;
+}
 
 
 }
