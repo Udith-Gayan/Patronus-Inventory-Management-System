@@ -12,6 +12,7 @@ import { formatDate } from '@angular/common';
 
 import 'sweetalert2/src/sweetalert2.scss';
 import { BsDatepickerDirective } from 'ngx-bootstrap/datepicker/public_api';
+import { FutureDates } from '../../asset/futureDates';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -32,6 +33,7 @@ export class BookingAssetModalComponent implements OnInit {
  
   @Input() assetcategory: string;
   @Input() assetId: string;
+  @Input() dateArray: FutureDates[];
 
   nic = sessionStorage.getItem('nic');
   fname = sessionStorage.getItem('firstname');

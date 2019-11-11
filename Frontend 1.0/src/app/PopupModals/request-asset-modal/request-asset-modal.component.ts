@@ -10,6 +10,7 @@ import { formatDate } from '@angular/common';
 //import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
+import { FutureDates } from '../../asset/futureDates';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -23,7 +24,8 @@ export class RequestAssetModalComponent implements OnInit {
 
   @Input() assetcategory: string;
   @Input() assetId: string;
-  
+  @Input() dateArray: FutureDates[];
+
   nic = sessionStorage.getItem('nic');
   fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;

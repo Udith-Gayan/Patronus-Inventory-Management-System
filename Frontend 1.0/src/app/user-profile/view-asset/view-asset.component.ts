@@ -10,6 +10,7 @@ import { RequestAssetModalComponent } from '../../PopupModals/request-asset-moda
 ////////////
 
  import Swal from 'sweetalert2/dist/sweetalert2.js';
+ import { FutureDates } from '../../asset/futureDates';
 
 // import 'sweetalert2/src/sweetalert2.scss';
 
@@ -23,6 +24,9 @@ import { RequestAssetModalComponent } from '../../PopupModals/request-asset-moda
 })
 export class ViewAssetComponent implements OnInit {
   data: Observable<Asset[]>;
+  data1: Observable<Asset[]>;
+  
+  
 
   //////Short by date
 
@@ -39,7 +43,8 @@ export class ViewAssetComponent implements OnInit {
 
       console.log(res);
       this.data = res
-      console.log(this.data)
+      console.log(this.data);
+      console.log();
     })
     //console.log(this.data);
 
@@ -54,20 +59,36 @@ export class ViewAssetComponent implements OnInit {
     this.asset.sendAssetId(assetId).subscribe(res=>{
     console.log("line-90");
       console.log(res);
-      this.data = res
-      console.log(this.data)
-    })
+      this.data1 = res.body;
 
-    const modalRef = this.modalService.open(BookingAssetModalComponent);
-    modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.assetcategory = assetcategory;
+     let dateArray : FutureDates[];
+     dateArray = res.body;
 
 
-    modalRef.result.then((result) => {
-      console.log(result);
-    }).catch((error) => {
-      console.log(error);
+      console.log(this.data1);
+
+
+
+      ////
+
+      const modalRef = this.modalService.open(BookingAssetModalComponent);
+      modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+      //modalRef.componentInstance.assetcategory = assetcategory;
+     modalRef.componentInstance.dateArray = dateArray;
+      console.log(assetcategory);
+     
+      
+  
+      modalRef.result.then((result) => {
+        console.log(result);
+      }).catch((error) => {
+        console.log(error);
+      });
+
+ 
     });
+
+    
   }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,16 +96,35 @@ export class ViewAssetComponent implements OnInit {
 //Requesting Asset Popup
 
 openRequestmModal(assetId,assetcategory) {
-  const modalRef = this.modalService.open(RequestAssetModalComponent);
-  modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-  modalRef.componentInstance.assetcategory = assetcategory;
+
+  console.log("line-89");
+  console.log(assetId);
+  this.asset.sendAssetId(assetId).subscribe(res=>{
+  console.log("line-90");
+    console.log(res);
+    this.data1 = res.body;
+
+   let dateArray : FutureDates[];
+   dateArray = res.body;
 
 
-  modalRef.result.then((result) => {
-    console.log(result);
-  }).catch((error) => {
-    console.log(error);
+    console.log(this.data1);
+
+    const modalRef = this.modalService.open(RequestAssetModalComponent);
+    modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+    modalRef.componentInstance.assetcategory = assetcategory;
+    modalRef.componentInstance.dateArray = dateArray;
+  
+  
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+
+
   });
+  
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
