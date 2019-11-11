@@ -2,7 +2,7 @@
 .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
   }
-  
+
   .ng-invalid:not(form)  {
     border-left: 5px solid #a94442; /* red */
   }
@@ -15,17 +15,17 @@
     background-color: #fd0c08;
   }
   .f{
-    
+
     font: 1em sans-serif;
     font-size: medium;
     font-style: normal;
-   
+
   }
   .hed{
     color: #a94442;
   }
 
- 
+
 
 
   .lds-ring {
@@ -65,7 +65,7 @@
   }
   .btn.btn:hover{
     background: rgb(19, 85, 139);
-   
+
   }
 
   .btn-group-toggle {
@@ -73,10 +73,13 @@
   }
 
   .active-button {
-     background-color: rgba(9, 14, 56, 0.56); 
-    border-color: rgba(117, 127, 243, 0.666);
-    border-width: 0.3mm;
+     background-color: rgba(90, 171, 218, 0.56)!important;
+    border-color: rgba(117, 127, 243, 0.666)!important;
+    border-width: 0.3mm!important;
   }
-  
-  
- 
+
+  .udith1 {
+    margin-right: 0px!important;
+  }
+
+

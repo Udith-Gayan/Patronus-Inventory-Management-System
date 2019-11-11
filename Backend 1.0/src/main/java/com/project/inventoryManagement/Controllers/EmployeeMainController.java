@@ -159,8 +159,8 @@ public class  EmployeeMainController {
 
             EmployeeMainModel m1 = empMainRepo.findByNic(nic);
 
-            if(m1.getStatus().equals("Asset Manager")){
-                throw new Exception("Asset Manager cannot be deleted");
+            if(m1.getStatus().equals("Asset Manager") || m1.getStatus().equals("CEO")){
+                throw new Exception("Deleting Not Allowed");
             }
 
             DeletedEmployeesModel dm = deletedEmployeeMapping.mapToDeletedEmployeeModel(m1);
