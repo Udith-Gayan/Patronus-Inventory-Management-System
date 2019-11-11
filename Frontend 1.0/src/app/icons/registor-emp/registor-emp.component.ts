@@ -29,7 +29,7 @@ export class RegistorEmpComponent implements OnInit {
    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
        employee: Employee;
-   public imgUrl: any ="/assets/img/1.jpeg";
+       public imgUrl: any ="/assets/img/1.jpeg";
 
        selectedFile: any;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,20 +59,20 @@ export class RegistorEmpComponent implements OnInit {
 
     this.userservice.addEmployee(this.employee).subscribe((response) => {
       console.log(response);
-      
+
       Swal.fire({
         position: 'center',
         type: 'success',
         title: 'Employee has been saved',
         showConfirmButton: false,
         timer: 1500,
-        
+
       },
       ( error: any) => {
 
         alert('Please Check the AssetID ');
-         
-       
+
+
 
       }
       )
@@ -185,7 +185,7 @@ resetForm(){
   this.employee.nic='';
   this.employee.password='';
   this.employee.status='';
-  
+
 
 }
 
