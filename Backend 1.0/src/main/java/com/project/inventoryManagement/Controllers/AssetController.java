@@ -99,7 +99,7 @@ public class    AssetController {
             aa1.setCategoryTypes("-");
         }
 
-
+       aa1.setId(null);
 
         System.out.println("Getting Fields over");
         // Checking for null is over

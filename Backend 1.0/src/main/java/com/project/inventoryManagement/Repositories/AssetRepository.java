@@ -33,4 +33,5 @@ public interface AssetRepository extends CrudRepository<AssetModel, Long> {
     int updateAssetLocation(String assetId, String location);
 
 
+    AssetModel saveAndFlush(AssetModel aa1);
 }
