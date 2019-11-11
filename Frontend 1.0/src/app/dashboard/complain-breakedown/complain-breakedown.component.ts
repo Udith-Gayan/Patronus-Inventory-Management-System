@@ -41,6 +41,8 @@ export class ComplainBreakedownComponent implements OnInit {
   ngOnInit() {
     this.breakDown.complainedNic=this.nic;
     console.log(this.nic);
+
+    
   }
   resetForm(form ? : NgForm){
     if(form != null)

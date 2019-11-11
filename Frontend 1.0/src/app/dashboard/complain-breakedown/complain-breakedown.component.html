@@ -8,27 +8,36 @@
 
 <html>
 
-<form  class="text-center border border-light p-5"  #form="ngForm" (submit)="onSubmit(form)">
-    <p class="h4 mb-4">Inform BreakDown </p>
+<form  class="text-center border border-light p-5"  #form="ngForm" (submit)="onSubmit(form)"> 
+    <p class="h4 mb-4" style="color: rgb(45, 153, 148);"><b>Inform BreakDown</b>  </p>
      
         
   
-        <div class="form-row">
+    <div class="form-group"  [class.has-error]="assetId.invalid && assetId.touched" [class.has-success]="assetId.valid">
     <div class="col-md-5 mb-3">
-      <label for="validationDefault01" style="color: red;">Asset Id</label>
-      <input type="text" class="form-control" id="validationDefault01" name="assetId" placeholder="assetId" [(ngModel)]="breakDown.assetId">
+      <label class="cols-sm-2 control-label" for="assetId" style="color: rgb(220, 217, 228); text-align: left;"><b>ID of the Breakdown Asset</b> </label>
+      <input type="text" class="form-control" id="assetId"  name="assetId" placeholder=" Enter the Asset ID"
+       [(ngModel)]="breakDown.assetId" required assetId #assetId="ngModel">
+      <span class="help-block" *ngIf="assetId.touched && assetId.invalid" style="color:red" >
+        Asset ID is Required
+    </span>
+    </div>
+    </div>
+
+  
+    <div class="form-group shadow-textarea"  [class.has-error]="anyMessage.invalid && anyMessage.touched" [class.has-success]="anyMessage.valid">
+      <label for="anyMessage" style="color: rgb(220, 217, 228);text-align: left;"><b>Description</b></label>
+      <textarea class="form-control" id="anyMessage" rows="3" name="anyMessage" [(ngModel)]="breakDown.anyMessage"
+       placeholder=" Asset Description " required anyMessage #anyMessage="ngModel"></textarea>
+      <span class="help-block" *ngIf="anyMessage.touched && anyMessage.invalid" style="color:red" >
+        Description Required
+    </span>
     </div>
    
-
-  </div>
-  <div class="form-group">
-      <label for="exampleFormControlTextarea1">description</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="anyMessage" [(ngModel)]="breakDown.anyMessage"></textarea>
-    </div>
     
     
 
-  <button class="btn btn-primary btn-sm" type="submit"  >Submit form</button>
+  <button class="btn btn-primary btn-sm" type="submit"  >Submit</button>
 </form>
 
 

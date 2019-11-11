@@ -13,6 +13,7 @@ import { Replay } from '../models/NotifiReplay';
   providedIn: 'root'
 })
 export class HttpService {
+  Asset: { days: string; displaySize: string; location: string; months: string; processor: string; };
 
   constructor(private http: HttpClient) {}
 

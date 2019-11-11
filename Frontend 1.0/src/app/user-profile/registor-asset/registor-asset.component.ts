@@ -12,4 +12,12 @@ export class RegistorAssetComponent implements OnInit {
   ngOnInit() {
   }
 
+  isButtonActive: number = 0;
+
+  toggle1( val) {
+    console.log(' val ='+ val);
+    this.isButtonActive = val;
+  }
+  
+ 
 }

@@ -40,6 +40,22 @@ export class OtherComponent implements OnInit {
         timer: 1500
       })
     });
+    this.resetForm();
   }
+  resetForm(){
+    this.asset.days='';
+    this.asset.description='';
+    this.asset.location='';
+    this.asset.months ='';
+    this.asset.quantity=1;
+    this.asset.warrantyStatus='';
+    this.asset.yrs='';
+    this.asset.boughtCompanyAddress='';
+    this.asset.boughtCompanyName='';
+    this.asset.boughtDate='';
+    this.asset.buyingPrice;
+    this.asset.companyContact='';
+    this.asset.categoryTypes='';
 
+  }
 }

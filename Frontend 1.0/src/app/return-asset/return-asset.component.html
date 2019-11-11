@@ -14,8 +14,9 @@
              <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
                       
                         <ul class="navbar-nav mr-auto"  >
-                            <li class="nav-item active">
-                              <a class="nav-link" routerLink="/return/return-book-asset">Book Asset</a>
+                            <li class="nav-item ">
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 1" (click)="toggle1(1)" 
+                              style="color: beige;" routerLink="/return/return-book-asset">Book Asset</a>
                               
                             </li>
                            
@@ -24,8 +25,9 @@
                       
                         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                           <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                              <a class="nav-link" routerLink="/return/return-request-asset">Request Asset</a>
+                            <li class="nav-item ">
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 2" (click)="toggle1(2)" 
+                              style="color: beige;" routerLink="/return/return-request-asset">Request Asset</a>
                             </li>
                             
                             

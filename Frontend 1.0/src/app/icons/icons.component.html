@@ -5,67 +5,54 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="panel-header panel-header-sm">
 </div>
-
-
-
-
 <div class="main-content">
  
     <div class="row">
-        <div class="col-md-11">
+         
+        <div class="col-md-12">
+              
              <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-             
-                        <ul class="navbar-nav mr-auto" >
-                            <li class="nav-item " >
-                              <a class="nav-link"  routerLink="/employee/registor"> Register Employee 
-                                
-                              </a>
+                      
+                        <ul class="navbar-nav mr-auto"  >
+                            <li class="nav-item ">
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 1" (click)="toggle1(1)" 
+                              style="color: beige;" routerLink="/employee/view-employee">All Employees</a>
                               
-                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive" (click)="toggle1()" routerLink="/employee/view-employee">All Employees<span class="sr-only">(current)</span></a>
                             </li>
                            
-                          </ul> 
-                       
+                          </ul>
                         
                       
                         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                           <ul class="navbar-nav mr-auto">
                             <li class="nav-item ">
-                              <a class="nav-link" routerLink="/employee/view-employee"> View All Employees </a>
-                              <span class="sr-only">(current)</span>
+                              <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 2" (click)="toggle1(2)" 
+                              style="color: beige;" routerLink="/employee/registor">Register Employee</a>
                             </li>
-                         
-
                             
                             
                           </ul>
-
+                          
                         </div>
-                         
-                       
                         
                       </nav>
-       <div class="card">
-    <div class="card-header">
-  <div class="container">
-<div class="row justify-content-center">
-        <div class="col-md-11">
-
-            <div class="lds-ring" style="align-content: center" *ngIf=" showLoadingIndicator"><div></div><div></div><div></div><div></div></div> 
-            <router-outlet></router-outlet>
-        </div>               
-                   
-                        
-                      
-                           
-        </div>
-                </div>
-            </div>
-          </div>
-        </div>
+                      <div class="card">
+                        <div class="card-header">
+                      <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-md-10">
+                     
+<router-outlet></router-outlet>
+</div>
     </div>
+  </div>
+    
+</div>
+</div>
+</div>
 </div>
 
+</div>
 
 
 

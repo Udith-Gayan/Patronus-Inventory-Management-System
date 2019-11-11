@@ -17,7 +17,7 @@ export class IconsComponent implements OnInit {
   showLoadingIndicator =true;
   imgUrl: string="/assets/img/1.jpeg";
 
-  isButtonActive: boolean = true;
+  
  
 
   constructor(private userService : HttpService,private _router:Router) {
@@ -34,6 +34,7 @@ export class IconsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.toggle1(1);
   }
 
   submitted = false;
@@ -56,12 +57,12 @@ export class IconsComponent implements OnInit {
   }
 
 
-  toggle1() {
-       this.isButtonActive = true;
-  }
+  isButtonActive: number = 0;
 
-  toggle2() {
-      this.isButtonActive = false;
+  toggle1( val) {
+    console.log(' val ='+ val);
+    this.isButtonActive = val;
   }
+ 
 
 }

@@ -28,6 +28,7 @@ pendingRequestDH:Observable<pendinRequest>
   constructor(private asset:HttpService) { }
 
   ngOnInit() {
+    this.toggle1(1);
     /////////////////Testing//////////////////////////
    /* this.asset.getPendingRequestAM().subscribe(res=>{
 
@@ -89,4 +90,10 @@ test(){
   }])
 
 }
+isButtonActive: number = 0;
+
+  toggle1( val) {
+    console.log(' val ='+ val);
+    this.isButtonActive = val;
+  }
  }
