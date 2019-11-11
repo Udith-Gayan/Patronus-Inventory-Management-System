@@ -14,11 +14,11 @@ import{ Event,Router,NavigationStart,NavigationEnd, RouterEvent} from '@angular/
 export class IconsComponent implements OnInit {
   status:string = sessionStorage.getItem('status');
   employee : Employee;
-  showLoadingIndicator =true;
-  imgUrl: string="/assets/img/1.jpeg";
+  showLoadingIndicator = true;
+  imgUrl: string = '/assets/img/1.jpeg';
+  isButtonActive: number = 1;
 
-  
- 
+
 
   constructor(private userService : HttpService,private _router:Router) {
     this.employee = new Employee();
@@ -34,7 +34,7 @@ export class IconsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.toggle1(1);
+   
   }
 
   submitted = false;
@@ -57,12 +57,13 @@ export class IconsComponent implements OnInit {
   }
 
 
-  isButtonActive: number = 0;
+  
 
-  toggle1( val) {
-    console.log(' val ='+ val);
+  toggle1(val) {
+    console.log(' val =' + val);
     this.isButtonActive = val;
+    console.log(' this val =' + this.isButtonActive);
   }
- 
+
 
 }

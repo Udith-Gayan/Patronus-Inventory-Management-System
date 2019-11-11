@@ -7,6 +7,7 @@ import com.project.inventoryManagement.Repositories.AssignRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,21 +25,26 @@ public class FutureDatesController {
 
         List<AssignModel> assigns;
          assigns = assignRepo.findAllFutureDates(assetId);
+
+         System.out.println("Size of assigns: "+ assigns.size());
         System.out.println("qurieddddd");
-         final List<FutureDatesDTO> dateArray = null;
+         List<FutureDatesDTO> dateArrayList = new ArrayList<FutureDatesDTO>(); 
         System.out.println("quriedddaaaaaaaad");
+
+        int count = 0;
+
 
          assigns.forEach(ass -> {
              System.out.println(ass.toString());
                                   FutureDatesDTO aDate = new FutureDatesDTO(ass.getBeginDate(),ass.getDueDate());
              System.out.println("qurieddddd");
                                  // assert dateArray != null;
-                                  dateArray.add(aDate);
+                                  dateArrayList.add(aDate);
              System.out.println("1");
                                   });
 
 
-         return dateArray;
+         return dateArrayList;
 
     }
 }

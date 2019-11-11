@@ -42,6 +42,9 @@ public class EmployeeMainModel implements Serializable {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "location")
+    private String location;
+
     @Column(name = "contactNo", unique = true,length = 10)
     private String contactNo;
 

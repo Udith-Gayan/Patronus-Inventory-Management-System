@@ -64,7 +64,7 @@ public class AssetRegistration {
 
 
         System.out.println("line1444");
-        return assetRepository.save(aa1);
+        return assetRepository.saveAndFlush(aa1);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

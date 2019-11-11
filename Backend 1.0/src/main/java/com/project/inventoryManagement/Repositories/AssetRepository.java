@@ -21,10 +21,17 @@ public interface AssetRepository extends CrudRepository<AssetModel, Long> {
     Optional<AssetModel> findByAssetId(String assetId);
 
     // release broken asset
-
     @Transactional
     @Modifying
     @Query(value = "update asset set is_broken = false where asset_id = ?1", nativeQuery = true)
     int updateReleasedAsset(String assetId);
 
+    //Update location
+    @Transactional
+    @Modifying
+    @Query(value = "update asset set location = ?2 where asset_id = ?1", nativeQuery = true)
+    int updateAssetLocation(String assetId, String location);
+
+
+    AssetModel saveAndFlush(AssetModel aa1);
 }

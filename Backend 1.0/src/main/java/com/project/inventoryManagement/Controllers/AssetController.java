@@ -2,7 +2,10 @@ package com.project.inventoryManagement.Controllers;
 
 
 import com.google.common.collect.Lists;
-import com.project.inventoryManagement.Models.*;
+import com.project.inventoryManagement.Models.AssetModel;
+import com.project.inventoryManagement.Models.AssignModel;
+import com.project.inventoryManagement.Models.DeletedAssetModel;
+import com.project.inventoryManagement.Models.EmployeeMainModel;
 import com.project.inventoryManagement.Repositories.*;
 import com.project.inventoryManagement.Service.AssetRegistration;
 import org.modelmapper.ModelMapper;
@@ -57,7 +60,64 @@ public class    AssetController {
     public AssetModel addNewAsset(@RequestBody AssetModel aa1) {
        System.out.println("Asset came:   "+ aa1.toString());
 
-       return assetRegistration.registerAnAsset(aa1);
+       // Checking for null
+
+        System.out.println("Getting Fields");
+
+        if(aa1.getCapacity() == null){
+             aa1.setCapacity("-");
+        }
+        if(aa1.getDisplaySize() == null){
+            aa1.setDisplaySize("-");
+        }
+        if(aa1.getProcessor() == null){
+            aa1.setProcessor("-");
+        }
+        if(aa1.getCapacity() == null){
+            aa1.setCapacity("-");
+        }
+        if(aa1.getRam() == null){
+            aa1.setRam("-");
+        }
+        if(aa1.getDescription() == null){
+            aa1.setDescription("-");
+        }
+
+        if(aa1.getYrs() == null){
+            aa1.setYrs("-");
+        }
+        if(aa1.getMonths() == null){
+            aa1.setMonths("-");
+        }
+        if(aa1.getDays() == null){
+            aa1.setDays("-");
+        }
+        if(aa1.getBrandName() == null){
+            aa1.setBrandName("-");
+        }
+        if(aa1.getCategoryTypes() == null){
+            aa1.setCategoryTypes("-");
+        }
+
+       aa1.setId(null);
+
+        System.out.println("Getting Fields over");
+        // Checking for null is over
+
+        System.out.println("Registering the more than one quantity");
+        AssetModel lastAssetRegistered = new AssetModel();
+        if(aa1.getQuantity() == 1)
+            lastAssetRegistered = assetRegistration.registerAnAsset(aa1);
+        else{
+            for(int i =0; i< aa1.getQuantity();i++){
+                assetRegistration.registerAnAsset(aa1);
+                System.out.println("count: " + i);
+            }
+        }
+
+
+
+       return lastAssetRegistered;
 
     }
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
