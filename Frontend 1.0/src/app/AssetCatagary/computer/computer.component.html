@@ -65,7 +65,7 @@
                     <div class="cols-sm-10">
                   
 
-                            <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate"  required boughtDate #boughtDate="ngModel"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }"   />
+                            <input type="text"  class="form-control" name="boughtDate" id="boughtDate" placeholder="DD-MM-YYYY" [(ngModel)]="asset.boughtDate"  required boughtDate #boughtDate="ngModel"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }"   />
                             <span class="help-block" *ngIf="boughtDate.touched && boughtDate.invalid" style="color:red" >
                                 Date is Required
                             </span>
@@ -125,7 +125,7 @@
   
 
                          <!-- Default checked -->
-                         <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched"  [class.has-success]="warrantyStatus.valid">
+                         <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched"  >
 
                             <label for="warrantyStatus" class="cols-sm-2 control-label">Warranty Status</label>
                         <div class="cols-sm-10">
@@ -160,8 +160,8 @@
 
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                                    <div class="form-group"  >
-                                    <label for="yrs" class="cols-sm-2 control-label">Years</label><br>
+                                    <div class="form-group"   >
+                                     <label for="yrs" class="cols-sm-2 control-label">Years</label><br>
                                     <select name="yrs" id="yrs" name="yrs" style="width: 45mm;height:10mm"  [(ngModel)]="asset.yrs" placeholder="yrs"  #yrs="ngModel">
                                         <option [ngValue]="undefined" hidden>0 </option>
                                       <option value="1 years" >1 year</option>
@@ -255,7 +255,7 @@
                             </div>
                        
 
-                        <div class="form-group"  [class.has-error]="categoryTypes.invalid && categoryTypes.touched"  [class.has-success]="categoryTypes.valid">
+                        <div class="form-group"  [class.has-error]="categoryTypes.invalid && categoryTypes.touched"  >
 
                             <label for="categoryTypes" class="cols-sm-2 control-label">Category</label>
                         <div class="cols-sm-10">

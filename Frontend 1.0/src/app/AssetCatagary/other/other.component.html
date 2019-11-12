@@ -48,7 +48,7 @@
                             <div class="cols-sm-10">
                               
         
-                                    <input type="text"  class="form-control" name="boughtDate" id="boughtDate"  [(ngModel)]="asset.boughtDate"  required boughtDate #boughtDate="ngModel"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }"   />
+                                    <input type="text"  class="form-control" name="boughtDate" id="boughtDate" placeholder="DD-MM-YYYY" [(ngModel)]="asset.boughtDate"  required boughtDate #boughtDate="ngModel"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }"   />
                                     <span class="help-block" *ngIf="boughtDate.touched && boughtDate.invalid" style="color:red" >
                                         Date is Required
                                     </span>
@@ -109,7 +109,7 @@
 
                
                 <!-- Default checked -->
-                <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched"  [class.has-success]="warrantyStatus.valid">
+                <div class="form-group"  [class.has-error]="warrantyStatus.invalid && warrantyStatus.touched"  >
                             
                         <label for="warrantyStatus" class="cols-sm-2 control-label">Warranty Status</label>
                     <div class="cols-sm-10">
