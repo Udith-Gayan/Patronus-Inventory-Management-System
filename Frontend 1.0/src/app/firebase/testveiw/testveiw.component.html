@@ -227,7 +227,7 @@
        <!---------------------------------------------End----------------------------------------------------------------->
      
              <!------------------------------------Request Notification form assetManeger  to employee(accept)---------------------------------->
-   <a *ngIf="a.notificationType == 'acceptAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager')  && nic == a.requestedNic && a.massege !='seen'" >
+   <a *ngIf="a.notificationType == 'acceptAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager')  && nic == a.massege && a.massege !='seen'" >
    
       <button style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>

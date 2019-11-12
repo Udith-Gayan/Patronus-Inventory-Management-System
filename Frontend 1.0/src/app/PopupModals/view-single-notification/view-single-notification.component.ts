@@ -201,12 +201,15 @@ openAssetDetailModal(assetId){
 openEmpDetailModal(requestedNic){
   console.log("requested ID");
   console.log(requestedNic);
+  console.log("requested ID");
   const modalRef = this.modalService.open(ViewRequestAndBookingEmpDetailComponent);
    
    // Pass vallue to other form component
    modalRef.componentInstance.requestedNic = requestedNic;
-   console.log(requestedNic);
-   
+   ////
+   //modalRef.componentInstance.username = username;
+   //console.log(username);
+   ////
 
     modalRef.result.then((result) => {
       console.log(result);
@@ -238,7 +241,7 @@ acceptDH(num,requestedNic:string,assetId:string,description:string,beginDate : s
   data.assetId=assetId;
   data.requestedNic=requestedNic;
   data.massege=description;
-  data.username=num;
+  data.username=requestedNic;
   data.beginDate=beginDate;
   data.dueDate=dueDate;
   
@@ -325,7 +328,7 @@ rejectDH(num1 : number,requestedNic:string,assetId:string){
 
 ////////////////////////////////////////////Accept Asset manger///////////////////////////////
 
-acceptAM(username,requestedNic : string,assetId: string){
+acceptAM(username,requestedNic: string,assetId: string){
   console.log("Line 1");
   console.log(username);
   console.log(requestedNic);
@@ -347,9 +350,10 @@ acceptAM(username,requestedNic : string,assetId: string){
   
   data.Discription=this.jstoday;
   data.notificationType="acceptAM";
+  
+  data.massege= requestedNic;
   data.assetId=assetId;
-  data.requestedNic= requestedNic;
-  data.massege="You'r Request is Accept";
+  data.requestedNic="You'r Request is Accept";
   
   
 
