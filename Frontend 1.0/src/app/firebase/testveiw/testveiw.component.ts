@@ -147,7 +147,7 @@ this.list.forEach(id => {
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  openBreakModal(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username) {
+  openBreakModal(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username,idE) {
     console.log("Line1");
     const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
@@ -165,6 +165,31 @@ this.list.forEach(id => {
     }).catch((error) => {
       console.log(error);
     });
+
+    /////
+    console.log("update seen1");
+console.log(idE);
+console.log(massege);
+console.log("update seen2");
+
+console.log(this.list);
+this.list.forEach(id => {
+  console.log("Update seen3");
+  console.log(id);
+  if(id.id == idE){
+    console.log(assetId);
+    console.log("Update seen4");
+   id.massege="seen";
+   console.log(id.massege);
+    this.firestore.doc('BookAssetNotification/'+id).update(massege);
+
+
+
+
+  }
+  
+});
+    ////
   }
 
 

@@ -73,7 +73,7 @@ export class ViewAssetComponent implements OnInit {
 
       const modalRef = this.modalService.open(BookingAssetModalComponent);
       modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-      //modalRef.componentInstance.assetcategory = assetcategory;
+      modalRef.componentInstance.assetcategory = assetcategory;
      modalRef.componentInstance.dateArray = dateArray;
       console.log(assetcategory);
      

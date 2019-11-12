@@ -87,9 +87,9 @@ public class BreakdownController {
       // View all breakdowns  for report generation
     @GetMapping(path = "all")
     public Iterable<Breakdown> getAllBreakdowns(){
-        System.out.println("Finding all Breakdowns...");
+       // System.out.println("Finding all Breakdowns...");
         final Iterable<Breakdown> all = breakdownRepo.findAll();
-        System.out.println(" all Breakdowns found successfully!");
+      //  System.out.println(" all Breakdowns found successfully!");
 
 
 
@@ -101,7 +101,7 @@ public class BreakdownController {
 
     @GetMapping(path = "/release")
     public boolean releaseARepairedAsset(@RequestParam String assetId){
-        System.out.println("Releasing the asset : "+ assetId);
+       // System.out.println("Releasing the asset : "+ assetId);
         assetRepository.updateReleasedAsset(assetId);
         breakdownRepo.updateReleased(assetId);
 

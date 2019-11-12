@@ -27,6 +27,7 @@ export class Asset{
     beginDate:string;
     dueDate:string;
     bookDate:BookAsset;
+    massege:string;
  
 
 }

@@ -77,7 +77,7 @@ export class ViewBreakedownComponent implements OnInit {
     }
 
   }
-  openFormModal(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username) {
+  openFormModal(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username,idE) {
     console.log("Line1");
     const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
@@ -95,6 +95,31 @@ export class ViewBreakedownComponent implements OnInit {
     }).catch((error) => {
       console.log(error);
     });
+    /////////////////////////////////// update firebase ////////////////////////
+console.log("update seen1");
+console.log(idE);
+console.log(massege);
+console.log("update seen2");
+
+console.log(this.list);
+this.list.forEach(id => {
+  console.log("Update seen3");
+  console.log(id);
+  if(id.id == idE){
+    console.log(assetId);
+    console.log("Update seen4");
+   id.anyMessage="seen";
+   console.log(massege);
+    this.firestore.doc('BookAssetNotification/'+id).update(massege);
+
+
+
+
+  }
+  
+});
+
+
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////release button/////////////////////////

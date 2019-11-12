@@ -105,13 +105,7 @@ console.log(this.requestAsset);
   this.request.requestAsset(this.requestAsset).subscribe((response) => {
     
     console.log(response);
-   
-  
-  });
-
-  
- 
-  
+      
   let now = new Date();
   console.log(this.requestAsset);
 
@@ -148,6 +142,26 @@ console.log(this.requestAsset);
     showConfirmButton: false,
     timer: 2000
   })
+
+   
+  
+  },
+  ( error: any) => {
+    console.log();
+    console.log(error);
+    Swal.fire({
+      type: 'error',
+      title: 'Oops...',
+      text: "Asset has been already reserved during the given period. Please select another period.",
+     
+    });
+ 
+  }
+  
+  );
+
+  
+ 
 
 
 }

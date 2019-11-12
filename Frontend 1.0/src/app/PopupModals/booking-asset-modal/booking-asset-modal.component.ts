@@ -28,6 +28,7 @@ export class BookingAssetModalComponent implements OnInit {
   maxDate: Date;
   minDate2: Date;
   maxDate2: Date;
+  
 
   
  
@@ -38,7 +39,7 @@ export class BookingAssetModalComponent implements OnInit {
   nic = sessionStorage.getItem('nic');
   fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;
-
+error:string;
   bookasset: BookAsset;
   datePipe: any;
   employee:Employee;
@@ -58,7 +59,7 @@ export class BookingAssetModalComponent implements OnInit {
     this.minDate = new Date();
     this.maxDate = new Date();
     this.minDate.setDate(this.minDate.getDate());
-    this.maxDate.setDate(this.maxDate.getDate() + 14);
+    this.maxDate.setDate(this.maxDate.getDate() + 30);
 
     ////due date date hide 
 
@@ -127,21 +128,15 @@ resetForm(form ? : NgForm){
 onSubmit(form:NgForm){
 
 
-console.log(this.bookasset);
-
+  console.log(this.bookasset);
   this.bookservices.bookAsset(this.bookasset).subscribe((response) => {
+  console.log(response);
 
-    console.log(response);
-
-
-  });
-
-
-
-
+  
+  
+  
   let now = new Date();
   console.log(this.employee);
-
   let data = Object.assign({}, form.value);
   delete data.id;
   data.assetcategory=this.assetcategory;
@@ -154,9 +149,7 @@ console.log(this.bookasset);
 
     this.firestore.collection('BookAssetNotification').add(data);
 
-
-
-}
+  }
   else {
     this.firestore.doc('BookAssetNotification/'+form.value.id).update(data);
 
@@ -168,17 +161,22 @@ console.log(this.bookasset);
     showConfirmButton: false,
     timer: 2000
   })
-
-
   this.resetForm(form);
-
-
-
-
+},
+  ( error: any) => {
+    console.log();
+    console.log(error);
+    Swal.fire({
+      type: 'error',
+      title: 'Oops...',
+      text: "Asset has been already reserved during the given period. Please select another period.",
+     
+    });
+ 
+  }
+  );
 
 }
-
-
 
 }
 
