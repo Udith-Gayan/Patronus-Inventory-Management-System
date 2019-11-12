@@ -3,25 +3,20 @@ import { returnBook } from '../../models/ReturnBookAsset';
 
 
 
-
 @Pipe({
-    name:'assetfilterBook'
+    name:'assetIdFilter'
 })
 
-export class MonthlyBookAssetpipe implements PipeTransform{
+export class ReturnBookFilter implements PipeTransform{
     transform(data:returnBook[],searchTerm:string):returnBook[]{
         if(!data || !searchTerm){
             return data ;
         }
         return data.filter(employee=>
-           employee.requestedAsset.assetcategory.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
-            
-           
-            
+            employee.assetId.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
 
     }
+
+
+
 }
-
-
-
-

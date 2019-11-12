@@ -10,6 +10,7 @@ import { HttpService } from '../../service2/http.service';
 })
 export class ReturnRequestAssetComponent implements OnInit {
   AllRequest:Observable<returnBook>
+  searchTerm: string;
   constructor(private asset:HttpService ) { }
 
   ngOnInit() {

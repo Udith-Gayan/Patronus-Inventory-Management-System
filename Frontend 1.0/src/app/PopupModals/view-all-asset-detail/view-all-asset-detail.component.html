@@ -15,17 +15,26 @@
             <a *ngIf="a.assetId == assetId"> 
               <a *ngIf="a.assetcategory == 'Computer' ">
                                                                    <!--Changed here-->
-              <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
-              <label for="assetcategory">Assetcategory : <b>{{a.assetcategory}}</b>  </label> <br><br>
+              <label for="assetId">Asset ID : <b>{{a.assetId}}</b>  </label> <br><br>
+              <label for="assetcategory">Asset Category : <b>{{a.assetcategory}}</b>  </label> <br><br>
               <label for="assetId">Brand Name : <b>{{a.brandName}}</b>  </label> <br><br>
               <label for="assetId">Category Type : <b>{{a.categoryTypes}}</b>  </label> <br><br>
-              <label for="assetId">boughtDate : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>
+              <label for="assetId">Purchased Date : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>
               <label for="assetId">Display Size : <b>{{a.displaySize}}</b>  </label> <br><br>
               <label for="assetId" >Ram : <b>{{a.ram}}</b>  </label> <br><br>
               <label for="assetId">Processor : <b>{{a.processor}}</b>  </label> <br><br>
               <label for="assetId">Capacity : <b>{{a.capacity}}</b>  </label> <br><br>
               <label for="assetId">Warranty : <b>{{a.warrantyStatus}}</b>  </label> <br><br>
               <label for="assetId">Description: <b>{{a.description}}</b>  </label> <br><br>
+              <hr />
+              <h5 style="color: rgb(12, 69, 104);background-color: rgb(127, 157, 175);">Warranty Details</h5>
+              <hr />
+              <a *ngIf="a.warrantyStatus == 'YES'">
+                  <label for="assetcategory">Year: <b>{{a.yrs}}</b>  </label> <br><br>
+                  <label for="assetId">Months : <b>{{a.months}}</b>  </label> <br><br>
+                  <label for="assetId">Days : <b>{{a.days}}</b>  </label> <br><br>
+                   
+              </a>
             </a> 
           </a>
           </div>
@@ -41,13 +50,22 @@
             <a *ngIf="a.assetId == assetId">   
               <a *ngIf="a.assetcategory == 'Projector' ">
                    
-              <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
+              <label for="assetId">Asset ID : <b>{{a.assetId}}</b>  </label> <br><br>
               <label for="assetId">Asset Category : <b>{{a.assetcategory}}</b>  </label> <br><br>
               <label for="assetcategory">Brand Name : <b>{{a.brandName}}</b>  </label> <br><br>
               <label for="assetId">Category Type : <b>{{a.categoryTypes}}</b>  </label> <br><br>
-              <label for="assetId">Bought Date : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>
+              <label for="assetId">Purchased Date : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>
               <label for="assetId">Warranty : <b>{{a.warrantyStatus}}</b>  </label> <br><br>
               <label for="assetId">Description: <b>{{a.description}}</b>  </label> <br><br>
+              <hr />
+              <h5 style="color: rgb(12, 69, 104);background-color: rgb(127, 157, 175);">Warranty Details</h5>
+              <hr />
+              <a *ngIf="a.warrantyStatus == 'YES'">
+                  <label for="assetcategory">Year: <b>{{a.yrs}}</b>  </label> <br><br>
+                  <label for="assetId">Months : <b>{{a.months}}</b>  </label> <br><br>
+                  <label for="assetId">Days : <b>{{a.days}}</b>  </label> <br><br>
+                   
+              </a>
             </a> 
           </a> 
            
@@ -61,13 +79,22 @@
           <div class="form-groupp" *ngFor="let a of data">
             <a *ngIf="a.assetId == assetId">
                 <a *ngIf="a.assetcategory == 'Furniture' ">                                                 <!--Changed here-->
-                  <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
+                  <label for="assetId">Asset ID: <b>{{a.assetId}}</b>  </label> <br><br>
                   <label for="assetId">Asset Category : <b>{{a.assetcategory}}</b>  </label> <br><br>
                   <label for="assetcategory">Brand Name : <b>{{a.brandName}}</b>  </label> <br><br>
                   <label for="assetId">Category Type : <b>{{a.categoryTypes}}</b>  </label> <br><br>
-                  <label for="assetId">Bought Date : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>
+                  <label for="assetId">Purchased Date : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>
                   <label for="assetId">Warranty : <b>{{a.warrantyStatus}}</b>  </label> <br><br>
                   <label for="assetId">Description: <b>{{a.description}}</b>  </label> <br><br>
+                  <hr />
+                  <h5 style="color: rgb(12, 69, 104);background-color: rgb(127, 157, 175);">Warranty Details</h5>
+                  <hr />
+                  <a *ngIf="a.warrantyStatus == 'YES'">
+                      <label for="assetcategory">Year: <b>{{a.yrs}}</b>  </label> <br><br>
+                      <label for="assetId">Months : <b>{{a.months}}</b>  </label> <br><br>
+                      <label for="assetId">Days : <b>{{a.days}}</b>  </label> <br><br>
+                       
+                  </a>
             </a> 
           </a>
             </div>
@@ -80,12 +107,21 @@
      
            <div class="form-groupp" *ngFor="let a of data">
               <a *ngIf="a.assetId == assetId">
-                  <a *ngIf="a.assetcategory == 'TV' || a.assetcategory == 'Sound System' || a.assetcategory == 'CPU' ||  a.assetcategory == 'Router' ">                                                 <!--Changed here-->
+                  <a *ngIf="a.assetcategory == 'tv' || a.assetcategory == 'SoundSystem' || a.assetcategory == 'UPS' ||  a.assetcategory == 'router' ">                                                 <!--Changed here-->
                 <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
                 <label for="assetId">Asset Category : <b>{{a.assetcategory}}</b>  </label> <br><br>
-                <label for="assetcategory">Bought Date : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>
+                <label for="assetcategory">Purchased Date : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>
                 <label for="assetId">Warranty : <b>{{a.warrantyStatus}}</b>  </label> <br><br>
                 <label for="assetId">Description : <b>{{a.description}}</b>  </label> <br><br>
+                <hr />
+                <h5 style="color: rgb(12, 69, 104);background-color: rgb(127, 157, 175);">Warranty Details</h5>
+                <hr />
+                <a *ngIf="a.warrantyStatus == 'YES'">
+                    <label for="assetcategory">Year: <b>{{a.yrs}}</b>  </label> <br><br>
+                    <label for="assetId">Months : <b>{{a.months}}</b>  </label> <br><br>
+                    <label for="assetId">Days : <b>{{a.days}}</b>  </label> <br><br>
+                     
+                </a>
               </a> 
             </a>
               </div>

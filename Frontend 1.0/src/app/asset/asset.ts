@@ -1,3 +1,5 @@
+import { BookAsset } from '../models/BookAssetModel';
+
 export class Asset{
     assetId : string;
     assetcategory : string;
@@ -22,6 +24,11 @@ export class Asset{
     quantity:number;
     email:string;
     firstname: string;
+    beginDate:string;
+    dueDate:string;
+    bookDate:BookAsset;
+    massege:string;
+    requestedNic:string;
  
 
 }

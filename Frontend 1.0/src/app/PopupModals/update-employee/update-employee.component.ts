@@ -21,6 +21,7 @@ export class UpdateEmployeeComponent implements OnInit {
   @Input() nic: string;
   myForm: any;
  employee:Employee;
+ status:string = sessionStorage.getItem('status');
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private userService:HttpService) {
     this.createForm();
     this.employee=new Employee();
@@ -70,6 +71,8 @@ onSubmit() {
 
   this.userService.updateEmployee(this.employee).subscribe((response) => {
     console.log(response);
+    this.resetForm();
+    this.ngOnInit();
     Swal.fire({
       position: 'center',
       type: 'success',
@@ -91,9 +94,9 @@ onSubmit() {
     )
 
   });
-  this.resetForm();
+  
   // this.userService.addEmployee(this.employee);
-
+  this.ngOnInit();
 }
 resetForm(){
   this.employee.email='';

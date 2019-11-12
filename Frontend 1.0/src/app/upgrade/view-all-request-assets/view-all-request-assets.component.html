@@ -48,7 +48,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let asset of AllRequest |  assetfilter : searchTerm">
+        <tr *ngFor="let asset of AllRequest |  assetfilterBook : searchTerm">
           
           <td style="width: 3cm;">{{asset.assetId}}</td>
           <td style="width: 7cm;">{{asset.requestedAsset.assetcategory}}</td>

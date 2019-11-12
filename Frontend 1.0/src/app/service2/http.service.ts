@@ -157,7 +157,4 @@ sendAssetId(assetId) : Observable<any>{
 
 }
 
-
-
-
 }

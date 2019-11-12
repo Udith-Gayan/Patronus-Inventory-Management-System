@@ -11,7 +11,7 @@ export class ViewSingleEmpNotiComponent implements OnInit {
 
   @Input() username: string;
   @Input() assetId: string;
-
+  @Input() requestedNic: string;
   myForm: FormGroup;
 
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder) {

@@ -7,7 +7,7 @@
 <!-- DialogBox -->
 
 <div class="modal-header" style="background-color: rgb(76, 151, 151)">
-  <h4 class="modal-title">Notification for {{notificationType}} </h4>
+  <h4 class="modal-title">Notifications for {{notificationType}} </h4>
  <!-- <button></button> -->
 
     <a  class="close" (click)="activeModal.dismiss('Cross click')"></a>
@@ -25,12 +25,12 @@
         <div class="form-groupp"> 
             
                                                               <!--Changed here-->
-            <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label>       <label for="assetId">Order By : <b> {{requestedNic}}</b>  </label>  <br> <br>
+            <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label>  <br> <br>
             <label for="assetId">Asset Category: <b>{{assetcategory}}</b>  </label> <br><br>
-            <label for="assetId">Beging Date: <b>{{beginDate}} </b>  </label> <br> <br>
-            <label for="assetId">Due Date : <b>{{dueDate}}  </b>  </label> <br> <br>
+            <label for="assetId">Beging Date: <b> {{beginDate.toDate() | date: 'dd/MM/yyyy'}}</b>  </label> <br> <br>
+            <label for="assetId">Due Date : <b>{{dueDate.toDate() | date: 'dd/MM/yyyy'}} </b>  </label> <br> <br>
             <label for="assetId">Description: <b>{{massege}} </b>  </label> <br> <br>
-            <label for="id">Request ID: <b>{{username}} </b>  </label> <br> <br>
+            <label for="id">Employee Name: <b>{{username}} </b>  </label> <br> <br>
             
             <a *ngFor="let data of pendingRequestDH">
            <a *ngIf="data.requestedNic == requestedNic && data.assetId == assetId ">
@@ -43,16 +43,6 @@
           </div>
          
 
-
-    
-     
-                 <div class="form-group">
-              <label for="massege">Description</label>
-              <input type="text" 
-                class="form-control"  
-                formControlName="massege" />
-            </div>
-
      
 
     </div>
@@ -64,7 +54,7 @@
       [disabled]="!myForm.valid">
      Asset Details
     </button>
-    <button class="btn btn-success" type="submit" (click)="openEmpDetailModal(requestedNic)"
+    <button class="btn btn-success" type="submit" (click)="openEmpDetailModal(username)"
     [disabled]="!myForm.valid">
    Order Employee
   </button>

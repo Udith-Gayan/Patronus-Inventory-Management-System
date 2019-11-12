@@ -32,23 +32,36 @@ public class DateCheckerService {
         LocalDateRange.ofClosed(a, b).stream()
                 .forEach(date ->{
 
+                    System.out.println(" Dte: "+ date);
+
                     if(flag.get() == true) {
 
                         for (FutureDatesDTO dateCouple : datesArray) {
-                            if (date.isBefore(dateCouple.getBeginDate()) && date.isAfter(dateCouple.getDueDate())) {
-                                flag.set(true);
-                            } else {
+
+                            System.out.println(" Begin Date: "+ dateCouple.getBeginDate() + "  due Date: "+ dateCouple.getDueDate());
+
+                            System.out.println(" with begin date: "+ ((date.isAfter(dateCouple.getBeginDate()))));
+                            System.out.println(" with due date: "+ ((date.isBefore(dateCouple.getDueDate()))));
+                            if ((date.isAfter(dateCouple.getBeginDate().minusDays(1)))  && (date.isBefore(dateCouple.getDueDate().plusDays(1)))) {
+
+                                //   date.isEqual(dateCouple.getBeginDate(.) || date.isEqual(dateCouple.getDueDate()) || date.isBefore(dateCouple.getBeginDate())  || date.isAfter(dateCouple.getDueDate())
+                                System.out.println("date is okay");
                                 flag.set(false);
+                            } else {
+                                System.out.println("date is not okay");
+                                flag.set(true);
 
                             }
 
                             if (flag.get() == false) {
+                                System.out.println("breakkk");
                                 break;
                             }
                         }
 
                     }
                     else{
+                        System.out.println("Elseee");
                         return;
                     }
 
@@ -86,7 +99,7 @@ public class DateCheckerService {
 
 
         assigns.forEach(ass -> {
-          //  System.out.println(ass.toString());
+
             FutureDatesDTO aDate = new FutureDatesDTO(ass.getBeginDate(), ass.getDueDate());
             System.out.println("qurieddddd");
             // assert dateArray != null;

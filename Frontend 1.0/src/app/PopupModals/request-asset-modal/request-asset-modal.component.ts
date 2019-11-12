@@ -10,6 +10,7 @@ import { formatDate } from '@angular/common';
 //import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
+import { FutureDates } from '../../asset/futureDates';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -23,10 +24,13 @@ export class RequestAssetModalComponent implements OnInit {
 
   @Input() assetcategory: string;
   @Input() assetId: string;
-  
+  @Input() dateArray: FutureDates[];
+
   nic = sessionStorage.getItem('nic');
   fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;
+  minDate: Date;
+  maxDate: Date;
 
   requestAsset: BookAsset;
   datePipe: any;
@@ -36,6 +40,10 @@ export class RequestAssetModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private request:HttpService,private ser : NotifiService,private firestore :AngularFirestore) {
     this.createForm();
     this.requestAsset=new BookAsset();
+    this.minDate = new Date();
+    this.maxDate = new Date();
+    this.minDate.setDate(this.minDate.getDate());
+    this.maxDate.setDate(this.maxDate.getDate() + 30);
     
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 
@@ -103,13 +111,7 @@ console.log(this.requestAsset);
   this.request.requestAsset(this.requestAsset).subscribe((response) => {
     
     console.log(response);
-   
-  
-  });
-
-  
- 
-  
+      
   let now = new Date();
   console.log(this.requestAsset);
 
@@ -146,6 +148,26 @@ console.log(this.requestAsset);
     showConfirmButton: false,
     timer: 2000
   })
+
+   
+  
+  },
+  ( error: any) => {
+    console.log();
+    console.log(error);
+    Swal.fire({
+      type: 'error',
+      title: 'Oops...',
+      text: "Asset has been already reserved during the given period. Please select another period.",
+     
+    });
+ 
+  }
+  
+  );
+
+  
+ 
 
 
 }

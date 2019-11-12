@@ -33,8 +33,9 @@ export class ViewSingleNotificationComponent implements OnInit {
   @Input() assetcategory: string;
   @Input() assetId: string;
   @Input() username: String;
-  @Input() bookNic:string;
-  @Input() id:string;
+  @Input() id: string;
+  @Input() requestedNic: string;
+  
  
 
   status:string = sessionStorage.getItem('status');
@@ -180,7 +181,7 @@ console.log(this.replay);
 
 //////////////////////////////////////////////////////////////////////////view Asset Detailon popup
 openAssetDetailModal(assetId){
-  console.log();
+  console.log(assetId);
   const modalRef = this.modalService.open(ViewSingleAssetNotiComponent);
   modalRef.componentInstance.assetId = assetId;
    
@@ -198,7 +199,8 @@ openAssetDetailModal(assetId){
 
 /////////////////////////////////////////////////////////////////////////// View Employee Delail on Popup 
 openEmpDetailModal(requestedNic){
-  console.log();
+  console.log("requested ID");
+  console.log(requestedNic);
   const modalRef = this.modalService.open(ViewRequestAndBookingEmpDetailComponent);
    
    // Pass vallue to other form component

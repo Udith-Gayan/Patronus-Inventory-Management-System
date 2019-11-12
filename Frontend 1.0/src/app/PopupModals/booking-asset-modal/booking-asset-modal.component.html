@@ -26,7 +26,7 @@
 
         <div class="form-groupp">                                                       <!--Changed here-->
             <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label> <br> <br>
-            <label for="assetId">Asset Category: <b>{{assetcategory}}</b>  </label>
+            <label for="assetId">Asset Category: <b>{{assetcategory}} {{bookDate}}</b>  </label>
           </div>
          
 
@@ -55,16 +55,17 @@
         <div class="form-group">
             <label for="dueDate">To</label>
             <input type="text"   [(ngModel)]="bookasset.dueDate"
-              class="form-control" 
+              class="form-control" [minDate]="minDate1" [maxDate]="maxDate1"
               formControlName="dueDate"   #datepickerYMD="bsDatepicker" placeholder="2012.12.20" bsDatepicker [minDate]="minDate2" [maxDate]="maxDate2" [bsConfig]="{containerClass: 'theme-dark-blue',dateInputFormat: 'YYYY-MM-DD'  }" />
           </div>
          
         
-          <div class="form-group">
+          <div class="form-group" >
               <label for="massege">Description</label>
               <input type="text" 
                 class="form-control"   [(ngModel)]="bookasset.description"
                 formControlName="massege" />
+                
             </div>
 
      
@@ -78,3 +79,34 @@
     </button>
   </div>
 </form>
+
+
+
+  <!----------------------------------Future---------------------------------------->
+ 
+  <hr />
+
+  <h5 style="text-align: center;">Reserved Dates</h5>
+  <hr />
+
+  <table id="selectedColumn" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+      <thead style="background-color: rgb(60, 123, 148);color: black;font-weight: bold">
+        <tr > 
+          <th class="th-sm"  style="width: 4cm;font-size: large;"> <b>From</b>
+        </th>
+          <th class="th-sm"  style="width: 4cm;font-size: large;"><b>To</b>
+          </th>
+         
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dateCouple of dateArray">
+          <td style="width: 3cm">{{dateCouple.beginDate}}</td>
+          <td style="width: 3cm">{{dateCouple.dueDate}}</td>
+          
+        </tr>
+       
+      </tbody>
+   
+    </table>

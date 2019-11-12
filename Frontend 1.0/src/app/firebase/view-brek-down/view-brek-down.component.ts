@@ -73,14 +73,14 @@ export class ViewBrekDownComponent implements OnInit {
     }
 
   }
-  openFormModal(assetId,assetCategory,notificationType,complainedNic,massege,beginDate,dueDate,username) {
+  openFormModal(assetId,assetCategory,notificationType,complainedNic,anyMessage,beginDate,dueDate,username,idE) {
     console.log("Line1");
     const modalRef = this.modalService.open(ViewBreakeDownAssetComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
     modalRef.componentInstance.assetCategory = assetCategory;
     modalRef.componentInstance.notificationType = notificationType;
     modalRef.componentInstance.complainedNic = complainedNic;
-    modalRef.componentInstance.massege = massege;
+    modalRef.componentInstance.anyMessage = anyMessage;
     modalRef.componentInstance.beginDate = beginDate;
     modalRef.componentInstance.dueDate = dueDate;
     modalRef.componentInstance.username = username;
@@ -91,6 +91,27 @@ export class ViewBrekDownComponent implements OnInit {
     }).catch((error) => {
       console.log(error);
     });
+    
+/////////////////////////////////// update firebase ////////////////////////
+console.log("update seen1");
+console.log(idE);
+console.log(anyMessage);
+console.log("update seen2");
+
+console.log(this.list);
+this.list.forEach(id => {
+  console.log("Update seen3");
+  console.log(id);
+  if(id.id == idE){
+    console.log(assetId);
+    console.log("Update seen4");
+   id.anyMessage="seen";
+   console.log(id.anyMessage);
+    this.firestore.doc('BookAssetNotification/'+id).update(anyMessage);
+  }
+  });
+
+
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////release button/////////////////////////

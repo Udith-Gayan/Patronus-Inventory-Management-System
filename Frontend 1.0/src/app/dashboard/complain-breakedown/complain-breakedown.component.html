@@ -27,7 +27,7 @@
   
     <div class="form-group shadow-textarea"  [class.has-error]="anyMessage.invalid && anyMessage.touched" [class.has-success]="anyMessage.valid">
       <label for="anyMessage" style="color: rgb(220, 217, 228);text-align: left;"><b>Description</b></label>
-      <textarea class="form-control" id="anyMessage" rows="3" name="anyMessage" [(ngModel)]="breakDown.anyMessage"
+      <textarea class="form-control" id="anyMessage" rows="3"  name="anyMessage" [(ngModel)]="breakDown.anyMessage"
        placeholder=" Asset Description " required anyMessage #anyMessage="ngModel"></textarea>
       <span class="help-block" *ngIf="anyMessage.touched && anyMessage.invalid" style="color:red" >
         Description Required
