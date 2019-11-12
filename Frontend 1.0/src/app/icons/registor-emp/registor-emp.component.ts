@@ -51,7 +51,7 @@ export class RegistorEmpComponent implements OnInit {
   }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  onSubmit() {
+  onSubmit(f: FormGroupDirective) {   // hee
     console.log(this.employee);
 
     this.employee.img = this.imgBody;
@@ -80,7 +80,8 @@ export class RegistorEmpComponent implements OnInit {
       }
       )
 
-
+      f.resetForm();  // hee
+     
     });
    
     
@@ -185,7 +186,7 @@ resetForm(){
   this.employee.contactNo='';
   this.employee.firstname='';
   this.employee.gender='';
-  this.employee.img='';
+  this.imgUrl="/assets/img/1.jpeg";
   this.employee.lastname='';
   this.employee.nic='';
   this.employee.password='';
