@@ -15,7 +15,7 @@
        
                <!---View Computer----------------------------------------------------->
      
-          <div class="form-groupp" *ngFor="let a of data">
+          <div class="form-group" *ngFor="let a of data">
               <a *ngIf="a.assetId == assetId"> 
                 <a *ngIf="a.assetcategory == 'Computer' ">
                                                                      <!--Changed here-->
@@ -82,9 +82,10 @@
   
              <!---View Other----------------------------------------------------->
        
-             <div class="form-groupp" *ngFor="let a of data">
+             <div class="form-group" *ngFor="let a of data">
                 <a *ngIf="a.assetId == assetId">
-                    <a *ngIf="a.assetcategory == 'tv' || a.assetcategory == 'soundSystem' || a.assetcategory == 'UPS' ||  a.assetcategory == 'router' ">                                                 <!--Changed here-->
+                  <a >hello</a>
+                    <a *ngIf="a.assetcategory == 'tv' || a.assetcategory == 'SoundSystem' || a.assetcategory == 'UPS' ||  a.assetcategory == 'router' ">                                                 <!--Changed here-->
                   <label for="assetId">Asset Id : <b>{{a.assetId}}</b>  </label> <br><br>
                   <label for="assetId">Asset Category : <b>{{a.assetcategory}}</b>  </label> <br><br>
                   <label for="assetcategory">Bought Date : <b>{{a.boughtDate | date:'yyyy-MM-dd'}}</b>  </label> <br><br>

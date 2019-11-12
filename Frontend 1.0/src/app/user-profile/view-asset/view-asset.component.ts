@@ -172,6 +172,7 @@ deleteAsst(assetId){
         // this.employees.splice(this.employees.indexOf(d),1);
         console.log(data);
         this.ngOnInit();
+        this.ngOnInit();
 
           },
           (error)=>{
