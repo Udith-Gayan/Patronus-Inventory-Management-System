@@ -13,14 +13,14 @@
     <tbody>
        
    <tr *ngFor="let a of list" class="table-active"  style="background-color: rgb(90, 131, 207);font-size: 1.5ch;color: black">
-  <!------------------------------------Boking Notification for Asset manager---------------------------------->
+  <!------------------------------------Booking Notification for Asset manager---------------------------------->
 
 
      <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager' && a.massege !='seen'" >
    
-       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);">
+       <button  (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);">
         <a class="nav-item">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}} {{a.requestedNic}}</td>
          <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
          <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
          <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
@@ -40,7 +40,7 @@
    
             <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(175, 202, 209);">
              <a class="nav-item">
-             <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}}</td>
+             <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}} {{a.requestedNic}}</td>
               <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
               <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
               <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>

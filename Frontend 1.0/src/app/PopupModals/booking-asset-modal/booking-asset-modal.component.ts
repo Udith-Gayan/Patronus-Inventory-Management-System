@@ -144,6 +144,7 @@ onSubmit(form:NgForm){
   data.Discription=this.jstoday;
   data.notificationType="Booking";
   data.username=this.fname;
+  
 
   if(form.value.id == null){
 

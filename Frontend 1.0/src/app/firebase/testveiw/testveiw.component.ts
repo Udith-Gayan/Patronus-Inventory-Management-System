@@ -99,18 +99,17 @@ console.log("line 2-"+this.count);
 
 
   }
-  openFormModal(assetId,assetCategory,notificationType,requestedNic,massege,beginDate,dueDate,username,idE) {
-    console.log();
+  openFormModal(assetId,assetcategory,notificationType,requestedNic,massege,beginDate,dueDate,username,idE) {
+    console.log(requestedNic);
     const modalRef = this.modalService.open(ViewSingleNotificationComponent);
     modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
-    modalRef.componentInstance.assetCategory = assetCategory;
+    modalRef.componentInstance.assetcategory = assetcategory;
     modalRef.componentInstance.notificationType = notificationType;
     modalRef.componentInstance.requestedNic = requestedNic;
     modalRef.componentInstance.massege = massege;
     modalRef.componentInstance.beginDate = beginDate;
     modalRef.componentInstance.dueDate = dueDate;
     modalRef.componentInstance.username = username;
-
 
     modalRef.result.then((result) => {
       console.log(result);

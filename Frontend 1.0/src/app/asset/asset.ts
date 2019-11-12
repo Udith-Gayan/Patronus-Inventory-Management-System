@@ -28,6 +28,7 @@ export class Asset{
     dueDate:string;
     bookDate:BookAsset;
     massege:string;
+    requestedNic:string;
  
 
 }
