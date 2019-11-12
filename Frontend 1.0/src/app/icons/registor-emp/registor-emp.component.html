@@ -199,7 +199,7 @@
                         <div>
                           <img [src]="imgUrl" style="width: 250px;height:200px">
 
-                          <input type="file" name="img" id="img" #Image="ngModel" accept="image/*"  [(ngModel)]="employee.img" (change)="onChange($event)" >
+                          <input type="file" name="img" id="img" #Image="ngModel" accept="image/*"  [(ngModel)]="employee.img" (change)="onChange($event)" required>
 
 
                         </div>
