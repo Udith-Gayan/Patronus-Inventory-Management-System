@@ -115,7 +115,7 @@ console.log("line 2-"+this.count);
       console.log(result);
     }).catch((error) => {
       console.log(error);
-    });
+    }); 
 
 /////////////////////////////////// update firebase ////////////////////////
 console.log("update seen1");

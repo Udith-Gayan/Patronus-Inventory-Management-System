@@ -72,15 +72,16 @@
                   <i class="now-ui-icons ui-1_bell-53"><div id = "exampleCircle"><p style="color: red"><b>{{data}}</b></p></div></i>
                
               </a>
-              <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 10cm;background-color: rgb(6, 110, 214);height: 12cm;">
+              <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 10cm;background-color: rgb(33, 80, 102);height: 12cm;">
                   
                   <div class="container" >
-                    <div class="row"  style="background-color: rgb(8, 162, 223)">
+                    <div class="row"  style="background-color: rgb(47, 82, 95)">
                       <div class="col-md-6">
                         <div class="panel panel-primary">
                           <div class="panel-heading" >
-                            <h6 class="panel-title" style="color: rgb(10, 48, 161)">Notifications {{data}} </h6>
-                            <p>You have</p>
+                              
+                            <h6 class="panel-title" style="color: rgb(8, 8, 8);text-align: center;"> Notifications {{data}} </h6>
+                           
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                           </div>
                          
@@ -94,7 +95,7 @@
 
 
                    <a *ngIf="((a.notificationType == 'RequestAM' && nic == a.requestedNic) || a.notificationType == 'Requesting')  &&  status == 'Department Head'">
-                    <button type="button" class="list-group-item list-group-item-action" style="height: 2.3cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                    <button type="button" class="list-group-item list-group-item-action" style="height: 2.3cm;background-color: lightskyblue;" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                        <div class="row">
                           <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                             <img src="assets/img/printer.jpg" alt="photo">
@@ -107,9 +108,9 @@
                           </div>
                         
                           <div class="col-xs-4">
-                              <p  style="color: rgb(40, 20, 153);font-size: 1.4ch">  {{a.assetId}} &nbsp; &nbsp;
+                              <p  style="color: rgb(16, 28, 39);font-size: 1.4ch"> <b>{{a.assetId}}</b>  &nbsp; &nbsp;
                               <!--request by employee-->
-                              <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'Requesting'"> Request by emplyee to you.     </p>
+                              <p style="font-size: 1.6ch;color: rgb(19, 15, 14)" *ngIf="a.notificationType == 'Requesting'"> Request by emplyee to you.     </p>
                               <!--Accept department head-->
                               <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'RequestAM'"> was accepted by Department head.</p>
                             
@@ -125,9 +126,9 @@
                 
 
                         <!-------------------------------------------------------Asset Manger Notification show--------------------------------->
-                        <a *ngIf="(a.notificationType == 'RequestAM' || a.notificationType == 'Booking' || a.notificationType != 'BreakDown') && status == 'Asset Manager'">
+                        <a *ngIf="(a.notificationType == 'Booking' ) && status == 'Asset Manager'">
                         
-                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.2cm;;" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.3cm;background-color: lightskyblue;"(click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                               <div class="row">
                                  <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                                    <img src="assets/img/printer.jpg" alt="photo">
@@ -140,14 +141,14 @@
                                  </div>
                                  
                                  <div class="col-xs-4">
-                                    <p  style="color: rgb(40, 20, 153);font-size: 1.4ch">  {{a.assetId}}  </p> &nbsp; &nbsp;
+                                    <p  style="color: rgb(40, 20, 153);font-size: 1.4ch" *ngIf="a.notificationType == 'Booking' || a.notificationType == 'RequestAM' || a.notificationType == 'BreakDown'"> <b>{{a.assetId}} </b>  </p> &nbsp; &nbsp;
                                     <!--book for Asset manger-->
-                                    <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'Booking'"> Book</p>
+                                    <p style="font-size: 1.6ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'Booking'"> Booked Asset7</p>
                                     <!--Accept department head-->
-                                    <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'RequestAM'"> was accepted by Department head.</p>
+                                    <p style="font-size: 1.6ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'RequestAM'"> was accepted by Department head.</p>
                                   <!--breakdwon asset-->
-                                  <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'BreakDown'"> You have a BreakDown Notification.</p>
-                                    <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.Discription}} </b></p>
+                                  <p style="font-size: 1.6ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'BreakDown'"> You have a BreakDown Notification.</p>
+                                    <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em" *ngIf="a.notificationType == 'Booking' || a.notificationType == 'RequestAM' || a.notificationType == 'BreakDown'"><b> {{a.Discription}} </b></p>
                                   </div><br>
                                 
                                 </div>
@@ -157,6 +158,30 @@
                          </a>
 
 
+                         <!------------------------>
+                         <a *ngIf="(a.notificationType == 'RequestAM') && status == 'Asset Manager'">
+                        
+                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.3cm;background-color: lightskyblue;"(click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                              <div class="row">
+                                
+                                 
+                                 <div class="col-xs-4">
+                                    <p  style="color: rgb(40, 20, 153);font-size: 1.4ch" *ngIf="a.notificationType == 'Booking' || a.notificationType == 'RequestAM' || a.notificationType == 'BreakDown'"> <b>{{a.assetId}} </b>  </p> &nbsp; &nbsp;
+                                    <!--book for Asset manger-->
+                                    <!--Accept department head-->
+                                    <p style="font-size: 1.6ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'RequestAM'"> was accepted by Department head.</p>
+                                  <!--breakdwon asset--> 
+                                    <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em" *ngIf="a.notificationType == 'Booking' || a.notificationType == 'RequestAM' || a.notificationType == 'BreakDown'"><b> {{a.Discription}} </b></p>
+                                  </div><br>
+                                
+                                </div>
+                          
+                                  
+                           </button>    
+                         </a>
+
+                         <!------------------------>
+
        
                          <!----------------------------------------------------------------------End Asset Manager Notification------------------------------------------------------>
                 
@@ -164,7 +189,7 @@
                            <!-------------------------------------------------------Asset Manger breakdwon Notification show--------------------------------->
                         <a *ngIf="(a.notificationType == 'BreakDown') && status == 'Asset Manager'">
                        
-                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.2cm;"  (click)="openFormModal1(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.3cm;background-color: lightskyblue;" (click)="openFormModal1(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                               <div class="row">
                                  <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                                    <img src="assets/img/printer.jpg" alt="photo">
@@ -177,10 +202,10 @@
                                  </div>
                                  
                                  <div class="col-xs-4">
-                                    <p  style="color: rgb(40, 20, 153);font-size: 1.4ch">  {{a.assetId}}  </p> &nbsp; &nbsp;
+                                    <p  style="color: rgb(40, 20, 153);font-size: 1.4ch"> <b>{{a.assetId}}</b>   </p> &nbsp; &nbsp;
                                    <!--breakdwon asset-->
-                                  <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'BreakDown'"> You have a BreakDown Notification.</p>
-                                    <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.Discription}} </b></p>
+                                  <p style="font-size: 1.6ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'BreakDown'"> You have a BreakDown Notification.</p>
+                                    <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.date}} </b></p>
                                   </div><br>
                                 
                                 </div>
@@ -196,10 +221,10 @@
 
                   
                       <!-------------------------------------------------------Employee Notification show--------------------------------->
-                      <a *ngIf="(a.notificationType == 'rejectAM' || a.notificationType == 'acceptAM' || a.notificationType == 'Reject') && status == 'Employee' && nic == a.requestedNic">
+                      <a *ngIf="(a.notificationType == 'rejectAM' || a.notificationType == 'acceptAM' || a.notificationType == 'Reject' || a.notificationType == 'RequestAM') && ((status =='Employee') || (status == 'Event Organixzer') || (status == 'ProjectManager') || (status == 'EventOrganizer')) && (nic == a.requestedNic || nic == a.massege)">
 
 
-                        <button type="button" class="list-group-item list-group-item-action" style="height: 2.2cm" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                        <button type="button" class="list-group-item list-group-item-action" style="height: 2.3cm;background-color: lightskyblue;" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                           <div class="row">
                              <div class="col-xs-4" *ngIf= "a.assetcategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                                <img src="assets/img/printer.jpg" alt="photo">
@@ -211,13 +236,16 @@
                                 <img src="assets/img/home.jpg" alt="photo">
                              </div>
                              <div class="col-xs-4">
-                               <p  style="color: rgb(40, 20, 153);font-size: 1.4ch">  {{a.assetId}}  </p> &nbsp; &nbsp;
+                               <p  style="color: rgb(19, 17, 26);font-size: 1.4ch"> <b>{{a.assetId}} </b>   </p> &nbsp; &nbsp;
                                <!--Reject Asset manger-->
-                               <p style="font-size: 1.3ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'rejectAM'"> Asset Manager reject you'r Request.You Can't Book</p>
+                               <p style="font-size: 1.6ch;color: rgb(165, 51, 9)" *ngIf="a.notificationType == 'rejectAM'"> Asset Manager reject your Request.</p>
                                <!--Accept department head-->
-                               <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'acceptAM'"> Asset Manager Accept you'r Request.You Can't Book</p>
+                               <p style="font-size: 1.6ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'acceptAM'"> Your Request is approved by Asset Manager</p>
                               <!--Reject Department head-->
-                              <p style="font-size: 1.3ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'Reject'"> Department Head Reject you'r Request.You Can't Book</p>
+                              <p style="font-size: 1.6ch;color: rgb(145, 18, 39)" *ngIf="a.notificationType == 'Reject'"> Department Head Reject your Request.</p>
+                             
+                              <!---------------Acsept Dpartment head----------->
+                              <p style="font-size: 1.6ch;color: rgb(14, 97, 3)" *ngIf="a.notificationType == 'RequestAM'"> Your Request approved by Department Head.</p>
                              
                                <p style="font-size: 1.1ch;text-align: center;margin-left: 2.5em"><b> {{a.Discription}} </b></p>
                              </div><br>
@@ -240,9 +268,9 @@
                     </div>
                     
                   </div>
-                  <div class="panel-heading" style="background-color:  rgb(6, 110, 214);width: 9cm">
-                      <a  style="color: rgb(6, 4, 20)" routerLink="/notifications">See All</a>
-                    </div>
+                  <a class="panel-heading" style="background-color:  rgb(46, 91, 105);width: 9.5cm">
+                      <a  style="color: rgb(6, 4, 20);text-align: center; font-size: medium;" routerLink="/notifications">See All</a>
+                  </a>
                 
                   </div>
                   

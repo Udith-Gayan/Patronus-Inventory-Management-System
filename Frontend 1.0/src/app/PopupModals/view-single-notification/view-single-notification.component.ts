@@ -35,6 +35,8 @@ export class ViewSingleNotificationComponent implements OnInit {
   @Input() username: String;
   @Input() id: string;
   @Input() requestedNic: string;
+  @Input() begingDate: string;
+  @Input() returnDate: string;
   
  
 
@@ -239,7 +241,7 @@ acceptDH(num,requestedNic:string,assetId:string,description:string,beginDate : s
   data.Discription=this.jstoday;
   data.notificationType="RequestAM";
   data.assetId=assetId;
-  data.requestedNic=requestedNic;
+  data.requestedNic=num;
   data.massege=description;
   data.username=requestedNic;
   data.beginDate=beginDate;
@@ -328,13 +330,14 @@ rejectDH(num1 : number,requestedNic:string,assetId:string){
 
 ////////////////////////////////////////////Accept Asset manger///////////////////////////////
 
-acceptAM(username,requestedNic: string,assetId: string){
+acceptAM(username,requestedNic: number,assetId: string){
   console.log("Line 1");
   console.log(username);
+  
   console.log(requestedNic);
   console.log(assetId);
   
- this.asset.approveRequestAM(username).subscribe((response)=>{
+ this.asset.approveRequestAM(requestedNic).subscribe((response)=>{
     console.log(response);
 
   
@@ -378,15 +381,17 @@ acceptAM(username,requestedNic: string,assetId: string){
 
 //////////////////////////////////////////Reject Asset manger//////////////////////////////////////////
 
-rejectAM(username,requestedNic : string,assetId: string){
-
+rejectAM(username,requestedNic : number,assetId: string){
+  console.log("line-999");
   console.log(username);
   console.log(requestedNic);
   console.log(assetId);
+  console.log("line-1000");
   
-  this.asset.rejectRequestAM(username).subscribe((response)=>{
+  this.asset.rejectRequestAM(requestedNic).subscribe((response)=>{
      console.log(response);
-
+     console.log("line-1001");
+     console.log("line-1002");
 
    });
 

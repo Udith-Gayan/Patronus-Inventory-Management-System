@@ -46,19 +46,19 @@
             <label for="beginDate">From</label>
             <input 
               class="form-control" type="text" name="beginDate" [(ngModel)]="requestAsset.beginDate"
-              formControlName="beginDate"  bsDatepicker [minDate]="minDate" [maxDate]="maxDate" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" />
+              formControlName="beginDate" placeholder="YYYY-MM-DD" bsDatepicker [minDate]="minDate" [maxDate]="maxDate" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" required />
           </div>
         <div class="form-group">
             <label for="dueDate">To </label>
             <input type="text"   [(ngModel)]="requestAsset.dueDate"
               class="form-control" 
-              formControlName="dueDate"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" />
+              formControlName="dueDate" placeholder="YYYY-MM-DD" bsDatepicker  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }" required/>
           </div>
           <div class="form-group">
               <label for="massege">Description</label>
               <input type="text" 
-                class="form-control"   [(ngModel)]="requestAsset.description"
-                formControlName="massege" />
+                class="form-control" placeholder="Description here"   [(ngModel)]="requestAsset.description"
+                formControlName="massege" required />
             </div>
 
      
