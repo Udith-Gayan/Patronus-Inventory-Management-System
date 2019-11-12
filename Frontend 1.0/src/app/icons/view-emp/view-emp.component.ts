@@ -92,8 +92,8 @@ export class ViewEmpComponent implements OnInit {
                                                                     Swal.fire({
                                                                       type: 'error',
                                                                       title: 'Oops...',
-                                                                      text: 'Something went wrong!',
-                                                                      footer: '<a href>Why do I have this issue?</a>'
+                                                                      text: 'Deletion Not Allowed!',
+                                                                      footer: ''
                                                                     })
                                                                   }
                                               );
@@ -120,8 +120,10 @@ export class ViewEmpComponent implements OnInit {
     modalRef.componentInstance.gender = gender;
     modalRef.componentInstance.contactNo = contactNo;
     modalRef.componentInstance.address = address;
+  
 
     modalRef.componentInstance.employeeId = employeeId;
+    modalRef.componentInstance.location = location;
     modalRef.componentInstance.firstname = firstname;    // Pass vallue to other form component
 
     modalRef.result.then((result) => {
@@ -133,7 +135,7 @@ export class ViewEmpComponent implements OnInit {
   }
 
 
-  //////////////blockAset/////////////////////
+  //////////////Block employee/////////////////////
   BlockEmp(nic : string){
   console.log("line 1");
  console.log(nic);

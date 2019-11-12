@@ -13,6 +13,7 @@ export class ViewAllEmpDelailComponent implements OnInit {
   
   @Input() nic: number;
   @Input() firstname: string;
+  @Input() location: string;
 
   myForm: FormGroup;
 
