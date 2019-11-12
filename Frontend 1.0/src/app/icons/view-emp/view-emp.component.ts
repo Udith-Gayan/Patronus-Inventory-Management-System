@@ -59,10 +59,10 @@ export class ViewEmpComponent implements OnInit {
 
   ////////////////////////////////////////////////////////////////////////////
   deleteEmployee(nic){
-    this.emp.deleteEmployee(nic).subscribe((data) => {
-      this.ngOnInit();
+    
+     
                                                        // this.employees.splice(this.employees.indexOf(d),1);
-                                                       console.log(data);
+                                                       console.log();
                                                        Swal.fire({
                                                         title: 'Are you sure?',
                                                         text: "You won't be able to revert this!",
@@ -72,6 +72,12 @@ export class ViewEmpComponent implements OnInit {
                                                         cancelButtonColor: '#d33',
                                                         confirmButtonText: 'Yes, delete it!'
                                                       }).then((result) => {
+                                                      
+
+                                                        this.emp.deleteEmployee(nic).subscribe((data) => {
+                                                            this.ngOnInit();
+                                                              this.ngOnInit();
+                                                        console.log("Line23");
                                                         if (result.value) {
                                                           Swal.fire(
                                                             'Deleted!',

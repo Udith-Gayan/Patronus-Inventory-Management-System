@@ -9,6 +9,7 @@ import { ImageUploadModel } from '../../models/ImageModel';
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import 'sweetalert2/src/sweetalert2.scss';
+import { FormGroupDirective } from '@angular/forms';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -59,6 +60,8 @@ export class RegistorEmpComponent implements OnInit {
 
     this.userservice.addEmployee(this.employee).subscribe((response) => {
       console.log(response);
+      this.resetForm();
+      
 
       Swal.fire({
         position: 'center',
@@ -79,7 +82,9 @@ export class RegistorEmpComponent implements OnInit {
 
 
     });
-    this.resetForm();
+   
+    
+
     // this.userService.addEmployee(this.employee);
 
   }
@@ -185,8 +190,8 @@ resetForm(){
   this.employee.nic='';
   this.employee.password='';
   this.employee.status='';
-
-
+  this.employee.location='';
+  this.ngOnInit();
 }
 
 }
