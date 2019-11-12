@@ -75,7 +75,7 @@ export class RegistorEmpComponent implements OnInit {
 
 
       }
-      )
+      );
 
 
     });
