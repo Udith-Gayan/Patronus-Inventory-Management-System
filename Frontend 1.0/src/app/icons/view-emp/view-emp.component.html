@@ -26,8 +26,8 @@
   <!-- Card Dark -->
 
 
-<div class="card" style="height: 4cm;" *ngFor="let d of data | employeeFilter:searchTerm">
-<div style="background-color: rgb(114, 158, 156);" *ngIf="d.unblocked ">
+<div class="card"  *ngFor="let d of data | employeeFilter:searchTerm">
+<div style="background-color: rgb(114, 158, 156);height: 4.5cm;" *ngIf="d.unblocked">
     <div class="row">
       <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
 
@@ -46,11 +46,11 @@
 
     </div>
     <div class="card-body">
-      <div  *ngIf= "status =='Asset Manager'">
-        <a  class="btn btn-primary"(click)="openUpdateEmp1(d.nic)"  >Update</a>
+      <div  *ngIf= "status =='Asset Manager' || status == 'CEO'">
+        <a  class="btn btn-primary"(click)="openUpdateEmp1(d.nic)" *ngIf= "status =='Asset Manager' || status == 'CEO'"  >Update</a>
         <a  class="btn btn-primary" (click)="deleteEmployee(d.nic)" style="color: rgb(250, 248, 246);background-color: rgb(53, 88, 128)">Delete</a>
         <a  *ngIf= "status =='Asset Manager'">
-            <a  class="btn btn-danger" (click)="BlockEmp(d.nic)" *ngIf="d.unblocked && (d.status !='Asset Manager')">Block</a> 
+            <a  class="btn btn-danger" (click)="BlockEmp(d.nic)" *ngIf="d.unblocked && ((d.status !='Asset Manager') && (d.status !='CEO'))">Block</a> 
             <a  class="btn btn-success"  (click)="UnBlockEmp(d.nic)" *ngIf="!d.unblocked">UnBlock</a> 
           </a>
        
@@ -66,8 +66,8 @@
 
 
    <!------------------------------------>
-
-      <div style="background-color: rgb(231, 176, 144);" *ngIf="!d.unblocked ">
+<a *ngIf="!d.unblocked && status == 'Asset Manager' ">
+      <div style="background-color: rgb(231, 176, 144);" *ngIf="!d.unblocked && status == 'Asset Manager' ">
           <div class="row">
             <div class="card border-primary mb-3" style="width: 4cm;height: 4cm;">
       
@@ -107,9 +107,9 @@
           </div>
         </div>
         </div>
-      
+      </a>
       </div>
-        
+   
       
          <!----------------------Block Employee-------------------------------->
 

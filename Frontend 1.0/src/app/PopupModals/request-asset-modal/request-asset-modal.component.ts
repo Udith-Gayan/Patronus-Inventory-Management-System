@@ -29,6 +29,8 @@ export class RequestAssetModalComponent implements OnInit {
   nic = sessionStorage.getItem('nic');
   fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;
+  minDate: Date;
+  maxDate: Date;
 
   requestAsset: BookAsset;
   datePipe: any;
@@ -38,6 +40,10 @@ export class RequestAssetModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private request:HttpService,private ser : NotifiService,private firestore :AngularFirestore) {
     this.createForm();
     this.requestAsset=new BookAsset();
+    this.minDate = new Date();
+    this.maxDate = new Date();
+    this.minDate.setDate(this.minDate.getDate());
+    this.maxDate.setDate(this.maxDate.getDate() + 30);
     
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
 

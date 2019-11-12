@@ -55,7 +55,7 @@
         <div class="form-group">
             <label for="dueDate">To</label>
             <input type="text"   [(ngModel)]="bookasset.dueDate"
-              class="form-control" 
+              class="form-control" [minDate]="minDate1" [maxDate]="maxDate1"
               formControlName="dueDate"   #datepickerYMD="bsDatepicker" placeholder="2012.12.20" bsDatepicker [minDate]="minDate2" [maxDate]="maxDate2" [bsConfig]="{containerClass: 'theme-dark-blue',dateInputFormat: 'YYYY-MM-DD'  }" />
           </div>
          

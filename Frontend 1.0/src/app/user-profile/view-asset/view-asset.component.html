@@ -67,16 +67,15 @@
       </div>
       <!--Text-->
       <div class="card-body">
-        <a  *ngIf= "status =='Asset Manager'">
-        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
-        </a>    <!--pop up for booking-->   
-        <a  *ngIf= "status !='Asset Manager'">
-          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
-        </a>
-       
-        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a><br>
-       
+          <a  >
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager'" (click)="deleteAsst(d.id)">Delete</a>
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager' || status=='CEO' || status=='Department Head' || status =='ProjectManager' || status=='EventOrganizer'" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+              </a>    <!--pop up for booking-->   
+              <a  *ngIf= "status !='Asset Manager'">
+                <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+              </a>
+              <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+             
       </div>
 
     </div>
@@ -111,15 +110,15 @@
       </div>
       <!--Text-->
       <div class="card-body">
-        <a  *ngIf= "status =='Asset Manager'">
-        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
-        </a>    <!--pop up for booking-->   
-        <a  *ngIf= "status !='Asset Manager'">
-          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
-        </a>
-        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
-      </div>
+          <a  >
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager'" (click)="deleteAsst(d.id)">Delete</a>
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager' || status=='CEO' || status=='Department Head' || status =='ProjectManager' || status=='EventOrganizer'" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+              </a>    <!--pop up for booking-->   
+              <a  *ngIf= "status !='Asset Manager'">
+                <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+              </a>
+              <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+              </div>
     </div>
   </div> 
 </div>
@@ -148,15 +147,15 @@
       </div>
       <!--Text-->
       <div class="card-body">
-        <a  *ngIf= "status =='Asset Manager'">
-        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
-        </a>    <!--pop up for booking-->   
-        <a  *ngIf= "status !='Asset Manager'">
-          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
-        </a>
-        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
-      </div>
+          <a  >
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager'" (click)="deleteAsst(d.id)">Delete</a>
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager' || status=='CEO' || status=='Department Head' || status =='ProjectManager' || status=='EventOrganizer'" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+              </a>    <!--pop up for booking-->   
+              <a  *ngIf= "status !='Asset Manager'">
+                <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+              </a>
+              <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+             </div>
     </div>
   </div> 
 </div>
@@ -186,15 +185,15 @@
       </div>
       <!--Text-->
       <div class="card-body">
-        <a  *ngIf= "status =='Asset Manager'">
-        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
-        </a>    <!--pop up for booking-->   
-        <a  *ngIf= "status !='Asset Manager'">
-          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
-        </a>
-        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
-      </div>
+          <a  >
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager'" (click)="deleteAsst(d.id)">Delete</a>
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager' || status=='CEO' || status=='Department Head' || status =='ProjectManager' || status=='EventOrganizer'" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+              </a>    <!--pop up for booking-->   
+              <a  *ngIf= "status !='Asset Manager'">
+                <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+              </a>
+              <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+            </div>
     </div>
   </div> 
 </div>
@@ -223,15 +222,15 @@
       </div>
       <!--Text-->
       <div class="card-body">
-        <a  *ngIf= "status =='Asset Manager'">
-        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
-        </a>    <!--pop up for booking-->   
-        <a  *ngIf= "status !='Asset Manager'">
-          <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
-        </a>
-        <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
-      </div>
+          <a  >
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager'" (click)="deleteAsst(d.id)">Delete</a>
+              <a  class="btn btn-primary" *ngIf= "status =='Asset Manager' || status=='CEO' || status=='Department Head' || status =='ProjectManager' || status=='EventOrganizer'" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+              </a>    <!--pop up for booking-->   
+              <a  *ngIf= "status !='Asset Manager'">
+                <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
+              </a>
+              <a class="btn btn-light" (click)="openDetailModal(d.assetId,d.ram,d.capacity,d.assetcategory)">More Detail </a>
+            </div>
     </div>
   </div> 
 </div>
@@ -264,9 +263,9 @@
   </div>
    <!--Text-->
   <div class="card-body">
-      <a  *ngIf= "status =='Asset Manager'">
-          <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
-          <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+      <a  >
+          <a  class="btn btn-primary" *ngIf= "status =='Asset Manager'" (click)="deleteAsst(d.id)">Delete</a>
+          <a  class="btn btn-primary" *ngIf= "status =='Asset Manager' || status=='CEO' || status=='Department Head' || status =='ProjectManager' || status=='EventOrganizer'" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
           </a>    <!--pop up for booking-->   
           <a  *ngIf= "status !='Asset Manager'">
             <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 
@@ -308,9 +307,9 @@
             
                     <!--Text-->
                     <div class="card-body">
-                        <a  *ngIf= "status =='Asset Manager'">
-                            <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
-                            <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
+                        <a  >
+                            <a  class="btn btn-primary" *ngIf= "status =='Asset Manager'" (click)="deleteAsst(d.id)">Delete</a>
+                            <a  class="btn btn-primary" *ngIf= "status =='Asset Manager' || status=='CEO' || status=='Department Head' || status =='ProjectManager' || status=='EventOrganizer'" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
                             </a>    <!--pop up for booking-->   
                             <a  *ngIf= "status !='Asset Manager'">
                               <a  class="btn btn-primary" (click)="openRequestmModal(d.assetId,d.assetcategory)" >Request</a> 

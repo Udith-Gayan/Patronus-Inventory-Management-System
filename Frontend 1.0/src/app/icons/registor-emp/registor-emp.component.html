@@ -71,7 +71,7 @@
                                     <label for="location" class="cols-sm-2 control-label"><b>Department</b> </label>
                                     
                                     <div class="col-md-5 mb-3" >
-                                    <select name="location" id="location" style="width: 70mm;height:10mm"  [(ngModel)]="asset.location" required location #location="ngModel" >
+                                    <select name="location" id="location" style="width: 70mm;height:10mm"  [(ngModel)]="employee.location" required location #location="ngModel" >
                   
                                         <option [ngValue]="undefined" hidden>ex: IT,HR....</option>
                                       <option value="Head office" >Head office</option>
@@ -139,6 +139,7 @@
                             <option value="Employee" >Employee</option>
                             <option value="Store Keeper" >Store Keeper</option>
                             <option value="ProjectManager" >Project Manager</option>
+                            <option value="EventOrganizer" >Event Organizer</option>
 
                             
                           </select>
