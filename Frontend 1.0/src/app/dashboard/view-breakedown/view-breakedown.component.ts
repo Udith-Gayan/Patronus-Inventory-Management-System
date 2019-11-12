@@ -94,7 +94,11 @@ export class ViewBreakedownComponent implements OnInit {
       console.log(result);
     }).catch((error) => {
       console.log(error);
-    });
+    },
+    
+    
+    
+    );
     /////////////////////////////////// update firebase ////////////////////////
 console.log("update seen1");
 console.log(idE);

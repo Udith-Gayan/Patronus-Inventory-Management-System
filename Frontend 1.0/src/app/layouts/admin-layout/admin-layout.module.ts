@@ -56,6 +56,7 @@ import { ReturnRequestAssetComponent } from '../../return-asset/return-request-a
 import { OwnAssetComponent } from '../../user-profile/own-asset/own-asset.component';
 import { MonthlyBrekdownpipe } from '../../upgrade/view-all-monthly-brake-down-asset/MonthlyBreakdownPipe';
 import { MonthlyBookAssetpipe } from '../../upgrade/view-all-monthly-book-asset/allBookAsset-pipe';
+import { ReturnBookFilter } from '../../return-asset/return-bok-asset/returnBookPipeLine';
 
 
 
@@ -124,7 +125,8 @@ import { MonthlyBookAssetpipe } from '../../upgrade/view-all-monthly-book-asset/
     OwnAssetComponent,
     ReturnRequestAssetComponent,
     MonthlyBrekdownpipe,
-    MonthlyBookAssetpipe
+    MonthlyBookAssetpipe,
+    ReturnBookFilter
     
     //MonthlyBrekdownpipe1
 
