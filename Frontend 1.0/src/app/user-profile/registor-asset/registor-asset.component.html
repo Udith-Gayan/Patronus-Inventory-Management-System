@@ -2,7 +2,7 @@
     <div class="card-header">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="card">            
+          <div class="card">
            <!-- Image and text -->
            <nav class="navbar navbar-light" style="background-color: #3e6f92;">
             <h5>Asset Category</h5>
@@ -14,6 +14,7 @@
                  <span class="sr-only">(current)</span>
               </a>
                 </li>
+                
                 <li class="nav-item ">
                   <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 2" (click)="toggle1(2)"  href="#"  routerLink="/asset/registor-asset/projecter">
                 <img src="assets/img/printer.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -22,7 +23,7 @@
                </a>
                </li>
                <li class="nav-item">
- 
+
               <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 3" (click)="toggle1(3)"  href="#" routerLink="/asset/registor-asset/furniture">
                 <img src="assets/img/furniture.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
                   Furniture
@@ -30,7 +31,7 @@
                </a>
                </li>
                <li class="nav-item">
-      
+
               <a class="nav-link btn btn-group-toggle" [class.active-button] = "isButtonActive == 4" (click)="toggle1(4)"  href="#"  routerLink="/asset/registor-asset/other">
                 <img src="assets/img/scanner.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
                 Others
@@ -38,9 +39,9 @@
                 </a>
                </li>
               </ul>
-              
-              </nav> 
-            
+
+              </nav>
+
             <router-outlet></router-outlet>
 
           </div>

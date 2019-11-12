@@ -18,6 +18,8 @@ export class ComputerComponent implements OnInit {
   model:any ={}
   asset: Asset;
 
+  hideWarranty: boolean = true;
+
 
   constructor(private userService:HttpService) {
     this.asset=new Asset();
@@ -28,7 +30,7 @@ export class ComputerComponent implements OnInit {
   ngOnInit() {
 
   }
-  
+
   onSubmit() {
     console.log(this.asset);
     this.userService.addEmployee(this.asset).subscribe((response)=>{
@@ -64,4 +66,14 @@ export class ComputerComponent implements OnInit {
     this.asset.categoryTypes='';
 
   }
+
+
+toggleWarranty(value: boolean){
+
+  this.hideWarranty = value;
+
+}
+
+
+
 }

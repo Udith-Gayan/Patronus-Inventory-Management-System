@@ -59,4 +59,12 @@ export class ProjecterComponent implements OnInit {
   
     }
 
+    hideWarranty: boolean = true;
+
+    toggleWarranty(value: boolean){
+
+      this.hideWarranty = value;
+    
+    }
+
 }
