@@ -135,7 +135,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------Employee--------------------------------------------------------------->
    <!------------------------------------Request Notification for employee(Accept department head) not seen---------------------------------->
-   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'Department Head')  && nic == a.requestedNic  && a.massege !='seen'"  >
+   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'Department Head')  && nic == a.massege  "  >
    
       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)" style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
@@ -149,7 +149,7 @@
        <!---------------------------------------------End----------------------------------------------------------------->
      
         <!------------------------------------Request Notification for employee(Accept department head)  seen---------------------------------->
-   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.requestedNic && a.massege =='seen'" >
+   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.username " >
    
       <button  (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(175, 202, 209);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
@@ -227,7 +227,7 @@
        <!---------------------------------------------End----------------------------------------------------------------->
      
              <!------------------------------------Request Notification form assetManeger  to employee(accept)---------------------------------->
-   <a *ngIf="a.notificationType == 'acceptAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager')  && nic == a.massege && a.massege !='seen'" >
+   <a *ngIf="a.notificationType == 'acceptAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager')  && nic == a.requestedNic && a.massege !='seen'" >
    
       <button style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
@@ -256,7 +256,7 @@
        
 
                <!------------------------------------Request Notification form assetManeger  to employee(reject)---------------------------------->
-   <a *ngIf="a.notificationType == 'rejectAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager') && nic == a.requestedNic && a.massege !='seen'" >
+   <a *ngIf="a.notificationType == 'rejectAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager') && (nic == a.requestedNic|| nic == a.massege)" >
    
       <button   style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
@@ -270,7 +270,7 @@
        <!---------------------------------------------End----------------------------------------------------------------->
      
                     <!------------------------------------Request Notification form assetManeger  to employee(reject)---------------------------------->
-   <a *ngIf="a.notificationType == 'rejectAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager') && nic == a.requestedNic && a.massege =='seen'" >
+   <a *ngIf="a.notificationType == 'rejectAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager') && (nic == a.requestedNic|| nic == a.massege) " >
    
       <button   style="background-color: rgb(175, 202, 209);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
