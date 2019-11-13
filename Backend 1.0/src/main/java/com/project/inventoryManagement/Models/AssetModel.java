@@ -40,7 +40,7 @@ public class AssetModel  {
     private String boughtCompanyAddress;
 
     @Column(name = "location")
-    private String location;          // newly added by udith
+    private String location;
 
     @Column(name = "buyingPrice")
     private double buyingPrice;
