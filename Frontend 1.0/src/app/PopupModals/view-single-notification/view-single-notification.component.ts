@@ -356,7 +356,7 @@ acceptAM(username,requestedNic: number,assetId: string){
   
   data.massege= requestedNic;
   data.assetId=assetId;
-  data.requestedNic="You'r Request is Accept";
+  data.requestedNic=username;
   
   
 
@@ -405,7 +405,7 @@ data.Discription=this.jstoday;
 data.notificationType="rejectAM";
 data.assetId=assetId;
 data.requestedNic= requestedNic;
-data.massege="You'r Request is Accept";
+data.massege=username;
 
 
 

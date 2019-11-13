@@ -221,7 +221,7 @@
 
                   
                       <!-------------------------------------------------------Employee Notification show--------------------------------->
-                      <a *ngIf="(a.notificationType == 'rejectAM' || a.notificationType == 'acceptAM' || a.notificationType == 'Reject' || a.notificationType == 'RequestAM') && ((status =='Employee') || (status == 'Event Organixzer') || (status == 'ProjectManager') || (status == 'EventOrganizer')) && (nic == a.requestedNic || nic == a.massege)">
+                      <a *ngIf="(a.notificationType == 'rejectAM' || a.notificationType == 'acceptAM' || a.notificationType == 'Reject' || a.notificationType == 'RequestAM') && ((status =='Employee') || (status == 'Event Organixzer') || (status == 'ProjectManager') || (status == 'EventOrganizer')) && (nic == a.requestedNic || nic == a.massege || nic == a.username)">
 
 
                         <button type="button" class="list-group-item list-group-item-action" style="height: 2.3cm;background-color: lightskyblue;" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
