@@ -20,6 +20,7 @@ import { BreakDwonNoti } from '../../firebase/BreakDownModel';
 
 import 'sweetalert2/src/sweetalert2.scss';
 import { ViewBreakeDownAssetComponent } from '../../PopupModals/view-breake-down-asset/view-breake-down-asset.component';
+import { ViewBookingNotificationComponent } from '../../PopupModals/view-booking-notification/view-booking-notification.component';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -94,9 +95,9 @@ list2:BreakDwonNoti[];
 
    
 
-    ////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////  /////////////////////////////////////////// Open All popup ////////////////////////////////////////////////////////////////////////////////////
 
-// Open booking popup form
+
   openFormModal(assetId,assetcategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
     console.log();
     const modalRef = this.modalService.open(ViewSingleNotificationComponent);
@@ -116,7 +117,31 @@ list2:BreakDwonNoti[];
       console.log(error);
     });
   }
+///////////////////////////////////////////////////////open booking Details///////////////////////////////////////////////////////
+
+
+// Open booking popup form
+BookingDetails(assetId,assetcategory,notificationType,requestedNic,massege,beginDate,dueDate,username) {
+  console.log("bookingDetails");
+  const modalRef = this.modalService.open(ViewBookingNotificationComponent);
+  modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+  modalRef.componentInstance.assetcategory = assetcategory;
+  modalRef.componentInstance.notificationType = notificationType;
+  modalRef.componentInstance.requestedNic = requestedNic;
+  modalRef.componentInstance.massege = massege;
+  modalRef.componentInstance.beginDate = beginDate;
+  modalRef.componentInstance.dueDate = dueDate;
+  modalRef.componentInstance.username = username;
+
+
+  modalRef.result.then((result) => {
+    console.log(result);
+  }).catch((error) => {
+    console.log(error);
+  });
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 // logout
 

@@ -18,12 +18,12 @@
 
          <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager' && a.anyMessage !='seen'" >
    
-          <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.anyMessage,a.beginDate,a.dueDate,a.username,a.id)" style="background-color: rgb(67, 114, 108);"> 
+          <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.anyMessage,a.beginDate,a.dueDate,a.username,a.id)" style="background-color: rgb(147, 109, 99)"> 
             <td (click)="onEdit(a)"  scope="col" style="font-size: small;size: 5cm">{{a.date}}</td>
             <td (click)="onEdit(a)" class="table-danger" scope="col" style="size: 3cm">{{a.assetId}}</td>
             <td  style="width: 4cm" (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>
             <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.notificationType}}</td>
-            <td (click)="onEdit(a)" style="width: 7cm"scope="col">by {{a.anyMessage}} </td>
+            <td (click)="onEdit(a)" style="width: 7.7cm"scope="col">by {{a.anyMessage}} </td>
             <td></td>
            
           </button>
@@ -42,7 +42,7 @@
             <td (click)="onEdit(a)" class="table-danger" scope="col" style="size: 3cm">{{a.assetId}}</td>
             <td  style="width: 4cm" (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>
             <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.notificationType}}</td>
-            <td (click)="onEdit(a)" style="width: 7cm"scope="col"> {{a.anyMessage}} </td>
+            <td (click)="onEdit(a)" style="width: 7.7cm"scope="col"> {{a.anyMessage}} </td>
             <td></td>
            
           </button>

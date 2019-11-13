@@ -51,7 +51,7 @@ export class ViewSingleNotificationComponent implements OnInit {
  data:Observable<Asset>
  pendingRequestDH:Observable<pendinRequest>
  
-  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal,private asset : HttpService) {
+  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices : HttpService, private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal,private asset : HttpService) {
     this.createForm();
     this.replay=new Replay();
     

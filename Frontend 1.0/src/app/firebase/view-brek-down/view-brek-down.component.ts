@@ -92,24 +92,7 @@ export class ViewBrekDownComponent implements OnInit {
       console.log(error);
     });
     
-/////////////////////////////////// update firebase ////////////////////////
-console.log("update seen1");
-console.log(idE);
-console.log(anyMessage);
-console.log("update seen2");
-
-console.log(this.list);
-this.list.forEach(id => {
-  console.log("Update seen3");
-  console.log(id);
-  if(id.id == idE){
-    console.log(assetId);
-    console.log("Update seen4");
-   id.anyMessage="seen";
-   console.log(id.anyMessage);
-    this.firestore.doc('BookAssetNotification/'+id).update(anyMessage);
-  }
-  });
+this.updateSeen(idE,anyMessage);
 
 
   }
@@ -129,6 +112,30 @@ ReleaseAsset(assetId : number){
 
 
   }
+}
+
+updateSeen(idE: string, anyMessage: string){
+
+  /////////////////////////////////// update firebase ////////////////////////
+console.log("update seen1");
+console.log(idE);
+console.log(anyMessage);
+console.log("update seen2");
+
+console.log(this.list);
+this.list.forEach(id => {
+  console.log("Update seen3");
+  console.log(id);
+  if(id.id == idE){
+    
+    console.log("Update seen4");
+   id.anyMessage="seen";
+   console.log(id.anyMessage);
+   this.firestore.collection('BookAssetNotification').doc(idE).update({anyMessage : BreakDwonNoti});
+
+
+  }
+  });
 }
 
 

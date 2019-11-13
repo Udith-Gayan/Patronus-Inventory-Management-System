@@ -58,6 +58,7 @@ import { ViewRequestAndBookingEmpDetailComponent } from './PopupModals/view-requ
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { UpdateEmployeeComponent } from './PopupModals/update-employee/update-employee.component';
+import { ViewBookingNotificationComponent } from './PopupModals/view-booking-notification/view-booking-notification.component';
 // import { BCrypt } from 'bcrypt';
 
 
@@ -112,6 +113,7 @@ import { UpdateEmployeeComponent } from './PopupModals/update-employee/update-em
     ViewRequestAndBookingEmpDetailComponent,
     UpdateEmployeeComponent,
     NgbdModalContentForresetPassword,
+    ViewBookingNotificationComponent
 
 
    
@@ -145,7 +147,8 @@ providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorSer
       ViewBreakeDownAssetComponent,
       ViewRequestAndBookingEmpDetailComponent,
       NgbdModalContentForresetPassword,
-      UpdateEmployeeComponent
+      UpdateEmployeeComponent,
+      ViewBookingNotificationComponent
 
     ]
 

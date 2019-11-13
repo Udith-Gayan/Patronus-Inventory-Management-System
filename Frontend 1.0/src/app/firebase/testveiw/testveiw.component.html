@@ -18,15 +18,15 @@
 
      <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager' && a.massege !='seen'" >
    
-       <button  (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);">
+       <button  (click)="openBookDetails(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);">
         <a class="nav-item">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}} {{a.requestedNic}}</td>
-         <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
+        <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
          <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-         <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
-         <td (click)="onEdit(a)" style="width: 3.7cm"scope="col">by {{a.username}}</td>
-         <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
-         <td (click)="onEdit(a)" style="width: 3cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+         <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}} </td>
+         <td (click)="onEdit(a)" style="width: 3.95cm"scope="col">by {{a.username}}</td>
+         <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate .toDate() | date: 'dd/MM/yyyy'}}</td> 
+         <td (click)="onEdit(a)" style="width: 3cm" scope="col">to {{a.dueDate .toDate() | date: 'dd/MM/yyyy'}}</td>
          <td></td>
          <td></td></a>
        </button>
@@ -38,13 +38,13 @@
 
         <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager' && a.massege=='seen'" >
    
-            <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(175, 202, 209);">
+            <button  (click)="openBookDetails(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(175, 202, 209);">
              <a class="nav-item">
              <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}} {{a.requestedNic}}</td>
               <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
               <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
               <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
-              <td (click)="onEdit(a)" style="width: 3.7cm"scope="col">by {{a.username}}</td>
+              <td (click)="onEdit(a)" style="width: 3.95cm"scope="col">by {{a.username}}</td>
               <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
               <td (click)="onEdit(a)" style="width: 3cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
               <td></td>
@@ -64,11 +64,11 @@
 
         <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager' && a.massege !='seen' " >
   
-          <button  (click)="openBreakModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);" > 
+          <button  (click)="openBreakModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(147, 109, 99);" > 
             <td (click)="onEdit(a)"  scope="col" style="font-size: small;size: 4cm">{{a.date}}</td>
             <td (click)="onEdit(a)" class="" scope="col" style="size: 8cm"><b>{{a.assetId}} </b> is reported as a Breakdown by <b>{{a.complainedNic}}</b></td>
             
-            <td (click)="onEdit(a)" style="width: 9.5cm"scope="col"><b>Description -:</b>  {{a.anyMessage}} </td>
+            <td (click)="onEdit(a)" style="width: 9.6cm"scope="col"><b>Description -:</b>  {{a.anyMessage}} </td>
             <td></td>
            
           </button>
@@ -85,7 +85,7 @@
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;size: 4cm">{{a.date}}</td>
         <td (click)="onEdit(a)" class="" scope="col" style="size: 8cm"><b>{{a.assetId}} </b> is reported as a Breakdown by <b>{{a.complainedNic}}</b></td>
         
-        <td (click)="onEdit(a)" style="width: 9.5cm"scope="col"><b>Description -:</b>  {{a.anyMessage}} </td>
+        <td (click)="onEdit(a)" style="width: 9.6cm"scope="col"><b>Description -:</b>  {{a.anyMessage}} </td>
         <td></td>
        
       </button>
@@ -98,14 +98,14 @@
          <!------------------------------------Request Notification for Department head---------------------------------->
      <a *ngIf="a.notificationType == 'Requesting' && status == 'Department Head' && a.massege !='seen'"  >
    
-        <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);">
+        <button  (click)="openBookDetails(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);">
           <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm">{{a.Discription}}</td>
           <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
           <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
           <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
           <td (click)="onEdit(a)" style="width: 3cm"scope="col">by {{a.username}}</td>
-          <td (click)="onEdit(a)"  scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
-          <td (click)="onEdit(a)"  scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+          <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
+          <td (click)="onEdit(a)" style="width: 4cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
           <td></td>
           <td></td>
         </button>
@@ -117,14 +117,14 @@
          <!------------------------------------Request Notification for Department head---------------------------------->
          <a *ngIf="a.notificationType == 'Requesting' && status == 'Department Head' && a.massege =='seen'"  >
    
-            <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(175, 202, 209);">
+            <button  (click)="openBookDetails(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(175, 202, 209);">
               <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm">{{a.Discription}}</td>
               <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
               <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
               <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
               <td (click)="onEdit(a)" style="width: 3cm"scope="col">by {{a.username}}</td>
-              <td (click)="onEdit(a)"  scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
-              <td (click)="onEdit(a)"  scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+              <td (click)="onEdit(a)"  style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
+              <td (click)="onEdit(a)" style="width: 4cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
               <td></td>
               <td></td>
             </button>
@@ -135,13 +135,13 @@
 
 <!--------------------------------------------------------------------------------------------------------------Employee--------------------------------------------------------------->
    <!------------------------------------Request Notification for employee(Accept department head) not seen---------------------------------->
-   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'Department Head')  && nic == a.massege  "  >
+   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.massege  "  >
    
       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)" style="background-color:  rgb(67, 114, 108);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Department head and pending for Asset manager approval</td>
+        <td (click)="onEdit(a)" style="width: 14cm" scope="col">was accepted by Department head and pending for Asset manager approval</td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -149,13 +149,13 @@
        <!---------------------------------------------End----------------------------------------------------------------->
      
         <!------------------------------------Request Notification for employee(Accept department head)  seen---------------------------------->
-   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.username " >
+   <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.username  " >
    
       <button  (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(175, 202, 209);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Department head and pending for Asset manager approval</td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was accepted by Department head and pending for Asset manager approval</td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -165,13 +165,13 @@
  
             
    <!------------------------------------Request Notification for employee(Reject department head)---------------------------------->
-   <a *ngIf="a.notificationType == 'Reject' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.requestedNic  && a.massege !='seen'" >
+   <a *ngIf="a.notificationType == 'Reject' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.requestedNic" >
    
       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color:  rgb(67, 114, 108);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was Rejected by Department head </td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was Rejected by Department head </td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -184,10 +184,10 @@
    <a *ngIf="a.notificationType == 'Reject' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.requestedNic  && a.massege =='seen'"  >
    
       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)" style="background-color: rgb(175, 202, 209);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was Rejected by Department head </td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was Rejected by Department head </td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -200,10 +200,10 @@
    <a *ngIf="a.notificationType == 'RequestAM' && status == 'Asset Manager'  && a.massege !='seen'" >
    
       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color:  rgb(67, 114, 108);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Department head.Pending for Asset manager approval</td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was accepted by Department head.Pending for Asset manager approval</td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -216,10 +216,10 @@
    <a *ngIf="a.notificationType == 'RequestAM' && status == 'Asset Manager'  && a.massege =='seen'" >
    
       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(175, 202, 209);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Department head.Pending for Asset manager approval</td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was accepted by Department head.Pending for Asset manager approval</td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -230,10 +230,10 @@
    <a *ngIf="a.notificationType == 'acceptAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager')  && nic == a.requestedNic && a.massege !='seen'" >
    
       <button style="background-color:  rgb(67, 114, 108);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Asset Manager</td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was accepted by Asset Manager</td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -245,10 +245,10 @@
    <a *ngIf="a.notificationType == 'acceptAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager')  && nic == a.requestedNic && a.massege =='seen'" >
    
       <button   style="background-color: rgb(175, 202, 209);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was accepted by Asset Manager</td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was accepted by Asset Manager</td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -259,10 +259,10 @@
    <a *ngIf="a.notificationType == 'rejectAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager') && (nic == a.requestedNic|| nic == a.massege)" >
    
       <button   style="background-color:  rgb(67, 114, 108);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was Rejected by Asset Manager</td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was Rejected by Asset Manager</td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
@@ -273,10 +273,10 @@
    <a *ngIf="a.notificationType == 'rejectAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager') && (nic == a.requestedNic|| nic == a.massege) " >
    
       <button   style="background-color: rgb(175, 202, 209);">
-        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 5cm">{{a.Discription}}</td>
+        <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
      
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
-        <td (click)="onEdit(a)" style="width: 15cm" scope="col">was Rejected by Asset Manager</td>
+        <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was Rejected by Asset Manager</td>
        
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>

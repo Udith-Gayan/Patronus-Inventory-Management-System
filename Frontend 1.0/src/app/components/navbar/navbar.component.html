@@ -128,7 +128,7 @@
                         <!-------------------------------------------------------Asset Manger Notification show--------------------------------->
                         <a *ngIf="(a.notificationType == 'Booking' ) && status == 'Asset Manager'">
                         
-                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.3cm;background-color: lightskyblue;"(click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
+                            <button type="button"  class="list-group-item list-group-item-action"  style="height: 2.3cm;background-color: lightskyblue;"(click)="BookingDetails(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
                               <div class="row">
                                  <div class="col-xs-4" *ngIf= "a.assetCategory == 'Projector'"  style="width: 1.5cm;height: 1.5cm;">
                                    <img src="assets/img/printer.jpg" alt="photo">
@@ -221,7 +221,7 @@
 
                   
                       <!-------------------------------------------------------Employee Notification show--------------------------------->
-                      <a *ngIf="(a.notificationType == 'rejectAM' || a.notificationType == 'acceptAM' || a.notificationType == 'Reject' || a.notificationType == 'RequestAM') && ((status =='Employee') || (status == 'Event Organixzer') || (status == 'ProjectManager') || (status == 'EventOrganizer')) && (nic == a.requestedNic || nic == a.massege || nic == a.username)">
+                      <a *ngIf="(a.notificationType == 'rejectAM' || a.notificationType == 'acceptAM' || a.notificationType == 'Reject' || a.notificationType == 'RequestAM') && ((status =='Employee') || (status == 'Event Organixzer') || (status == 'ProjectManager') || (status == 'EventOrganizer' || status == 'Department Head')) && (nic == a.requestedNic || nic == a.massege || nic == a.username)">
 
 
                         <button type="button" class="list-group-item list-group-item-action" style="height: 2.3cm;background-color: lightskyblue;" (click)="openFormModal(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username)" >
