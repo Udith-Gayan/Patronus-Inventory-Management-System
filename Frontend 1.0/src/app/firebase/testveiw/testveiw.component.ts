@@ -13,6 +13,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { database } from 'firebase';
 import { ViewBreakeDownAssetComponent } from '../../PopupModals/view-breake-down-asset/view-breake-down-asset.component';
 import { ViewBookingNotificationComponent } from '../../PopupModals/view-booking-notification/view-booking-notification.component';
+import { ViewAllAssetDetailComponent } from '../../PopupModals/view-all-asset-detail/view-all-asset-detail.component';
 
 const Swal = require('sweetalert2');
 //////////////////
@@ -133,7 +134,7 @@ this.list.forEach(id => {
     console.log("Update seen4");
    id.massege="seen";
    console.log(id.massege);
-    this.firestore.doc('BookAssetNotification/'+id).update(massege);
+   this.firestore.collection('BookAssetNotification').doc(id.id).update({isSeen : '1'});
 
 
 
@@ -168,19 +169,19 @@ this.list.forEach(id => {
 
     /////
     console.log("update seen1");
-console.log(idE);
-console.log(massege);
-console.log("update seen2");
+    console.log(idE);
+    console.log(massege);
+    console.log("update seen2");
 
-console.log(this.list);
-this.list.forEach(id => {
-  console.log("Update seen3");
-  console.log(id);
-  if(id.id == idE){
+    console.log(this.list);
+    this.list.forEach(id => {
+    console.log("Update seen3");
+    console.log(id);
+    if(id.id == idE){
     console.log(assetId);
     console.log("Update seen4");
-   id.massege="seen";
-   console.log(id.massege);
+    id.massege="seen";
+    console.log(id.massege);
     this.firestore.doc('BookAssetNotification/'+id).update(massege);
 
 
@@ -228,7 +229,8 @@ this.list.forEach(id => {
     console.log("Update seen4");
    id.massege="seen";
    console.log(id.massege);
-    this.firestore.doc('BookAssetNotification/'+id).update(massege);
+   this.firestore.collection('BookAssetNotification').doc(id.id).update({isSeen : '1'});
+
 
 
 
@@ -240,10 +242,108 @@ this.list.forEach(id => {
 
 
   }
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////// open Employee Details/////////////////////////////////////////////////////////////////////////////
 
+  openEmployeeDetails(assetId,assetcategory,notificationType,requestedNic,massege,beginDate,dueDate,username,idE){
+    console.log("ceck iseen-00");
+    console.log(requestedNic);
+    const modalRef = this.modalService.open(ViewSingleNotificationComponent);
+    modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+    modalRef.componentInstance.assetcategory = assetcategory;
+    modalRef.componentInstance.notificationType = notificationType;
+    modalRef.componentInstance.requestedNic = requestedNic;
+    modalRef.componentInstance.massege = massege;
+    modalRef.componentInstance.beginDate = beginDate;
+    modalRef.componentInstance.dueDate = dueDate;
+    modalRef.componentInstance.username = username;
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    }); 
+
+/////////////////////////////////// update firebase ////////////////////////
+console.log("update seen1");
+console.log(idE);
+console.log(massege);
+console.log("update seen2");
+
+console.log(this.list);
+this.list.forEach(id => {
+  console.log("Update seen3");
+  console.log(id);
+  if(id.id == idE){
+    console.log(assetId);
+    console.log("Update seen4");
+    console.log("ceck iseen0");
+   console.log(id.massege);
+   console.log("ceck iseen0");
+   this.firestore.collection('BookAssetNotification').doc(id.id).update({isSeen1 :'1'});
+   console.log("ceck iseen1");
+
+
+
+  }
   
+});
+
+
+
+
+
+  }
   
+
+  /////////////////////////eject Department Head///////////////////////////////
+
+
+  openRejectDepartmentH(assetId,assetcategory,notificationType,requestedNic,massege,beginDate,dueDate,username,idE){
+
+    console.log(requestedNic);
+    const modalRef = this.modalService.open(ViewAllAssetDetailComponent);
+    modalRef.componentInstance.assetId = assetId;    // Pass vallue to other form component
+    modalRef.componentInstance.assetcategory = assetcategory;
+    modalRef.componentInstance.notificationType = notificationType;
+    modalRef.componentInstance.requestedNic = requestedNic;
+    modalRef.componentInstance.massege = massege;
+    modalRef.componentInstance.beginDate = beginDate;
+    modalRef.componentInstance.dueDate = dueDate;
+    modalRef.componentInstance.username = username;
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    }); 
+
+/////////////////////////////////// update firebase ////////////////////////
+console.log("update seen1");
+console.log(idE);
+console.log(massege);
+console.log("update seen2");
+
+console.log(this.list);
+this.list.forEach(id => {
+  console.log("Update seen3");
+  console.log(id);
+  if(id.id == idE){
+    console.log(assetId);
+    console.log("Update seen4");
+  
+   console.log(id.massege);
+   this.firestore.collection('BookAssetNotification').doc(id.id).update({isSeen : '1'});
+
+
+
+
+  }
+  
+});
+
+
+
+  }
 
 
 }

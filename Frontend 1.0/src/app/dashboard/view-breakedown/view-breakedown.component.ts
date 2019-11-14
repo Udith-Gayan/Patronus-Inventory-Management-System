@@ -114,14 +114,17 @@ this.list.forEach(id => {
     console.log("Update seen4");
    id.anyMessage="seen";
    console.log(massege);
-    this.firestore.doc('BookAssetNotification/'+id).update(massege);
 
+    console.log("isSeen");
 
+    this.firestore.collection('BookAssetNotification').doc(id.id).update({isSeen : '1'});
 
 
   }
   
 });
+
+
 
 
   }

@@ -86,7 +86,8 @@ private createForm() {
     beginDate:'',
     dueDate:'',
     massege:'',
-    date:''
+    date:'',
+    isSeen: ''
 
    
   });
@@ -160,6 +161,8 @@ acceptDH(num,requestedNic:string,assetId:string,description:string,beginDate : s
   data.username=requestedNic;
   data.beginDate=beginDate;
   data.dueDate=dueDate;
+  data.isSeen= "0";
+  data.isSeen1= "0";
   
 
  
@@ -205,6 +208,8 @@ rejectDH(num1 : number,requestedNic:string,assetId:string){
   data.assetId=assetId;
   data.requestedNic= requestedNic;
   data.massege="You'r Request is reject";
+  data.isSeen="0";
+  data.isSeen1= "0";
   
   
 

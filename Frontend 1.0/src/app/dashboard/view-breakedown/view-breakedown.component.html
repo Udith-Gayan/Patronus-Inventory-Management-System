@@ -16,7 +16,7 @@
           <tr *ngFor="let a of list" class="table-active">
          <!--brekDown Asset-->
 
-         <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager' && a.anyMessage !='seen'" >
+         <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager' && a.isSeen =='0'" >
    
           <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.anyMessage,a.beginDate,a.dueDate,a.username,a.id)" style="background-color: rgb(147, 109, 99)"> 
             <td (click)="onEdit(a)"  scope="col" style="font-size: small;size: 5cm">{{a.date}}</td>
@@ -35,9 +35,9 @@
 
        <!---------------------------seen---------------------------------->
 
-       <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager' && a.anyMessage =='seen'" >
+       <a *ngIf="a.notificationType == 'BreakDown' && status == 'Asset Manager' && a.isSeen =='1'" >
    
-          <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)" style="background-color: rgb(175, 202, 209);"> 
+          <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.complainedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)" style="background-color: rgb(236, 240, 241);"> 
             <td (click)="onEdit(a)"  scope="col" style="font-size: small;size: 5cm">{{a.date}}</td>
             <td (click)="onEdit(a)" class="table-danger" scope="col" style="size: 3cm">{{a.assetId}}</td>
             <td  style="width: 4cm" (click)="onEdit(a)" scope="col">{{a.complainedNic}}</td>

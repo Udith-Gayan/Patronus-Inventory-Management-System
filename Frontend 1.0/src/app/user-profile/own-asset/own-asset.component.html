@@ -45,13 +45,10 @@
       </div>
       <!--Text-->
       <div class="card-body">
-        <a  *ngIf= "status =='Asset Manager'">
-        <a class="btn btn-primary" routerLink="/asset/registor-asset">Update</a>
-        <a  class="btn btn-primary" (click)="deleteAsst(d.id)">Delete</a>
-        <a  class="btn btn-primary" (click)="openFormModal(d.assetId,d.assetcategory)" >Book Asset</a>  
-        </a>    <!--pop up for booking-->   
-        <a  *ngIf= "status !='Asset Manager'">
-            </a>
+      
+        <a class="btn btn-danger" >Cancel</a>
+            <!--pop up for booking-->   
+       
        
        
       </div>

@@ -357,6 +357,7 @@ acceptAM(username,requestedNic: number,assetId: string){
   data.massege= requestedNic;
   data.assetId=assetId;
   data.requestedNic=username;
+  data.isSeen= "0";
   
   
 
@@ -406,6 +407,7 @@ data.notificationType="rejectAM";
 data.assetId=assetId;
 data.requestedNic= requestedNic;
 data.massege=username;
+data.isSeen="0";
 
 
 

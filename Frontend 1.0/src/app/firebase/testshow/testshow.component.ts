@@ -39,6 +39,8 @@ export class TestshowComponent implements OnInit {
       assetcategory:'',
       requestedNic:'',
       notificationType:'',
+      isSeen: '',
+      isSeen1: ''
   
   
     }

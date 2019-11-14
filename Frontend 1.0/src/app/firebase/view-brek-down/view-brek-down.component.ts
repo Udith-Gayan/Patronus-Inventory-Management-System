@@ -99,19 +99,23 @@ this.updateSeen(idE,anyMessage);
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////release button/////////////////////////
 
-ReleaseAsset(assetId : number){
-  {
-    console.log(assetId);
-
-    this.asset.ReleaseBrokenAsset(assetId).subscribe((response)=>{
-      console.log(response);
-      
-    });
-    this.ngOnInit();
+ReleaseAsset(assetId : string , id : string){
+  
+  console.log(assetId);
+  console.log(id);
 
 
+  this.asset.ReleaseBrokenAsset(assetId).subscribe((response)=>{
+    console.log(response);
+    console.log('line-1');
 
-  }
+    this.onDelete(id);
+  });
+  this.ngOnInit();
+ 
+
+
+
 }
 
 updateSeen(idE: string, anyMessage: string){
@@ -129,9 +133,9 @@ this.list.forEach(id => {
   if(id.id == idE){
     
     console.log("Update seen4");
-   id.anyMessage="seen";
+  // id.anyMessage="seen";
    console.log(id.anyMessage);
-   this.firestore.collection('BookAssetNotification').doc(idE).update({anyMessage : BreakDwonNoti});
+   this.firestore.collection('BookAssetNotification').doc(id.id).update({isSeen : '1'});
 
 
   }
