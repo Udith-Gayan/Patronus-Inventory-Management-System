@@ -145,6 +145,25 @@
 			<!--<artifactId>spring-security-test</artifactId>-->
 			<!--<scope>test</scope>-->
 		<!--</dependency>-->
+
+
+<!--&lt;!&ndash;Unit Testing Purposes &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.junit.jupiter</groupId>-->
+<!--			<artifactId>junit-jupiter-api</artifactId>-->
+<!--			<version>5.4.2</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.junit.jupiter</groupId>-->
+<!--			<artifactId>junit-jupiter-engine</artifactId>-->
+<!--			<version>5.4.2</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+
+
+
 	</dependencies>
 
 
@@ -154,6 +173,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+<!--			For testing plugin-->
+
+
+
 		</plugins>
 	</build>
 

@@ -18,7 +18,7 @@ import java.util.List;
 @Setter
 @Table(name = "asset")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class AssetModel  {
+public class AssetModel implements Cloneable {
 
     @Id
     @GeneratedValue
@@ -102,6 +102,10 @@ public class AssetModel  {
 
     public AssetModel() {
 
+    }
+
+    public Object clone()throws CloneNotSupportedException{
+        return super.clone();
     }
 
     /********Constructor for all********/
