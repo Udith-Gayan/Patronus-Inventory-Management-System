@@ -78,7 +78,7 @@ export class RegistorEmpComponent implements OnInit {
 
 
       }
-      )
+      );
 
       f.resetForm();  // hee
      

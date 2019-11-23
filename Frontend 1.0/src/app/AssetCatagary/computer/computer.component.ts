@@ -20,6 +20,8 @@ export class ComputerComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
 
+  hideWarranty: boolean = true;
+
 
   constructor(private userService:HttpService) {
     this.asset=new Asset();
@@ -37,7 +39,7 @@ export class ComputerComponent implements OnInit {
     this.asset.quantity=1;
 
   }
-  
+
   onSubmit() {
     console.log(this.asset);
     this.userService.addEmployee(this.asset).subscribe((response)=>{
@@ -74,4 +76,14 @@ export class ComputerComponent implements OnInit {
     this.asset.categoryTypes='';
 
   }
+
+
+toggleWarranty(value: boolean){
+
+  this.hideWarranty = value;
+
+}
+
+
+
 }

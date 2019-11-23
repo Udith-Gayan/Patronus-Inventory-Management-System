@@ -71,4 +71,14 @@ asset: Asset;
     this.asset.categoryTypes='';
     
   }
+
+  hideWarranty: boolean = true;
+
+  toggleWarranty(value: boolean){
+
+    this.hideWarranty = value;
+  
+  }
+
+
 }

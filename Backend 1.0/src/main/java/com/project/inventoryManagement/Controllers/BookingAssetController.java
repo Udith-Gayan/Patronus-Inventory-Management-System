@@ -37,6 +37,8 @@ public class BookingAssetController {
     public AssignModel addNewBooking(@RequestBody AssignModel m1) throws Exception{
 
 
+
+
         if(!dateCheckerService.isAvailable(m1.getAssetId(),m1.getBeginDate(),m1.getDueDate())){
             throw new Exception("Asset has been already reserved during the given period. Please select another period.");
         }

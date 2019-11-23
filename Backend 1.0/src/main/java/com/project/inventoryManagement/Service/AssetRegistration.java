@@ -6,6 +6,12 @@ import com.project.inventoryManagement.Repositories.IDNumberRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Propagation;
+
+
+
 @Service
 public class AssetRegistration {
 
@@ -15,12 +21,19 @@ public class AssetRegistration {
     @Autowired
     private IDNumberRepo idNumberRepo;
 
+    @Autowired
+    private AssetRegistration self;
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////
     // Asset registration
+
+
+
     public AssetModel registerAnAsset(AssetModel aa1) {
 
         //creating an aasset id according to the category
+        AssetModel bb1 = null;
 
         System.out.println("Asset passed again: "+ aa1.toString());
 
@@ -53,20 +66,41 @@ public class AssetRegistration {
         System.out.println("line00");
         aa1.toString();
 
-        long oldId = idNumberRepo.findFirst().getAssetIdNumber();
-        System.out.println("line111");
-        aa1.setAssetId(aa1.getAssetId()+oldId);
-        System.out.println("line222");
-        int x = idNumberRepo.updateAssetId(oldId,++oldId);
-        System.out.println("line333");
+
+         // Creating Id
+        aa1.setAssetId(aa1.getAssetId() + self.generateIdNumber());
+
+        System.out.println("saving Object: "+ aa1.toString());
 
         aa1.setBroken(false);
 
+        try {
+            bb1 = (AssetModel) aa1.clone();
+            System.out.println("line1444");
 
-        System.out.println("line1444");
-        return assetRepository.saveAndFlush(aa1);
+        } catch (CloneNotSupportedException c){
+            System.out.println(c);
+        }
+
+        return assetRepository.saveAndFlush(bb1);
+
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Id generation method for seperate transaction
+    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.READ_COMMITTED)
+    public long generateIdNumber(){
+        long oldId = idNumberRepo.findFirst().getAssetIdNumber();
+        System.out.println("old Id concatenated: " + oldId);
+
+        idNumberRepo.updateAssetId(oldId,++oldId);
+        System.out.println("updated ID: " + oldId);
+
+        oldId = idNumberRepo.findFirst().getAssetIdNumber();
+
+        return oldId;
+
+    }
 
 }

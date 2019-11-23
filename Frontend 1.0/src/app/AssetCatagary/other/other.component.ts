@@ -68,4 +68,16 @@ export class OtherComponent implements OnInit {
     this.asset.categoryTypes='';
 
   }
+
+
+  hideWarranty: boolean = true;
+
+  toggleWarranty(value: boolean){
+
+    this.hideWarranty = value;
+  
+  }
+
+
+
 }

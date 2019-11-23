@@ -34,6 +34,10 @@ public class BreakdownController {
     @PostMapping(path = "add")
     public Breakdown addNewDamage(@RequestBody Breakdown b) throws Exception {
         // Assigning references
+
+        if(b.getAnyMessage() == null)
+            b.setAnyMessage("-");
+
         System.out.println(b);
         Optional<AssetModel> assetOptional = assetRepository.findByAssetId(b.getAssetId());    // changed
         System.out.println(" line 1");

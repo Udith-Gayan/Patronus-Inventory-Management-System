@@ -11,6 +11,10 @@ export class LoginLogoutServService {
     let user = sessionStorage.getItem('basicauth');
     console.log('Session unblocked: ' +  + (sessionStorage.getItem('unblocked') === 'true') );
     console.log('User is logged in ' + !(user === null));
+  if(sessionStorage.getItem('unblocked') === 'false'){
+  alert('Access Blocked!');
+}
+
     return (!(user === null) && (sessionStorage.getItem('unblocked') === 'true'));
   }
 

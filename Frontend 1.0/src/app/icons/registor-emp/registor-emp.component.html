@@ -116,7 +116,7 @@
                         <label for="contactNo" class="cols-sm-2 control-label"><b> Contact Number</b> </label>
                         <div class="cols-sm-10">
                                 <span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="contactNo" id="contactNo" pattern="^\d{10}$" minlength="10" required maxlength="10" [(ngModel)]="employee.contactNo"   #contactNo="ngModel" placeholder="Enter your Contact Number"  required contactNo />
+                                <input type="text" class="form-control" name="contactNo" id="contactNo" pattern="^\d{10}$" minlength="10" required maxlength="10" [(ngModel)]="employee.contactNo"   #contactNo="ngModel" placeholder="Enter the Contact Number"  required contactNo />
                                 <span class="help-block" *ngIf="  contactNo.errors?.required && contactNo.touched" style="color:red">
                                         Contact Number is required
                                     </span>
@@ -199,7 +199,7 @@
                         <div>
                           <img [src]="imgUrl" style="width: 250px;height:200px">
 
-                          <input type="file" name="img" id="img66" #Image="ngModel" accept="image/*"  [(ngModel)]="employee.img" (change)="onChange($event)" >
+                          <input type="file" name="img" id="img" #Image="ngModel" accept="image/*"  [(ngModel)]="employee.img" (change)="onChange($event)" required>
 
 
                         </div>

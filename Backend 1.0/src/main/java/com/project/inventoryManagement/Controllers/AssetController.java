@@ -58,6 +58,10 @@ public class    AssetController {
    // Register a new asset
     @PostMapping(path="/add") // Map ONLY POST Requests
     public AssetModel addNewAsset(@RequestBody AssetModel aa1) {
+
+
+
+
        System.out.println("Asset came:   "+ aa1.toString());
 
        // Checking for null
@@ -107,11 +111,17 @@ public class    AssetController {
         System.out.println("Registering the more than one quantity");
         AssetModel lastAssetRegistered = new AssetModel();
         if(aa1.getQuantity() == 1)
+
             lastAssetRegistered = assetRegistration.registerAnAsset(aa1);
         else{
             for(int i =0; i< aa1.getQuantity();i++){
-                assetRegistration.registerAnAsset(aa1);
-                System.out.println("count: " + i);
+                System.out.println("Round: "+ i);
+                try {
+                    assetRegistration.registerAnAsset((AssetModel)aa1.clone());
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+
             }
         }
 
