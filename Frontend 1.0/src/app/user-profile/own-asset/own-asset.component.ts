@@ -3,15 +3,26 @@ import { HttpService } from '../../service2/http.service';
 import { Observable } from 'rxjs';
 import { ownAsset } from '../../models/ownAsset';
 
+////////////
+
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { FutureDates } from '../../asset/futureDates';
+
+// import 'sweetalert2/src/sweetalert2.scss';
+
+// const Swal = require('sweetalert2');
+//////////////////
+
 @Component({
   selector: 'app-own-asset',
   templateUrl: './own-asset.component.html',
   styleUrls: ['./own-asset.component.scss']
 })
 export class OwnAssetComponent implements OnInit {
-ownAsset : Observable<ownAsset>
-nic = sessionStorage.getItem('nic');
-status = sessionStorage.getItem('status');
+    ownAsset : Observable<ownAsset>
+    nic = sessionStorage.getItem('nic');
+    status = sessionStorage.getItem('status');
+
   constructor(private ownasset : HttpService) {  }
 
   ngOnInit() {
@@ -24,4 +35,51 @@ status = sessionStorage.getItem('status');
     })
   }
 
+
+
+  /////////////////////////////////////////cancel Booking Asset////////////////////////////
+
+  cancelBoolAsset(id ){
+
+     
+                                                       console.log();
+                                                       Swal.fire({
+                                                        title: 'Are you sure?',
+                                                        text: "You won't be able to revert this!",
+                                                        type: 'warning',
+                                                        showCancelButton: true,
+                                                        confirmButtonColor: '#3085d6',
+                                                        cancelButtonColor: '#d33',
+                                                        confirmButtonText: 'Yes, cancel it!'
+                                                      }).then((result) => {
+                                                      
+
+                                                        this.ownasset.deleteBookAsset(id).subscribe((data) => {
+                                                            this.ngOnInit();
+                                                              this.ngOnInit();
+                                                        console.log("Line23");
+                                                        if (result.value) {
+                                                          Swal.fire(
+                                                            'Canceled!',
+                                                            'Your file has been cancel.',
+                                                            'success'
+                                                          )
+                                                        }
+                                                      })
+ },
+                                                         (error)=>{
+                                                                    console.log(error);
+                                                                    Swal.fire({
+                                                                      type: 'error',
+                                                                      title: 'Oops...',
+                                                                      text: 'Something went wrong!',
+                                                                      footer: '<a href>Why do I have this issue?</a>'
+                                                                    })
+                                                                  }
+                                              );
+    
+
+
+   
+  }
 }

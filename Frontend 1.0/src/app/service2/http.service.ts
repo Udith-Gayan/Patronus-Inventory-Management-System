@@ -157,4 +157,11 @@ sendAssetId(assetId) : Observable<any>{
 
 }
 
+///////////////////////cancel book asset//////////////////////////////////////
+
+deleteBookAsset(id){
+  return this.http.delete(Constants.BASE_URL + '/booking/delete', {params: {id: id}, observe: 'response'});    
+ 
+}
+
 }
