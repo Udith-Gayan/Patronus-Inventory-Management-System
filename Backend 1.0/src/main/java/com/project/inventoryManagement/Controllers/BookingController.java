@@ -3,10 +3,7 @@ package com.project.inventoryManagement.Controllers;
 import com.project.inventoryManagement.Models.AssignModel;
 import com.project.inventoryManagement.Repositories.AssignRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/booking")
@@ -23,6 +20,15 @@ public class BookingController {
          return assignRepo.findAllByRequestType("BOOK");
     }
 
+//////////////////////////////////////////////////////////////////////////////
 
+    @GetMapping(path = "/delete")
+    public boolean deleteAssigning(@RequestParam long id){
+        System.out.println("Delete Request Came");
+        assignRepo.deleteById(id);
+        return true;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
 
 }
