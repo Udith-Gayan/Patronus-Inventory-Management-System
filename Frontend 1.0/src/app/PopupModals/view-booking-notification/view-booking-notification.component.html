@@ -26,13 +26,13 @@
             
                                                               <!--Changed here-->
             <label for="assetId">Asset Id : <b>{{assetId}} </b>  </label>  <br> <br>
-            <label for="assetId">Beging Date: <b> {{beginDate}}</b>  </label> <br> <br>
-            <label for="assetId">Due Date : <b>{{dueDate}} </b>  </label> <br> <br>
+            <label for="assetId">Beging Date: <b> {{beginDate.toDate() | date: 'dd/MM/yyyy'}}</b>  </label> <br> <br>
+            <label for="assetId">Due Date : <b>{{dueDate.toDate() | date: 'dd/MM/yyyy'}} </b>  </label> <br> <br>
             <label for="assetId">Description: <b>{{massege}} </b>  </label> <br> <br>
             <label for="id">Employee NIC: <b>{{username}} </b>  </label> <br> <br>
             
             <a *ngFor="let data of pendingRequestDH">
-           <a *ngIf="data.requestedNic == username && data.assetId == assetId ">
+           <a *ngIf="data.requestedNic == requestedNic && data.assetId == assetId ">
             
               <label for="id">Request ID: <b>{{data.id}} </b>  </label> <br> <br>
               </a>
@@ -58,38 +58,25 @@
        Order Employee
     </button>
   </a>
-  <!-------------------------------------------Requesting------------------------------------->
+  
+<!----------------------------------Approved and rejected assets--------------------------------->
   <a *ngIf="notificationType == 'Requesting' && status == 'Department Head' ">
-      <a *ngFor="let data of pendingRequestDH">
-          <a *ngIf="data.requestedNic == requestedNic && data.assetId == assetId ">
-           
-    <button class="btn btn-success"(click)="acceptDH(data.id,data.requestedNic,data.assetId,data.description,data.beginDate,data.dueDate)"
-    [disabled]="!myForm.valid">
-    Accept
-  </button>
-  <button class="btn btn-success" (click)="rejectDH(data.id,data.requestedNic,data.assetId)"
-  [disabled]="!myForm.valid">
- Reject
-</button>
-              
-             </a>
-           </a>
-
-</a>
-<!---------------------------------------------Requesting Asset manager----------------------------------------->
-
-<a *ngIf="notificationType == 'RequestAM' && status == 'Asset Manager'">
-     
-          <button class="btn btn-success"  (click)="acceptAM(username,requestedNic,assetId)"
-            [disabled]="!myForm.valid">
-            Accept 
-          </button>
-          <button class="btn btn-success" (click)="rejectAM(username,requestedNic,assetId)"
-          [disabled]="!myForm.valid">
-           Reject
-           </button>
       
+    <a *ngFor="let data of pendingRequestDH">
+        <a *ngIf="data.requestedNic == requestedNic && data.assetId == assetId ">
+         
+  <button class="btn btn-success"(click)="acceptDH(data.id,data.requestedNic,data.assetId,data.description,data.beginDate,data.dueDate)"
+  [disabled]="!myForm.valid">
+  Accept
+</button>
+<button class="btn btn-success" (click)="rejectDH(data.id,data.requestedNic,data.assetId)"
+[disabled]="!myForm.valid">
+Reject
+</button>
+            
+           </a>
+         </a>
+
 </a>
-  </div>
- 
+</div>
 </form>

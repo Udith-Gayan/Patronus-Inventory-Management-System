@@ -67,7 +67,9 @@ private createForm() {
     beginDate:'',
     dueDate:'',
     massege:'',
-    date:''
+    date:'',
+    isSeen:'',
+    isSeen1: ''
 
    
   });
@@ -99,6 +101,9 @@ resetForm(form ? : NgForm){
     assetcategory:'',
     requestedNic:'',
     notificationType:'',
+    isSeen: '',
+    isSeen1: '',
+    
 
    
   }
@@ -123,6 +128,8 @@ console.log(this.requestAsset);
   data.notificationType="Requesting";
   data.username=this.fname;
   data.requestedNic=this.nic;
+  data.isSeen= "0";
+  data.isSeen1= "0";
 
   if(form.value.id == null){
    

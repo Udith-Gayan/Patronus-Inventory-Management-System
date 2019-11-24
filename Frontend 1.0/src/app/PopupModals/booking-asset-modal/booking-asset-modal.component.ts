@@ -39,7 +39,7 @@ export class BookingAssetModalComponent implements OnInit {
   nic = sessionStorage.getItem('nic');
   fname = sessionStorage.getItem('firstname');
   myForm: FormGroup;
-error:string;
+  error:string;
   bookasset: BookAsset;
   datePipe: any;
   employee:Employee;
@@ -88,7 +88,8 @@ private createForm() {
     beginDate:'',
     dueDate:'',
     massege:'',
-    date:''
+    date:'',
+    isSeen: ''
 
 
   });
@@ -115,12 +116,13 @@ resetForm(form ? : NgForm){
     username:'',
     beginDate:'',
     dueDate:'',
-
     assetId:'',
     description:'',
     assetcategory:'',
     requestedNic:'',
     notificationType:'',
+    isSeen :'',
+    isSeen1: ''
 
 
   }
@@ -144,6 +146,7 @@ onSubmit(form:NgForm){
   data.Discription=this.jstoday;
   data.notificationType="Booking";
   data.username=this.nic;
+  data.isSeen="0";
   
 
   if(form.value.id == null){

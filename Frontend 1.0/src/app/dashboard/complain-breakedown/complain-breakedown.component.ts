@@ -54,7 +54,8 @@ export class ComplainBreakedownComponent implements OnInit {
       complainedNic:'',
       fName:'',
       notificationType:'',
-      date:''
+      date:'',
+      iSseen: ''
 
 
 
@@ -93,6 +94,7 @@ export class ComplainBreakedownComponent implements OnInit {
   data.fName=this.Fname;
   data.notificationType="BreakDown"
   data.date=this.jstoday;
+  data.isSeen ="0"; 
 
   if(form.value.id == null){
 

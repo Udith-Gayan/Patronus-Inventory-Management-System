@@ -51,7 +51,7 @@ export class ViewSingleNotificationComponent implements OnInit {
  data:Observable<Asset>
  pendingRequestDH:Observable<pendinRequest>
  
-  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices:HttpService,private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal,private asset : HttpService) {
+  constructor(public activeModal: NgbActiveModal,  private formBuilder: FormBuilder,private bookservices : HttpService, private ser : NotifiService,private firestore :AngularFirestore,private modalService: NgbModal,private asset : HttpService) {
     this.createForm();
     this.replay=new Replay();
     
@@ -357,6 +357,7 @@ acceptAM(username,requestedNic: number,assetId: string){
   data.massege= requestedNic;
   data.assetId=assetId;
   data.requestedNic=username;
+  data.isSeen= "0";
   
   
 
@@ -406,6 +407,7 @@ data.notificationType="rejectAM";
 data.assetId=assetId;
 data.requestedNic= requestedNic;
 data.massege=username;
+data.isSeen="0";
 
 
 

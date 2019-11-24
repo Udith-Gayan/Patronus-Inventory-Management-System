@@ -92,7 +92,35 @@ export class ViewBrekDownComponent implements OnInit {
       console.log(error);
     });
     
-/////////////////////////////////// update firebase ////////////////////////
+this.updateSeen(idE,anyMessage);
+
+
+  }
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////release button/////////////////////////
+
+ReleaseAsset(assetId : string , id : string){
+  
+  console.log(assetId);
+  console.log(id);
+
+
+  this.asset.ReleaseBrokenAsset(assetId).subscribe((response)=>{
+    console.log(response);
+    console.log('line-1');
+
+    this.onDelete(id);
+  });
+  this.ngOnInit();
+ 
+
+
+
+}
+
+updateSeen(idE: string, anyMessage: string){
+
+  /////////////////////////////////// update firebase ////////////////////////
 console.log("update seen1");
 console.log(idE);
 console.log(anyMessage);
@@ -103,32 +131,15 @@ this.list.forEach(id => {
   console.log("Update seen3");
   console.log(id);
   if(id.id == idE){
-    console.log(assetId);
+    
     console.log("Update seen4");
-   id.anyMessage="seen";
+  // id.anyMessage="seen";
    console.log(id.anyMessage);
-    this.firestore.doc('BookAssetNotification/'+id).update(anyMessage);
+   this.firestore.collection('BookAssetNotification').doc(id.id).update({isSeen : '1'});
+
+
   }
   });
-
-
-  }
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////release button/////////////////////////
-
-ReleaseAsset(assetId : number){
-  {
-    console.log(assetId);
-
-    this.asset.ReleaseBrokenAsset(assetId).subscribe((response)=>{
-      console.log(response);
-      
-    });
-    this.ngOnInit();
-
-
-
-  }
 }
 
 
