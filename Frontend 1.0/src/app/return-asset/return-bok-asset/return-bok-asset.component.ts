@@ -37,11 +37,15 @@ export class ReturnBokAssetComponent implements OnInit {
     console.log(this.issue);
     this.asset.IssueBookAssset(id).subscribe((response)=>{
       console.log(response);
+      this.ngOnInit();
+      this.ngOnInit();
       
       
       
     });
     this.ngOnInit();
+      
+
 
 
 
@@ -54,6 +58,9 @@ export class ReturnBokAssetComponent implements OnInit {
 
     this.asset.ReturnBookAssset(id).subscribe((response)=>{
       console.log(response);
+      this.ngOnInit();
+      this.ngOnInit();
+      
       
     });
     this.ngOnInit();

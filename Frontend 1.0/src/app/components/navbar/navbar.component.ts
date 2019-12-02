@@ -32,9 +32,10 @@ const Swal = require('sweetalert2');
 })
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
-    status:string = sessionStorage.getItem('status');
-    nic:string = sessionStorage.getItem('nic');
-   con:boolean=false;
+    status: string = sessionStorage.getItem('status');
+    nic: string = sessionStorage.getItem('nic');
+   con: boolean=false;
+   isclick: boolean=true;
 
 
 //notification
@@ -223,6 +224,7 @@ if(id.id == idE){
   countnoti(){
     console.log("Line 100");
     this.data=0;
+    this.isclick=false;
     
   }
 

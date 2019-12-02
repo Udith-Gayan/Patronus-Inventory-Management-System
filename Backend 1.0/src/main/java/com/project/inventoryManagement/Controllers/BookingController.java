@@ -23,6 +23,7 @@ public class BookingController {
 //////////////////////////////////////////////////////////////////////////////
 
     @GetMapping(path = "/delete")
+
     public boolean deleteAssigning(@RequestParam long id){
         System.out.println("Delete Request Came");
         assignRepo.deleteById(id);

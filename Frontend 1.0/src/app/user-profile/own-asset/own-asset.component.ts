@@ -39,10 +39,11 @@ export class OwnAssetComponent implements OnInit {
 
   /////////////////////////////////////////cancel Booking Asset////////////////////////////
 
-  cancelBoolAsset(id ){
+  cancelBoolAsset(id : number){
 
      
-                                                       console.log();
+                                                       console.log("cancel BookAsset");
+                                                       console.log(id);
                                                        Swal.fire({
                                                         title: 'Are you sure?',
                                                         text: "You won't be able to revert this!",
@@ -56,7 +57,9 @@ export class OwnAssetComponent implements OnInit {
 
                                                         this.ownasset.deleteBookAsset(id).subscribe((data) => {
                                                             this.ngOnInit();
-                                                              this.ngOnInit();
+                                                            this.ngOnInit();
+                                                            console.log(data);
+
                                                         console.log("Line23");
                                                         if (result.value) {
                                                           Swal.fire(
