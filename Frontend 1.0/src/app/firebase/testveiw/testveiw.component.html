@@ -8,16 +8,16 @@
 <div class="table-responsive"  >
   <table class="table table-condensed">
       <thead class="black white-text">
-    
+
         </thead>
     <tbody>
-       
+
    <tr *ngFor="let a of list" class="table-active"  style="background-color: rgb(90, 131, 207);font-size: 1.5ch;color: black">
   <!------------------------------------Booking Notification for Asset manager---------------------------------->
 
 
      <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager' && a.isSeen =='0'" >
-   
+
        <button  (click)="openBookDetails(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);">
         <a class="nav-item">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}} {{a.requestedNic}}</td>
@@ -25,19 +25,19 @@
          <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
          <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}} </td>
          <td (click)="onEdit(a)" style="width: 3.95cm"scope="col">by {{a.username}}</td>
-         <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate .toDate() | date: 'dd/MM/yyyy'}}</td> 
-         <td (click)="onEdit(a)" style="width: 3cm" scope="col">to {{a.dueDate .toDate() | date: 'dd/MM/yyyy'}}</td>
+         <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate .toDate() | date: 'dd/MM/yyyy'}}</td>
+         <td (click)="onEdit(a)" style="width: 2.5cm" scope="col">to {{a.dueDate .toDate() | date: 'dd/MM/yyyy'}}</td>
          <td></td>
          <td></td></a>
        </button>
          <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true" ></i></button></td>
-    </a>  
+    </a>
         <!---------------------------------------------End----------------------------------------------------------------->
 
         <!------------------------------------seeen------------------------------------------------------->
 
         <a *ngIf="a.notificationType == 'Booking'  && status == 'Asset Manager' && a.isSeen=='1'" >
-   
+
             <button  (click)="openBookDetails(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(231, 235, 236);">
              <a class="nav-item">
              <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm;">{{a.Discription}} {{a.requestedNic}}</td>
@@ -45,215 +45,215 @@
               <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
               <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
               <td (click)="onEdit(a)" style="width: 3.95cm"scope="col">by {{a.username}}</td>
-              <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
-              <td (click)="onEdit(a)" style="width: 3cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+              <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td>
+              <td (click)="onEdit(a)" style="width: 2.5cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
               <td></td>
               <td></td></a>
             </button>
               <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-         </a>  
+         </a>
              <!---------------------------------------------End----------------------------------------------------------------->
-     
-     
 
 
 
 
-      
 
 
-       
+
+
+
+
  <!------------------------------------------------------------------------------------------------------------------Request Asset-------------------------------------------------------------------->
 
          <!------------------------------------Request Notification for Department head---------------------------------->
      <a *ngIf="a.notificationType == 'Requesting' && status == 'Department Head' && a.isSeen =='0'"  >
-   
+
         <button  (click)="openBookDetails(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(67, 114, 108);">
           <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm">{{a.Discription}}</td>
           <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
           <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
           <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
           <td (click)="onEdit(a)" style="width: 3cm"scope="col">by {{a.username}}</td>
-          <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
+          <td (click)="onEdit(a)" style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td>
           <td (click)="onEdit(a)" style="width: 3.9cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
           <td></td>
           <td></td>
         </button>
           <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-     </a>  
+     </a>
          <!---------------------------------------------End----------------------------------------------------------------->
-         
+
 
          <!------------------------------------Request Notification for Department head---------------------------------->
          <a *ngIf="a.notificationType == 'Requesting' && status == 'Department Head' && a.isSeen =='1'"  >
-   
+
             <button  (click)="openBookDetails(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(231, 235, 236);">
               <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 3cm">{{a.Discription}}</td>
               <td (click)="onEdit(a)" scope="col" style="width: 3cm">{{a.notificationType}}</td>
               <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
               <td (click)="onEdit(a)" style="width: 3cm" scope="col">{{a.assetcategory}}</td>
               <td (click)="onEdit(a)" style="width: 3cm"scope="col">by {{a.username}}</td>
-              <td (click)="onEdit(a)"  style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td> 
+              <td (click)="onEdit(a)"  style="width: 3cm" scope="col"> from {{a.beginDate.toDate() | date: 'dd/MM/yyyy'}}</td>
               <td (click)="onEdit(a)" style="width: 3.9cm" scope="col">to {{a.dueDate.toDate() | date: 'dd/MM/yyyy'}}</td>
               <td></td>
               <td></td>
             </button>
               <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-         </a>  
+         </a>
              <!---------------------------------------------End----------------------------------------------------------------->
-           
+
 
 <!--------------------------------------------------------------------------------------------------------------Employee--------------------------------------------------------------->
    <!------------------------------------Request Notification for employee(Accept department head) not seen---------------------------------->
    <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.username  && a.isSeen1 == '0' "  >
-   
+
       <button  (click)="openEmployeeDetails(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)" style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-        
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.2cm" scope="col">was accepted by Department head and pending for Asset manager approval</td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
        <!---------------------------------------------End----------------------------------------------------------------->
-     
+
         <!------------------------------------Request Notification for employee(Accept department head)  seen---------------------------------->
    <a *ngIf="a.notificationType == 'RequestAM'  && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.username  && a.isSeen1 == '1' "  >
-   
+
       <button  (click)="openEmployeeDetails(a.assetId,a.assetcategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(233, 237, 238);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.2cm" scope="col">was accepted by Department head and pending for Asset manager approval</td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
        <!---------------------------------------------End----------------------------------------------------------------->
-     
- 
-            
+
+
+
    <!------------------------------------Request Notification for employee(Reject department head)---------------------------------->
    <a *ngIf="a.notificationType == 'Reject' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.requestedNic && a.isSeen=='0'" >
-   
+
       <button  (click)="openRejectDepartmentH(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was Rejected by Department head </td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
        <!---------------------------------------------End----------------------------------------------------------------->
 
 
-       
+
    <!------------------------------------Request Notification for employee(Reject department head) seen---------------------------------->
    <a *ngIf="a.notificationType == 'Reject' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status == 'ProjectManager')  && nic == a.requestedNic  && a.isSeen =='1'"  >
-   
+
       <button  (click)="openRejectDepartmentH(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)" style="background-color: rgb(234, 237, 238);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.2cm" scope="col">was Rejected by Department head </td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
        <!---------------------------------------------End----------------------------------------------------------------->
-     
-     
-      
+
+
+
          <!------------------------------------Request Notification form department head to AssetmAnger seen---------------------------------->
    <a *ngIf="a.notificationType == 'RequestAM' && status == 'Asset Manager'  && a.isSeen =='0'" >
-   
+
       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.2cm" scope="col">was accepted by Department head.Pending for Asset manager approval</td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
        <!---------------------------------------------End----------------------------------------------------------------->
-     
 
-       
+
+
          <!------------------------------------Request Notification form department head to AssetmAnger not seen---------------------------------->
    <a *ngIf="a.notificationType == 'RequestAM' && status == 'Asset Manager'  && a.isSeen =='1'" >
-   
+
       <button  (click)="openFormModal(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id) " style="background-color: rgb(232, 234, 235);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.2cm" scope="col">was accepted by Department head.Pending for Asset manager approval</td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
        <!---------------------------------------------End----------------------------------------------------------------->
-     
+
              <!------------------------------------Request Notification form assetManeger  to employee(accept)---------------------------------->
    <a *ngIf="a.notificationType == 'acceptAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager')  && nic == a.requestedNic && a.isSeen =='0'" >
-   
+
       <button  (click)="openRejectDepartmentH(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)" style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.2cm" scope="col">was accepted by Asset Manager</td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
        <!---------------------------------------------End----------------------------------------------------------------->
-     
+
 
                  <!------------------------------------Request Notification form assetManeger  to employee(accept)---------------------------------->
    <a *ngIf="a.notificationType == 'acceptAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager')  && nic == a.requestedNic && a.isSeen =='1'" >
-   
+
       <button  (click)="openRejectDepartmentH(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)"  style="background-color: rgb(229, 232, 233);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.2cm" scope="col">was accepted by Asset Manager</td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
-       
+   </a>
+
 
                <!------------------------------------Request Notification form assetManeger  to employee(reject)---------------------------------->
    <a *ngIf="a.notificationType == 'rejectAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager') && (nic == a.requestedNic|| nic == a.massege) && a.isSeen =='0'" >
-   
+
       <button  (click)="openRejectDepartmentH(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)"  style="background-color:  rgb(67, 114, 108);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.3cm" scope="col">was Rejected by Asset Manager</td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
        <!---------------------------------------------End----------------------------------------------------------------->
-     
+
                     <!------------------------------------Request Notification form assetManeger  to employee(reject)---------------------------------->
    <a *ngIf="a.notificationType == 'rejectAM' && (status == 'Employee' || status == 'EventOrganizer' ||  status == 'Department Head' || status == 'Store Keeper' || status=='ProjectManager') && (nic == a.requestedNic|| nic == a.massege) &&  a.isSeen =='1' " >
-   
+
       <button  (click)="openRejectDepartmentH(a.assetId,a.assetCategory,a.notificationType,a.requestedNic,a.massege,a.beginDate,a.dueDate,a.username,a.id)"  style="background-color: rgb(234, 239, 240);">
         <td (click)="onEdit(a)"  scope="col" style="font-size: small;width: 6cm">{{a.Discription}}</td>
-     
+
         <td class="table-danger" style="width: 2.5cm" (click)="onEdit(a)" scope="col">{{a.assetId}}</td>
         <td (click)="onEdit(a)" style="width: 14.2cm" scope="col">was Rejected by Asset Manager</td>
-       
+
       </button>
         <td (click)="onDelete(a.id)"  ><button><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-   </a>  
+   </a>
            </tr>
-    
-     
+
+
     </tbody>
   </table>
   </div>
