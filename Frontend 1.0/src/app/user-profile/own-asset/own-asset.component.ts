@@ -51,24 +51,30 @@ export class OwnAssetComponent implements OnInit {
                                                         showCancelButton: true,
                                                         confirmButtonColor: '#3085d6',
                                                         cancelButtonColor: '#d33',
-                                                        confirmButtonText: 'Yes, cancel it!'
+                                                        confirmButtonText: 'Yes, cancel it!',
+
+                                                        
+
                                                       }).then((result) => {
                                                       
 
-                                                        this.ownasset.deleteBookAsset(id).subscribe((data) => {
-                                                            this.ngOnInit();
-                                                            this.ngOnInit();
-                                                            console.log(data);
+                                                      
 
-                                                        console.log("Line23");
-                                                        if (result.value) {
-                                                          Swal.fire(
-                                                            'Canceled!',
-                                                            'Your file has been cancel.',
-                                                            'success'
-                                                          )
-                                                        }
-                                                      })
+                                                      if (result.value) {
+                                                        Swal.fire(
+                                                          'Canceled!',
+                                                          'Your file has been cancel.',
+                                                          'success'
+                                                        )
+                                                        this.ownasset.deleteBookAsset(id).subscribe((data) => {
+                                                          this.ngOnInit();
+                                                          this.ngOnInit();
+                                                          console.log(data);
+
+                                                      console.log("Line23");
+                                                     
+                                                    })
+                                                      }
  },
                                                          (error)=>{
                                                                     console.log(error);
