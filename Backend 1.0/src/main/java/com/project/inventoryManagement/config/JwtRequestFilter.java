@@ -18,16 +18,6 @@ import java.io.IOException;
 
 
 
-/* The JwtRequestFilter ext
- ends the Spring Web Filter OncePerRequestFilter class.
- For any incoming request this Filter class gets executed.
- It checks if the request has a valid JWT token.
- If it has a valid JWT Token then it sets the Authentication in the
- context, to specify that the current user is authenticated.
-*/
-
-
-
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
@@ -71,9 +61,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                         userDetails, null, userDetails.getAuthorities());
                 usernamePasswordAuthenticationToken
                         .setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                // After setting the Authentication in the context, we specify
-                // that the current user is authenticated. So it passes the
-                // Spring Security Configurations successfully.
+
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
         }

@@ -35,39 +35,8 @@ public class  EmployeeMainController {
 
 
 
-    @GetMapping(value = "/hi")
-    public String hi(){
-/***************BCrypt Hashing methods generate different hashes for same string but can be matched********/
 
-         /************ Method 1 ****************/
-//       System.out.println("hash password is : " + BCrypt.hashpw("1234",BCrypt.gensalt()));
-//
-//            if(BCrypt.checkpw("1234","$2a$10$h.DZLq2fhS96u77uFTANDuOMbWdlCusxxekksnk.pker9OCcftHVO")){
-//                System.out.println("Correct");
-//            }else{
-//                System.out.println("Wronggggggg");
-//        }
 
-        /****** method 2 ***************/
-
-//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
-//        String encodedPassword = encoder.encode("UserPassword");
-//        System.out.println( "Encoded password is: "+ encodedPassword);
-
-            /********method 3***********/
-//        Pbkdf2PasswordEncoder encoder2 = new Pbkdf2PasswordEncoder("secret", 10000, 128);
-//        String encodedPassword2 = encoder2.encode("UserPassword");
-//        System.out.println( "Encoded password is: "+ encodedPassword2);
-
-        /***********method 4***********/
-
-//        String sha256hex = DigestUtils.sha256Hex("1234");
-//        System.out.println( "Encoded password is: "+ sha256hex  );
-
-/*************************************************************************************************/
-
-        return "Hiiiiiiiiiiiiii";
-    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -130,26 +99,7 @@ public class  EmployeeMainController {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    ///////////////// Don't touch my part below,//////////////////
 
-    /// Deprecated method
-
-//    @PostMapping(path="/login") // Map ONLY POST Requests
-//    public LoginResponse login(@RequestBody EmployeeMainModel log1) {
-//        // @ResponseBody means the returned String is the response, not a view name
-//        // @RequestParam means it is a parameter from the GET or POST request
-//
-//        ////Hashing with Apache Commons Codecs sha256hex
-//        log1.setPassword(DigestUtils.sha256Hex(log1.getPassword()));
-//
-//        EmployeeMainModel user = empMainRepo.findFirstByEmailAndPassword(log1.getEmail(),log1.getPassword());
-//        if(user==null){
-//            return new LoginResponse(null,"fail","User Credentials NOT Valid!!!");
-//        }else{
-//            return new LoginResponse(user,"success","User Credentials Valid!!!");
-//        }
-//
-//    }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       // Delete an employee by Nic

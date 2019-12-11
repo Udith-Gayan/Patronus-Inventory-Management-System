@@ -40,25 +40,7 @@ public class ResetPasswordController {
     public Object sendWithAttachment(@RequestBody ResetFormDTO resetForm) throws MessagingException {
 
 
-        /******* 333 - AES decryption ***/
-  /************************/
-//        System.out.println("***********front Encrypted Password is:   "+ resetForm.getNewPassword());
-//        String decryptedPsd = null;
-//        try {
-//            Field field = Class.forName("javax.crypto.JceSecurity").
-//                    getDeclaredField("isRestricted");
-//            field.setAccessible(true);
-//            field.set(null, java.lang.Boolean.FALSE);
-//            decryptedPsd = AESForCrossOrigin.decryptText(resetForm.getNewPassword(),"1234567890123456") ;
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-//        //   String decryptedPsd = AESForCrossOrigin.decryptText(authenticationRequest.getPassword(),"1234567890123456") ;
-//
-//
-//        System.out.println("***********Decryped Password is:   "+ decryptedPsd);
-//        resetForm.setNewPassword(decryptedPsd);
-/**********  333 - end ***************/
+
 
         System.out.println("Reset Form received: "+ resetForm.toString());
 
@@ -91,27 +73,6 @@ public class ResetPasswordController {
 
           secretkeyRepo.save(secretModel);
         System.out.println("Secret key saved to DB , Successful");
-
-
-        /*************************************/
-
-        /************ 455 AES*****************************************/
-
-//        String encryptedEmail = null;
-//        String encryptedPsd = null;
-//        encryptedEmail = AES.encrypt(resetForm.getResetEmail(), secretKey);
-//        encryptedPsd = AES.encrypt(resetForm.getNewPassword(), secretKey);
-//          /* Encrypting the password and email using AES */
-//
-//        System.out.println("Encrypting.....");
-//
-//        System.out.println("Final encrypted email: " + encryptedEmail);
-//        System.out.println("Final encrypted password: " + encryptedPsd);
-//
-//
-
-
-        /************ 455 end**********************************/
 
 
 

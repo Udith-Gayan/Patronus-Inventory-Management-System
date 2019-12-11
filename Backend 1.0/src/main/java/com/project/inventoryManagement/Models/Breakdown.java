@@ -35,15 +35,13 @@ public class Breakdown implements Serializable {
     @Column(name = "warranty_status")
     private boolean warrantyStatus;
 
-//    @Column(name = "approval_by_asset_manager")
-//    private boolean isApprovedByAssetMananger;
+
 
 
     @Column(name = "is_released_by_am")
     private boolean releasedByAm;
 
-//    @Column(name = "assigned_to_repair_manager")
-//    private boolean isAssignedToRepairManager;
+
 
     @Column(name = "informed_date")
     private LocalDate informedDate;

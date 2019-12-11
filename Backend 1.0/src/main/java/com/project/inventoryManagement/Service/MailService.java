@@ -16,10 +16,7 @@ public class MailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-//    @Autowired
-//    public MailService(JavaMailSender javaMailSender) {
-//        this.javaMailSender = javaMailSender;
-//    }
+
 
     public void sendEmailWithAttachment(EmailReceiverComponent receiver,String mailSubject, String mailBody) throws MailException, MessagingException {
 
@@ -34,9 +31,6 @@ public class MailService {
 
 
 
-//         /* This is for attachment. Attachement is placed at src-->Resources folder */
-//        ClassPathResource classPathResource = new ClassPathResource("Attachment.pdf");
-//        helper.addAttachment(classPathResource.getFilename(), classPathResource);
 
         javaMailSender.send(mimeMessage);
     }

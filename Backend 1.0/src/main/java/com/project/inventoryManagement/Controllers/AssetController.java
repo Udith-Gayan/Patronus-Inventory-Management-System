@@ -39,17 +39,14 @@ public class    AssetController {
     private AssignRepo assignRepo;
 
 
-    @GetMapping("/hi")
-    public String sayhi(){
-        return "HIIIIIIIIIIIII";
-    }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Get all assets
     @GetMapping(path="/all")
     public @ResponseBody
     Iterable<AssetModel> getAllAssets() {
-        // This returns a JSON or XML with the users
+
         return assetRepo.findAll();
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -180,7 +177,7 @@ public class    AssetController {
 
 
         filteredList.removeIf(p -> today.isBefore(p.getBeginDate()) || today.isAfter(p.getDueDate()));   // Only today is within the assigned period are saved
-      //  System.out.println(filteredList);   // heap overflow here
+
 
         return filteredList;
     }

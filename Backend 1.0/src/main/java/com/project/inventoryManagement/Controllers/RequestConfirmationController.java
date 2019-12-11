@@ -31,10 +31,6 @@ public class RequestConfirmationController {
         if(assignModelOptional.isPresent()){
             System.out.println("DH request model found in table. Updating to confirm ");
 
-            // Assigning updated date
-//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-//            Date nowdate = new Date();
-//            dateFormat.format(nowdate);
 
 
             LocalDate nowdate = LocalDate.now();
@@ -69,10 +65,6 @@ public class RequestConfirmationController {
         if(assignModelOptional.isPresent()){
             System.out.println("AM request model found in table. Updating to confirm ");
 
-            // Assigning updated date
-//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-//            Date nowdate = new Date();
-//            dateFormat.format(nowdate);
 
 
             LocalDate nowdate = LocalDate.now();

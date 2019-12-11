@@ -32,10 +32,6 @@ public class RejectAssetController {
         if(assignModelOptional.isPresent()){
             System.out.println("DH reject model found in table. Updating to confirm ");
 
-            // Assigning updated date
-//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-//            Date nowdate = new Date();
-//            dateFormat.format(nowdate);
 
             LocalDate nowdate = LocalDate.now();
             System.out.println("Now date is: " + nowdate);
