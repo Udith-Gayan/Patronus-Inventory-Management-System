@@ -50,13 +50,6 @@ export class HttpService {
 
 
 
-    // getAllEmployees() {
-  //   const auth = sessionStorage.getItem('basicauth');
-  //   const  headers = new  HttpHeaders().set("Authorization", auth);
-  //   console.log('headers created');
-  //   return this.http.get(Constants.EMPLOYEE_API + '/all', {headers});
-  //  // return this.http.get(Constants.EMPLOYEE_API + '/all');
-  // }
 
 
   ///////////////////////////block Employee//////////////////////
@@ -69,13 +62,13 @@ export class HttpService {
   ///////////////////////////UnblockEmp////////////////////////
   UnBlockEmp(nic){
     return this.http.get(Constants.BASE_URL + '/employees/unblockuser', {params: {nic: nic}, observe: 'response'});
- 
+
   }
 
   /////////////////////////update Employeee///////////////////////
 
   updateEmployee(employee:Employee){
     return this.http.post(Constants.EMPLOYEE_API + '/add', employee, Constants.HTTP_OPTIONS);
-  
+
   }
 }

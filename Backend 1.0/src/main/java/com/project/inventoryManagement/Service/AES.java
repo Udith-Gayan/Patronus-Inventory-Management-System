@@ -8,6 +8,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Base64;
 
+
+// But this is not Used in the project
 public class AES {
     private static SecretKeySpec secretKey;
     private static byte[] key;
